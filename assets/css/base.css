@@ -482,6 +482,11 @@ section {
         margin: 0 auto 2.5rem auto !important;
         display: block;
     }
+    
+    footer p {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
 
     footer ul {
         align-items: center !important;
@@ -490,6 +495,17 @@ section {
     footer div[style*="display: flex"] {
         justify-content: center !important;
     }
+
+    /* Modalities & Courses Grids Mobile Fixes */
+    .hero-grid,
+    .material-grid,
+    .niveis-grid,
+    .features-grid,
+    .program-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+
 
     /* Course Cards Mobile Fixes */
     .course-card {
