@@ -490,6 +490,27 @@ section {
     footer div[style*="display: flex"] {
         justify-content: center !important;
     }
+
+    /* Course Cards Mobile Fixes */
+    .course-card {
+        max-width: 400px;
+        margin: 0 auto 2rem auto !important;
+        width: 90% !important;
+    }
+
+    .courses-grid {
+        padding: 0 1rem;
+    }
+
+    /* Hide Modality Hero Images on Mobile */
+    .hero-image-container {
+        display: none !important;
+    }
+    
+    main > section:first-child > img {
+        display: none !important;
+    }
 }
+
 
 
