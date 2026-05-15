@@ -67,6 +67,8 @@
         </nav>
     </header>
 
+    <div class="menu-overlay"></div>
+
     <main>
     <!-- 2. Hero Slider (Slide Principal) -->
     <section class="hero-slider-container" style="padding: 0; position: relative; overflow: hidden; background: #f0f4ff;">
@@ -600,10 +602,13 @@
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navList = document.querySelector('.nav-list');
         const navLinks = document.querySelectorAll('.nav-list a');
+        const menuOverlay = document.querySelector('.menu-overlay');
 
         if(mobileMenuBtn && navList) {
             mobileMenuBtn.addEventListener('click', () => {
                 navList.classList.toggle('active');
+                if(menuOverlay) menuOverlay.classList.toggle('active');
+                
                 const icon = mobileMenuBtn.querySelector('i');
                 if(navList.classList.contains('active')) {
                     icon.setAttribute('data-lucide', 'x');
@@ -617,10 +622,21 @@
             navLinks.forEach(link => {
                 link.addEventListener('click', () => {
                     navList.classList.remove('active');
+                    if(menuOverlay) menuOverlay.classList.remove('active');
                     mobileMenuBtn.querySelector('i').setAttribute('data-lucide', 'menu');
                     lucide.createIcons();
                 });
             });
+
+            // Close menu when overlay is clicked
+            if(menuOverlay) {
+                menuOverlay.addEventListener('click', () => {
+                    navList.classList.remove('active');
+                    menuOverlay.classList.remove('active');
+                    mobileMenuBtn.querySelector('i').setAttribute('data-lucide', 'menu');
+                    lucide.createIcons();
+                });
+            }
         }
     </script>
 </body>

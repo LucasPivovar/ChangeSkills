@@ -425,6 +425,14 @@ section {
         justify-content: center;
     }
 
+    /* Slide 1 Mobile Fixes */
+    .swiper-slide:first-child .container > .reveal {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     /* Hero Slide 2 Mobile Fixes */
     .slide2-overlay {
         background: linear-gradient(to bottom, rgba(0,18,51,0.9) 0%, rgba(0,18,51,0.5) 100%) !important;
@@ -432,18 +440,38 @@ section {
 
     .slide2-content {
         position: absolute !important;
-        top: 50% !important;
+        top: 65% !important;
         left: 50% !important;
         right: auto !important;
         transform: translate(-50%, -50%) !important;
         width: 100% !important;
         max-width: 90% !important;
-        padding: 0 !important;
+        padding: 2rem !important;
         text-align: center !important;
     }
     
     .slide2-content div {
         justify-content: center !important;
     }
+
+    /* Menu Overlay */
+    .menu-overlay {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: rgba(0,18,51,0.6);
+        z-index: 998;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.4s ease;
+    }
+
+    .menu-overlay.active {
+        opacity: 1;
+        pointer-events: all;
+    }
 }
+
 
