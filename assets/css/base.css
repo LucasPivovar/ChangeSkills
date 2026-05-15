@@ -472,6 +472,24 @@ section {
         opacity: 1;
         pointer-events: all;
     }
+
+    /* Footer Mobile Fixes */
+    footer {
+        text-align: center !important;
+    }
+
+    footer img {
+        margin: 0 auto 2.5rem auto !important;
+        display: block;
+    }
+
+    footer ul {
+        align-items: center !important;
+    }
+
+    footer div[style*="display: flex"] {
+        justify-content: center !important;
+    }
 }
 
 

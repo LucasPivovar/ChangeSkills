@@ -160,7 +160,11 @@
                 <img src="https://changeskills.com.br/wp-content/uploads/2022/11/logo-change.png" alt="Logo"
                     style="height: 45px;">
             </a>
-            <ul style="display: flex; gap: 3rem; list-style: none; align-items: center;">
+            
+            <button class="mobile-menu-btn" style="display: none; background: transparent; border: none; cursor: pointer; color: var(--primary-dark); z-index: 1001;">
+                <i data-lucide="menu" style="width: 32px; height: 32px;"></i>
+            </button>
+            <ul class="nav-list" style="display: flex; gap: 3rem; list-style: none; align-items: center;">
                 <li><a href="index.html#escola"
                         style="text-decoration: none; color: var(--primary-dark); font-weight: 600; transition: all 0.3s; position: relative;"
                         onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'"
@@ -198,6 +202,8 @@
             </ul>
         </nav>
     </header>
+
+    <div class="menu-overlay"></div>
 
     <main>
         <!-- 2. Hero -->
@@ -369,6 +375,47 @@
 
     <script>
         lucide.createIcons();
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navList = document.querySelector('.nav-list');
+        const navLinks = document.querySelectorAll('.nav-list a');
+        const menuOverlay = document.querySelector('.menu-overlay');
+
+        if(mobileMenuBtn && navList) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navList.classList.toggle('active');
+                if(menuOverlay) menuOverlay.classList.toggle('active');
+                
+                const icon = mobileMenuBtn.querySelector('i');
+                if(navList.classList.contains('active')) {
+                    icon.setAttribute('data-lucide', 'x');
+                } else {
+                    icon.setAttribute('data-lucide', 'menu');
+                }
+                lucide.createIcons();
+            });
+
+            // Close menu when a link is clicked
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navList.classList.remove('active');
+                    if(menuOverlay) menuOverlay.classList.remove('active');
+                    mobileMenuBtn.querySelector('i').setAttribute('data-lucide', 'menu');
+                    lucide.createIcons();
+                });
+            });
+
+            // Close menu when overlay is clicked
+            if(menuOverlay) {
+                menuOverlay.addEventListener('click', () => {
+                    navList.classList.remove('active');
+                    menuOverlay.classList.remove('active');
+                    mobileMenuBtn.querySelector('i').setAttribute('data-lucide', 'menu');
+                    lucide.createIcons();
+                });
+            }
+        }
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
         }, { threshold: 0.1 });
