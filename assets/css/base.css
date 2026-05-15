@@ -348,60 +348,102 @@ section {
 ========================================================= */
 
 @media(max-width: 1024px) {
-
     section {
         padding: 120px 0;
     }
-
     .container {
         padding: 0 24px;
     }
-
-    #hero-grid {
-        grid-template-columns: 1fr !important;
-        text-align: center;
-    }
-
-    #hero-buttons {
-        justify-content: center;
-    }
-
-    #canvas-wrap {
-        height: 500px;
-    }
-
     h1 {
         font-size: 4rem;
     }
-
     h2 {
         font-size: 3rem;
     }
 }
 
 @media(max-width: 768px) {
+    /* Mobile Menu Styles */
+    .mobile-menu-btn {
+        display: block !important;
+    }
+    
+    .nav-list {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: rgba(255,255,255,0.95);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        padding: 2rem;
+        gap: 1.5rem !important;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        clip-path: circle(0% at top right);
+        transition: clip-path 0.5s ease-in-out;
+        pointer-events: none;
+        z-index: 999;
+    }
 
-    nav ul {
-        display: none !important;
+    .nav-list.active {
+        clip-path: circle(150% at top right);
+        pointer-events: all;
+    }
+    
+    .nav-list li {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .nav-list li a {
+        display: block;
+        padding: 0.5rem 0;
+        font-size: 1.2rem;
     }
 
     h1 {
-        font-size: 3rem;
+        font-size: 2.8rem !important;
     }
 
     h2 {
         font-size: 2.2rem;
     }
 
-    #canvas-wrap {
-        height: 420px;
+    /* Universal Grid Stacking */
+    div[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+
+    /* Specific fixes for stacked elements */
+    .hero-slider-container .container {
+        padding-top: 140px !important;
     }
 
     .btn-vip {
         width: 100%;
+        justify-content: center;
     }
 
-    #hero-buttons {
-        flex-direction: column;
+    /* Hero Slide 2 Mobile Fixes */
+    .slide2-overlay {
+        background: linear-gradient(to bottom, rgba(0,18,51,0.9) 0%, rgba(0,18,51,0.5) 100%) !important;
+    }
+
+    .slide2-content {
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        right: auto !important;
+        transform: translate(-50%, -50%) !important;
+        width: 100% !important;
+        max-width: 90% !important;
+        padding: 0 !important;
+        text-align: center !important;
+    }
+    
+    .slide2-content div {
+        justify-content: center !important;
     }
 }
+

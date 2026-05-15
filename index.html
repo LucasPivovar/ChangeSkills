@@ -18,12 +18,17 @@
         style="position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(255,255,255,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05);">
         <nav class="container"
             style="height: 80px; display: flex; justify-content: space-between; align-items: center;">
-            <a href="index.html" style="transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'"
+            <a href="index.html" style="transition: transform 0.3s; z-index: 1001;" onmouseover="this.style.transform='scale(1.05)'"
                 onmouseout="this.style.transform='scale(1)'">
                 <img src="https://changeskills.com.br/wp-content/uploads/2022/11/logo-change.png" alt="Logo"
                     style="height: 45px;">
             </a>
-            <ul style="display: flex; gap: 3rem; list-style: none; align-items: center;">
+            
+            <button class="mobile-menu-btn" style="display: none; background: transparent; border: none; cursor: pointer; color: var(--primary-dark); z-index: 1001;">
+                <i data-lucide="menu" style="width: 32px; height: 32px;"></i>
+            </button>
+
+            <ul class="nav-list" style="display: flex; gap: 3rem; list-style: none; align-items: center;">
                 <li><a href="index.html#escola"
                         style="text-decoration: none; color: var(--primary-dark); font-weight: 600; transition: all 0.3s; position: relative;"
                         onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'"
@@ -96,8 +101,8 @@
                 <!-- SLIDE 2: Global Excellence (Reference-inspired) -->
                 <div class="swiper-slide" style="min-height: 100vh; position: relative; background: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;">
                     <!-- Gradient Overlay -->
-                    <div style="position: absolute; inset: 0; background: linear-gradient(to left, var(--primary-dark) 45%, transparent 80%); z-index: 1;"></div>
-                    <div class="reveal active" data-swiper-parallax="-400" 
+                    <div class="slide2-overlay" style="position: absolute; inset: 0; background: linear-gradient(to left, var(--primary-dark) 45%, transparent 80%); z-index: 1;"></div>
+                    <div class="reveal active slide2-content" data-swiper-parallax="-400" 
                          style="position: absolute !important; top: 30% !important; transform: translateY(-50%) !important; right: 10% !important; width: 100% !important; max-width: 580px !important; text-align: left !important; z-index: 10 !important; padding: 0 !important; margin: 0 !important;">
                         <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 1.5rem;">
                             <span style="width: 15px; height: 3px; background: var(--accent); border-radius: 2px;"></span>
@@ -590,6 +595,33 @@
                 lucide.createIcons();
             });
         });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navList = document.querySelector('.nav-list');
+        const navLinks = document.querySelectorAll('.nav-list a');
+
+        if(mobileMenuBtn && navList) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navList.classList.toggle('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                if(navList.classList.contains('active')) {
+                    icon.setAttribute('data-lucide', 'x');
+                } else {
+                    icon.setAttribute('data-lucide', 'menu');
+                }
+                lucide.createIcons();
+            });
+
+            // Close menu when a link is clicked
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navList.classList.remove('active');
+                    mobileMenuBtn.querySelector('i').setAttribute('data-lucide', 'menu');
+                    lucide.createIcons();
+                });
+            });
+        }
     </script>
 </body>
 
