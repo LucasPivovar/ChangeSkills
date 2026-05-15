@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato | Change Skills Idiomas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --primary: #003a70;
+            --primary-dark: #001233;
+            --accent: #ffd700;
+            --gray: #64748b;
+            --bg-light: #f8faff;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --shadow-premium: 0 20px 40px rgba(0,0,0,0.08);
+        }
+
+        .contact-hero {
+            background: var(--primary-dark);
+            padding: 220px 0 120px 0;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://changeskills.com.br/wp-content/uploads/2025/11/ChatGPT-Image-24-de-nov.-de-2025-12_38_54.png') center/cover;
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            margin-top: -80px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 4rem;
+            border-radius: 40px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .info-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 40px;
+            box-shadow: var(--shadow-premium);
+            border: 1px solid rgba(0,0,0,0.03);
+            height: fit-content;
+        }
+
+        .info-item {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+            align-items: flex-start;
+        }
+
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 58, 112, 0.05);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1.2rem;
+            border-radius: 15px;
+            border: 1px solid #eee;
+            background: #fafafa;
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: white;
+            box-shadow: 0 10px 20px rgba(0, 58, 112, 0.05);
+        }
+
+        .btn-send {
+            background: var(--primary-dark);
+            color: white;
+            padding: 1.2rem 3rem;
+            border-radius: 100px;
+            border: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .btn-send:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 58, 112, 0.2);
+        }
+
+        .map-container {
+            margin-top: 120px;
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: var(--shadow-premium);
+            height: 500px;
+        }
+
+        @media (max-width: 992px) {
+            .contact-grid { grid-template-columns: 1fr; margin-top: 40px; }
+            .contact-card { padding: 2.5rem; }
+        }
+    </style>
+</head>
+<body style="background: var(--bg-light);">
+    <!-- 1. Header -->
+    <header
+        style="position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(255,255,255,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05);">
+        <nav class="container"
+            style="height: 80px; display: flex; justify-content: space-between; align-items: center;">
+            <a href="index.html" style="transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'"
+                onmouseout="this.style.transform='scale(1)'">
+                <img src="https://changeskills.com.br/wp-content/uploads/2022/11/logo-change.png" alt="Logo"
+                    style="height: 45px;">
+            </a>
+            <ul style="display: flex; gap: 3rem; list-style: none; align-items: center;">
+                <li><a href="index.html#escola"
+                        style="text-decoration: none; color: var(--primary-dark); font-weight: 600; transition: all 0.3s; position: relative;"
+                        onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'"
+                        onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
+                        Nossa Escola
+                        <span class="nav-line" style="position: absolute; bottom: -8px; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
+                    </a></li>
+                <li><a href="index.html#cursos"
+                        style="text-decoration: none; color: var(--primary-dark); font-weight: 600; transition: all 0.3s; position: relative;"
+                        onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'"
+                        onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
+                        Cursos
+                        <span class="nav-line" style="position: absolute; bottom: -8px; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
+                    </a></li>
+                <li><a href="index.html#servicos"
+                        style="text-decoration: none; color: var(--primary-dark); font-weight: 600; transition: all 0.3s; position: relative;"
+                        onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'"
+                        onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
+                        Serviços
+                        <span class="nav-line" style="position: absolute; bottom: -8px; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
+                    </a></li>
+                <li><a href="contato.html"
+                        style="text-decoration: none; color: var(--primary); font-weight: 600; transition: all 0.3s; position: relative;"
+                        onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'"
+                        onmouseout="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'">
+                        Contato
+                        <span class="nav-line" style="position: absolute; bottom: -8px; left: 0; width: 100%; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
+                    </a></li>
+                <li><a href="index.html#area-do-aluno"
+                        style="background: var(--primary-dark); color: white; padding: 0.8rem 2rem; border-radius: 100px; text-decoration: none; font-weight: 600; transition: var(--transition); box-shadow: 0 10px 20px rgba(0,0,0,0.1); border: 2px solid transparent;"
+                        onmouseover="this.style.transform='translateY(-3px)'; this.style.backgroundColor='var(--primary)'; this.style.borderColor='var(--accent)'"
+                        onmouseout="this.style.transform='translateY(0)'; this.style.backgroundColor='var(--primary-dark)'; this.style.borderColor='transparent'">
+                        Área do Aluno
+                    </a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- 2. Hero -->
+        <section class="contact-hero">
+            <div class="container" style="position: relative; z-index: 2;">
+                <span style="color: var(--accent); font-weight: 800; letter-spacing: 0.3em; text-transform: uppercase; display: block; margin-bottom: 1.5rem;">Fale Conosco</span>
+                <h1 style="font-size: 5rem; font-weight: 800; margin-bottom: 2rem;">Entre em <span style="color: var(--accent);">Contato</span></h1>
+                <p style="font-size: 1.4rem; opacity: 0.8; max-width: 700px; margin: 0 auto; line-height: 1.6; font-weight: 300;">
+                    Estamos prontos para tirar suas dúvidas e ajudar você a escolher o melhor caminho para sua fluência.
+                </p>
+            </div>
+        </section>
+
+        <!-- 3. Form & Info -->
+        <section style="padding-bottom: 120px;">
+            <div class="container">
+                <div class="contact-grid">
+                    <!-- Form -->
+                    <div class="contact-card reveal active">
+                        <h2 style="font-size: 2.5rem; color: var(--primary-dark); margin-bottom: 2.5rem;">Envie uma mensagem</h2>
+                        <form>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                                <div class="form-group">
+                                    <label>Nome Completo</label>
+                                    <input type="text" class="form-control" placeholder="Seu nome">
+                                </div>
+                                <div class="form-group">
+                                    <label>E-mail</label>
+                                    <input type="email" class="form-control" placeholder="exemplo@email.com">
+                                </div>
+                            </div>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                                <div class="form-group">
+                                    <label>Telefone / WhatsApp</label>
+                                    <input type="tel" class="form-control" placeholder="(00) 00000-0000">
+                                </div>
+                                <div class="form-group">
+                                    <label>Assunto</label>
+                                    <select class="form-control">
+                                        <option>Informações sobre Cursos</option>
+                                        <option>Aulas de Conversação</option>
+                                        <option>Parcerias Corporativas</option>
+                                        <option>Suporte ao Aluno</option>
+                                        <option>Outros</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Mensagem</label>
+                                <textarea class="form-control" rows="5" placeholder="Como podemos ajudar?"></textarea>
+                            </div>
+                            <button type="submit" class="btn-send">
+                                Enviar Mensagem <i data-lucide="send" style="width: 20px;"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Info -->
+                    <div class="info-card reveal active">
+                        <h3 style="font-size: 1.8rem; color: var(--primary-dark); margin-bottom: 2.5rem;">Canais de Atendimento</h3>
+                        
+                        <div class="info-item">
+                            <div class="info-icon"><i data-lucide="map-pin"></i></div>
+                            <div>
+                                <h4 style="font-size: 1.1rem; color: var(--primary-dark); margin-bottom: 0.3rem;">Localização</h4>
+                                <p style="color: var(--gray); line-height: 1.5;">R. Barão do Rio Branco, 461E<br>Sala 02 - Centro, Chapecó - SC</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon"><i data-lucide="phone"></i></div>
+                            <div>
+                                <h4 style="font-size: 1.1rem; color: var(--primary-dark); margin-bottom: 0.3rem;">Telefone / WhatsApp</h4>
+                                <p style="color: var(--gray); line-height: 1.5;">(49) 99912-4040</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon"><i data-lucide="mail"></i></div>
+                            <div>
+                                <h4 style="font-size: 1.1rem; color: var(--primary-dark); margin-bottom: 0.3rem;">E-mail</h4>
+                                <p style="color: var(--gray); line-height: 1.5;">contato@changeskills.com.br</p>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #eee;">
+                            <h4 style="font-size: 1rem; color: var(--primary-dark); margin-bottom: 1.5rem;">Siga-nos</h4>
+                            <div style="display: flex; gap: 1.2rem;">
+                                <a href="#" style="width: 40px; height: 40px; background: var(--primary-dark); color: white; border-radius: 10px; display: flex; align-items: center; justify-content: center; transition: var(--transition);"><i data-lucide="instagram" style="width: 20px;"></i></a>
+                                <a href="#" style="width: 40px; height: 40px; background: var(--primary-dark); color: white; border-radius: 10px; display: flex; align-items: center; justify-content: center; transition: var(--transition);"><i data-lucide="facebook" style="width: 20px;"></i></a>
+                                <a href="#" style="width: 40px; height: 40px; background: var(--primary-dark); color: white; border-radius: 10px; display: flex; align-items: center; justify-content: center; transition: var(--transition);"><i data-lucide="linkedin" style="width: 20px;"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Map -->
+                <div class="map-container reveal">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3551.4647313885!2d-52.617467!3d-27.1000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94e4b5cf6e8348d7%3A0x633633!2sR.%20Bar%C3%A3o%20do%20Rio%20Branco%2C%20461%20-%20Centro%2C%20Chapec%C3%B3%20-%20SC%2C%2089802-100!5e0!3m2!1spt-BR!2sbr!4v1715780000000!5m2!1spt-BR!2sbr" 
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 5. Footer -->
+    <footer style="padding: 120px 0 60px 0; background: var(--primary-dark); color: white;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 4rem; margin-bottom: 4rem;">
+                <div>
+                    <img src="https://changeskills.com.br/wp-content/uploads/2022/11/logo-change.png"
+                        style="height: 50px; filter: brightness(0) invert(1); margin-bottom: 2.5rem;">
+                    <p style="opacity: 0.6; font-size: 1.1rem; line-height: 1.6; max-width: 300px;">A ponte definitiva entre você e o mundo. Educação com excelência global.</p>
+                </div>
+                <div>
+                    <h4 style="color: var(--accent); margin-bottom: 2.5rem; font-size: 1.2rem;">Institucional</h4>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 1.2rem; opacity: 0.7;">
+                        <li><a href="index.html#escola" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Nossa Escola</a></li>
+                        <li><a href="nossos-teachers.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Professores</a></li>
+                        <li><a href="services/solicitacao-certificado.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Certificados</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: var(--accent); margin-bottom: 2.5rem; font-size: 1.2rem;">Cursos</h4>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 1.2rem; opacity: 0.7;">
+                        <li><a href="cursos/ingles.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Inglês</a></li>
+                        <li><a href="cursos/espanhol.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Espanhol</a></li>
+                        <li><a href="cursos/frances.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Francês</a></li>
+                        <li><a href="cursos/portugues.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Português</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: var(--accent); margin-bottom: 2.5rem; font-size: 1.2rem;">Serviços</h4>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 1.2rem; opacity: 0.7; margin-bottom: 2rem;">
+                        <li><a href="services/traducoes.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Traduções</a></li>
+                        <li><a href="services/agendamento-nivelamento.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Nivelamento</a></li>
+                        <li><a href="services/aulas-conversacao.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Aulas de Conversação</a></li>
+                    </ul>
+                    <div style="display: flex; gap: 1.5rem; opacity: 0.8;">
+                        <a href="#" style="color: white; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'"><i data-lucide="instagram"></i></a>
+                        <a href="#" style="color: white; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'"><i data-lucide="facebook"></i></a>
+                        <a href="#" style="color: white; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'"><i data-lucide="linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; opacity: 0.3; padding-top: 4rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                <span>2026 © Change Skills — Todos os direitos reservados.</span>
+                <span>Desenvolvido por <strong>Page Facilitado</strong></span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Action Button (Branding Identity) -->
+    <a href="https://wa.me/5549999124040" target="_blank" 
+       style="position: fixed; bottom: 30px; right: 30px; width: 65px; height: 65px; background: #25D366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 15px 35px rgba(37, 211, 102, 0.3); z-index: 1000; transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);"
+       onmouseover="this.style.transform='scale(1.1) translateY(-10px)'; this.style.boxShadow='0 25px 45px rgba(37, 211, 102, 0.4)'"
+       onmouseout="this.style.transform='scale(1) translateY(0)'; this.style.boxShadow='0 15px 35px rgba(37, 211, 102, 0.3)'">
+        <i data-lucide="message-circle" style="width: 32px; height: 32px;"></i>
+        <span style="position: absolute; right: 80px; background: white; color: var(--primary-dark); padding: 0.8rem 1.5rem; border-radius: 12px; font-weight: 700; font-size: 0.9rem; white-space: nowrap; box-shadow: 0 10px 25px rgba(0,0,0,0.1); opacity: 0; transform: translateX(20px); transition: all 0.3s; pointer-events: none;" class="wa-tooltip">Fale Conosco</span>
+    </a>
+
+    <style>
+        a:hover .wa-tooltip {
+            opacity: 1 !important;
+            transform: translateX(0) !important;
+        }
+    </style>
+
+    <script>
+        lucide.createIcons();
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

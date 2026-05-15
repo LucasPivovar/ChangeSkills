@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aulas de Conversação | Change Skills Idiomas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .check-item { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; font-size: 1.1rem; color: var(--gray); line-height: 1.6; }
+        .check-item i { color: var(--primary); flex-shrink: 0; margin-top: 3px; }
+        label { display: block; font-weight: 600; color: var(--primary-dark); margin-bottom: 0.5rem; font-size: 0.95rem; }
+        .form-input { width: 100%; padding: 1.2rem; border: 1px solid rgba(0,0,0,0.1); border-radius: 12px; font-size: 1rem; outline: none; transition: 0.3s; background: #f8fafc; color: var(--text-main); }
+        .form-input:focus { border-color: var(--primary); background: white; }
+        .radio-group { display: flex; flex-direction: column; gap: 0.8rem; margin-top: 0.5rem; }
+        .radio-item { display: flex; align-items: center; gap: 0.5rem; color: var(--gray); font-size: 1rem; cursor: pointer; }
+        .radio-item input[type="radio"] { width: 18px; height: 18px; accent-color: var(--primary); cursor: pointer; }
+    </style>
+</head>
+<body style="background: var(--bg-light);">
+    <header
+        style="position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(255,255,255,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05);">
+        <nav class="container"
+            style="height: 80px; display: flex; justify-content: space-between; align-items: center;">
+            <a href="../index.html" style="transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'"
+                onmouseout="this.style.transform='scale(1)'">
+                <img src="https://changeskills.com.br/wp-content/uploads/2022/11/logo-change.png" alt="Logo"
+                    style="height: 45px;">
+            </a>
+            <ul style="display: flex; gap: 3rem; list-style: none; align-items: center;">
+                <li><a href="../index.html#escola"
+                        style="text-decoration: none; color: var(--primary-dark); font-weight: 600; transition: all 0.3s; position: relative;"
+                        onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'"
+                        onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
+                        Nossa Escola
+                        <span class="nav-line" style="position: absolute; bottom: -8px; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
+                    </a></li>
+                <li><a href="../index.html#cursos"
+                        style="text-decoration: none; color: var(--primary-dark); font-weight: 600; transition: all 0.3s; position: relative;"
+                        onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'"
+                        onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
+                        Cursos
+                        <span class="nav-line" style="position: absolute; bottom: -8px; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
+                    </a></li>
+                <li><a href="../index.html#servicos"
+                        style="text-decoration: none; color: var(--primary-dark); font-weight: 600; transition: all 0.3s; position: relative;"
+                        onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'"
+                        onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
+                        Serviços
+                        <span class="nav-line" style="position: absolute; bottom: -8px; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
+                    </a></li>
+                <li><a href="../contato.html"
+                        style="text-decoration: none; color: var(--primary-dark); font-weight: 600; transition: all 0.3s; position: relative;"
+                        onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'"
+                        onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
+                        Contato
+                        <span class="nav-line" style="position: absolute; bottom: -8px; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
+                    </a></li>
+                <li><a href="../index.html#area-do-aluno"
+                        style="background: var(--primary-dark); color: white; padding: 0.8rem 2rem; border-radius: 100px; text-decoration: none; font-weight: 600; transition: var(--transition); box-shadow: 0 10px 20px rgba(0,0,0,0.1); border: 2px solid transparent;"
+                        onmouseover="this.style.transform='translateY(-3px)'; this.style.backgroundColor='var(--primary)'; this.style.borderColor='var(--accent)'"
+                        onmouseout="this.style.transform='translateY(0)'; this.style.backgroundColor='var(--primary-dark)'; this.style.borderColor='transparent'">
+                        Área do Aluno
+                    </a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="mesh-bg" style="padding-top: 240px; text-align: center; padding-bottom: 150px;">
+            <div class="container reveal active">
+                <span style="color: var(--primary); font-weight: 800; letter-spacing: 0.2em;">INGLÊS CONVERSAÇÃO</span>
+                <h1 style="font-size: clamp(3rem, 5vw, 4.5rem); margin-bottom: 2rem; margin-top: 1rem;">Desenvolva sua fluência <br>e confiança</h1>
+                <p style="font-size: 1.3rem; color: var(--gray); max-width: 800px; margin: auto; line-height: 1.6;">
+                    Aulas 100% focadas em fala, escuta e interação, com temas do dia a dia e do ambiente profissional. Ideal para quem já tem base no idioma e deseja alcançar uma comunicação natural e espontânea.
+                </p>
+            </div>
+        </section>
+
+        <!-- Informações e Benefícios -->
+        <section class="container" style="padding: 100px 0; margin-top: -100px; position: relative; z-index: 10;">
+            <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem;">
+                
+                <div style="display: flex; flex-direction: column; gap: 2rem;">
+                    <div class="glass-card reveal" style="padding: 3rem;">
+                        <h2 style="font-size: 2rem; color: var(--primary-dark); margin-bottom: 1.5rem;">Sobre o Curso</h2>
+                        <p style="color: var(--gray); font-size: 1.1rem; line-height: 1.8;">
+                            Projetado para quem deseja aprimorar sua comunicação oral e se expressar com mais segurança em inglês. Trabalhamos com material próprio, tópicos dinâmicos, vocabulário prático e correções personalizadas.
+                        </p>
+                    </div>
+
+                    <div class="glass-card reveal" style="padding: 3rem;">
+                        <h2 style="font-size: 2rem; color: var(--primary-dark); margin-bottom: 1.5rem;">Material Utilizado</h2>
+                        <p style="color: var(--gray); font-size: 1.1rem; line-height: 1.8;">
+                            Utilizamos materiais próprios desenvolvidos para a sua necessidade. Trazemos temas atuais, aulas interativas, vídeos, podcasts e debates. O conteúdo é adaptado ao nível do aluno, garantindo aprendizado constante e eficiente.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="glass-card reveal" style="padding: 3rem;">
+                    <h2 style="font-size: 2rem; color: var(--primary-dark); margin-bottom: 2.5rem;">Benefícios do Curso</h2>
+                    <div class="check-item"><i data-lucide="mic"></i> Prática de fala com feedback em tempo real</div>
+                    <div class="check-item"><i data-lucide="brain"></i> Ampliação de vocabulário para o dia a dia</div>
+                    <div class="check-item"><i data-lucide="volume-2"></i> Correção de pronúncia e entonação</div>
+                    <div class="check-item"><i data-lucide="message-circle"></i> Simulações de conversas reais</div>
+                    <div class="check-item"><i data-lucide="target"></i> Ambiente dinâmico e colaborativo</div>
+                    <div class="check-item"><i data-lucide="user-check"></i> Professores experientes e motivadores</div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Formulário -->
+        <section class="container" style="padding-bottom: 150px;">
+            <div class="glass-card reveal" style="max-width: 800px; margin: auto; background: white;">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <h2 style="font-size: 2.5rem; color: var(--primary-dark); margin-bottom: 1rem;">Agende sua aula experimental gratuita</h2>
+                    <p style="color: var(--gray); font-size: 1.1rem;">Preencha seus dados e receba mais informações sobre o curso.</p>
+                </div>
+                
+                <form style="display: flex; flex-direction: column; gap: 2rem;">
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                        <div><label>Nome *</label><input type="text" class="form-input" placeholder="Nome" required></div>
+                        <div><label>Sobrenome</label><input type="text" class="form-input" placeholder="Sobrenome"></div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                        <div><label>E-mail *</label><input type="email" class="form-input" placeholder="Seu melhor e-mail" required></div>
+                        <div><label>Número de telefone *</label><input type="tel" class="form-input" placeholder="(DDD) 90000-0000" required></div>
+                    </div>
+
+                    <div>
+                        <label>Cidade e Estado *</label>
+                        <input type="text" class="form-input" placeholder="Ex: Chapecó, SC" required>
+                    </div>
+
+                    <div>
+                        <label>Qual seu nível atual de inglês?</label>
+                        <div class="radio-group">
+                            <label class="radio-item"><input type="radio" name="nivel" value="nunca"> Nunca fiz curso</label>
+                            <label class="radio-item"><input type="radio" name="nivel" value="pouco"> Sei um pouco (< 1 ano de curso)</label>
+                            <label class="radio-item"><input type="radio" name="nivel" value="moderado"> Sei moderadamente (> 1 ano de curso)</label>
+                            <label class="radio-item"><input type="radio" name="nivel" value="fluente"> Sou fluente mas preciso praticar!</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label>Descreva o seu nível de inglês para que possamos ter uma ideia de onde podemos iniciar contigo.</label>
+                        <textarea class="form-input" rows="4" placeholder="Fale um pouco sobre sua experiência com o idioma..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-vip" style="border: none; width: 100%; font-size: 1.2rem; padding: 1.5rem; margin-top: 1rem;">Solicitar Aula Experimental</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <footer style="padding: 120px 0 60px 0; background: var(--primary-dark); color: white;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 4rem; margin-bottom: 4rem;">
+                <div>
+                    <img src="https://changeskills.com.br/wp-content/uploads/2022/11/logo-change.png"
+                        style="height: 50px; filter: brightness(0) invert(1); margin-bottom: 2.5rem;">
+                    <p style="opacity: 0.6; font-size: 1.1rem; line-height: 1.6; max-width: 300px;">A ponte definitiva entre você e o mundo. Educação com excelência global.</p>
+                </div>
+                <div>
+                    <h4 style="color: var(--accent); margin-bottom: 2.5rem; font-size: 1.2rem;">Institucional</h4>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 1.2rem; opacity: 0.7;">
+                        <li><a href="../index.html#escola" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Nossa Escola</a></li>
+                        <li><a href="../nossos-teachers.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Professores</a></li>
+                        <li><a href="solicitacao-certificado.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Certificados</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: var(--accent); margin-bottom: 2.5rem; font-size: 1.2rem;">Cursos</h4>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 1.2rem; opacity: 0.7;">
+                        <li><a href="../cursos/ingles.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Inglês</a></li>
+                        <li><a href="../cursos/espanhol.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Espanhol</a></li>
+                        <li><a href="../cursos/frances.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Francês</a></li>
+                        <li><a href="../cursos/portugues.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Português</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: var(--accent); margin-bottom: 2.5rem; font-size: 1.2rem;">Serviços</h4>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 1.2rem; opacity: 0.7; margin-bottom: 2rem;">
+                        <li><a href="traducoes.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Traduções</a></li>
+                        <li><a href="agendamento-nivelamento.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Nivelamento</a></li>
+                        <li><a href="aulas-conversacao.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Aulas de Conversação</a></li>
+                    </ul>
+                    <div style="display: flex; gap: 1.5rem; opacity: 0.8;">
+                        <a href="#" style="color: white; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'"><i data-lucide="instagram"></i></a>
+                        <a href="#" style="color: white; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'"><i data-lucide="facebook"></i></a>
+                        <a href="#" style="color: white; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'"><i data-lucide="linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; opacity: 0.3; padding-top: 4rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                <span>2026 © Change Skills — Todos os direitos reservados.</span>
+                <span>Desenvolvido por <strong>Page Facilitado</strong></span>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- WhatsApp Floating Action Button (Branding Identity) -->
+    <a href="https://wa.me/5549999124040" target="_blank" 
+       style="position: fixed; bottom: 30px; right: 30px; width: 65px; height: 65px; background: #25D366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 15px 35px rgba(37, 211, 102, 0.3); z-index: 1000; transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);"
+       onmouseover="this.style.transform='scale(1.1) translateY(-10px)'; this.style.boxShadow='0 25px 45px rgba(37, 211, 102, 0.4)'"
+       onmouseout="this.style.transform='scale(1) translateY(0)'; this.style.boxShadow='0 15px 35px rgba(37, 211, 102, 0.3)'">
+        <i data-lucide="message-circle" style="width: 32px; height: 32px;"></i>
+        <span style="position: absolute; right: 80px; background: white; color: var(--primary-dark); padding: 0.8rem 1.5rem; border-radius: 12px; font-weight: 700; font-size: 0.9rem; white-space: nowrap; box-shadow: 0 10px 25px rgba(0,0,0,0.1); opacity: 0; transform: translateX(20px); transition: all 0.3s; pointer-events: none;" class="wa-tooltip">Fale Conosco</span>
+    </a>
+
+    <style>
+        a:hover .wa-tooltip {
+            opacity: 1 !important;
+            transform: translateX(0) !important;
+        }
+    </style>
+
+    <script>
+        lucide.createIcons();
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
