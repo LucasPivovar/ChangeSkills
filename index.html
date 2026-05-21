@@ -13,9 +13,10 @@
 
 <body>
 
+
     <!-- 1. Menu Principal -->
     <header
-        style="position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(255,255,255,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05);">
+        style="position: sticky; top: 0; width: 100%; z-index: 1000; background: rgba(255,255,255,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05);">
         <nav class="container"
             style="height: 80px; display: flex; justify-content: space-between; align-items: center;">
             <a href="index.html" style="transition: transform 0.3s; z-index: 1001;" onmouseover="this.style.transform='scale(1.05)'"
@@ -29,40 +30,46 @@
             </button>
 
             <ul class="nav-list" style="display: flex; gap: 3rem; list-style: none; align-items: center;">
-                <li><a href="index.html#escola"
-                        style="text-decoration: none; color: var(--primary-dark); font-weight: 600; transition: all 0.3s; position: relative;"
-                        onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'"
-                        onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
+                <li style="position: relative;">
+                    <a href="index.html" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
+                       onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
+                       onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
+                        Início
+                        <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
+                    </a>
+                </li>
+                <li style="position: relative;">
+                    <a href="nossa-escola.html" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
+                       onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
+                       onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
                         Nossa Escola
-                        <span class="nav-line" style="position: absolute; bottom: -8px; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
-                    </a></li>
-                <li><a href="index.html#cursos"
-                        style="text-decoration: none; color: var(--primary-dark); font-weight: 600; transition: all 0.3s; position: relative;"
-                        onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'"
-                        onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
+                        <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
+                    </a>
+                </li>
+                <li style="position: relative;">
+                    <a href="index.html#cursos" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
+                       onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
+                       onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
                         Cursos
-                        <span class="nav-line" style="position: absolute; bottom: -8px; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
-                    </a></li>
-                <li><a href="index.html#servicos"
-                        style="text-decoration: none; color: var(--primary-dark); font-weight: 600; transition: all 0.3s; position: relative;"
-                        onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'"
-                        onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
-                        Serviços
-                        <span class="nav-line" style="position: absolute; bottom: -8px; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
-                    </a></li>
-                <li><a href="contato.html"
-                        style="text-decoration: none; color: var(--primary-dark); font-weight: 600; transition: all 0.3s; position: relative;"
-                        onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'"
-                        onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
+                        <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
+                    </a>
+                </li>
+                <li style="position: relative;">
+                    <a href="nossos-teachers.html" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
+                       onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
+                       onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
+                        Professores
+                        <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
+                    </a>
+                </li>
+                <li style="position: relative;">
+                    <a href="contato.html" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
+                       onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
+                       onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
                         Contato
-                        <span class="nav-line" style="position: absolute; bottom: -8px; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
-                    </a></li>
-                <li><a href="index.html#area-do-aluno"
-                        style="background: var(--primary-dark); color: white; padding: 0.8rem 2rem; border-radius: 100px; text-decoration: none; font-weight: 600; transition: var(--transition); box-shadow: 0 10px 20px rgba(0,0,0,0.1); border: 2px solid transparent;"
-                        onmouseover="this.style.transform='translateY(-3px)'; this.style.backgroundColor='var(--primary)'; this.style.borderColor='var(--accent)'"
-                        onmouseout="this.style.transform='translateY(0)'; this.style.backgroundColor='var(--primary-dark)'; this.style.borderColor='transparent'">
-                        Área do Aluno
-                    </a></li>
+                        <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
+                    </a>
+                </li>
             </ul>
         </nav>
     </header>
@@ -71,13 +78,13 @@
 
     <main>
     <!-- 2. Hero Slider (Slide Principal) -->
-    <section class="hero-slider-container" style="padding: 0; position: relative; overflow: hidden; background: #f0f4ff;">
+    <section class="hero-slider-container" style="padding: 0; position: relative; overflow: hidden; background: #f0f4ff; margin-top: -80px; z-index: 1;">
         <div class="swiper hero-swiper">
             <div class="swiper-wrapper">
                 
                 <!-- SLIDE 1: General Welcome -->
-                <div class="swiper-slide mesh-bg" style="min-height: 100vh; display: flex; align-items: center;">
-                    <div class="container" style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center; padding-top: 100px;">
+                <div class="swiper-slide mesh-bg" style="min-height: 85vh; display: flex; align-items: center;">
+                    <div class="container" style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center; padding-top: 40px; margin-top: -65px;">
                         <div class="reveal active" data-swiper-parallax="-300">
                             <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 2rem;">
                                 <span style="width: 12px; height: 12px; background: var(--primary); border-radius: 50%;"></span>
@@ -101,11 +108,10 @@
                 </div>
 
                 <!-- SLIDE 2: Global Excellence (Reference-inspired) -->
-                <div class="swiper-slide" style="min-height: 100vh; position: relative; background: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;">
+                <div class="swiper-slide" style="min-height: 85vh; position: relative; background: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;">
                     <!-- Gradient Overlay -->
                     <div class="slide2-overlay" style="position: absolute; inset: 0; background: linear-gradient(to left, var(--primary-dark) 45%, transparent 80%); z-index: 1;"></div>
-                    <div class="reveal active slide2-content" data-swiper-parallax="-400" 
-                         style="position: absolute !important; top: 30% !important; transform: translateY(-50%) !important; right: 10% !important; width: 100% !important; max-width: 580px !important; text-align: left !important; z-index: 10 !important; padding: 0 !important; margin: 0 !important;">
+                    <div class="reveal active slide2-content" data-swiper-parallax="-400">
                         <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 1.5rem;">
                             <span style="width: 15px; height: 3px; background: var(--accent); border-radius: 2px;"></span>
                             <span style="color: var(--accent); font-weight: 800; letter-spacing: 0.25em; font-size: 0.85rem; text-transform: uppercase;">Qualidade Global</span>
@@ -120,7 +126,7 @@
             <!-- Pagination -->
             <div class="swiper-pagination hero-pagination"></div>
             <!-- Scroll Indicator -->
-            <div style="position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 10; opacity: 0.5;">
+            <div class="hero-scroll-indicator" style="position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 10; opacity: 0.5;">
                 <div style="width: 24px; height: 40px; border: 2px solid var(--primary-dark); border-radius: 20px; position: relative;">
                     <div style="width: 4px; height: 8px; background: var(--primary); border-radius: 2px; position: absolute; left: 50%; transform: translateX(-50%); top: 8px; animation: mouseScroll 2s infinite ease-in-out;"></div>
                 </div>
@@ -137,7 +143,7 @@
     </style>
 
         <!-- 3. Nossa Escola -->
-        <section id="escola" style="background: var(--bg-light); position: relative; overflow: hidden;">
+        <section id="escola" style="background: var(--bg-light); position: relative; overflow: hidden; padding-bottom: 60px;">
             <div class="container">
                 <div class="text-center reveal" style="margin-bottom: 5rem;">
                     <span style="color: var(--primary); font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase;">Institucional</span>
@@ -148,7 +154,7 @@
                     <div class="reveal">
                         <div style="margin-bottom: 4rem;">
                             <h3 style="color: var(--primary-dark); font-size: 1.8rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 15px;">
-                                <i data-lucide="history" style="color: var(--primary);"></i> Nossa História
+                                Nossa História
                             </h3>
                             <p style="font-size: 1.15rem; color: var(--gray); line-height: 1.8;">
                                 Com anos de experiência no mercado de idiomas, a Change Skills nasceu com o propósito de romper as barreiras tradicionais do ensino. Nossa trajetória é marcada pela transformação de milhares de alunos que hoje se comunicam com o mundo com confiança e fluidez.
@@ -156,7 +162,7 @@
                         </div>
                         <div style="margin-bottom: 4rem;">
                             <h3 style="color: var(--primary-dark); font-size: 1.8rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 15px;">
-                                <i data-lucide="book-open" style="color: var(--primary);"></i> Metodologia Change
+                                Metodologia Change
                             </h3>
                             <p style="font-size: 1.15rem; color: var(--gray); line-height: 1.8;">
                                 Utilizamos uma abordagem comunicativa e prática, onde o aluno é o protagonista. Nossas aulas são dinâmicas, focadas em situações reais do dia a dia e da carreira profissional, garantindo um aprendizado orgânico e acelerado.
@@ -166,46 +172,18 @@
                     
                     <div class="reveal">
                         <div style="position: relative; border-radius: 40px; overflow: hidden; box-shadow: var(--shadow-premium);">
-                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1000&q=80" alt="Students" style="width: 100%; display: block;">
-                            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,71,255,0.4), transparent);"></div>
+                            <img src="./assets/img/image.png" alt="Fundadores - Change Skills" style="width: 100%; height: 480px; object-fit: cover; object-position: center 85%; display: block;">
+                            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,71,255,0.2), transparent);"></div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Atalhos Rápidos & Playlist -->
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 6rem;">
-                    <a href="nossos-teachers.html" class="glass-card reveal" style="padding: 2rem; text-decoration: none; background: white; text-align: left; transition: var(--transition);">
-                        <div style="width: 45px; height: 45px; background: rgba(0,71,255,0.05); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem;">
-                            <i data-lucide="users" style="color: var(--primary); width: 22px; height: 22px;"></i>
-                        </div>
-                        <h4 style="color: var(--primary-dark); font-size: 1.25rem; margin-bottom: 0.4rem;">Nossos Teachers</h4>
-                        <p style="color: var(--gray); font-size: 0.95rem;">Conheça os profissionais que vão guiar sua jornada.</p>
-                    </a>
-
-                    <a href="https://open.spotify.com/playlist/41Uf49j61tWGXsnOQ9Is1s" target="_blank" class="glass-card reveal" style="padding: 2rem; text-decoration: none; background: white; text-align: left; transition: var(--transition);">
-                        <div style="width: 45px; height: 45px; background: rgba(0,209,255,0.05); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem;">
-                            <i data-lucide="music" style="color: var(--accent); width: 22px; height: 22px;"></i>
-                        </div>
-                        <h4 style="color: var(--primary-dark); font-size: 1.25rem; margin-bottom: 0.4rem;">Playlist Escola</h4>
-                        <p style="color: var(--gray); font-size: 0.95rem;">Aprenda e relaxe com nossa curadoria musical.</p>
-                    </a>
-
-                    <div class="glass-card reveal" style="padding: 2rem; background: var(--primary-dark); border: none;">
-                        <h4 style="color: white; font-size: 1.25rem; margin-bottom: 1rem;">Fique por dentro</h4>
-                        <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem; margin-bottom: 1.2rem;">Receba novidades e dicas exclusivas.</p>
-                        <form style="display: flex; gap: 8px;">
-                            <input type="email" placeholder="Seu e-mail" style="flex: 1; padding: 0.7rem 1rem; border-radius: 8px; border: none; font-family: inherit; font-size: 0.9rem;">
-                            <button type="submit" style="background: var(--accent); border: none; width: 40px; height: 40px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center;">
-                                <i data-lucide="send" style="width: 18px; height: 18px; color: var(--primary-dark);"></i>
-                            </button>
-                        </form>
-                    </div>
-                </div>
+                <!-- Espaço para futura foto dos donos / Cards foram removidos conforme solicitação -->
             </div>
         </section>
 
         <!-- 4. Cursos -->
-        <section id="cursos" class="mesh-bg">
+        <section id="cursos" class="mesh-bg" style="padding-top: 60px;">
             <div class="container">
                 <div class="text-center reveal" style="margin-bottom: 2.5rem;">
                     <span style="color: var(--primary); font-weight: 800; letter-spacing: 0.2em;">EXPLORE O MUNDO</span>
@@ -218,7 +196,7 @@
                         <div class="swiper-slide">
                             <a href="cursos/ingles.html"
                                 style="display: block; position: relative; height: 350px; border-radius: 40px; overflow: hidden; text-decoration: none;">
-                                <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                                <img src="./assets/img/card-ingles.png"
                                     style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 0; transition: transform 0.6s;"
                                     onmouseover="this.style.transform='scale(1.05)'"
                                     onmouseout="this.style.transform='scale(1)'">
@@ -236,7 +214,7 @@
                         <div class="swiper-slide">
                             <a href="cursos/espanhol.html"
                                 style="display: block; position: relative; height: 350px; border-radius: 40px; overflow: hidden; text-decoration: none;">
-                                <img src="https://images.unsplash.com/photo-1543783207-ec64e4d95325?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                                <img src="./assets/img/card-espanhol.png"
                                     style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 0; transition: transform 0.6s;"
                                     onmouseover="this.style.transform='scale(1.05)'"
                                     onmouseout="this.style.transform='scale(1)'">
@@ -254,7 +232,7 @@
                         <div class="swiper-slide">
                             <a href="cursos/frances.html"
                                 style="display: block; position: relative; height: 350px; border-radius: 40px; overflow: hidden; text-decoration: none;">
-                                <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=1000&q=80"
+                                <img src="./assets/img/card-frances.png"
                                     style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 0; transition: transform 0.6s;"
                                     onmouseover="this.style.transform='scale(1.05)'"
                                     onmouseout="this.style.transform='scale(1)'">
@@ -272,7 +250,7 @@
                         <div class="swiper-slide">
                             <a href="cursos/portugues.html"
                                 style="display: block; position: relative; height: 350px; border-radius: 40px; overflow: hidden; text-decoration: none;">
-                                <img src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                                <img src="./assets/img/card-portugues.png"
                                     style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 0; transition: transform 0.6s;"
                                     onmouseover="this.style.transform='scale(1.05)'"
                                     onmouseout="this.style.transform='scale(1)'">
@@ -299,62 +277,35 @@
             </div>
             <div class="container" style="position: relative; z-index: 1;">
                 <div class="text-center reveal" style="margin-bottom: 2.5rem;">
-                    <span style="color: var(--accent); font-weight: 800; letter-spacing: 0.2em;">HUB DIGITAL</span>
-                    <h2 style="margin-top: 1rem; color: white;">Área do Aluno</h2>
+                    <span style="color: var(--accent); font-weight: 800; letter-spacing: 0.2em;">COMUNIDADE</span>
+                    <h2 style="margin-top: 1rem; color: white;">O que dizem sobre nós</h2>
                 </div>
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 4rem;">
-                    <!-- 1. Login Portal Pearson -->
-                    <a href="https://login.pearson.com/v1/piapi/piui/signin?client_id=bWPoUiRnLpUhX2rhGeP4AaLCeyQYNYDA" target="_blank" class="glass-card reveal"
-                        style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1); text-decoration: none; text-align: center;">
-                        <i data-lucide="layout-dashboard"
-                            style="color: var(--accent); width: 48px; height: 48px; margin-bottom: 2rem;"></i>
-                        <h3 style="color: white; margin-bottom: 1rem;">Login Portal Pearson</h3>
-                        <p style="color: rgba(255,255,255,0.7); font-size: 1.1rem;">Acesse materiais, exercícios e conteúdos do seu curso.</p>
-                    </a>
-                    <!-- 2. Cadastro de Novos Alunos -->
-                    <a href="https://forms.gle/t9gMNK85fzNUuxqB7" target="_blank" class="glass-card reveal"
-                        style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1); text-decoration: none; text-align: center;">
-                        <i data-lucide="user-plus"
-                            style="color: var(--accent); width: 48px; height: 48px; margin-bottom: 2rem;"></i>
-                        <h3 style="color: white; margin-bottom: 1rem;">Cadastro de Novos Alunos</h3>
-                        <p style="color: rgba(255,255,255,0.7); font-size: 1.1rem;">Preencha seus dados e realize sua matrícula em poucos minutos.</p>
-                    </a>
-                    <!-- 3. Agendamento de Nivelamento -->
-                    <a href="services/agendamento-nivelamento.html" class="glass-card reveal"
-                        style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1); text-decoration: none; text-align: center;">
-                        <i data-lucide="calendar-clock"
-                            style="color: var(--accent); width: 48px; height: 48px; margin-bottom: 2rem;"></i>
-                        <h3 style="color: white; margin-bottom: 1rem;">Agendamento de Nivelamento</h3>
-                        <p style="color: rgba(255,255,255,0.7); font-size: 1.1rem;">Descubra o módulo ideal para o seu nível atual de conhecimento.</p>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- 5. Depoimentos -->
-        <section id="depoimentos" style="background: var(--bg-light);">
-            <div class="container text-center">
-                <span class="reveal"
-                    style="color: var(--primary); font-weight: 800; letter-spacing: 0.2em; display: block; margin-bottom: 1rem;">COMUNIDADE</span>
-                <h2 style="margin-top: 1rem; margin-bottom: 4rem;">O que dizem sobre nós</h2>
-                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 4rem; text-align: left;">
-                    <div class="glass-card" style="background: white;">
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; text-align: left;">
+                    <div class="glass-card reveal" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1);">
                         <i data-lucide="quote"
-                            style="color: var(--primary); width: 40px; height: 40px; margin-bottom: 2rem; opacity: 0.2;"></i>
+                            style="color: var(--accent); width: 40px; height: 40px; margin-bottom: 2rem; opacity: 0.5;"></i>
                         <p
-                            style="font-size: 1.5rem; color: var(--primary-dark); font-weight: 600; line-height: 1.6; margin-bottom: 2rem;">
+                            style="font-size: 1.2rem; color: white; font-weight: 600; line-height: 1.6; margin-bottom: 2rem;">
                             "O material da Pearson junto com a didática dos professores é a combinação perfeita. Evoluí
                             muito rápido."</p>
-                        <p style="color: var(--gray); font-size: 1.1rem;">— Aluno Change Skills</p>
+                        <p style="color: rgba(255,255,255,0.7); font-size: 1.1rem;">— Aluno Change Skills</p>
                     </div>
-                    <div class="glass-card" style="background: white;">
+                    <div class="glass-card reveal" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1);">
                         <i data-lucide="quote"
-                            style="color: var(--primary); width: 40px; height: 40px; margin-bottom: 2rem; opacity: 0.2;"></i>
+                            style="color: var(--accent); width: 40px; height: 40px; margin-bottom: 2rem; opacity: 0.5;"></i>
                         <p
-                            style="font-size: 1.5rem; color: var(--primary-dark); font-weight: 600; line-height: 1.6; margin-bottom: 2rem;">
+                            style="font-size: 1.2rem; color: white; font-weight: 600; line-height: 1.6; margin-bottom: 2rem;">
                             "A plataforma online e as aulas de conversação me deram a segurança que eu precisava para
                             reuniões em inglês."</p>
-                        <p style="color: var(--gray); font-size: 1.1rem;">— Aluna Fast Track</p>
+                        <p style="color: rgba(255,255,255,0.7); font-size: 1.1rem;">— Aluna Fast Track</p>
+                    </div>
+                    <div class="glass-card reveal" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1);">
+                        <i data-lucide="quote"
+                            style="color: var(--accent); width: 40px; height: 40px; margin-bottom: 2rem; opacity: 0.5;"></i>
+                        <p
+                            style="font-size: 1.2rem; color: white; font-weight: 600; line-height: 1.6; margin-bottom: 2rem;">
+                            "Finalizamos as aulas de conversação hoje. Gostei muito da teacher e lembrei dos conteúdos que já estavam esquecidos. Agradeço demais pelas aulas personalizadas — hoje me sinto mais segura para minha primeira viagem internacional e vocês fazem parte desta conquista 🙏🏼🇺🇲"</p>
+                        <p style="color: rgba(255,255,255,0.7); font-size: 1.1rem;">— Larissa Zambiasi</p>
                     </div>
                 </div>
             </div>
@@ -369,15 +320,7 @@
                     <p style="color: var(--gray); font-size: 1.2rem; margin-top: 1rem;">Clique para acessar cada serviço
                         de forma rápida e fácil</p>
                 </div>
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem;">
-                    <!-- Serviço 1: Emissão de Certificado -->
-                    <a href="services/solicitacao-certificado.html" class="glass-card reveal" style="text-decoration: none; text-align: center; padding: 2.5rem 1.5rem;">
-                        <div style="width: 60px; height: 60px; background: rgba(0,71,255,0.1); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem auto;">
-                            <i data-lucide="award" style="color: var(--primary); width: 28px; height: 28px;"></i>
-                        </div>
-                        <h3 style="color: var(--primary-dark); font-size: 1.2rem; margin-bottom: 1rem;">Emissão de Certificado</h3>
-                        <p style="color: var(--gray); font-size: 0.95rem; line-height: 1.5;">Verifique ou emita seus certificados de cursos concluídos.</p>
-                    </a>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem;">
 
                     <!-- Serviço 2: Traduções -->
                     <a href="services/traducoes.html" class="glass-card reveal" style="text-decoration: none; text-align: center; padding: 2.5rem 1.5rem;">
@@ -445,6 +388,8 @@
 
 
 
+
+
         <!-- 8. Rodapé (Final) -->
         <footer style="padding: 120px 0 60px 0; background: var(--primary-dark); color: white;">
             <div class="container">
@@ -455,33 +400,32 @@
                         <p style="opacity: 0.6; font-size: 1.1rem; line-height: 1.6; max-width: 300px;">A ponte definitiva entre você e o mundo. Educação com excelência global.</p>
                     </div>
                     <div>
-                        <h4 style="color: var(--accent); margin-bottom: 2.5rem; font-size: 1.2rem;">Institucional</h4>
+                        <h4 style="color: white; margin-bottom: 2.5rem; font-size: 1.2rem;">Institucional</h4>
                         <ul style="list-style: none; display: flex; flex-direction: column; gap: 1.2rem; opacity: 0.7;">
-                            <li><a href="index.html#escola" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Nossa Escola</a></li>
-                            <li><a href="nossos-teachers.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Professores</a></li>
-                            <li><a href="services/solicitacao-certificado.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Certificados</a></li>
+                            <li><a href="index.html#escola" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#60a5fa'" onmouseout="this.style.color='white'">Nossa Escola</a></li>
+                            <li><a href="nossos-teachers.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#60a5fa'" onmouseout="this.style.color='white'">Professores</a></li>
+                            <li><a href="services/solicitacao-certificado.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#60a5fa'" onmouseout="this.style.color='white'">Certificados</a></li>
                         </ul>
                     </div>
                     <div>
-                        <h4 style="color: var(--accent); margin-bottom: 2.5rem; font-size: 1.2rem;">Cursos</h4>
+                        <h4 style="color: white; margin-bottom: 2.5rem; font-size: 1.2rem;">Cursos</h4>
                         <ul style="list-style: none; display: flex; flex-direction: column; gap: 1.2rem; opacity: 0.7;">
-                            <li><a href="cursos/ingles.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Inglês</a></li>
-                            <li><a href="cursos/espanhol.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Espanhol</a></li>
-                            <li><a href="cursos/frances.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Francês</a></li>
-                            <li><a href="cursos/portugues.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Português</a></li>
+                            <li><a href="cursos/ingles.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#60a5fa'" onmouseout="this.style.color='white'">Inglês</a></li>
+                            <li><a href="cursos/espanhol.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#60a5fa'" onmouseout="this.style.color='white'">Espanhol</a></li>
+                            <li><a href="cursos/frances.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#60a5fa'" onmouseout="this.style.color='white'">Francês</a></li>
+                            <li><a href="cursos/portugues.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#60a5fa'" onmouseout="this.style.color='white'">Português</a></li>
                         </ul>
                     </div>
                     <div>
-                        <h4 style="color: var(--accent); margin-bottom: 2.5rem; font-size: 1.2rem;">Serviços</h4>
+                        <h4 style="color: white; margin-bottom: 2.5rem; font-size: 1.2rem;">Serviços</h4>
                         <ul style="list-style: none; display: flex; flex-direction: column; gap: 1.2rem; opacity: 0.7; margin-bottom: 2rem;">
-                            <li><a href="services/traducoes.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Traduções</a></li>
-                            <li><a href="services/agendamento-nivelamento.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Nivelamento</a></li>
-                            <li><a href="services/aulas-conversacao.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Aulas de Conversação</a></li>
+                            <li><a href="services/traducoes.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#60a5fa'" onmouseout="this.style.color='white'">Traduções</a></li>
+                            <li><a href="services/aulas-conversacao.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#60a5fa'" onmouseout="this.style.color='white'">Aulas de Conversação</a></li>
                         </ul>
-                        <div style="display: flex; gap: 1.5rem; opacity: 0.8;">
-                            <a href="#" style="color: white; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'"><i data-lucide="instagram"></i></a>
-                            <a href="#" style="color: white; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'"><i data-lucide="facebook"></i></a>
-                            <a href="#" style="color: white; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'"><i data-lucide="linkedin"></i></a>
+                        <div style="display: flex; gap: 1.5rem; opacity: 0.8; align-items: center; margin-top: 1rem;">
+                            <a href="#" style="color: white; transition: color 0.3s;" onmouseover="this.style.color='#60a5fa'" onmouseout="this.style.color='white'"><i data-lucide="instagram"></i></a>
+                            <a href="#" style="color: white; transition: color 0.3s;" onmouseover="this.style.color='#60a5fa'" onmouseout="this.style.color='white'"><i data-lucide="facebook"></i></a>
+                            <a href="#" style="color: white; transition: color 0.3s;" onmouseover="this.style.color='#60a5fa'" onmouseout="this.style.color='white'"><i data-lucide="linkedin"></i></a>
                         </div>
                     </div>
                 </div>
@@ -517,6 +461,56 @@
             }
             .hero-swiper .swiper-slide {
                 overflow: hidden;
+            }
+
+            /* Slide 2 Premium Layout Styling */
+            .slide2-content {
+                position: absolute !important;
+                top: 44% !important;
+                transform: translateY(-50%) !important;
+                right: 10% !important;
+                width: 100% !important;
+                max-width: 580px !important;
+                text-align: left !important;
+                z-index: 10 !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+
+            /* Responsive Overrides */
+            @media (max-width: 768px) {
+                /* Hide swiper dots and scroll indicator on mobile as requested */
+                .hero-pagination,
+                .hero-scroll-indicator {
+                    display: none !important;
+                }
+
+                /* Position slide 2 content higher on mobile to clear faces and fill top space */
+                .slide2-content {
+                    top: 22% !important;
+                    bottom: auto !important;
+                    transform: none !important;
+                    right: 5% !important;
+                    left: 5% !important;
+                    width: 90% !important;
+                    max-width: 100% !important;
+                    padding: 0 1rem !important;
+                    text-align: center !important;
+                }
+                .slide2-content h2 {
+                    font-size: clamp(2rem, 5vw, 2.5rem) !important;
+                    text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+                }
+                .slide2-content p {
+                    font-size: 1.05rem !important;
+                    margin-bottom: 2rem !important;
+                    text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+                }
+                .slide2-content .btn-vip {
+                    padding: 1.1rem 2.8rem !important;
+                    font-size: 1.05rem !important;
+                    box-shadow: var(--shadow-premium);
+                }
             }
         </style>
     </main>

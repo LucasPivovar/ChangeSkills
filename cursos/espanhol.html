@@ -4,60 +4,140 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Espanhol | Change Skills Idiomas</title>
+    <meta name="description" content="Aprenda Espanhol na Change Skills Idiomas. Programas para jovens e adultos com materiais Compañeros e VITAMINA. Aulas personalizadas e metodologia comunicativa.">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/base.css">
     <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .course-card {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-premium);
+        }
+        .course-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        .course-content {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .course-content h3 {
+            color: var(--primary-dark);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .course-info {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .course-info strong {
+            color: var(--primary-dark);
+        }
+        .course-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--gray);
+            margin: 1.5rem 0;
+            flex-grow: 1;
+        }
+        .btn-course {
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 1rem;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 700;
+            transition: var(--transition);
+            display: block;
+        }
+        .btn-course:hover {
+            background: var(--primary-dark);
+            transform: scale(1.02);
+        }
+
+        @media (max-width: 992px) {
+            .courses-grid { grid-template-columns: 1fr; max-width: 480px; }
+        }
+    </style>
 </head>
 <body style="background: white;">
-    <!-- 1. Menu Principal (Identical to Index) -->
-    <header
-        style="position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(255,255,255,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05);">
-        <nav class="container"
-            style="height: 80px; display: flex; justify-content: space-between; align-items: center;">
+    <!-- Menu Principal -->
+    <header style="position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(255,255,255,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05);">
+        <nav class="container" style="height: 80px; display: flex; justify-content: space-between; align-items: center;">
             <a href="../index.html" style="transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'"
                 onmouseout="this.style.transform='scale(1)'">
                 <img src="https://changeskills.com.br/wp-content/uploads/2022/11/logo-change.png" alt="Logo"
                     style="height: 45px;">
             </a>
-            
             <button class="mobile-menu-btn" style="display: none; background: transparent; border: none; cursor: pointer; color: var(--primary-dark); z-index: 1001;">
                 <i data-lucide="menu" style="width: 32px; height: 32px;"></i>
             </button>
             <ul class="nav-list" style="display: flex; gap: 3rem; list-style: none; align-items: center;">
-                <li><a href="../index.html#escola"
-                        style="text-decoration: none; color: var(--primary-dark); font-weight: 600; transition: all 0.3s; position: relative;"
-                        onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'"
-                        onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
+                <li style="position: relative;">
+                    <a href="../index.html" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
+                       onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
+                       onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
+                        Início
+                        <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
+                    </a>
+                </li>
+                <li style="position: relative;">
+                    <a href="../nossa-escola.html" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
+                       onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
+                       onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
                         Nossa Escola
-                        <span class="nav-line" style="position: absolute; bottom: -8px; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
-                    </a></li>
-                <li><a href="../index.html#cursos"
-                        style="text-decoration: none; color: var(--primary-dark); font-weight: 600; transition: all 0.3s; position: relative;"
-                        onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'"
-                        onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
+                        <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
+                    </a>
+                </li>
+                <li style="position: relative;">
+                    <a href="../index.html#cursos" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
+                       onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
+                       onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
                         Cursos
-                        <span class="nav-line" style="position: absolute; bottom: -8px; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
-                    </a></li>
-                <li><a href="../index.html#servicos"
-                        style="text-decoration: none; color: var(--primary-dark); font-weight: 600; transition: all 0.3s; position: relative;"
-                        onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'"
-                        onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
-                        Serviços
-                        <span class="nav-line" style="position: absolute; bottom: -8px; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
-                    </a></li>
-                <li><a href="../contato.html"
-                        style="text-decoration: none; color: var(--primary-dark); font-weight: 600; transition: all 0.3s; position: relative;"
-                        onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'"
-                        onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
+                        <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
+                    </a>
+                </li>
+                <li style="position: relative;">
+                    <a href="../nossos-teachers.html" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
+                       onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
+                       onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
+                        Professores
+                        <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
+                    </a>
+                </li>
+                <li style="position: relative;">
+                    <a href="../contato.html" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
+                       onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
+                       onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
                         Contato
-                        <span class="nav-line" style="position: absolute; bottom: -8px; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
-                    </a></li>
-                <li><a href="../index.html#area-do-aluno"
-                        style="background: var(--primary-dark); color: white; padding: 0.8rem 2rem; border-radius: 100px; text-decoration: none; font-weight: 600; transition: var(--transition); box-shadow: 0 10px 20px rgba(0,0,0,0.1); border: 2px solid transparent;"
-                        onmouseover="this.style.transform='translateY(-3px)'; this.style.backgroundColor='var(--primary)'; this.style.borderColor='var(--accent)'"
-                        onmouseout="this.style.transform='translateY(0)'; this.style.backgroundColor='var(--primary-dark)'; this.style.borderColor='transparent'">
-                        Área do Aluno
-                    </a></li>
+                        <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
+                    </a>
+                </li>
             </ul>
         </nav>
     </header>
@@ -65,29 +145,52 @@
     <div class="menu-overlay"></div>
 
     <main>
-        <section style="position: relative; padding: 240px 0 150px 0; min-height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; background: #001233;">
-            <img src="https://images.unsplash.com/photo-1543783207-ec64e4d95325?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; opacity: 0.6;">
+        <!-- Hero Section -->
+        <section style="position: relative; padding: 220px 0 120px 0; min-height: 70vh; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; background: #001233;">
+            <img src="https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&w=2000&q=80" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; opacity: 0.6;">
             <div style="position: absolute; inset: 0; background: linear-gradient(to top, var(--primary-dark), transparent); z-index: 1;"></div>
             <div class="container reveal active" style="position: relative; z-index: 2;">
-                <h1 style="font-size: 6rem; color: white; margin-bottom: 2.5rem; line-height: 1;">Aprenda <span style="color: var(--accent);">Espanhol</span></h1>
-                <p style="font-size: 1.6rem; color: rgba(255,255,255,0.9); font-weight: 300; max-width: 800px; margin: 0 auto; line-height: 1.6;">
-                    Domine o segundo idioma mais falado no mundo dos negócios e viagens.
+                <span style="color: var(--accent); font-weight: 800; letter-spacing: 0.3em; text-transform: uppercase; display: inline-block; margin-bottom: 2rem;">Compañeros &amp; VITAMINA — SGEL</span>
+                <h1 style="font-size: 5rem; color: white; margin-bottom: 2rem; line-height: 1;">Nossos Cursos de <span style="color: var(--accent);">Espanhol</span></h1>
+                <p style="font-size: 1.4rem; color: rgba(255,255,255,0.9); font-weight: 300; max-width: 800px; margin: 0 auto; line-height: 1.6;">
+                    Dois programas para cada fase da vida — jovens e adultos. Aprenda espanhol de forma prática, comunicativa e cultural.
                 </p>
             </div>
         </section>
 
-        <section class="container" style="padding: 100px 0; text-align: center;">
-            <div class="glass-card reveal" style="padding: 6rem 3rem; background: #f8faff; border: none;">
-                <i data-lucide="info" style="color: var(--primary); width: 60px; height: 60px; margin-bottom: 2rem;"></i>
-                <h2 style="font-size: 2.5rem; color: var(--primary-dark); margin-bottom: 1.5rem;">Cursos em Breve</h2>
-                <p style="font-size: 1.3rem; color: var(--gray); max-width: 700px; margin: 0 auto;">
-                    Estamos finalizando nossa nova grade curricular de Espanhol. Deixe seu contato para ser avisado do lançamento!
-                </p>
+        <!-- Modality Grid -->
+        <section id="cursos" class="container" style="padding: 100px 0;">
+            <div class="courses-grid">
+
+                <!-- 1. JOVENS -->
+                <div class="course-card reveal">
+                    <img src="../assets/img/espanol card1.jpeg" alt="Espanhol para Jovens — Change Skills">
+                    <div class="course-content">
+                        <h3>🇪🇸 ESPANHOL PARA JOVENS</h3>
+                        <div class="course-info"><i data-lucide="book" style="width: 16px;"></i> <strong>Material:</strong> Nuevo Compañeros (SGEL)</div>
+                        <div class="course-info"><i data-lucide="layers" style="width: 16px;"></i> <strong>Programa:</strong> 4 Níveis</div>
+                        <p class="course-description">Aprendizado dinâmico, interativo e comunicativo. Curso leve e divertido que estimula a comunicação natural através de atividades interativas, projetos e situações reais do cotidiano.</p>
+                        <a href="modalidades/espanhol-jovens.html" class="btn-course">Saiba Mais</a>
+                    </div>
+                </div>
+
+                <!-- 2. ADULTOS -->
+                <div class="course-card reveal">
+                    <img src="../assets/img/adult espanol.jpeg" alt="Espanhol para Adultos — Change Skills">
+                    <div class="course-content">
+                        <h3>🇪🇸 ESPANHOL PARA ADULTOS</h3>
+                        <div class="course-info"><i data-lucide="book" style="width: 16px;"></i> <strong>Material:</strong> VITAMINA (SGEL)</div>
+                        <div class="course-info"><i data-lucide="layers" style="width: 16px;"></i> <strong>Programa:</strong> 5 Níveis</div>
+                        <p class="course-description">Espanhol para viagens, carreira e comunicação internacional. Ideal para quem deseja aprender de forma prática e conectada às situações reais da vida pessoal e profissional.</p>
+                        <a href="modalidades/espanhol-adultos.html" class="btn-course">Saiba Mais</a>
+                    </div>
+                </div>
+
             </div>
         </section>
     </main>
 
-    <!-- 8. Rodapé -->
+    <!-- Rodapé -->
     <footer style="padding: 120px 0 60px 0; background: var(--primary-dark); color: white;">
         <div class="container">
             <div style="display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 4rem; margin-bottom: 4rem;">
@@ -117,7 +220,6 @@
                     <h4 style="color: var(--accent); margin-bottom: 2.5rem; font-size: 1.2rem;">Serviços</h4>
                     <ul style="list-style: none; display: flex; flex-direction: column; gap: 1.2rem; opacity: 0.7; margin-bottom: 2rem;">
                         <li><a href="../services/traducoes.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Traduções</a></li>
-                        <li><a href="../services/agendamento-nivelamento.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Nivelamento</a></li>
                         <li><a href="../services/aulas-conversacao.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Aulas de Conversação</a></li>
                     </ul>
                     <div style="display: flex; gap: 1.5rem; opacity: 0.8;">
@@ -134,8 +236,8 @@
         </div>
     </footer>
 
-    <!-- WhatsApp Floating Action Button (Branding Identity) -->
-    <a href="https://wa.me/5549999124040" target="_blank" 
+    <!-- WhatsApp FAB -->
+    <a href="https://wa.me/5549999124040" target="_blank"
        style="position: fixed; bottom: 30px; right: 30px; width: 65px; height: 65px; background: #25D366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 15px 35px rgba(37, 211, 102, 0.3); z-index: 1000; transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);"
        onmouseover="this.style.transform='scale(1.1) translateY(-10px)'; this.style.boxShadow='0 25px 45px rgba(37, 211, 102, 0.4)'"
        onmouseout="this.style.transform='scale(1) translateY(0)'; this.style.boxShadow='0 15px 35px rgba(37, 211, 102, 0.3)'">
@@ -152,7 +254,6 @@
 
     <script>
         lucide.createIcons();
-        // Mobile Menu Toggle
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navList = document.querySelector('.nav-list');
         const navLinks = document.querySelectorAll('.nav-list a');
@@ -162,7 +263,6 @@
             mobileMenuBtn.addEventListener('click', () => {
                 navList.classList.toggle('active');
                 if(menuOverlay) menuOverlay.classList.toggle('active');
-                
                 const icon = mobileMenuBtn.querySelector('i');
                 if(navList.classList.contains('active')) {
                     icon.setAttribute('data-lucide', 'x');
@@ -171,8 +271,6 @@
                 }
                 lucide.createIcons();
             });
-
-            // Close menu when a link is clicked
             navLinks.forEach(link => {
                 link.addEventListener('click', () => {
                     navList.classList.remove('active');
@@ -181,8 +279,6 @@
                     lucide.createIcons();
                 });
             });
-
-            // Close menu when overlay is clicked
             if(menuOverlay) {
                 menuOverlay.addEventListener('click', () => {
                     navList.classList.remove('active');

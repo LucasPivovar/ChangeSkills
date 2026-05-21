@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portuguese for Adults | Change Skills Idiomas</title>
+    <meta name="description" content="Portuguese for adults at Change Skills with Novo Avenida Brasil material. Ideal for everyday life, work, travel, and cultural immersion. 3 levels from A1 to C1.">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/base.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .back-nav {
+            position: fixed; top: 80px; left: 0; width: 100%;
+            background: rgba(255,255,255,0.9); backdrop-filter: blur(10px);
+            z-index: 999; padding: 15px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .hero-section { padding-top: 180px; padding-bottom: 80px; }
+        .hero-grid {
+            display: grid; grid-template-columns: 1.15fr 0.85fr;
+            gap: 4rem; align-items: center;
+        }
+        .hero-image-container { position: relative; text-align: right; }
+        .hero-image-container img {
+            width: 100%; max-width: 440px; border-radius: 30px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+        }
+        .feature-card {
+            background: white; padding: 2.5rem; border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: var(--transition); border: 1px solid rgba(0,0,0,0.03);
+        }
+        .feature-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-premium); }
+
+        /* Material grid – 3 books */
+        .material-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .material-item { text-align: center; }
+        .material-item img {
+            width: 100%; height: 260px; object-fit: contain;
+            border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            margin-bottom: 1rem; transition: var(--transition);
+            background: #f8faff; padding: 0.8rem;
+        }
+        .material-item:hover img { transform: scale(1.05) translateY(-5px); }
+        .material-item h4 { color: var(--primary-dark); font-size: 1.1rem; margin-bottom: 0.4rem; }
+        .material-item .nivel-badge {
+            display: inline-block; background: var(--primary); color: white;
+            font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.8rem;
+            border-radius: 100px; margin-bottom: 0.5rem;
+        }
+        .material-item p { font-size: 0.85rem; color: var(--gray); line-height: 1.4; }
+
+        /* Level cards */
+        .level-card {
+            background: white; border-radius: 20px; padding: 2.5rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--primary);
+            transition: var(--transition); display: grid;
+            grid-template-columns: 1fr 1.5fr; gap: 2rem; align-items: start;
+        }
+        .level-card:hover { transform: translateX(8px); box-shadow: var(--shadow-premium); }
+        .level-card.alt { border-left-color: var(--accent); }
+        .level-left {}
+        .level-number {
+            font-size: 0.75rem; font-weight: 800; letter-spacing: 0.15em;
+            text-transform: uppercase; color: var(--primary); margin-bottom: 0.3rem;
+        }
+        .level-cefr {
+            display: inline-block; background: var(--primary); color: white;
+            font-size: 0.85rem; font-weight: 800; padding: 0.3rem 1rem;
+            border-radius: 100px; margin-bottom: 1rem;
+        }
+        .level-card.alt .level-cefr { background: var(--accent); color: var(--primary-dark); }
+        .level-card.alt .level-number { color: var(--accent); }
+        .level-title { font-size: 1.35rem; color: var(--primary-dark); font-weight: 800; margin-bottom: 0.8rem; }
+        .level-book { font-size: 0.85rem; color: var(--gray); font-style: italic; }
+        .topic-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+        .topic-tag {
+            background: #f0f4ff; color: var(--primary);
+            font-size: 0.78rem; font-weight: 600;
+            padding: 0.25rem 0.75rem; border-radius: 100px;
+        }
+
+        /* Para quem section */
+        .target-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+        }
+        .target-item {
+            background: white; border-radius: 18px; padding: 2rem 1.5rem;
+            text-align: center; box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.03); transition: var(--transition);
+        }
+        .target-item:hover { transform: translateY(-5px); box-shadow: var(--shadow-premium); }
+        .target-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+
+        @media (max-width: 992px) {
+            .hero-grid { grid-template-columns: 1fr; text-align: center; }
+            .hero-image-container { text-align: center; order: -1; }
+            .level-card { grid-template-columns: 1fr; }
+            .target-grid { grid-template-columns: repeat(2, 1fr); }
+            .material-grid-3 { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+        }
+        @media (max-width: 600px) {
+            .target-grid { grid-template-columns: 1fr; }
+            .material-grid-3 { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
+        }
+    </style>
+</head>
+<body style="background: white;">
+
+    <!-- Header -->
+    <header style="position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(255,255,255,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05);">
+        <nav class="container" style="height: 80px; display: flex; justify-content: space-between; align-items: center;">
+            <a href="../../index.html" style="transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                <img src="https://changeskills.com.br/wp-content/uploads/2022/11/logo-change.png" alt="Logo" style="height: 45px;">
+            </a>
+            <button class="mobile-menu-btn" style="display: none; background: transparent; border: none; cursor: pointer; color: var(--primary-dark); z-index: 1001;">
+                <i data-lucide="menu" style="width: 32px; height: 32px;"></i>
+            </button>
+            <ul class="nav-list" style="display: flex; gap: 3rem; list-style: none; align-items: center;">
+                <li style="position: relative;">
+                    <a href="../../index.html" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
+                       onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
+                       onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
+                        Início
+                        <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
+                    </a>
+                </li>
+                <li style="position: relative;">
+                    <a href="../../nossa-escola.html" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
+                       onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
+                       onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
+                        Nossa Escola
+                        <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
+                    </a>
+                </li>
+                <li style="position: relative;">
+                    <a href="../../index.html#cursos" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
+                       onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
+                       onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
+                        Cursos
+                        <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
+                    </a>
+                </li>
+                <li style="position: relative;">
+                    <a href="../../nossos-teachers.html" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
+                       onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
+                       onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
+                        Professores
+                        <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
+                    </a>
+                </li>
+                <li style="position: relative;">
+                    <a href="../../contato.html" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
+                       onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
+                       onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
+                        Contato
+                        <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="menu-overlay"></div>
+
+    <div class="back-nav">
+        <div class="container">
+            <a href="../portugues.html" style="display: inline-flex; align-items: center; gap: 8px; color: var(--primary); text-decoration: none; font-weight: 600; transition: transform 0.3s;" onmouseover="this.style.transform='translateX(-5px)'" onmouseout="this.style.transform='translateX(0)'">
+                <i data-lucide="arrow-left" style="width: 20px;"></i> Voltar para Português
+            </a>
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container hero-grid reveal active">
+                <div style="text-align: left;">
+                    <span style="color: var(--primary); font-weight: 800; letter-spacing: 0.2em; display: inline-block; margin-bottom: 1.5rem; text-transform: uppercase;">🇧🇷 Portuguese for Adults</span>
+                    <h1 style="font-size: 4.2rem; margin-bottom: 2rem; line-height: 1.1; color: var(--primary-dark);">Portuguese for <span style="color: var(--primary);">Adults</span></h1>
+                    <p style="font-size: 1.25rem; color: var(--primary-dark); font-weight: 600; margin-bottom: 1.5rem;">
+                        Everyday Life, Work, Travel, and Cultural Immersion
+                    </p>
+                    <p style="font-size: 1.1rem; color: var(--gray); margin-bottom: 3rem; line-height: 1.8; max-width: 600px;">
+                        Our adult Portuguese program is designed for foreigners who want to communicate confidently in Brazil for personal, academic, professional, or travel purposes. Classes focus on practical communication and real-life situations while gradually developing grammar, vocabulary, listening, reading, and speaking skills.
+                    </p>
+                    <a href="#agendamento" class="btn-vip" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; padding: 1.1rem 3rem; font-size: 1.2rem;">
+                        Schedule a trial class <i data-lucide="arrow-right" style="width: 22px;"></i>
+                    </a>
+                </div>
+                <div class="hero-image-container">
+                    <img src="../../assets/img/portugues2.jpeg" alt="Novo Avenida Brasil Portuguese for Adults">
+                </div>
+            </div>
+        </section>
+
+        <!-- Como Funciona -->
+        <section style="background: #f8faff; padding: 100px 0;">
+            <div class="container">
+                <div class="reveal" style="margin-bottom: 5rem; text-align: left;">
+                    <span style="color: var(--primary); font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase;">Methodology</span>
+                    <h2 style="margin-top: 1rem; font-size: 3rem; color: var(--primary-dark);">Learning Portuguese Made Natural</h2>
+                    <p style="max-width: 800px; margin: 2rem 0; color: var(--gray); font-size: 1.15rem; line-height: 1.8;">
+                        Classes are fully personalized with native Brazilian teachers, focused on active oral interaction, cultural immersion, and real-life situations, respecting your pace and individual goals.
+                    </p>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+                    <div class="feature-card reveal">
+                        <i data-lucide="message-square" style="color: var(--primary); width: 40px; height: 40px; margin-bottom: 1.5rem;"></i>
+                        <h3 style="color: var(--primary-dark); font-size: 1.3rem; margin-bottom: 1rem;">Communication First</h3>
+                        <p style="color: var(--gray); line-height: 1.6;">Our methodology prioritizes functional, natural communication to help you speak with confidence in daily situations in Brazil.</p>
+                    </div>
+                    <div class="feature-card reveal">
+                        <i data-lucide="compass" style="color: var(--accent); width: 40px; height: 40px; margin-bottom: 1.5rem;"></i>
+                        <h3 style="color: var(--primary-dark); font-size: 1.3rem; margin-bottom: 1rem;">Cultural Immersion</h3>
+                        <p style="color: var(--gray); line-height: 1.6;">Explore Brazilian customs, cultural nuances, habits, traditions, and local expressions integrated into every lesson.</p>
+                    </div>
+                    <div class="feature-card reveal">
+                        <i data-lucide="settings" style="color: var(--primary); width: 40px; height: 40px; margin-bottom: 1.5rem;"></i>
+                        <h3 style="color: var(--primary-dark); font-size: 1.3rem; margin-bottom: 1rem;">100% Personalized</h3>
+                        <p style="color: var(--gray); line-height: 1.6;">Classes fully adapted to your professional domain, travel itinerary, academic needs, and learning style.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Material Novo Avenida Brasil -->
+        <section style="padding: 100px 0; background: white;" id="material">
+            <div class="container reveal">
+                <div style="text-align: left; margin-bottom: 5rem;">
+                    <span style="color: var(--primary); font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase;">Course Material</span>
+                    <h2 style="margin-top: 1rem; font-size: 3rem; color: var(--primary-dark);">Novo Avenida Brasil</h2>
+                    <p style="max-width: 900px; margin: 2rem 0; color: var(--gray); font-size: 1.15rem; line-height: 1.8;">
+                        The Novo Avenida Brasil series is one of the most recognized and highly respected Portuguese teaching materials for foreigners. It integrates grammar and conversation, ensuring practical vocabulary development and intensive practice.
+                    </p>
+                </div>
+                <div class="material-grid-3">
+                    <div class="material-item reveal">
+                        <img src="../../assets/img/Livros - Portuguese/Livros/WhatsApp Image 2026-05-19 at 17.04.44 (1).jpeg" alt="Novo Avenida Brasil 1">
+                        <span class="nivel-badge">Level 1 — A1/A2</span>
+                        <h4>Novo Avenida Brasil 1</h4>
+                        <p>Survival Portuguese. Focus on introductions, basic needs, routines, and transportation.</p>
+                    </div>
+                    <div class="material-item reveal">
+                        <img src="../../assets/img/Livros - Portuguese/Livros/WhatsApp Image 2026-05-19 at 17.04.44 (2).jpeg" alt="Novo Avenida Brasil 2">
+                        <span class="nivel-badge">Level 2 — B1/B2</span>
+                        <h4>Novo Avenida Brasil 2</h4>
+                        <p>Everyday Communication. Social conversations, work, health, and Brazilian customs.</p>
+                    </div>
+                    <div class="material-item reveal">
+                        <img src="../../assets/img/Livros - Portuguese/Livros/WhatsApp Image 2026-05-19 at 17.04.43.jpeg" alt="Novo Avenida Brasil 3">
+                        <span class="nivel-badge">Level 3 — B2/C1</span>
+                        <h4>Novo Avenida Brasil 3</h4>
+                        <p>Advanced &amp; Cultural Fluency. Professional environments, society, and complex interactions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Estrutura dos 3 Níveis -->
+        <section style="background: #f8faff; padding: 100px 0;">
+            <div class="container">
+                <div class="reveal" style="text-align: left; margin-bottom: 5rem;">
+                    <span style="color: var(--primary); font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase;">Program Details</span>
+                    <h2 style="margin-top: 1rem; font-size: 3rem; color: var(--primary-dark);">3 Levels — From Beginner to Advanced</h2>
+                </div>
+                <div style="display: grid; gap: 2rem;">
+
+                    <div class="level-card reveal">
+                        <div class="level-left">
+                            <div class="level-number">Level 1</div>
+                            <span class="level-cefr">A1-A2</span>
+                            <div class="level-title">Survival Portuguese</div>
+                            <p class="level-book">📚 Novo Avenida Brasil 1</p>
+                        </div>
+                        <div>
+                            <p style="color: var(--gray); line-height: 1.7; margin-bottom: 1rem;">Students learn how to introduce themselves, navigate basic daily situations, order food and shop, ask for directions, and communicate in basic social scenarios.</p>
+                            <div class="topic-tags">
+                                <span class="topic-tag">Greetings and introductions</span>
+                                <span class="topic-tag">Transportation</span>
+                                <span class="topic-tag">Restaurants and cafés</span>
+                                <span class="topic-tag">Hotels and travel</span>
+                                <span class="topic-tag">Numbers, dates, and schedules</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="level-card alt reveal">
+                        <div class="level-left">
+                            <div class="level-number" style="color: var(--accent);">Level 2</div>
+                            <span class="level-cefr">B1-B2</span>
+                            <div class="level-title">Everyday Communication</div>
+                            <p class="level-book">📚 Novo Avenida Brasil 2</p>
+                        </div>
+                        <div>
+                            <p style="color: var(--gray); line-height: 1.7; margin-bottom: 1rem;">Students develop greater fluency and confidence in social conversations, daily routines, professional and academic interactions, and Brazilian customs.</p>
+                            <div class="topic-tags">
+                                <span class="topic-tag">Work and studies</span>
+                                <span class="topic-tag">Health and appointments</span>
+                                <span class="topic-tag">Social interactions</span>
+                                <span class="topic-tag">Leisure and entertainment</span>
+                                <span class="topic-tag">Brazilian lifestyle and traditions</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="level-card reveal">
+                        <div class="level-left">
+                            <div class="level-number">Level 3</div>
+                            <span class="level-cefr">B2-C1</span>
+                            <div class="level-title">Advanced &amp; Cultural Fluency</div>
+                            <p class="level-book">📚 Novo Avenida Brasil 3</p>
+                        </div>
+                        <div>
+                            <p style="color: var(--gray); line-height: 1.7; margin-bottom: 1rem;">Students refine natural conversation skills, advanced listening and comprehension, argumentation and opinions, professional communication, and cultural interpretation.</p>
+                            <div class="topic-tags">
+                                <span class="topic-tag">News and current events</span>
+                                <span class="topic-tag">Professional environments</span>
+                                <span class="topic-tag">Academic discussions</span>
+                                <span class="topic-tag">Brazilian society and culture</span>
+                                <span class="topic-tag">Advanced real-life communication</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Para quem é este curso -->
+        <section style="padding: 100px 0; background: white;">
+            <div class="container">
+                <div class="reveal" style="text-align: center; margin-bottom: 5rem;">
+                    <span style="color: var(--primary); font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase;">Target Audience</span>
+                    <h2 style="margin-top: 1rem; font-size: 3rem; color: var(--primary-dark);">Who Is This Program For?</h2>
+                </div>
+                <div class="target-grid reveal">
+                    <div class="target-item">
+                        <span class="target-icon">🌍</span>
+                        <h3 style="color: var(--primary-dark); margin-bottom: 0.5rem; font-size: 1.15rem;">Expats &amp; Families</h3>
+                        <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.6;">Foreigners living or relocating to Brazil who want to integrate naturally and confidently into daily life.</p>
+                    </div>
+                    <div class="target-item">
+                        <span class="target-icon">💼</span>
+                        <h3 style="color: var(--primary-dark); margin-bottom: 0.5rem; font-size: 1.15rem;">Professionals</h3>
+                        <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.6;">International executives and business professionals collaborating with Brazilian teams or clients.</p>
+                    </div>
+                    <div class="target-item">
+                        <span class="target-icon">✈️</span>
+                        <h3 style="color: var(--primary-dark); margin-bottom: 0.5rem; font-size: 1.15rem;">Travelers &amp; Spouses</h3>
+                        <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.6;">Anyone visiting Brazil or married to a Brazilian, wishing to build deep and meaningful connections.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Agendamento -->
+        <section id="agendamento" style="background: var(--primary-dark); padding: 120px 0;">
+            <div class="container reveal">
+                <div style="max-width: 950px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.1fr; gap: 6rem; align-items: center;">
+                    <div style="color: white;">
+                        <span style="color: var(--accent); font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; font-size: 0.9rem;">Free Assessment</span>
+                        <h2 style="font-size: 3rem; margin: 1.5rem 0; line-height: 1.2;">Schedule your <span style="color: var(--accent);">trial class</span></h2>
+                        <p style="font-size: 1.1rem; opacity: 0.85; margin-bottom: 3rem; line-height: 1.8;">Connect with our team to evaluate your current proficiency level and build a fully customized, welcoming study plan at your pace.</p>
+                        <div style="display: flex; flex-direction: column; gap: 1.2rem; margin-bottom: 2.5rem;">
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <div style="width: 36px; height: 36px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary-dark); flex-shrink: 0;"><i data-lucide="check" style="width: 18px;"></i></div>
+                                <span style="font-weight: 600; font-size: 1.05rem;">Free professional proficiency placement</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <div style="width: 36px; height: 36px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary-dark); flex-shrink: 0;"><i data-lucide="check" style="width: 18px;"></i></div>
+                                <span style="font-weight: 600; font-size: 1.05rem;">Fully personalized lessons and schedule</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <div style="width: 36px; height: 36px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary-dark); flex-shrink: 0;"><i data-lucide="check" style="width: 18px;"></i></div>
+                                <span style="font-weight: 600; font-size: 1.05rem;">Flexible online hours for busy adults</span>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/5549999124040" target="_blank" style="display: inline-flex; align-items: center; gap: 10px; color: white; text-decoration: none; font-weight: 600; opacity: 0.85; font-size: 1.05rem;">
+                            <i data-lucide="message-circle" style="width: 22px;"></i> Or message on WhatsApp
+                        </a>
+                    </div>
+                    <div style="background: white; padding: 3.5rem; border-radius: 30px; box-shadow: 0 30px 60px rgba(0,0,0,0.3);">
+                        <h3 style="color: var(--primary-dark); font-size: 1.5rem; margin-bottom: 2rem;">Request Information</h3>
+                        <form style="display: grid; gap: 1.2rem;">
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                                <input type="text" placeholder="First Name" style="padding: 1.1rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.1); background: #f8faff; font-family: inherit; font-size: 1rem; outline: none;">
+                                <input type="text" placeholder="Last Name" style="padding: 1.1rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.1); background: #f8faff; font-family: inherit; font-size: 1rem; outline: none;">
+                            </div>
+                            <input type="email" placeholder="Your Email" style="width: 100%; padding: 1.1rem 1.5rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.1); background: #f8faff; font-family: inherit; font-size: 1rem; outline: none;">
+                            <input type="tel" placeholder="Phone / WhatsApp" style="width: 100%; padding: 1.1rem 1.5rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.1); background: #f8faff; font-family: inherit; font-size: 1rem; outline: none;">
+                            <select style="width: 100%; padding: 1.1rem 1.5rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.1); background: #f8faff; font-family: inherit; font-size: 1rem; color: var(--gray); outline: none;">
+                                <option>Current level of Portuguese?</option>
+                                <option>Never studied Portuguese</option>
+                                <option>Beginner (A1)</option>
+                                <option>Basic (A2)</option>
+                                <option>Intermediate (B1)</option>
+                                <option>Upper-Intermediate (B2)</option>
+                                <option>Advanced (C1)</option>
+                            </select>
+                            <select style="width: 100%; padding: 1.1rem 1.5rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.1); background: #f8faff; font-family: inherit; font-size: 1rem; color: var(--gray); outline: none;">
+                                <option>What is your main goal?</option>
+                                <option>Everyday Life in Brazil</option>
+                                <option>Career / Relocation</option>
+                                <option>Travel</option>
+                                <option>Studies / Academic reasons</option>
+                                <option>Spouse / Connection</option>
+                            </select>
+                            <select style="width: 100%; padding: 1.1rem 1.5rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.1); background: #f8faff; font-family: inherit; font-size: 1rem; color: var(--gray); outline: none;">
+                                <option>How would you like us to contact you?</option>
+                                <option>Email</option>
+                                <option>WhatsApp</option>
+                                <option>Phone Call (Regular call)</option>
+                            </select>
+                            <button type="submit" class="btn-vip" style="width: 100%; border: none; cursor: pointer; padding: 1.2rem; font-size: 1.1rem;">Send Request</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer style="padding: 120px 0 60px 0; background: var(--primary-dark); color: white; border-top: 1px solid rgba(255,255,255,0.08);">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 4rem; margin-bottom: 4rem;">
+                <div>
+                    <img src="https://changeskills.com.br/wp-content/uploads/2022/11/logo-change.png" style="height: 50px; filter: brightness(0) invert(1); margin-bottom: 2.5rem;">
+                    <p style="opacity: 0.6; font-size: 1.1rem; line-height: 1.6; max-width: 300px;">A ponte definitiva entre você e o mundo. Educação com excelência global.</p>
+                </div>
+                <div>
+                    <h4 style="color: white; margin-bottom: 2.5rem; font-size: 1.2rem;">Institucional</h4>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 1.2rem; opacity: 0.7;">
+                        <li><a href="../../index.html#escola" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Nossa Escola</a></li>
+                        <li><a href="../../nossos-teachers.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Professores</a></li>
+                        <li><a href="../../services/solicitacao-certificado.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Certificados</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: white; margin-bottom: 2.5rem; font-size: 1.2rem;">Cursos</h4>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 1.2rem; opacity: 0.7;">
+                        <li><a href="../ingles.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Inglês</a></li>
+                        <li><a href="../espanhol.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Espanhol</a></li>
+                        <li><a href="../frances.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Francês</a></li>
+                        <li><a href="../portugues.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Português</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: white; margin-bottom: 2.5rem; font-size: 1.2rem;">Serviços</h4>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 1.2rem; opacity: 0.7; margin-bottom: 2rem;">
+                        <li><a href="../../services/traducoes.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Traduções</a></li>
+                        <li><a href="../../services/aulas-conversacao.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Aulas de Conversação</a></li>
+                    </ul>
+                    <div style="display: flex; gap: 1.5rem; opacity: 0.8;">
+                        <a href="#" style="color: white; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'"><i data-lucide="instagram"></i></a>
+                        <a href="#" style="color: white; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'"><i data-lucide="facebook"></i></a>
+                        <a href="#" style="color: white; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'"><i data-lucide="linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div style="opacity: 0.3; padding-top: 4rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                <span>2026 © Change Skills — Todos os direitos reservados.</span>
+                <span>Desenvolvido por <strong>Page Facilitado</strong></span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp FAB -->
+    <a href="https://wa.me/5549999124040" target="_blank"
+       style="position: fixed; bottom: 30px; right: 30px; width: 65px; height: 65px; background: #25D366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 15px 35px rgba(37, 211, 102, 0.3); z-index: 1000; transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);"
+       onmouseover="this.style.transform='scale(1.1) translateY(-10px)'; this.style.boxShadow='0 25px 45px rgba(37, 211, 102, 0.4)'"
+       onmouseout="this.style.transform='scale(1) translateY(0)'; this.style.boxShadow='0 15px 35px rgba(37, 211, 102, 0.3)'">
+        <i data-lucide="message-circle" style="width: 32px; height: 32px;"></i>
+        <span style="position: absolute; right: 80px; background: white; color: var(--primary-dark); padding: 0.8rem 1.5rem; border-radius: 12px; font-weight: 700; font-size: 0.9rem; white-space: nowrap; box-shadow: 0 10px 25px rgba(0,0,0,0.1); opacity: 0; transform: translateX(20px); transition: all 0.3s; pointer-events: none;" class="wa-tooltip">Fale Conosco</span>
+    </a>
+    <style>a:hover .wa-tooltip { opacity: 1 !important; transform: translateX(0) !important; }</style>
+
+    <script>
+        lucide.createIcons();
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navList = document.querySelector('.nav-list');
+        const navLinks = document.querySelectorAll('.nav-list a');
+        const menuOverlay = document.querySelector('.menu-overlay');
+        if(mobileMenuBtn && navList) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navList.classList.toggle('active');
+                if(menuOverlay) menuOverlay.classList.toggle('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.setAttribute('data-lucide', navList.classList.contains('active') ? 'x' : 'menu');
+                lucide.createIcons();
+            });
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navList.classList.remove('active');
+                    if(menuOverlay) menuOverlay.classList.remove('active');
+                    mobileMenuBtn.querySelector('i').setAttribute('data-lucide', 'menu');
+                    lucide.createIcons();
+                });
+            });
+            if(menuOverlay) {
+                menuOverlay.addEventListener('click', () => {
+                    navList.classList.remove('active');
+                    menuOverlay.classList.remove('active');
+                    mobileMenuBtn.querySelector('i').setAttribute('data-lucide', 'menu');
+                    lucide.createIcons();
+                });
+            }
+        }
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

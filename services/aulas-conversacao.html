@@ -16,6 +16,23 @@
         .radio-group { display: flex; flex-direction: column; gap: 0.8rem; margin-top: 0.5rem; }
         .radio-item { display: flex; align-items: center; gap: 0.5rem; color: var(--gray); font-size: 1rem; cursor: pointer; }
         .radio-item input[type="radio"] { width: 18px; height: 18px; accent-color: var(--primary); cursor: pointer; }
+
+        /* Wizard Styles */
+        .wizard-progress { display: flex; justify-content: space-between; position: relative; margin-bottom: 3rem; max-width: 400px; margin-left: auto; margin-right: auto; }
+        .wizard-progress::before { content: ''; position: absolute; top: 50%; left: 0; width: 100%; height: 2px; background: #eee; z-index: 1; transform: translateY(-50%); }
+        .progress-bar { position: absolute; top: 50%; left: 0; height: 2px; background: var(--primary); z-index: 2; transform: translateY(-50%); transition: 0.4s; width: 0%; }
+        .wizard-step-indicator { width: 40px; height: 40px; background: white; border: 2px solid #eee; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--gray); z-index: 3; position: relative; transition: 0.4s; }
+        .wizard-step-indicator.active { border-color: var(--primary); background: var(--primary); color: white; }
+        .wizard-step-indicator.completed { border-color: var(--primary); background: white; color: var(--primary); }
+        .step-form { display: none; animation: fadeIn 0.5s; }
+        .step-form.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .wizard-btns { display: flex; justify-content: space-between; margin-top: 2rem; }
+        .btn-wizard { padding: 1rem 2rem; border-radius: 100px; border: none; font-weight: 600; cursor: pointer; transition: 0.3s; font-size: 1rem; }
+        .btn-prev { background: #eee; color: var(--gray); }
+        .btn-prev:hover { background: #ddd; }
+        .btn-next { background: var(--primary); color: white; }
+        .btn-next:hover { background: var(--primary-dark); }
     </style>
 </head>
 <body style="background: var(--bg-light);">
@@ -33,40 +50,46 @@
                 <i data-lucide="menu" style="width: 32px; height: 32px;"></i>
             </button>
             <ul class="nav-list" style="display: flex; gap: 3rem; list-style: none; align-items: center;">
-                <li><a href="../index.html#escola"
-                        style="text-decoration: none; color: var(--primary-dark); font-weight: 600; transition: all 0.3s; position: relative;"
-                        onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'"
-                        onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
+                <li style="position: relative;">
+                    <a href="../index.html" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
+                       onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
+                       onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
+                        Início
+                        <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
+                    </a>
+                </li>
+                <li style="position: relative;">
+                    <a href="../nossa-escola.html" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
+                       onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
+                       onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
                         Nossa Escola
-                        <span class="nav-line" style="position: absolute; bottom: -8px; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
-                    </a></li>
-                <li><a href="../index.html#cursos"
-                        style="text-decoration: none; color: var(--primary-dark); font-weight: 600; transition: all 0.3s; position: relative;"
-                        onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'"
-                        onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
+                        <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
+                    </a>
+                </li>
+                <li style="position: relative;">
+                    <a href="../index.html#cursos" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
+                       onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
+                       onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
                         Cursos
-                        <span class="nav-line" style="position: absolute; bottom: -8px; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
-                    </a></li>
-                <li><a href="../index.html#servicos"
-                        style="text-decoration: none; color: var(--primary-dark); font-weight: 600; transition: all 0.3s; position: relative;"
-                        onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'"
-                        onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
-                        Serviços
-                        <span class="nav-line" style="position: absolute; bottom: -8px; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
-                    </a></li>
-                <li><a href="../contato.html"
-                        style="text-decoration: none; color: var(--primary-dark); font-weight: 600; transition: all 0.3s; position: relative;"
-                        onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'"
-                        onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
+                        <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
+                    </a>
+                </li>
+                <li style="position: relative;">
+                    <a href="../nossos-teachers.html" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
+                       onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
+                       onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
+                        Professores
+                        <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
+                    </a>
+                </li>
+                <li style="position: relative;">
+                    <a href="../contato.html" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
+                       onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
+                       onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
                         Contato
-                        <span class="nav-line" style="position: absolute; bottom: -8px; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
-                    </a></li>
-                <li><a href="../index.html#area-do-aluno"
-                        style="background: var(--primary-dark); color: white; padding: 0.8rem 2rem; border-radius: 100px; text-decoration: none; font-weight: 600; transition: var(--transition); box-shadow: 0 10px 20px rgba(0,0,0,0.1); border: 2px solid transparent;"
-                        onmouseover="this.style.transform='translateY(-3px)'; this.style.backgroundColor='var(--primary)'; this.style.borderColor='var(--accent)'"
-                        onmouseout="this.style.transform='translateY(0)'; this.style.backgroundColor='var(--primary-dark)'; this.style.borderColor='transparent'">
-                        Área do Aluno
-                    </a></li>
+                        <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
+                    </a>
+                </li>
             </ul>
         </nav>
     </header>
@@ -126,39 +149,76 @@
                     <p style="color: var(--gray); font-size: 1.1rem;">Preencha seus dados e receba mais informações sobre o curso.</p>
                 </div>
                 
-                <form style="display: flex; flex-direction: column; gap: 2rem;">
+                <form id="conversacao-form" style="display: flex; flex-direction: column; gap: 2rem;">
                     
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
-                        <div><label>Nome *</label><input type="text" class="form-input" placeholder="Nome" required></div>
-                        <div><label>Sobrenome</label><input type="text" class="form-input" placeholder="Sobrenome"></div>
+                    <div class="wizard-progress">
+                        <div class="progress-bar" id="progress-bar"></div>
+                        <div class="wizard-step-indicator active" id="indicator-1">1</div>
+                        <div class="wizard-step-indicator" id="indicator-2">2</div>
                     </div>
 
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
-                        <div><label>E-mail *</label><input type="email" class="form-input" placeholder="Seu melhor e-mail" required></div>
-                        <div><label>Número de telefone *</label><input type="tel" class="form-input" placeholder="(DDD) 90000-0000" required></div>
-                    </div>
+                    <!-- Step 1: Dados Pessoais -->
+                    <div class="step-form active" id="step-1">
+                        <h3 style="color: var(--primary-dark); margin-bottom: 1.5rem; font-size: 1.5rem;">1. Seus Dados</h3>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+                            <div><label>Nome *</label><input type="text" class="form-input" placeholder="Nome" required></div>
+                            <div><label>Sobrenome</label><input type="text" class="form-input" placeholder="Sobrenome"></div>
+                        </div>
 
-                    <div>
-                        <label>Cidade e Estado *</label>
-                        <input type="text" class="form-input" placeholder="Ex: Chapecó, SC" required>
-                    </div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+                            <div><label>E-mail *</label><input type="email" class="form-input" placeholder="Seu melhor e-mail" required></div>
+                            <div><label>Número de telefone *</label><input type="tel" class="form-input" placeholder="(DDD) 90000-0000" required></div>
+                        </div>
 
-                    <div>
-                        <label>Qual seu nível atual de inglês?</label>
-                        <div class="radio-group">
-                            <label class="radio-item"><input type="radio" name="nivel" value="nunca"> Nunca fiz curso</label>
-                            <label class="radio-item"><input type="radio" name="nivel" value="pouco"> Sei um pouco (< 1 ano de curso)</label>
-                            <label class="radio-item"><input type="radio" name="nivel" value="moderado"> Sei moderadamente (> 1 ano de curso)</label>
-                            <label class="radio-item"><input type="radio" name="nivel" value="fluente"> Sou fluente mas preciso praticar!</label>
+                        <div style="margin-bottom: 0.5rem;">
+                            <label>Como prefere ser contatado? *</label>
+                            <div class="radio-group" style="flex-direction: row; flex-wrap: wrap; gap: 1rem; margin-top: 0.8rem;">
+                                <label class="radio-item" style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 0.9rem 1.4rem; flex: 1; min-width: 140px; justify-content: center; transition: 0.2s;" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='#e2e8f0'">
+                                    <input type="radio" name="canal" value="whatsapp" checked> 💬 WhatsApp
+                                </label>
+                                <label class="radio-item" style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 0.9rem 1.4rem; flex: 1; min-width: 140px; justify-content: center; transition: 0.2s;" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='#e2e8f0'">
+                                    <input type="radio" name="canal" value="email"> 📧 E-mail
+                                </label>
+                                <label class="radio-item" style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 0.9rem 1.4rem; flex: 1; min-width: 140px; justify-content: center; transition: 0.2s;" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='#e2e8f0'">
+                                    <input type="radio" name="canal" value="telefone"> 📞 Telefone
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="wizard-btns" style="justify-content: flex-end;">
+                            <button type="button" class="btn-wizard btn-next" onclick="nextStep(1)">Próximo <i data-lucide="arrow-right" style="width: 16px; vertical-align: middle;"></i></button>
                         </div>
                     </div>
 
-                    <div>
-                        <label>Descreva o seu nível de inglês para que possamos ter uma ideia de onde podemos iniciar contigo.</label>
-                        <textarea class="form-input" rows="4" placeholder="Fale um pouco sobre sua experiência com o idioma..."></textarea>
+                    <!-- Step 2: Sobre Você -->
+                    <div class="step-form" id="step-2">
+                        <h3 style="color: var(--primary-dark); margin-bottom: 1.5rem; font-size: 1.5rem;">2. Sobre Você</h3>
+                        <div style="margin-bottom: 2rem;">
+                            <label>Cidade e Estado *</label>
+                            <input type="text" class="form-input" placeholder="Ex: Chapecó, SC" required>
+                        </div>
+
+                        <div style="margin-bottom: 2rem;">
+                            <label>Qual seu nível atual de inglês?</label>
+                            <div class="radio-group">
+                                <label class="radio-item"><input type="radio" name="nivel" value="nunca"> Nunca fiz curso</label>
+                                <label class="radio-item"><input type="radio" name="nivel" value="pouco"> Sei um pouco (< 1 ano de curso)</label>
+                                <label class="radio-item"><input type="radio" name="nivel" value="moderado"> Sei moderadamente (> 1 ano de curso)</label>
+                                <label class="radio-item"><input type="radio" name="nivel" value="fluente"> Sou fluente mas preciso praticar!</label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label>Descreva o seu nível de inglês para que possamos ter uma ideia de onde podemos iniciar contigo.</label>
+                            <textarea class="form-input" rows="4" placeholder="Fale um pouco sobre sua experiência com o idioma..."></textarea>
+                        </div>
+
+                        <div class="wizard-btns">
+                            <button type="button" class="btn-wizard btn-prev" onclick="prevStep(2)"><i data-lucide="arrow-left" style="width: 16px; vertical-align: middle;"></i> Anterior</button>
+                            <button type="submit" class="btn-wizard btn-next" style="background: var(--accent); color: var(--primary-dark);">Solicitar Aula Experimental <i data-lucide="send" style="width: 16px; vertical-align: middle;"></i></button>
+                        </div>
                     </div>
 
-                    <button type="submit" class="btn-vip" style="border: none; width: 100%; font-size: 1.2rem; padding: 1.5rem; margin-top: 1rem;">Solicitar Aula Experimental</button>
                 </form>
             </div>
         </section>
@@ -194,7 +254,6 @@
                     <h4 style="color: var(--accent); margin-bottom: 2.5rem; font-size: 1.2rem;">Serviços</h4>
                     <ul style="list-style: none; display: flex; flex-direction: column; gap: 1.2rem; opacity: 0.7; margin-bottom: 2rem;">
                         <li><a href="traducoes.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Traduções</a></li>
-                        <li><a href="agendamento-nivelamento.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Nivelamento</a></li>
                         <li><a href="aulas-conversacao.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Aulas de Conversação</a></li>
                     </ul>
                     <div style="display: flex; gap: 1.5rem; opacity: 0.8;">
@@ -274,6 +333,31 @@
             entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
         }, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Wizard Logic
+        function updateWizard(step) {
+            document.querySelectorAll('.step-form').forEach(el => el.classList.remove('active'));
+            document.getElementById('step-' + step).classList.add('active');
+            
+            document.querySelectorAll('.wizard-step-indicator').forEach((el, index) => {
+                const s = index + 1;
+                el.classList.remove('active', 'completed');
+                if (s < step) el.classList.add('completed');
+                else if (s === step) el.classList.add('active');
+            });
+            
+            const progress = ((step - 1) / 1) * 100;
+            document.getElementById('progress-bar').style.width = progress + '%';
+            lucide.createIcons();
+        }
+
+        function nextStep(current) {
+            if (current < 2) updateWizard(current + 1);
+        }
+
+        function prevStep(current) {
+            if (current > 1) updateWizard(current - 1);
+        }
     </script>
 </body>
 </html>

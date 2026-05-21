@@ -6,7 +6,157 @@
     <title>Nossa Escola | Change Skills Idiomas</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Custom Swiper Styles for Teachers */
+        .teacher-swiper {
+            width: 100%;
+            padding: 2rem 0 4rem 0;
+        }
+        .swiper-slide {
+            height: auto;
+        }
+        .teacher-card {
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            cursor: pointer;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .teacher-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-premium);
+        }
+        .teacher-img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+        }
+        .teacher-info {
+            padding: 2rem;
+            text-align: center;
+            background: white;
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 18, 51, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            background: white;
+            width: 90%;
+            max-width: 1200px;
+            height: 80vh;
+            border-radius: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            overflow: hidden;
+            position: relative;
+            transform: scale(0.95);
+            transition: var(--transition);
+        }
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+        .modal-left {
+            height: 100%;
+            overflow: hidden;
+        }
+        .modal-left img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .modal-right {
+            padding: 5rem 4rem;
+            overflow-y: auto;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .modal-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: #F1F5F9;
+            border: none;
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.3s;
+            z-index: 2050; /* fixed z-index so it stays clickable */
+        }
+        .modal-close:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* Floating Navigation Buttons */
+        .modal-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            border: none;
+            width: 60px; height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: 0.3s;
+            z-index: 2010;
+        }
+        .modal-nav-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+        .modal-nav-prev { left: 2rem; }
+        .modal-nav-next { right: 2rem; }
+
+        @media (max-width: 900px) {
+            .modal-content {
+                grid-template-columns: 1fr;
+                height: 90vh;
+            }
+            .modal-left {
+                height: 40vh;
+            }
+            .modal-right {
+                padding: 2rem;
+            }
+            .modal-nav-btn {
+                width: 40px; height: 40px;
+            }
+            .modal-nav-prev { left: 0.5rem; }
+            .modal-nav-next { right: 0.5rem; }
+        }
+    </style>
 </head>
 <body style="background: white;">
     <header
@@ -23,40 +173,46 @@
                 <i data-lucide="menu" style="width: 32px; height: 32px;"></i>
             </button>
             <ul class="nav-list" style="display: flex; gap: 3rem; list-style: none; align-items: center;">
-                <li><a href="index.html#escola"
-                        style="text-decoration: none; color: var(--primary-dark); font-weight: 600; transition: all 0.3s; position: relative;"
-                        onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'"
-                        onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
+                <li style="position: relative;">
+                    <a href="index.html" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
+                       onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
+                       onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
+                        Início
+                        <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
+                    </a>
+                </li>
+                <li style="position: relative;">
+                    <a href="nossa-escola.html" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
+                       onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
+                       onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
                         Nossa Escola
-                        <span class="nav-line" style="position: absolute; bottom: -8px; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
-                    </a></li>
-                <li><a href="index.html#cursos"
-                        style="text-decoration: none; color: var(--primary-dark); font-weight: 600; transition: all 0.3s; position: relative;"
-                        onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'"
-                        onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
+                        <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
+                    </a>
+                </li>
+                <li style="position: relative;">
+                    <a href="index.html#cursos" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
+                       onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
+                       onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
                         Cursos
-                        <span class="nav-line" style="position: absolute; bottom: -8px; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
-                    </a></li>
-                <li><a href="index.html#servicos"
-                        style="text-decoration: none; color: var(--primary-dark); font-weight: 600; transition: all 0.3s; position: relative;"
-                        onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'"
-                        onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
-                        Serviços
-                        <span class="nav-line" style="position: absolute; bottom: -8px; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
-                    </a></li>
-                <li><a href="contato.html"
-                        style="text-decoration: none; color: var(--primary-dark); font-weight: 600; transition: all 0.3s; position: relative;"
-                        onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'"
-                        onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
+                        <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
+                    </a>
+                </li>
+                <li style="position: relative;">
+                    <a href="nossos-teachers.html" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
+                       onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
+                       onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
+                        Professores
+                        <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
+                    </a>
+                </li>
+                <li style="position: relative;">
+                    <a href="contato.html" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
+                       onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
+                       onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
                         Contato
-                        <span class="nav-line" style="position: absolute; bottom: -8px; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
-                    </a></li>
-                <li><a href="index.html#area-do-aluno"
-                        style="background: var(--primary-dark); color: white; padding: 0.8rem 2rem; border-radius: 100px; text-decoration: none; font-weight: 600; transition: var(--transition); box-shadow: 0 10px 20px rgba(0,0,0,0.1); border: 2px solid transparent;"
-                        onmouseover="this.style.transform='translateY(-3px)'; this.style.backgroundColor='var(--primary)'; this.style.borderColor='var(--accent)'"
-                        onmouseout="this.style.transform='translateY(0)'; this.style.backgroundColor='var(--primary-dark)'; this.style.borderColor='transparent'">
-                        Área do Aluno
-                    </a></li>
+                        <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
+                    </a>
+                </li>
             </ul>
         </nav>
     </header>
@@ -64,14 +220,14 @@
     <div class="menu-overlay"></div>
 
     <main>
-        <section style="padding-top: 240px; background: var(--primary-dark); color: white; text-align: center;">
+        <section style="padding: 240px 0 140px 0; background: linear-gradient(rgba(0, 18, 51, 0.75), rgba(0, 18, 51, 0.75)), url('assets/img/image.png') center/cover no-repeat; color: white; text-align: center;">
             <div class="container reveal active">
                 <h1 style="font-size: 7rem; margin-bottom: 3rem;">Nossa Escola</h1>
-                <p style="font-size: 1.5rem; opacity: 0.6; max-width: 800px; margin: auto;">História, Metodologia e Paixão pelo ensino de idiomas.</p>
+                <p style="font-size: 1.5rem; opacity: 0.8; max-width: 800px; margin: auto; font-weight: 600;">História, Metodologia e Paixão pelo ensino de idiomas.</p>
             </div>
         </section>
 
-        <section class="container" style="padding: 200px 0;">
+        <section class="container" style="padding: 100px 0;">
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8rem; align-items: center;">
                 <div class="reveal">
                     <h2 style="font-size: 4rem; color: var(--primary-dark);">Nossa Jornada</h2>
@@ -80,11 +236,94 @@
                     </p>
                 </div>
                 <div class="reveal">
-                    <img src="https://changeskills.com.br/wp-content/uploads/2025/11/ChatGPT-Image-24-de-nov.-de-2025-12_38_54.png" style="width: 100%; border-radius: 40px; box-shadow: var(--shadow-premium);">
+                    <img src="assets/img/image.png" alt="Nossa Jornada - Change Skills" style="width: 100%; height: 480px; object-fit: cover; object-position: center 85%; border-radius: 40px; box-shadow: var(--shadow-premium);">
                 </div>
             </div>
         </section>
+
+        <!-- Linha do Tempo -->
+        <section class="container" style="padding-bottom: 100px;">
+            <div class="reveal text-center" style="margin-bottom: 4rem;">
+                <span style="color: var(--primary); font-weight: 800; letter-spacing: 0.2em;">HISTÓRIA</span>
+                <h2 style="font-size: 3rem; color: var(--primary-dark); margin-top: 1rem;">Nossa Linha do Tempo</h2>
+            </div>
+            
+            <div class="reveal" style="max-width: 800px; margin: 0 auto; position: relative; border-left: 4px solid var(--primary); padding-left: 2rem;">
+                <div style="margin-bottom: 3rem; position: relative;">
+                    <div style="width: 20px; height: 20px; background: var(--primary); border-radius: 50%; position: absolute; left: -2.7rem; top: 5px;"></div>
+                    <h3 style="color: var(--primary-dark); font-size: 1.5rem;">O Início (2012)</h3>
+                    <p style="color: var(--gray); font-size: 1.1rem; margin-top: 0.5rem;">Fundação da Change Skills com o objetivo de inovar no ensino de idiomas, focando em aulas dinâmicas e conversação.</p>
+                </div>
+                <div style="margin-bottom: 3rem; position: relative;">
+                    <div style="width: 20px; height: 20px; background: var(--primary); border-radius: 50%; position: absolute; left: -2.7rem; top: 5px;"></div>
+                    <h3 style="color: var(--primary-dark); font-size: 1.5rem;">Expansão (2018)</h3>
+                    <p style="color: var(--gray); font-size: 1.1rem; margin-top: 0.5rem;">Ampliação da equipe de teachers e introdução de novos idiomas para atender à crescente demanda global.</p>
+                </div>
+                <div style="position: relative;">
+                    <div style="width: 20px; height: 20px; background: var(--primary); border-radius: 50%; position: absolute; left: -2.7rem; top: 5px;"></div>
+                    <h3 style="color: var(--primary-dark); font-size: 1.5rem;">Inovação Digital (2023)</h3>
+                    <p style="color: var(--gray); font-size: 1.1rem; margin-top: 0.5rem;">Implementação do Hub Digital e parceria com a Pearson para materiais de excelência mundial.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Teachers Section -->
+        <section class="mesh-bg" style="padding: 100px 0; text-align: center;">
+            <div class="container reveal">
+                <span style="color: var(--primary); font-weight: 800; letter-spacing: 0.2em;">MENTORES</span>
+                <h2 style="font-size: 4rem; color: var(--primary-dark); margin-bottom: 1rem; margin-top: 1rem;">Nossos Teachers</h2>
+                <p style="font-size: 1.2rem; color: var(--gray); max-width: 800px; margin: auto; margin-bottom: 4rem;">Equipe apaixonada por ensinar e transformar sua comunicação.</p>
+                
+                <!-- Swiper Carousel -->
+                <div class="swiper teacher-swiper reveal">
+                    <div class="swiper-wrapper" id="teacher-grid">
+                        <!-- Cards will be injected by JS -->
+                    </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Spotify Card -->
+        <section class="container" style="padding: 100px 0;">
+            <div class="reveal text-center" style="margin-bottom: 3rem;">
+                <h2 style="font-size: 2.5rem; color: var(--primary-dark);">Playlist Escola</h2>
+            </div>
+            <div class="reveal" style="max-width: 400px; margin: 0 auto;">
+                <a href="https://open.spotify.com/playlist/41Uf49j61tWGXsnOQ9Is1s" target="_blank" 
+                   class="glass-card" style="padding: 2rem; text-decoration: none; background: white; text-align: center; display: block; box-shadow: var(--shadow-premium); border-radius: 30px; transition: var(--transition);">
+                    <div style="width: 60px; height: 60px; background: rgba(0,209,255,0.05); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem auto;">
+                        <i data-lucide="music" style="color: var(--accent); width: 30px; height: 30px;"></i>
+                    </div>
+                    <h4 style="color: var(--primary-dark); font-size: 1.5rem; margin-bottom: 0.5rem;">Playlist Change Skills</h4>
+                    <p style="color: var(--gray); font-size: 1rem;">Aprenda e relaxe com nossa curadoria musical exclusiva no Spotify.</p>
+                </a>
+            </div>
+        </section>
     </main>
+
+    <!-- Modal Teacher -->
+    <div class="modal-overlay" id="teacher-modal">
+        <!-- Close Button (outside modal-content for correct z-index) -->
+        <button class="modal-close" onclick="closeModal()" style="position: fixed; top: 2rem; right: 2rem; z-index: 2100; background: white; border: none; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.15); transition: 0.3s;" onmouseover="this.style.background='var(--primary)'; this.style.color='white'" onmouseout="this.style.background='white'; this.style.color='inherit'">
+            <i data-lucide="x"></i>
+        </button>
+        <!-- Floating Navigation -->
+        <button class="modal-nav-btn modal-nav-prev" onclick="prevTeacher()"><i data-lucide="chevron-left"></i></button>
+        <button class="modal-nav-btn modal-nav-next" onclick="nextTeacher()"><i data-lucide="chevron-right"></i></button>
+
+        <div class="modal-content">
+            <div class="modal-left">
+                <img id="modal-img" src="" alt="">
+            </div>
+            <div class="modal-right">
+                <h2 id="modal-name" style="font-size: 3rem; color: var(--primary-dark); margin-bottom: 1rem;"></h2>
+                <div id="modal-language" style="margin-bottom: 1.5rem; font-size: 1.2rem; font-weight: 600; display: flex; align-items: center; gap: 8px;"></div>
+                <div id="modal-desc" style="font-size: 1.2rem; color: var(--gray); line-height: 1.8;"></div>
+            </div>
+        </div>
+    </div>
 
     <footer style="padding: 120px 0 60px 0; background: var(--primary-dark); color: white;">
         <div class="container">
@@ -98,7 +337,7 @@
                     <h4 style="color: var(--accent); margin-bottom: 2.5rem; font-size: 1.2rem;">Institucional</h4>
                     <ul style="list-style: none; display: flex; flex-direction: column; gap: 1.2rem; opacity: 0.7;">
                         <li><a href="index.html#escola" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Nossa Escola</a></li>
-                        <li><a href="nossos-teachers.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Professores</a></li>
+                        <li><a href="nossa-escola.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Professores</a></li>
                         <li><a href="services/solicitacao-certificado.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Certificados</a></li>
                     </ul>
                 </div>
@@ -115,7 +354,6 @@
                     <h4 style="color: var(--accent); margin-bottom: 2.5rem; font-size: 1.2rem;">Serviços</h4>
                     <ul style="list-style: none; display: flex; flex-direction: column; gap: 1.2rem; opacity: 0.7; margin-bottom: 2rem;">
                         <li><a href="services/traducoes.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Traduções</a></li>
-                        <li><a href="services/agendamento-nivelamento.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Nivelamento</a></li>
                         <li><a href="services/aulas-conversacao.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Aulas de Conversação</a></li>
                     </ul>
                     <div style="display: flex; gap: 1.5rem; opacity: 0.8;">
@@ -141,13 +379,7 @@
         <span style="position: absolute; right: 80px; background: white; color: var(--primary-dark); padding: 0.8rem 1.5rem; border-radius: 12px; font-weight: 700; font-size: 0.9rem; white-space: nowrap; box-shadow: 0 10px 25px rgba(0,0,0,0.1); opacity: 0; transform: translateX(20px); transition: all 0.3s; pointer-events: none;" class="wa-tooltip">Fale Conosco</span>
     </a>
 
-    <style>
-        a:hover .wa-tooltip {
-            opacity: 1 !important;
-            transform: translateX(0) !important;
-        }
-    </style>
-
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         lucide.createIcons();
         // Mobile Menu Toggle
@@ -195,6 +427,145 @@
             entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
         }, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+
+        // Teacher Data
+        const teachers = [
+            {
+                name: "Teacher Paula Zanette",
+                language: "Inglês",
+                flag: "🇺🇸 🇬🇧",
+                image: "https://changeskills.com.br/wp-content/uploads/2025/11/WhatsApp-Image-2025-11-09-at-08.42.35.jpeg",
+                desc: `Meu interesse pelo inglês nasceu da vontade de me tornar fluente na língua universal que conecta o mundo. Com o tempo, essa vontade virou paixão por ensinar e ajudar outras pessoas a também se comunicarem com mais confiança. Atualmente trabalho com crianças, adolescentes e adultos buscando sempre trazer aulas leves, práticas e focadas no uso real do idioma no dia a dia. Sigo em constante evolução, aprendendo e ensinando, com o propósito de alcançar e compartilhar uma fluência autêntica que transforma e aproxima pessoas.<br><br>🗽 Especialista em didática para Teen e Adults com foco em fluência e confiança linguística. Paula tem como marca própria a simpatia encantadora e a mágica habilidade de transformar a sala em um ambiente aberto e acolhedor!`
+            },
+            {
+                name: "Teacher Brenda Farezin",
+                language: "Inglês",
+                flag: "🇺🇸 🇬🇧",
+                image: "https://changeskills.com.br/wp-content/uploads/2025/11/WhatsApp-Image-2025-11-09-at-08.45.01.jpeg",
+                desc: `Iniciei o meu contato com o idioma muito cedo e, desde então, venho construindo uma trajetória sólida de aprendizado, certificações e experiências que despertam minha paixão pelo ensino do idioma. Atuo majoritariamente com ensino da língua inglesa para crianças e adolescentes. Sempre buscando aprimoramento, participando de cursos voltados ao idioma e a metodologias ativas de ensino, oferecendo aulas personalizadas e adaptadas às necessidades de cada aluno, o que torna a experiência do aluno mais produtiva e dinâmica.<br><br>🗽 Alfabetizada em língua inglesa e portuguesa ao mesmo tempo! Brenda une metodologia moderna e empatia no ensino de inglês comunicativo desde cedo.`
+            },
+            {
+                name: "Teacher Michele Rosa",
+                language: "Inglês / Português",
+                flag: "🇺🇸 🇬🇧 🇧🇷",
+                image: "https://changeskills.com.br/wp-content/uploads/2025/11/WhatsApp-Image-2025-11-08-at-20.19.03-1.jpeg",
+                desc: `Minha vida é em inglês e a paixão por aprender sempre mais foi o que iniciou a minha jornada com o idioma, pois a fluência em inglês abre as portas do mundo e as oportunidades se tornam infinitas. Minha carreira como professora de Inglês partiu da vontade de compartilhar este mundo infinito com todos. Ainda, ampliei minhas habilidades para as áreas de Ciências (Licenciatura) e Português, produzindo materiais didáticos com foco no ensino de Português para Estrangeiros.<br><br>🗽 Professora de Inglês há 14 anos, com experiência em traduções científicas e treinamento de alunos para TOEFL, IELTS e entrevistas profissionais em Inglês. Michele tem como marca o ensino personalizado e a atenção ao desenvolvimento individual dos alunos.`
+            },
+            {
+                name: "Teacher Ritchely Rosa",
+                language: "Inglês",
+                flag: "🇺🇸 🇬🇧",
+                image: "https://changeskills.com.br/wp-content/uploads/2025/11/WhatsApp-Image-2025-11-08-at-17.46.40-1.jpeg",
+                desc: `Minha relação com o inglês começou aos 12 anos, quando a curiosidade por uma série sem dublagem despertou em mim o desejo de aprender o idioma. Autodidata desde então, descobri no inglês uma forma de expressão que une minhas paixões por arte e comunicação. Desde 2021, leciono para crianças, adolescentes e adultos, com foco em aulas personalizadas que busquem sempre atender as necessidades do aluno gerando autonomia e garantindo o desenvolvimento independente da faixa etária do estudante.<br><br>🗽 Com sólida experiência em ensino bilíngue, Ritchely alia técnica, paciência e entusiasmo, tornando o aprendizado dinâmico e natural.`
+            },
+            {
+                name: "Teacher Bruna Smaniotto",
+                language: "Inglês",
+                flag: "🇺🇸 🇬🇧",
+                image: "https://changeskills.com.br/wp-content/uploads/2025/11/WhatsApp-Image-2025-11-08-at-11.09.52.jpeg",
+                desc: `Minha trajetória com o inglês nasceu da paixão por idiomas e pela conexão com diferentes culturas. Ao longo de 6 anos de experiência no ensino de inglês, me especializei na metodologia comunicativa, sempre focando no desenvolvimento da fluência e da autonomia dos alunos. Atuo com públicos adolescentes e adultos, tanto no ambiente online quanto presencial. Além da sala de aula, desenvolvo materiais didáticos dinâmicos e personalizados, que tornam o aprendizado mais engajador, prático e significativo.<br><br>🗽 Mágica performance e excelente didática, Bruna atua majoritariamente em inglês Teen e Adult com foco em conversação e sala de aula imersiva em cultura e linguagem inglesa!`
+            },
+            {
+                name: "Teacher Wagner Tamagno",
+                language: "Inglês / Científico",
+                flag: "🇺🇸 🇬🇧",
+                image: "https://changeskills.com.br/wp-content/uploads/2025/11/WhatsApp-Image-2025-11-08-at-11.05.18-1.jpeg",
+                desc: `Inglês para mim é mais do que apenas uma língua, mas sim a abertura de várias possibilidades e oportunidades. Graças à ânsia de aprender inglês, que surgiu durante minha adolescência, hoje sou capaz e consciente de que posso não apenas conquistar muito mais, mas também ter consciência de que grandes sonhos cabem em um mundo possível se comunica em inglês. Tudo isto nos motiva na Change Skills, pois mudar habilidades não significa perder as que já temos, mas sim ganhar novas ferramentas que facilitam e permitem uma vida de descobertas sem fronteiras!<br><br>📚 PhD candidate em Toxicologia na Purdue University (EUA) e cofundador da Change Skills.<br>🗽 Wagner atua com inglês científico para pesquisadores e desenvolvimento acadêmico, unindo majestosamente o conhecimento na língua com a comunicação científica avançada.`
+            },
+            {
+                name: "Teacher Tayllana Gonçalves",
+                language: "Inglês",
+                flag: "🇺🇸 🇬🇧",
+                image: "https://changeskills.com.br/wp-content/uploads/2025/11/WhatsApp-Image-2025-11-10-at-18.09.59.jpeg",
+                desc: `O inglês sempre pareceu algo distante da realidade em que cresci, em uma zona rural com pouco acesso a cursos de idiomas. Durante minha graduação, ao ter contato com o aprendizado individualizado, percebi o poder que o ensino de qualidade pode ter na vida das pessoas. Foi esse desejo de tornar o inglês acessível e possível a todos que me inspirou a criar a Change Skills — uma escola que transforma vidas, escuta histórias e mostra que aprender um novo idioma é abrir portas para um mundo de possibilidades.<br><br>📚 Mestranda em Animal Science na Purdue University (EUA) e cofundadora da Change Skills.<br>🗽 Tay é Especialista em artes visuais comunicativas, empreendedorismo e gestão educacional.`
+            }
+        ];
+
+        let currentIndex = 0;
+
+        // Render Teachers in Swiper
+        const grid = document.getElementById('teacher-grid');
+        teachers.forEach((teacher, index) => {
+            const slide = document.createElement('div');
+            slide.className = 'swiper-slide';
+            slide.innerHTML = `
+                <div class="teacher-card" onclick="openModal(${index})">
+                    <img src="${teacher.image}" class="teacher-img" alt="${teacher.name}">
+                    <div class="teacher-info">
+                        <h3 style="color: var(--primary-dark);">${teacher.name}</h3>
+                        <div style="margin: 10px 0; font-size: 1.1rem; color: #555; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                            <span>${teacher.flag}</span>
+                            <span>${teacher.language}</span>
+                        </div>
+                        <p style="color: var(--primary); margin-top: 1rem; font-weight: 600;">Ver Perfil <i data-lucide="arrow-right" style="width: 16px; height: 16px; vertical-align: middle;"></i></p>
+                    </div>
+                </div>
+            `;
+            grid.appendChild(slide);
+        });
+
+        // Initialize Swiper
+        const swiper = new Swiper('.teacher-swiper', {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            loop: true,
+            pagination: { el: '.swiper-pagination', clickable: true },
+            breakpoints: {
+                320: { slidesPerView: 1 },
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 }
+            }
+        });
+
+        // Modal Logic
+        const modal = document.getElementById('teacher-modal');
+        const modalImg = document.getElementById('modal-img');
+        const modalName = document.getElementById('modal-name');
+        const modalLanguage = document.getElementById('modal-language');
+        const modalDesc = document.getElementById('modal-desc');
+
+        function openModal(index) {
+            currentIndex = index;
+            updateModalContent();
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function updateModalContent() {
+            const teacher = teachers[currentIndex];
+            modalImg.src = teacher.image;
+            modalName.textContent = teacher.name;
+            modalLanguage.innerHTML = `<span>${teacher.flag}</span> <span style="color: var(--primary);">${teacher.language}</span>`;
+            modalDesc.innerHTML = teacher.desc;
+        }
+
+        function nextTeacher() {
+            currentIndex = (currentIndex + 1) % teachers.length;
+            updateModalContent();
+        }
+
+        function prevTeacher() {
+            currentIndex = (currentIndex - 1 + teachers.length) % teachers.length;
+            updateModalContent();
+        }
+
+        // Close modal on outside click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        // Update icons dynamically if any are added by scripts
+        lucide.createIcons();
     </script>
 </body>
 </html>

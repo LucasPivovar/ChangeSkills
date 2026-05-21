@@ -15,6 +15,23 @@
         label { display: block; font-weight: 600; color: var(--primary-dark); margin-bottom: 0.5rem; font-size: 0.95rem; }
         .form-input { width: 100%; padding: 1.2rem; border: 1px solid rgba(0,0,0,0.1); border-radius: 12px; font-size: 1rem; outline: none; transition: 0.3s; background: #f8fafc; color: var(--text-main); }
         .form-input:focus { border-color: var(--primary); background: white; }
+
+        /* Wizard Styles */
+        .wizard-progress { display: flex; justify-content: space-between; position: relative; margin-bottom: 3rem; }
+        .wizard-progress::before { content: ''; position: absolute; top: 50%; left: 0; width: 100%; height: 2px; background: #eee; z-index: 1; transform: translateY(-50%); }
+        .progress-bar { position: absolute; top: 50%; left: 0; height: 2px; background: var(--primary); z-index: 2; transform: translateY(-50%); transition: 0.4s; width: 0%; }
+        .wizard-step-indicator { width: 40px; height: 40px; background: white; border: 2px solid #eee; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--gray); z-index: 3; position: relative; transition: 0.4s; }
+        .wizard-step-indicator.active { border-color: var(--primary); background: var(--primary); color: white; }
+        .wizard-step-indicator.completed { border-color: var(--primary); background: white; color: var(--primary); }
+        .step-form { display: none; animation: fadeIn 0.5s; }
+        .step-form.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .wizard-btns { display: flex; justify-content: space-between; margin-top: 2rem; }
+        .btn-wizard { padding: 1rem 2rem; border-radius: 100px; border: none; font-weight: 600; cursor: pointer; transition: 0.3s; font-size: 1rem; }
+        .btn-prev { background: #eee; color: var(--gray); }
+        .btn-prev:hover { background: #ddd; }
+        .btn-next { background: var(--primary); color: white; }
+        .btn-next:hover { background: var(--primary-dark); }
     </style>
 </head>
 <body style="background: var(--bg-light);">
@@ -32,40 +49,46 @@
                 <i data-lucide="menu" style="width: 32px; height: 32px;"></i>
             </button>
             <ul class="nav-list" style="display: flex; gap: 3rem; list-style: none; align-items: center;">
-                <li><a href="../index.html#escola"
-                        style="text-decoration: none; color: var(--primary-dark); font-weight: 600; transition: all 0.3s; position: relative;"
-                        onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'"
-                        onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
+                <li style="position: relative;">
+                    <a href="../index.html" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
+                       onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
+                       onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
+                        Início
+                        <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
+                    </a>
+                </li>
+                <li style="position: relative;">
+                    <a href="../nossa-escola.html" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
+                       onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
+                       onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
                         Nossa Escola
-                        <span class="nav-line" style="position: absolute; bottom: -8px; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
-                    </a></li>
-                <li><a href="../index.html#cursos"
-                        style="text-decoration: none; color: var(--primary-dark); font-weight: 600; transition: all 0.3s; position: relative;"
-                        onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'"
-                        onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
+                        <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
+                    </a>
+                </li>
+                <li style="position: relative;">
+                    <a href="../index.html#cursos" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
+                       onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
+                       onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
                         Cursos
-                        <span class="nav-line" style="position: absolute; bottom: -8px; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
-                    </a></li>
-                <li><a href="../index.html#servicos"
-                        style="text-decoration: none; color: var(--primary-dark); font-weight: 600; transition: all 0.3s; position: relative;"
-                        onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'"
-                        onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
-                        Serviços
-                        <span class="nav-line" style="position: absolute; bottom: -8px; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
-                    </a></li>
-                <li><a href="../contato.html"
-                        style="text-decoration: none; color: var(--primary-dark); font-weight: 600; transition: all 0.3s; position: relative;"
-                        onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'"
-                        onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
+                        <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
+                    </a>
+                </li>
+                <li style="position: relative;">
+                    <a href="../nossos-teachers.html" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
+                       onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
+                       onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
+                        Professores
+                        <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
+                    </a>
+                </li>
+                <li style="position: relative;">
+                    <a href="../contato.html" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
+                       onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
+                       onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
                         Contato
-                        <span class="nav-line" style="position: absolute; bottom: -8px; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
-                    </a></li>
-                <li><a href="../index.html#area-do-aluno"
-                        style="background: var(--primary-dark); color: white; padding: 0.8rem 2rem; border-radius: 100px; text-decoration: none; font-weight: 600; transition: var(--transition); box-shadow: 0 10px 20px rgba(0,0,0,0.1); border: 2px solid transparent;"
-                        onmouseover="this.style.transform='translateY(-3px)'; this.style.backgroundColor='var(--primary)'; this.style.borderColor='var(--accent)'"
-                        onmouseout="this.style.transform='translateY(0)'; this.style.backgroundColor='var(--primary-dark)'; this.style.borderColor='transparent'">
-                        Área do Aluno
-                    </a></li>
+                        <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
+                    </a>
+                </li>
             </ul>
         </nav>
     </header>
@@ -125,60 +148,97 @@
             <div class="glass-card reveal" style="max-width: 900px; margin: auto; background: white; padding: 6rem;">
                 <h2 style="font-size: 2.5rem; margin-bottom: 3rem; color: var(--primary-dark); text-align: center;">Solicite seu Orçamento</h2>
                 
-                <form style="display: flex; flex-direction: column; gap: 2rem;">
+                <form id="traducao-form" style="display: flex; flex-direction: column; gap: 2rem;">
                     
-                    <div>
-                        <label>Título do documento</label>
-                        <input type="text" class="form-input" placeholder="Ex: Effects of supplementation on cattle performance">
+                    <div class="wizard-progress">
+                        <div class="progress-bar" id="progress-bar"></div>
+                        <div class="wizard-step-indicator active" id="indicator-1">1</div>
+                        <div class="wizard-step-indicator" id="indicator-2">2</div>
+                        <div class="wizard-step-indicator" id="indicator-3">3</div>
+                    </div>
+
+                    <!-- Step 1: Dados Pessoais -->
+                    <div class="step-form active" id="step-1">
+                        <h3 style="color: var(--primary-dark); margin-bottom: 1.5rem; font-size: 1.5rem;">1. Seus Dados Pessoais</h3>
+                        <div style="display: grid; grid-template-columns: 1fr; gap: 1.5rem;">
+                            <div><label>Seu nome completo</label><input type="text" class="form-input" placeholder="Nome"></div>
+                            <div><label>E-mail</label><input type="email" class="form-input" placeholder="E-mail"></div>
+                            <div><label>Telefone / WhatsApp</label><input type="text" class="form-input" placeholder="(00) 00000-0000"></div>
+                            <div>
+                                <label>Como prefere ser contatado?</label>
+                                <div class="radio-group" style="flex-direction: row; flex-wrap: wrap; gap: 1rem; margin-top: 0.8rem;">
+                                    <label style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 0.9rem 1.4rem; flex: 1; min-width: 140px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='#e2e8f0'">
+                                        <input type="radio" name="canal" value="whatsapp" checked style="accent-color: var(--primary);"> 💬 WhatsApp
+                                    </label>
+                                    <label style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 0.9rem 1.4rem; flex: 1; min-width: 140px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='#e2e8f0'">
+                                        <input type="radio" name="canal" value="email" style="accent-color: var(--primary);"> 📧 E-mail
+                                    </label>
+                                    <label style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 0.9rem 1.4rem; flex: 1; min-width: 140px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='#e2e8f0'">
+                                        <input type="radio" name="canal" value="telefone" style="accent-color: var(--primary);"> 📞 Telefone
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wizard-btns" style="justify-content: flex-end;">
+                            <button type="button" class="btn-wizard btn-next" onclick="nextStep(1)">Próximo <i data-lucide="arrow-right" style="width: 16px; vertical-align: middle;"></i></button>
+                        </div>
                     </div>
                     
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
-                        <div>
-                            <label>Área de concentração</label>
-                            <input type="text" class="form-input" placeholder="Ex: Nutrição animal, Medicina, Engenharia...">
+                    <!-- Step 2: Sobre o Documento -->
+                    <div class="step-form" id="step-2">
+                        <h3 style="color: var(--primary-dark); margin-bottom: 1.5rem; font-size: 1.5rem;">2. Sobre o Documento</h3>
+                        <div style="display: grid; grid-template-columns: 1fr; gap: 1.5rem;">
+                            <div>
+                                <label>Título do documento</label>
+                                <input type="text" class="form-input" placeholder="Ex: Effects of supplementation on cattle performance">
+                            </div>
+                            <div>
+                                <label>Área de concentração</label>
+                                <input type="text" class="form-input" placeholder="Ex: Nutrição animal, Medicina, Engenharia...">
+                            </div>
+                            <div>
+                                <label>Nome do autor / Primeiro autor</label>
+                                <input type="text" class="form-input" placeholder="Ex: Dr. João Pereira">
+                            </div>
                         </div>
-                        <div>
-                            <label>Nome do autor / Primeiro autor</label>
-                            <input type="text" class="form-input" placeholder="Ex: Dr. João Pereira">
-                        </div>
-                    </div>
-
-                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem;">
-                        <div><label>Seu nome completo</label><input type="text" class="form-input" placeholder="Nome"></div>
-                        <div><label>E-mail</label><input type="email" class="form-input" placeholder="E-mail"></div>
-                        <div><label>Telefone / WhatsApp</label><input type="text" class="form-input" placeholder="(00) 00000-0000"></div>
-                    </div>
-
-                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem;">
-                        <div>
-                            <label>Tipo de serviço necessário</label>
-                            <select class="form-input"><option>Selecione</option><option>Tradução Simples</option><option>Tradução e Revisão</option><option>Apenas Revisão</option></select>
-                        </div>
-                        <div>
-                            <label>Idioma de origem</label>
-                            <select class="form-input"><option>Selecione</option><option>Português</option><option>Inglês</option><option>Espanhol</option></select>
-                        </div>
-                        <div>
-                            <label>Idioma alvo</label>
-                            <select class="form-input"><option>Selecione</option><option>Inglês</option><option>Português</option><option>Espanhol</option></select>
+                        <div class="wizard-btns">
+                            <button type="button" class="btn-wizard btn-prev" onclick="prevStep(2)"><i data-lucide="arrow-left" style="width: 16px; vertical-align: middle;"></i> Anterior</button>
+                            <button type="button" class="btn-wizard btn-next" onclick="nextStep(2)">Próximo <i data-lucide="arrow-right" style="width: 16px; vertical-align: middle;"></i></button>
                         </div>
                     </div>
 
-                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem;">
-                        <div><label>Estimativa de palavras</label><input type="text" class="form-input" placeholder="Ex: 5000 palavras"></div>
-                        <div>
-                            <label>Tipo de documento</label>
-                            <select class="form-input"><option>Selecione</option><option>Artigo Científico</option><option>Tese / Dissertação</option><option>Relatório</option><option>Apresentação</option><option>Outros</option></select>
+                    <!-- Step 3: Detalhes do Serviço -->
+                    <div class="step-form" id="step-3">
+                        <h3 style="color: var(--primary-dark); margin-bottom: 1.5rem; font-size: 1.5rem;">3. Detalhes do Serviço</h3>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                            <div>
+                                <label>Tipo de serviço necessário</label>
+                                <select class="form-input"><option>Selecione</option><option>Tradução Simples</option><option>Tradução e Revisão</option><option>Apenas Revisão</option></select>
+                            </div>
+                            <div>
+                                <label>Tipo de documento</label>
+                                <select class="form-input"><option>Selecione</option><option>Artigo Científico</option><option>Tese / Dissertação</option><option>Relatório</option><option>Apresentação</option><option>Outros</option></select>
+                            </div>
+                            <div>
+                                <label>Idioma de origem</label>
+                                <select class="form-input"><option>Selecione</option><option>Português</option><option>Inglês</option><option>Espanhol</option></select>
+                            </div>
+                            <div>
+                                <label>Idioma alvo</label>
+                                <select class="form-input"><option>Selecione</option><option>Inglês</option><option>Português</option><option>Espanhol</option></select>
+                            </div>
+                            <div><label>Estimativa de palavras</label><input type="text" class="form-input" placeholder="Ex: 5000 palavras"></div>
+                            <div><label>Prazo desejado</label><input type="date" class="form-input"></div>
                         </div>
-                        <div><label>Prazo desejado</label><input type="date" class="form-input"></div>
+                        <div style="margin-top: 1.5rem;">
+                            <label>Observações</label>
+                            <textarea class="form-input" rows="3" placeholder="Periódico alvo, normas, glosário, instruções específicas..."></textarea>
+                        </div>
+                        <div class="wizard-btns">
+                            <button type="button" class="btn-wizard btn-prev" onclick="prevStep(3)"><i data-lucide="arrow-left" style="width: 16px; vertical-align: middle;"></i> Anterior</button>
+                            <button type="submit" class="btn-wizard btn-next" style="background: var(--accent); color: var(--primary-dark);">Enviar Solicitação <i data-lucide="send" style="width: 16px; vertical-align: middle;"></i></button>
+                        </div>
                     </div>
-
-                    <div>
-                        <label>Observações</label>
-                        <textarea class="form-input" rows="4" placeholder="Periódico alvo, normas, glosário, instruções específicas..."></textarea>
-                    </div>
-
-                    <button type="submit" class="btn-vip" style="border: none; width: 100%; font-size: 1.2rem; padding: 1.5rem; margin-top: 1rem;">Enviar Solicitação</button>
                 </form>
             </div>
         </section>
@@ -242,7 +302,6 @@
                     <h4 style="color: var(--accent); margin-bottom: 2.5rem; font-size: 1.2rem;">Serviços</h4>
                     <ul style="list-style: none; display: flex; flex-direction: column; gap: 1.2rem; opacity: 0.7; margin-bottom: 2rem;">
                         <li><a href="traducoes.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Traduções</a></li>
-                        <li><a href="agendamento-nivelamento.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Nivelamento</a></li>
                         <li><a href="aulas-conversacao.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Aulas de Conversação</a></li>
                     </ul>
                     <div style="display: flex; gap: 1.5rem; opacity: 0.8;">
@@ -322,6 +381,31 @@
             entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
         }, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Wizard Logic
+        function updateWizard(step) {
+            document.querySelectorAll('.step-form').forEach(el => el.classList.remove('active'));
+            document.getElementById('step-' + step).classList.add('active');
+            
+            document.querySelectorAll('.wizard-step-indicator').forEach((el, index) => {
+                const s = index + 1;
+                el.classList.remove('active', 'completed');
+                if (s < step) el.classList.add('completed');
+                else if (s === step) el.classList.add('active');
+            });
+            
+            const progress = ((step - 1) / 2) * 100;
+            document.getElementById('progress-bar').style.width = progress + '%';
+            lucide.createIcons();
+        }
+
+        function nextStep(current) {
+            if (current < 3) updateWizard(current + 1);
+        }
+
+        function prevStep(current) {
+            if (current > 1) updateWizard(current - 1);
+        }
     </script>
 </body>
 </html>
