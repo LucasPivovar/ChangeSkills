@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso de Inglês 50+ | Change Skills Idiomas</title>
+    <meta name="description" content="Curso de inglês 50+ na Change Skills Idiomas. Focado em conversação, viagens, experiências práticas e comunicação sem pressão para adultos.">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/base.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .back-nav {
+            position: fixed; top: 80px; left: 0; width: 100%;
+            background: rgba(255,255,255,0.9); backdrop-filter: blur(10px);
+            z-index: 999; padding: 15px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .hero-section { padding-top: 180px; padding-bottom: 80px; }
+        .hero-grid {
+            display: grid; grid-template-columns: 1.15fr 0.85fr;
+            gap: 4rem; align-items: center;
+        }
+        .hero-image-container { position: relative; text-align: right; }
+        .hero-image-container img {
+            width: 100%; max-width: 440px; border-radius: 30px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+        }
+        .feature-card {
+            background: white; padding: 2.5rem; border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: var(--transition); border: 1px solid rgba(0,0,0,0.03);
+        }
+        .feature-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-premium); }
+
+        /* Learn grid cards */
+        .learn-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .learn-card {
+            background: white; border-radius: 20px; padding: 2.5rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--primary);
+            transition: var(--transition);
+        }
+        .learn-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-premium); }
+        .learn-card.alt { border-left-color: var(--accent); }
+        .learn-icon {
+            font-size: 2.5rem; margin-bottom: 1.5rem; display: block;
+        }
+        .learn-title { font-size: 1.5rem; color: var(--primary-dark); font-weight: 800; margin-bottom: 1rem; }
+        .learn-list {
+            list-style: none; padding: 0; margin: 0;
+            display: flex; flex-direction: column; gap: 0.6rem;
+        }
+        .learn-list li {
+            position: relative; padding-left: 24px; color: var(--gray); font-size: 0.95rem; line-height: 1.5;
+        }
+        .learn-list li::before {
+            content: "✔"; position: absolute; left: 0; color: var(--primary); font-weight: bold;
+        }
+        .learn-card.alt .learn-list li::before {
+            color: var(--accent);
+        }
+
+        /* Para quem section */
+        .target-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+        }
+        .target-item {
+            background: white; border-radius: 18px; padding: 2.5rem 1.5rem;
+            text-align: center; box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.03); transition: var(--transition);
+        }
+        .target-item:hover { transform: translateY(-5px); box-shadow: var(--shadow-premium); }
+        .target-icon { font-size: 2.2rem; margin-bottom: 1.2rem; display: block; }
+        .target-item h4 { color: var(--primary-dark); font-size: 1.15rem; margin-bottom: 0.8rem; font-weight: 800; }
+        .target-item p { color: var(--gray); font-size: 0.92rem; line-height: 1.5; }
+
+        @media (max-width: 992px) {
+            .hero-grid { grid-template-columns: 1fr; text-align: center; }
+            .hero-image-container { text-align: center; order: -1; }
+            .learn-grid { grid-template-columns: 1fr; }
+            .target-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 600px) {
+            .target-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body style="background: white;">
+
+    <!-- Header -->
+    <header style="position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(255,255,255,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05);">
+        <nav class="container" style="height: 80px; display: flex; justify-content: space-between; align-items: center;">
+            <a href="../../index.html" style="transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                <img src="https://changeskills.com.br/wp-content/uploads/2022/11/logo-change.png" alt="Logo" style="height: 45px;">
+            </a>
+            <button class="mobile-menu-btn" style="display: none; background: transparent; border: none; cursor: pointer; color: var(--primary-dark); z-index: 1001;">
+                <i data-lucide="menu" style="width: 32px; height: 32px;"></i>
+            </button>
+            <ul class="nav-list" style="display: flex; gap: 3rem; list-style: none; align-items: center;">
+                <li style="position: relative;">
+                    <a href="../../index.html" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
+                       onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
+                       onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
+                        Início
+                        <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
+                    </a>
+                </li>
+                <li style="position: relative;">
+                    <a href="../../nossa-escola.html" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
+                       onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
+                       onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
+                        Nossa Escola
+                        <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
+                    </a>
+                </li>
+                <li style="position: relative;">
+                    <a href="../../index.html#cursos" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
+                       onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
+                       onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
+                        Cursos
+                        <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
+                    </a>
+                </li>
+                <li style="position: relative;">
+                    <a href="../../nossos-teachers.html" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
+                       onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
+                       onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
+                        Professores
+                        <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
+                    </a>
+                </li>
+                <li style="position: relative;">
+                    <a href="../../contato.html" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
+                       onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
+                       onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
+                        Contato
+                        <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="menu-overlay"></div>
+
+    <div class="back-nav">
+        <div class="container">
+            <a href="../ingles.html" style="display: inline-flex; align-items: center; gap: 8px; color: var(--primary); text-decoration: none; font-weight: 600; transition: transform 0.3s;" onmouseover="this.style.transform='translateX(-5px)'" onmouseout="this.style.transform='translateX(0)'">
+                <i data-lucide="arrow-left" style="width: 20px;"></i> Voltar para Inglês
+            </a>
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container hero-grid reveal active">
+                <div style="text-align: left;">
+                    <span style="color: var(--primary); font-weight: 800; letter-spacing: 0.2em; display: inline-block; margin-bottom: 1.5rem; text-transform: uppercase;">🇺🇸 🇬🇧 Curso de Inglês 50+</span>
+                    <h1 style="font-size: 4.2rem; margin-bottom: 2rem; line-height: 1.1; color: var(--primary-dark);">Inglês para <span style="color: var(--primary);">50+</span></h1>
+                    <p style="font-size: 1.25rem; color: var(--primary-dark); font-weight: 600; margin-bottom: 1.5rem;">
+                        Aprenda Inglês para Viver Experiências, Viajar e se Comunicar com Confiança
+                    </p>
+                    <p style="font-size: 1.1rem; color: var(--gray); margin-bottom: 3rem; line-height: 1.8; max-width: 650px;">
+                        Na Change Skills Idiomas acreditamos que nunca é tarde para aprender inglês, principalmente quando o objetivo é viver novas experiências, viajar pelo mundo e se comunicar com segurança no dia-a-dia. Nosso curso 50+ foi desenvolvido especialmente para adultos que desejam aprender de forma leve, prática e personalizada, sem pressão e sem foco excessivo em gramática tradicional. Aqui, o aprendizado acontece por meio de situações reais da vida cotidiana, respeitando o ritmo, os interesses e os objetivos de cada aluno.
+                    </p>
+                    <a href="#agendamento" class="btn-vip" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; padding: 1.1rem 3rem; font-size: 1.2rem;">
+                        Agende uma aula experimental <i data-lucide="arrow-right" style="width: 22px;"></i>
+                    </a>
+                </div>
+                <div class="hero-image-container">
+                    <img src="../../assets/img/ingles-50-hero.png" alt="Inglês 50+ Change Skills">
+                </div>
+            </div>
+        </section>
+
+        <!-- Como Funciona -->
+        <section style="background: #f8faff; padding: 100px 0;">
+            <div class="container">
+                <div class="reveal" style="margin-bottom: 5rem; text-align: left;">
+                    <span style="color: var(--primary); font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase;">Metodologia</span>
+                    <h2 style="margin-top: 1rem; font-size: 3rem; color: var(--primary-dark);">Como funciona o curso</h2>
+                    <p style="max-width: 800px; margin: 2rem 0; color: var(--gray); font-size: 1.15rem; line-height: 1.8;">
+                        Respeitamos o seu tempo e os seus objetivos. Nossas aulas são online ao vivo, dinâmicas e completamente adaptadas para as suas necessidades reais do cotidiano e viagens.
+                    </p>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+                    <div class="feature-card reveal">
+                        <i data-lucide="message-circle" style="color: var(--primary); width: 40px; height: 40px; margin-bottom: 1.5rem;"></i>
+                        <h3 style="color: var(--primary-dark); font-size: 1.3rem; margin-bottom: 1rem;">Conversação Prática</h3>
+                        <p style="color: var(--gray); line-height: 1.6;">Foco principal na fala e compreensão auditiva, através de diálogos reais, músicas, vídeos e situações reais do cotidiano.</p>
+                    </div>
+                    <div class="feature-card reveal">
+                        <i data-lucide="heart" style="color: var(--accent); width: 40px; height: 40px; margin-bottom: 1.5rem;"></i>
+                        <h3 style="color: var(--primary-dark); font-size: 1.3rem; margin-bottom: 1rem;">Leveza e Paciência</h3>
+                        <p style="color: var(--gray); line-height: 1.6;">Sem cobranças excessivas, cobrança de prazos ou foco maçante em decoreba gramatical. Respeitamos o ritmo de cada aluno adulto sênior.</p>
+                    </div>
+                    <div class="feature-card reveal">
+                        <i data-lucide="sliders" style="color: var(--primary); width: 40px; height: 40px; margin-bottom: 1.5rem;"></i>
+                        <h3 style="color: var(--primary-dark); font-size: 1.3rem; margin-bottom: 1rem;">100% Personalizado</h3>
+                        <p style="color: var(--gray); line-height: 1.6;">Aulas desenvolvidas com materiais pensados exclusivamente para você, sem a obrigatoriedade de seguir um livro didático rígido tradicional.</p>
+                    </div>
+                </div>
+
+                <!-- Lista de pontos de funcionamento -->
+                <div style="margin-top: 5rem; display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;" class="reveal">
+                    <div style="background: white; padding: 3rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.03);">
+                        <h3 style="color: var(--primary-dark); margin-bottom: 2rem; font-size: 1.6rem; font-weight: 800;">Pilares do Nosso Método</h3>
+                        <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 1.2rem;">
+                            <li style="display: flex; gap: 12px; align-items: start; color: var(--gray); font-size: 1.05rem;">
+                                <i data-lucide="check-circle" style="color: var(--primary); flex-shrink: 0; width: 22px;"></i> Aulas totalmente personalizadas
+                            </li>
+                            <li style="display: flex; gap: 12px; align-items: start; color: var(--gray); font-size: 1.05rem;">
+                                <i data-lucide="check-circle" style="color: var(--primary); flex-shrink: 0; width: 22px;"></i> Foco em conversação e compreensão auditiva
+                            </li>
+                            <li style="display: flex; gap: 12px; align-items: start; color: var(--gray); font-size: 1.05rem;">
+                                <i data-lucide="check-circle" style="color: var(--primary); flex-shrink: 0; width: 22px;"></i> Situações reais de viagem e cotidiano prático
+                            </li>
+                            <li style="display: flex; gap: 12px; align-items: start; color: var(--gray); font-size: 1.05rem;">
+                                <i data-lucide="check-circle" style="color: var(--primary); flex-shrink: 0; width: 22px;"></i> Sem necessidade de seguir livro didático rígido
+                            </li>
+                        </ul>
+                    </div>
+                    <div style="background: white; padding: 3rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.03);">
+                        <h3 style="color: var(--primary-dark); margin-bottom: 2rem; font-size: 1.6rem; font-weight: 800;">Diferencial de Acompanhamento</h3>
+                        <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 1.2rem;">
+                            <li style="display: flex; gap: 12px; align-items: start; color: var(--gray); font-size: 1.05rem;">
+                                <i data-lucide="check-circle" style="color: var(--accent); flex-shrink: 0; width: 22px;"></i> Aulas online ao vivo e muito dinâmicas
+                            </li>
+                            <li style="display: flex; gap: 12px; align-items: start; color: var(--gray); font-size: 1.05rem;">
+                                <i data-lucide="check-circle" style="color: var(--accent); flex-shrink: 0; width: 22px;"></i> Aprendizado prazeroso no seu próprio ritmo
+                            </li>
+                            <li style="display: flex; gap: 12px; align-items: start; color: var(--gray); font-size: 1.05rem;">
+                                <i data-lucide="check-circle" style="color: var(--accent); flex-shrink: 0; width: 22px;"></i> Professores extremamente pacientes e preparados para o público adulto
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- O Que Você Vai Aprender -->
+        <section style="padding: 100px 0; background: white;" id="conteudo">
+            <div class="container reveal">
+                <div style="text-align: left; margin-bottom: 3rem;">
+                    <span style="color: var(--primary); font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase;">O que você vai aprender</span>
+                    <h2 style="margin-top: 1rem; font-size: 3rem; color: var(--primary-dark);">Conteúdo focado na vida real</h2>
+                    <p style="max-width: 900px; margin: 2rem 0; color: var(--gray); font-size: 1.15rem; line-height: 1.8;">
+                        Construímos uma base sólida e aplicável imediatamente para que você alcance independência absoluta.
+                    </p>
+                </div>
+                
+                <div class="learn-grid">
+                    <!-- 1. Inglês para Viagens -->
+                    <div class="learn-card reveal">
+                        <span class="learn-icon">✈️</span>
+                        <h3 class="learn-title">Inglês para Viagens</h3>
+                        <p style="color: var(--primary-dark); font-weight: 600; margin-bottom: 1rem;">Comunicação confiante em roteiros internacionais:</p>
+                        <ul class="learn-list">
+                            <li>Vocabulário essencial de viagem e sobrevivência</li>
+                            <li>Comunicação em aeroporto e processos de imigração</li>
+                            <li>Check-in, check-out e solicitações em hotéis</li>
+                            <li>Pedidos em restaurantes, cafés e bares</li>
+                            <li>Comentários e perguntas em compras e lojas</li>
+                            <li>Uso de transporte (Uber, táxi, metrô, ônibus)</li>
+                            <li>Como pedir informações de localização e direções</li>
+                            <li>Termos e frases de emergência internacional</li>
+                            <li>Conversas durante passeios e excursões guiadas</li>
+                        </ul>
+                    </div>
+
+                    <!-- 2. Conversação do Dia-a-Dia -->
+                    <div class="learn-card reveal alt">
+                        <span class="learn-icon">🗣️</span>
+                        <h3 class="learn-title">Conversação do Dia-a-Dia</h3>
+                        <p style="color: var(--primary-dark); font-weight: 600; margin-bottom: 1rem;">Habilidade para conversar naturalmente:</p>
+                        <ul class="learn-list">
+                            <li>Apresentações pessoais completas</li>
+                            <li>Falar sobre a família, rotina e cotidiano</li>
+                            <li>Como interagir e fazer amizades em inglês</li>
+                            <li>Conversas e interações sociais informais</li>
+                            <li>Compartilhar hobbies, esportes e interesses</li>
+                            <li>Discutir cultura, cinema, música e entretenimento</li>
+                            <li>Desenvolvimento de pequenas conversas cotidianas ("small talk")</li>
+                        </ul>
+                    </div>
+
+                    <!-- 3. Inglês para Experiências Internacionais -->
+                    <div class="learn-card reveal alt">
+                        <span class="learn-icon">🌎</span>
+                        <h3 class="learn-title">Experiências Internacionais</h3>
+                        <p style="color: var(--primary-dark); font-weight: 600; margin-bottom: 1rem;">Aproveite ao máximo suas vivências no exterior:</p>
+                        <ul class="learn-list">
+                            <li>Aproveitamento premium de hotéis e resorts de luxo</li>
+                            <li>Viagens em cruzeiros e passeios customizados</li>
+                            <li>Visitação autônoma a museus e atrações históricas</li>
+                            <li>Participação em eventos, feiras e shows internacionais</li>
+                            <li>Pedidos em restaurantes sofisticados e adegas</li>
+                            <li>Compreensão do atendimento ao cliente</li>
+                            <li>Segurança para lidar com situações inesperadas</li>
+                        </ul>
+                    </div>
+
+                    <!-- 4. Desenvolvimento da Escuta e Confiança -->
+                    <div class="learn-card reveal">
+                        <span class="learn-icon">🎧</span>
+                        <h3 class="learn-title">Desenvolvimento da Escuta e Confiança</h3>
+                        <p style="color: var(--primary-dark); font-weight: 600; margin-bottom: 1rem;">Combate à timidez e à ansiedade ao falar:</p>
+                        <ul class="learn-list">
+                            <li>Foco intenso em compreensão auditiva natural</li>
+                            <li>Treinamento para uma pronúncia fluida e clara</li>
+                            <li>Segurança interna para falar sem medo de cometer erros</li>
+                            <li>Construção ativa de um vocabulário ricamente útil</li>
+                            <li>Redução gradativa da ansiedade para se comunicar</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Metodologia Section -->
+        <section style="background: #f8faff; padding: 100px 0;">
+            <div class="container">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;" class="reveal">
+                    <div>
+                        <span style="color: var(--primary); font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; display: block; margin-bottom: 1.5rem;">Diferencial</span>
+                        <h2 style="font-size: 2.8rem; color: var(--primary-dark); margin-bottom: 2rem;">Metodologia Change Skills 50+</h2>
+                        <p style="color: var(--gray); font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
+                            Nossa metodologia é baseada em:
+                        </p>
+                        <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem;">
+                            <li style="display: flex; gap: 10px; color: var(--gray);"><i data-lucide="check" style="color: var(--primary); font-weight: bold;"></i> Comunicação prática e imediata</li>
+                            <li style="display: flex; gap: 10px; color: var(--gray);"><i data-lucide="check" style="color: var(--primary); font-weight: bold;"></i> Repetição natural e contextualizada</li>
+                            <li style="display: flex; gap: 10px; color: var(--gray);"><i data-lucide="check" style="color: var(--primary); font-weight: bold;"></i> Conversação guiada e encorajadora</li>
+                            <li style="display: flex; gap: 10px; color: var(--gray);"><i data-lucide="check" style="color: var(--primary); font-weight: bold;"></i> Aprendizado leve, descontraído e acolhedor</li>
+                            <li style="display: flex; gap: 10px; color: var(--gray);"><i data-lucide="check" style="color: var(--primary); font-weight: bold;"></i> Conteúdo adaptado aos interesses pessoais de cada aluno</li>
+                        </ul>
+                        <p style="color: var(--primary-dark); font-weight: 700; font-size: 1.1rem; line-height: 1.6; border-left: 3px solid var(--accent); padding-left: 1rem;">
+                            Aqui você não precisa decorar regras gramaticais complexas para começar a falar inglês. O foco é fazer você se sentir confortável usando o idioma em situações reais da vida real.
+                        </p>
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="../../assets/img/ingles-50-viver.png" alt="Aprendizado no seu Ritmo" style="width: 100%; max-width: 480px; border-radius: 30px; box-shadow: 0 20px 45px rgba(0,0,0,0.1);">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Para Quem É Este Curso? -->
+        <section style="padding: 100px 0; background: white;">
+            <div class="container">
+                <div class="text-center reveal" style="margin-bottom: 5rem;">
+                    <span style="color: var(--primary); font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase;">Identificação</span>
+                    <h2 style="margin-top: 1rem; font-size: 3rem; color: var(--primary-dark);">Para quem é este curso?</h2>
+                    <p style="color: var(--gray); max-width: 600px; margin: 1.5rem auto 0 auto; font-size: 1.1rem;">
+                        Identifique se o nosso curso se encaixa perfeitamente no que você busca para sua vida.
+                    </p>
+                </div>
+
+                <div class="target-grid">
+                    <div class="target-item reveal">
+                        <span class="target-icon">✈️</span>
+                        <h4>Independência ao Viajar</h4>
+                        <p>Pessoas que querem viajar pelo mundo com mais segurança, autonomia e liberdade de comunicação.</p>
+                    </div>
+                    <div class="target-item reveal">
+                        <span class="target-icon">💫</span>
+                        <h4>Sonho Antigo</h4>
+                        <p>Adultos que sempre sonharam em falar inglês e finalmente decidiram tirar esse projeto do papel.</p>
+                    </div>
+                    <div class="target-item reveal">
+                        <span class="target-icon">🧘</span>
+                        <h4>Aprender sem Pressão</h4>
+                        <p>Alunos que desejam aprender por prazer e de maneira leve, sem testes rígidos ou obrigações.</p>
+                    </div>
+                    <div class="target-item reveal">
+                        <span class="target-icon">❤️</span>
+                        <h4>Aulas Humanizadas</h4>
+                        <p>Quem busca uma relação próxima com professores dedicados e acolhedores, em vez de métodos automatizados.</p>
+                    </div>
+                    <div class="target-item reveal">
+                        <span class="target-icon">🗣️</span>
+                        <h4>Inglês do Dia-a-Dia</h4>
+                        <p>Pessoas que desejam conversar naturalmente e praticar conversas diárias com confiança.</p>
+                    </div>
+                    <div class="target-item reveal">
+                        <span class="target-icon">✨</span>
+                        <h4>Método Flexível</h4>
+                        <p>Estudantes que preferem um ensino sob medida aos métodos padronizados de escolas tradicionais.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Diferenciais -->
+        <section style="background: #f8faff; padding: 100px 0;">
+            <div class="container">
+                <div style="display: grid; grid-template-columns: 1fr 1.1fr; gap: 4rem; align-items: center;" class="reveal">
+                    <div style="text-align: center;">
+                        <img src="../../assets/img/ingles-50-viagem.png" alt="Diferenciais Change Skills" style="width: 100%; max-width: 460px; border-radius: 30px; box-shadow: 0 20px 45px rgba(0,0,0,0.1);">
+                    </div>
+                    <div>
+                        <span style="color: var(--primary); font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; display: block; margin-bottom: 1.5rem;">Excelência</span>
+                        <h2 style="font-size: 2.8rem; color: var(--primary-dark); margin-bottom: 2rem;">Diferenciais da Change Skills Idiomas</h2>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                            <div>
+                                <h4 style="color: var(--primary); font-weight: 800; font-size: 1.1rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">
+                                    <i data-lucide="star" style="width: 18px; fill: var(--primary);"></i> Atendimento VIP
+                                </h4>
+                                <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5;">Atendimento 100% individualizado e voltado para os seus desafios.</p>
+                            </div>
+                            <div>
+                                <h4 style="color: var(--primary); font-weight: 800; font-size: 1.1rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">
+                                    <i data-lucide="star" style="width: 18px; fill: var(--primary);"></i> Especialistas
+                                </h4>
+                                <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5;">Professores formados e especializados no ensino de adultos sênior.</p>
+                            </div>
+                            <div>
+                                <h4 style="color: var(--primary); font-weight: 800; font-size: 1.1rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">
+                                    <i data-lucide="star" style="width: 18px; fill: var(--primary);"></i> Acolhimento
+                                </h4>
+                                <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5;">Ambiente de aula encorajador, estimulante e acolhedor.</p>
+                            </div>
+                            <div>
+                                <h4 style="color: var(--primary); font-weight: 800; font-size: 1.1rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">
+                                    <i data-lucide="star" style="width: 18px; fill: var(--primary);"></i> Flexibilidade
+                                </h4>
+                                <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5;">Agendamentos e horários que respeitam a sua rotina e disponibilidade.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Agendamento Form Section -->
+        <section id="agendamento" style="padding: 100px 0; background: white; position: relative;">
+            <div class="container reveal">
+                <div style="max-width: 800px; margin: 0 auto; text-align: center; background: #f8faff; border-radius: 40px; padding: 5rem 4rem; box-shadow: 0 20px 50px rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.02);">
+                    <span style="color: var(--primary); font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase;">Matrículas & Testes</span>
+                    <h2 style="font-size: 3rem; color: var(--primary-dark); margin: 1.5rem 0 2rem 0; line-height: 1.15;">Viva novas experiências com mais liberdade e confiança.</h2>
+                    <p style="color: var(--gray); font-size: 1.15rem; line-height: 1.8; margin-bottom: 3.5rem;">
+                        Preencha o formulário abaixo e nós entraremos em contato para agendar uma conversa e planejar o seu curso personalizado.
+                    </p>
+                    
+                    <form action="https://wa.me/5549999124040" method="GET" target="_blank" style="text-align: left; display: grid; gap: 2rem; max-width: 550px; margin: 0 auto;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                            <div>
+                                <label style="display: block; font-weight: 600; color: var(--primary-dark); margin-bottom: 0.8rem; font-size: 0.95rem;">Primeiro Nome</label>
+                                <input type="text" name="name" required style="width: 100%; padding: 1rem 1.5rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); font-size: 1rem; outline: none; background: white; transition: all 0.3s;" onfocus="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 0 12px rgba(0,18,51,0.05)'" onblur="this.style.borderColor='rgba(0,0,0,0.08)'">
+                            </div>
+                            <div>
+                                <label style="display: block; font-weight: 600; color: var(--primary-dark); margin-bottom: 0.8rem; font-size: 0.95rem;">Sobrenome</label>
+                                <input type="text" name="lastname" required style="width: 100%; padding: 1rem 1.5rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); font-size: 1rem; outline: none; background: white; transition: all 0.3s;" onfocus="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 0 12px rgba(0,18,51,0.05)'" onblur="this.style.borderColor='rgba(0,0,0,0.08)'">
+                            </div>
+                        </div>
+                        <div>
+                            <label style="display: block; font-weight: 600; color: var(--primary-dark); margin-bottom: 0.8rem; font-size: 0.95rem;">Celular / WhatsApp</label>
+                            <input type="tel" name="phone" placeholder="(99) 99999-9999" required style="width: 100%; padding: 1rem 1.5rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); font-size: 1rem; outline: none; background: white; transition: all 0.3s;" onfocus="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 0 12px rgba(0,18,51,0.05)'" onblur="this.style.borderColor='rgba(0,0,0,0.08)'">
+                        </div>
+                        <div>
+                            <label style="display: block; font-weight: 600; color: var(--primary-dark); margin-bottom: 0.8rem; font-size: 0.95rem;">Já estudou inglês antes?</label>
+                            <select name="level" style="width: 100%; padding: 1rem 1.5rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); font-size: 1rem; outline: none; background: white; transition: all 0.3s; appearance: none; background-image: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'24\' height=\'24\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23001233\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><polyline points=\'6 9 12 15 18 9\'></polyline></svg>'); background-repeat: no-repeat; background-position: right 1.5rem center; background-size: 1.2rem;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(0,0,0,0.08)'">
+                                <option value="Nao, comecando do zero">Não, começaria do zero absoluto</option>
+                                <option value="Sim, sei apenas algumas palavras">Sim, mas sei apenas palavras soltas</option>
+                                <option value="Sim, consigo entender mas nao falo">Sim, entendo um pouco mas não consigo falar</option>
+                                <option value="Sim, ja sou intermediario/avancado">Sim, já consigo manter conversas simples</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-vip" style="border: none; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 1.2rem 3rem; font-size: 1.2rem; width: 100%; margin-top: 1rem;">
+                            Quero Aprender Inglês <i data-lucide="message-circle" style="width: 22px;"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer style="padding: 120px 0 60px 0; background: var(--primary-dark); color: white;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 4rem; margin-bottom: 4rem;">
+                <div>
+                    <img src="https://changeskills.com.br/wp-content/uploads/2022/11/logo-change.png"
+                        style="height: 50px; filter: brightness(0) invert(1); margin-bottom: 2.5rem;">
+                    <p style="opacity: 0.6; font-size: 1.1rem; line-height: 1.6; max-width: 300px;">A ponte definitiva entre você e o mundo. Educação com excelência global.</p>
+                </div>
+                <div>
+                    <h4 style="color: var(--accent); margin-bottom: 2.5rem; font-size: 1.2rem;">Institucional</h4>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 1.2rem; opacity: 0.7;">
+                        <li><a href="../../index.html#escola" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Nossa Escola</a></li>
+                        <li><a href="../../nossos-teachers.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Professores</a></li>
+                        <li><a href="../../services/solicitacao-certificado.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Certificados</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: var(--accent); margin-bottom: 2.5rem; font-size: 1.2rem;">Cursos</h4>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 1.2rem; opacity: 0.7;">
+                        <li><a href="../ingles.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Inglês</a></li>
+                        <li><a href="../espanhol.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Espanhol</a></li>
+                        <li><a href="../frances.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Francês</a></li>
+                        <li><a href="../portugues.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Português</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: var(--accent); margin-bottom: 2.5rem; font-size: 1.2rem;">Serviços</h4>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 1.2rem; opacity: 0.7; margin-bottom: 2rem;">
+                        <li><a href="../../services/traducoes.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Traduções</a></li>
+                        <li><a href="../../services/aulas-conversacao.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Aulas de Conversação</a></li>
+                    </ul>
+                    <div style="display: flex; gap: 1.5rem; opacity: 0.8;">
+                        <a href="#" style="color: white; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'"><i data-lucide="instagram"></i></a>
+                        <a href="#" style="color: white; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'"><i data-lucide="facebook"></i></a>
+                        <a href="#" style="color: white; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'"><i data-lucide="linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; opacity: 0.3; padding-top: 4rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                <span>2026 © Change Skills — Todos os direitos reservados.</span>
+                <span>Desenvolvido por <strong>Page Facilitado</strong></span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Action Button -->
+    <a href="https://wa.me/5549999124040" target="_blank" 
+       style="position: fixed; bottom: 30px; right: 30px; width: 65px; height: 65px; background: #25D366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 15px 35px rgba(37, 211, 102, 0.3); z-index: 1000; transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);"
+       onmouseover="this.style.transform='scale(1.1) translateY(-10px)'; this.style.boxShadow='0 25px 45px rgba(37, 211, 102, 0.4)'"
+       onmouseout="this.style.transform='scale(1) translateY(0)'; this.style.boxShadow='0 15px 35px rgba(37, 211, 102, 0.3)'">
+        <i data-lucide="message-circle" style="width: 32px; height: 32px;"></i>
+    </a>
+
+    <!-- Lucide Icons -->
+    <script>
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navList = document.querySelector('.nav-list');
+        const navLinks = document.querySelectorAll('.nav-list a');
+        const menuOverlay = document.querySelector('.menu-overlay');
+
+        if(mobileMenuBtn && navList) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navList.classList.toggle('active');
+                if(menuOverlay) menuOverlay.classList.toggle('active');
+                
+                const icon = mobileMenuBtn.querySelector('i');
+                if(navList.classList.contains('active')) {
+                    icon.setAttribute('data-lucide', 'x');
+                } else {
+                    icon.setAttribute('data-lucide', 'menu');
+                }
+                lucide.createIcons();
+            });
+
+            // Close menu when a link is clicked
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navList.classList.remove('active');
+                    if(menuOverlay) menuOverlay.classList.remove('active');
+                    mobileMenuBtn.querySelector('i').setAttribute('data-lucide', 'menu');
+                    lucide.createIcons();
+                });
+            });
+
+            // Close menu when overlay is clicked
+            if(menuOverlay) {
+                menuOverlay.addEventListener('click', () => {
+                    navList.classList.remove('active');
+                    menuOverlay.classList.remove('active');
+                    mobileMenuBtn.querySelector('i').setAttribute('data-lucide', 'menu');
+                    lucide.createIcons();
+                });
+            }
+        }
+
+        // Reveal animations on scroll
+        const reveal = () => {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(el => {
+                const windowHeight = window.innerHeight;
+                const elementTop = el.getBoundingClientRect().top;
+                const elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    el.classList.add('active');
+                }
+            });
+        };
+        window.addEventListener('scroll', reveal);
+        reveal(); // Initial check
+
+        // Form submission text handler
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = this.querySelector('[name="name"]').value;
+            const lastname = this.querySelector('[name="lastname"]').value;
+            const phone = this.querySelector('[name="phone"]').value;
+            const level = this.querySelector('[name="level"]').value;
+            
+            const message = `Olá, gostaria de agendar uma aula experimental para o Curso de Inglês 50+!\n\n` +
+                            `Nome completo: ${name} ${lastname}\n` +
+                            `WhatsApp: ${phone}\n` +
+                            `Estudo prévio: ${level}`;
+            
+            const encoded = encodeURIComponent(message);
+            window.open(`https://wa.me/5549999124040?text=${encoded}`, '_blank');
+        });
+    </script>
+</body>
+</html>
