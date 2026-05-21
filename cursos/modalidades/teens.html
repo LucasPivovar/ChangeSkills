@@ -58,9 +58,7 @@
         }
                 .material-item img {
             width: 100%; height: 220px; object-fit: contain;
-            border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.12);
             margin-bottom: 1rem; transition: var(--transition);
-            background: #f8faff; padding: 0.8rem;
         }
         .material-item:hover img { transform: scale(1.05); }
         .material-item h4 { color: var(--primary-dark); font-size: 1.1rem; margin-bottom: 0.5rem; }
@@ -73,6 +71,23 @@
         }
         @media (max-width: 600px) {
             .material-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        .level-card {
+            background: white; border-radius: 20px; padding: 2.5rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--accent); transition: var(--transition);
+        }
+        .level-card:hover { transform: translateX(8px); box-shadow: var(--shadow-premium); }
+        .level-number {
+            font-size: 0.8rem; font-weight: 800; letter-spacing: 0.15em;
+            text-transform: uppercase; color: var(--primary); margin-bottom: 0.5rem;
+        }
+        .level-title { font-size: 1.4rem; color: var(--primary-dark); font-weight: 800; margin-bottom: 1rem; }
+        .topic-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+        .topic-tag {
+            background: #f0f4ff; color: var(--primary);
+            font-size: 0.8rem; font-weight: 600;
+            padding: 0.3rem 0.8rem; border-radius: 100px;
         }
     </style>
 </head>
@@ -112,14 +127,6 @@
                        onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
                        onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
                         Cursos
-                        <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
-                    </a>
-                </li>
-                <li style="position: relative;">
-                    <a href="../../nossos-teachers.html" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
-                       onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
-                       onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
-                        Professores
                         <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
                     </a>
                 </li>
@@ -233,40 +240,157 @@
             </div>
         </section>
 
+        <!-- Estrutura dos Níveis -->
+        <section style="background: #f8faff; padding: 100px 0;">
+            <div class="container">
+                <div class="reveal" style="text-align: left; margin-bottom: 5rem;">
+                    <span style="color: var(--primary); font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase;">Programa</span>
+                    <h2 style="margin-top: 1rem; font-size: 3rem; color: var(--primary-dark);">Estrutura do Programa</h2>
+                </div>
+                <div style="display: grid; gap: 2rem;">
+
+                    <div class="level-card reveal">
+                        <div class="level-number">Nível 1 — A1</div>
+                        <div class="level-title">Wider World Starter / 1</div>
+                        <p style="color: var(--gray); line-height: 1.7; margin-bottom: 1rem;">Os alunos desenvolvem a base do idioma de forma natural e interativa, usando conteúdos de alta qualidade e vídeos da BBC para engajamento real.</p>
+                        <div class="topic-tags">
+                            <span class="topic-tag">Escola</span>
+                            <span class="topic-tag">Família</span>
+                            <span class="topic-tag">Hobbies</span>
+                            <span class="topic-tag">Vídeos BBC</span>
+                            <span class="topic-tag">Rotina</span>
+                        </div>
+                    </div>
+
+                    <div class="level-card reveal">
+                        <div class="level-number">Nível 2 — A2</div>
+                        <div class="level-title">Wider World 2</div>
+                        <p style="color: var(--gray); line-height: 1.7; margin-bottom: 1rem;">Expansão da habilidade de expressão pessoal, permitindo que o jovem fale sobre suas experiências, planos futuros e use a tecnologia em inglês.</p>
+                        <div class="topic-tags">
+                            <span class="topic-tag">Tecnologia</span>
+                            <span class="topic-tag">Viagens</span>
+                            <span class="topic-tag">Opiniões</span>
+                            <span class="topic-tag">Natureza</span>
+                            <span class="topic-tag">Estilo de Vida</span>
+                        </div>
+                    </div>
+
+                    <div class="level-card reveal">
+                        <div class="level-number">Nível 3 — B1</div>
+                        <div class="level-title">Wider World 3</div>
+                        <p style="color: var(--gray); line-height: 1.7; margin-bottom: 1rem;">Foco no aprimoramento da fluência, debates críticos e projetos colaborativos de relevância global e cultural.</p>
+                        <div class="topic-tags">
+                            <span class="topic-tag">Projetos</span>
+                            <span class="topic-tag">Sociedade</span>
+                            <span class="topic-tag">Planos</span>
+                            <span class="topic-tag">Debates</span>
+                            <span class="topic-tag">Cultura</span>
+                        </div>
+                    </div>
+
+                    <div class="level-card reveal">
+                        <div class="level-number">Nível 4 — B1+</div>
+                        <div class="level-title">Wider World 4</div>
+                        <p style="color: var(--gray); line-height: 1.7; margin-bottom: 1rem;">Preparação para exames internacionais, autonomia total na comunicação acadêmica e pessoal e consciência global ativa.</p>
+                        <div class="topic-tags">
+                            <span class="topic-tag">Exames</span>
+                            <span class="topic-tag">Autonomia</span>
+                            <span class="topic-tag">Cultura Global</span>
+                            <span class="topic-tag">Futuro</span>
+                            <span class="topic-tag">Liderança</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
         <!-- Agendamento Form -->
-        <section id="agendamento" style="background: #f8faff; padding: 120px 0;">
-            <div class="container" style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 6rem; align-items: center;">
+        <section id="agendamento" style="background: var(--primary); padding: 100px 0;">
+            <div class="container" style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 6rem; align-items: start;">
                 <div class="reveal">
-                    <span style="color: var(--primary); font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase;">Experimental</span>
-                    <h2 style="font-size: 3.5rem; margin-top: 1rem; color: var(--primary-dark);">Agende sua aula <span style="color: var(--primary);">Grátis</span></h2>
-                    <p style="font-size: 1.2rem; color: var(--gray); margin: 2rem 0; line-height: 1.8;">
+                    <span style="color: var(--accent); font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase;">Experimental</span>
+                    <h2 style="font-size: 3.5rem; margin-top: 1rem; color: white;">Agende sua aula <span style="color: white;">Grátis</span></h2>
+                    <p style="font-size: 1.2rem; color: rgba(255,255,255,0.85); margin: 2rem 0; line-height: 1.8;">
                         Deixe seus dados e receba todos os detalhes sobre turmas, horários e nossa metodologia exclusiva para adolescentes.
                     </p>
                     <div style="display: flex; flex-direction: column; gap: 1.5rem;">
                         <div style="display: flex; align-items: center; gap: 1rem;">
-                            <div style="width: 40px; height: 40px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary-dark);"><i data-lucide="check" style="width: 20px;"></i></div>
-                            <span style="font-weight: 600; color: var(--primary-dark);">Nivelamento Gratuito</span>
+                            <div style="width: 40px; height: 40px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;"><i data-lucide="check" style="width: 20px;"></i></div>
+                            <span style="font-weight: 600; color: white;">Nivelamento Gratuito</span>
                         </div>
                     </div>
                 </div>
-                <div class="reveal">
-                    <form style="background: white; padding: 3rem; border-radius: 30px; box-shadow: var(--shadow-premium); display: grid; gap: 1.5rem;">
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                            <input type="text" placeholder="Nome" style="width: 100%; padding: 1.2rem; border-radius: 12px; border: 1px solid #eee; background: #fafafa; font-family: inherit;">
-                            <input type="text" placeholder="Sobrenome" style="width: 100%; padding: 1.2rem; border-radius: 12px; border: 1px solid #eee; background: #fafafa; font-family: inherit;">
+                <div class="reveal" style="background: white; padding: 3.5rem; border-radius: 40px; box-shadow: 0 30px 60px rgba(0,0,0,0.15); width: 100%;  margin: 0 auto; border: 1px solid rgba(0,0,0,0.03);">
+                    <h3 style="color: var(--primary-dark); font-size: 1.8rem; font-weight: 700; margin-bottom: 2rem; text-align: left;">Solicite Informações</h3>
+                    <form style="display: flex; flex-direction: column; gap: 1.2rem;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                            <div style="margin-bottom: 0;">
+                                <label style="display: block; font-weight: 600; color: var(--primary-dark); margin-bottom: 0.5rem; font-size: 0.95rem;">Nome *</label>
+                                <input type="text" placeholder="Seu nome" required style="width: 100%; padding: 1.1rem 1.5rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); background: #f8fafc; font-family: inherit; font-size: 1rem; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(0,0,0,0.08)'">
+                            </div>
+                            <div style="margin-bottom: 0;">
+                                <label style="display: block; font-weight: 600; color: var(--primary-dark); margin-bottom: 0.5rem; font-size: 0.95rem;">Sobrenome</label>
+                                <input type="text" placeholder="Sobrenome" style="width: 100%; padding: 1.1rem 1.5rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); background: #f8fafc; font-family: inherit; font-size: 1rem; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(0,0,0,0.08)'">
+                            </div>
                         </div>
-                        <input type="email" placeholder="Seu melhor e-mail" style="width: 100%; padding: 1.2rem; border-radius: 12px; border: 1px solid #eee; background: #fafafa; font-family: inherit;">
-                        <input type="tel" placeholder="Telefone / WhatsApp" style="width: 100%; padding: 1.2rem; border-radius: 12px; border: 1px solid #eee; background: #fafafa; font-family: inherit;">
-                        <select style="width: 100%; padding: 1.2rem; border-radius: 12px; border: 1px solid #eee; background: #fafafa; font-family: inherit; color: var(--gray);">
-                            <option>Qual seu nível atual?</option>
-                            <option>Nunca fiz curso</option>
-                            <option>Iniciante</option>
-                            <option>Intermediário</option>
-                            <option>Avançado</option>
-                        </select>
-                        <button type="submit" class="btn-vip" style="width: 100%; border: none; cursor: pointer; padding: 1.2rem;">Enviar Solicitação</button>
+                        
+                        <div style="margin-bottom: 0;">
+                            <label style="display: block; font-weight: 600; color: var(--primary-dark); margin-bottom: 0.5rem; font-size: 0.95rem;">E-mail *</label>
+                            <input type="email" placeholder="exemplo@email.com" required style="width: 100%; padding: 1.1rem 1.5rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); background: #f8fafc; font-family: inherit; font-size: 1rem; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(0,0,0,0.08)'">
+                        </div>
+
+                        <div style="margin-bottom: 0;">
+                            <label style="display: block; font-weight: 600; color: var(--primary-dark); margin-bottom: 0.5rem; font-size: 0.95rem;">Telefone / WhatsApp *</label>
+                            <input type="tel" placeholder="(00) 00000-0000" required style="width: 100%; padding: 1.1rem 1.5rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); background: #f8fafc; font-family: inherit; font-size: 1rem; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(0,0,0,0.08)'">
+                        </div>
+
+                        <div style="margin-bottom: 0;">
+                            <label style="display: block; font-weight: 600; color: var(--primary-dark); margin-bottom: 0.5rem; font-size: 0.95rem;">Nível atual de Inglês? *</label>
+                            <select required style="width: 100%; padding: 1.1rem 1.5rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); background: #f8fafc; font-family: inherit; font-size: 1rem; color: var(--gray); outline: none; transition: border-color 0.3s; appearance: none; -webkit-appearance: none; -moz-appearance: none; background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%2364748b%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><polyline points=%226 9 12 15 18 9%22></polyline></svg>'); background-repeat: no-repeat; background-position: right 1.5rem center; background-size: 1.2rem;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(0,0,0,0.08)'">
+                                <option value="" disabled selected>Selecione seu nível</option>
+                                <option value="nunca">Nunca estudei o idioma</option>
+                                <option value="iniciante">Iniciante / Básico</option>
+                                <option value="intermediario">Intermediário</option>
+                                <option value="avancado">Avançado</option>
+                            </select>
+                        </div>
+
+                        <div style="margin-bottom: 0;">
+                            <label style="display: block; font-weight: 600; color: var(--primary-dark); margin-bottom: 0.5rem; font-size: 0.95rem;">Qual seu principal objetivo? *</label>
+                            <select required style="width: 100%; padding: 1.1rem 1.5rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); background: #f8fafc; font-family: inherit; font-size: 1rem; color: var(--gray); outline: none; transition: border-color 0.3s; appearance: none; -webkit-appearance: none; -moz-appearance: none; background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%2364748b%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><polyline points=%226 9 12 15 18 9%22></polyline></svg>'); background-repeat: no-repeat; background-position: right 1.5rem center; background-size: 1.2rem;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(0,0,0,0.08)'">
+                                <option value="" disabled selected>Selecione seu objetivo</option>
+                                <option value="carreira">Desenvolvimento Profissional / Carreira</option>
+                                <option value="viagem">Viagens ou Intercâmbio</option>
+                                <option value="academico">Estudos / Fins Acadêmicos</option>
+                                <option value="pessoal">Crescimento Pessoal / Hobbies</option>
+                            </select>
+                        </div>
+
+                        <div style="margin-bottom: 0.5rem; text-align: left;">
+                            <label style="font-weight: 600; color: var(--primary-dark); font-size: 0.95rem; display: block; margin-bottom: 0.5rem;">Como prefere ser contatado? *</label>
+                            <div class="radio-group" style="display: flex; flex-direction: row; gap: 1rem; margin-top: 0.8rem; width: 100%; flex-wrap: wrap;">
+                                <label class="radio-item" style="background: #f8fafc; border: 1px solid rgba(0,0,0,0.08); border-radius: 12px; padding: 0.9rem 1.2rem; flex: 1; min-width: 120px; display: flex; align-items: center; justify-content: center; gap: 0.6rem; cursor: pointer; transition: all 0.3s; font-weight: 600; color: var(--primary-dark); font-size: 0.95rem;" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='rgba(0,0,0,0.08)'">
+                                    <input type="radio" name="canal" value="whatsapp" checked style="accent-color: var(--primary); width: 16px; height: 16px; margin: 0;">
+                                    <span>💬</span> WhatsApp
+                                </label>
+                                <label class="radio-item" style="background: #f8fafc; border: 1px solid rgba(0,0,0,0.08); border-radius: 12px; padding: 0.9rem 1.2rem; flex: 1; min-width: 120px; display: flex; align-items: center; justify-content: center; gap: 0.6rem; cursor: pointer; transition: all 0.3s; font-weight: 600; color: var(--primary-dark); font-size: 0.95rem;" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='rgba(0,0,0,0.08)'">
+                                    <input type="radio" name="canal" value="email" style="accent-color: var(--primary); width: 16px; height: 16px; margin: 0;">
+                                    <span>📧</span> E-mail
+                                </label>
+                                <label class="radio-item" style="background: #f8fafc; border: 1px solid rgba(0,0,0,0.08); border-radius: 12px; padding: 0.9rem 1.2rem; flex: 1; min-width: 120px; display: flex; align-items: center; justify-content: center; gap: 0.6rem; cursor: pointer; transition: all 0.3s; font-weight: 600; color: var(--primary-dark); font-size: 0.95rem;" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='rgba(0,0,0,0.08)'">
+                                    <input type="radio" name="canal" value="telefone" style="accent-color: var(--primary); width: 16px; height: 16px; margin: 0;">
+                                    <span>📞</span> Telefone
+                                </label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-vip" style="width: 100%; border: none; cursor: pointer; padding: 1.2rem; font-size: 1.1rem; border-radius: 9999px; font-weight: 700; transition: var(--transition); text-align: center; justify-content: center; display: flex; align-items: center; gap: 0.5rem; background: var(--primary); color: white;">
+                            Enviar Solicitação <i data-lucide="arrow-right" style="width: 18px;"></i>
+                        </button>
                     </form>
                 </div>
+            </div>
         </section>
     </main>
 

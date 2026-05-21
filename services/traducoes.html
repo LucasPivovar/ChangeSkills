@@ -74,14 +74,6 @@
                     </a>
                 </li>
                 <li style="position: relative;">
-                    <a href="../nossos-teachers.html" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
-                       onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
-                       onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
-                        Professores
-                        <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
-                    </a>
-                </li>
-                <li style="position: relative;">
                     <a href="../contato.html" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
                        onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
                        onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
@@ -145,7 +137,7 @@
 
         <!-- Formulário -->
         <section class="container" style="padding-bottom: 160px;">
-            <div class="glass-card reveal" style="max-width: 900px; margin: auto; background: white; padding: 6rem;">
+            <div class="glass-card reveal" style=" margin: auto; background: white; padding: 4rem; border-radius: 40px; box-shadow: 0 30px 60px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.03);">
                 <h2 style="font-size: 2.5rem; margin-bottom: 3rem; color: var(--primary-dark); text-align: center;">Solicite seu Orçamento</h2>
                 
                 <form id="traducao-form" style="display: flex; flex-direction: column; gap: 2rem;">
@@ -159,24 +151,29 @@
 
                     <!-- Step 1: Dados Pessoais -->
                     <div class="step-form active" id="step-1">
-                        <h3 style="color: var(--primary-dark); margin-bottom: 1.5rem; font-size: 1.5rem;">1. Seus Dados Pessoais</h3>
-                        <div style="display: grid; grid-template-columns: 1fr; gap: 1.5rem;">
-                            <div><label>Seu nome completo</label><input type="text" class="form-input" placeholder="Nome"></div>
-                            <div><label>E-mail</label><input type="email" class="form-input" placeholder="E-mail"></div>
-                            <div><label>Telefone / WhatsApp</label><input type="text" class="form-input" placeholder="(00) 00000-0000"></div>
-                            <div>
-                                <label>Como prefere ser contatado?</label>
-                                <div class="radio-group" style="flex-direction: row; flex-wrap: wrap; gap: 1rem; margin-top: 0.8rem;">
-                                    <label style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 0.9rem 1.4rem; flex: 1; min-width: 140px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='#e2e8f0'">
-                                        <input type="radio" name="canal" value="whatsapp" checked style="accent-color: var(--primary);"> 💬 WhatsApp
-                                    </label>
-                                    <label style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 0.9rem 1.4rem; flex: 1; min-width: 140px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='#e2e8f0'">
-                                        <input type="radio" name="canal" value="email" style="accent-color: var(--primary);"> 📧 E-mail
-                                    </label>
-                                    <label style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 0.9rem 1.4rem; flex: 1; min-width: 140px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='#e2e8f0'">
-                                        <input type="radio" name="canal" value="telefone" style="accent-color: var(--primary);"> 📞 Telefone
-                                    </label>
-                                </div>
+                        <h3 style="color: var(--primary-dark); margin-bottom: 1.5rem; font-size: 1.5rem;">1. Seus Dados</h3>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+                            <div><label>Nome *</label><input type="text" class="form-input" placeholder="Nome" required></div>
+                            <div><label>Sobrenome</label><input type="text" class="form-input" placeholder="Sobrenome"></div>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+                            <div><label>E-mail *</label><input type="email" class="form-input" placeholder="Seu melhor e-mail" required></div>
+                            <div><label>Número de telefone *</label><input type="tel" class="form-input" placeholder="(DDD) 90000-0000" required></div>
+                        </div>
+
+                        <div style="margin-bottom: 0.5rem;">
+                            <label>Como prefere ser contatado? *</label>
+                            <div class="radio-group" style="display: flex; flex-direction: row; flex-wrap: wrap; gap: 1rem; margin-top: 0.8rem; width: 100%;">
+                                <label style="background: #f8fafc; border: 1px solid rgba(0,0,0,0.08); border-radius: 12px; padding: 0.9rem 1.4rem; flex: 1; min-width: 140px; display: flex; align-items: center; justify-content: center; gap: 0.6rem; cursor: pointer; transition: all 0.3s; font-weight: 600; color: var(--primary-dark);" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='rgba(0,0,0,0.08)'">
+                                    <input type="radio" name="canal" value="whatsapp" checked style="accent-color: var(--primary); width: 18px; height: 18px; margin: 0;"> 💬 WhatsApp
+                                </label>
+                                <label style="background: #f8fafc; border: 1px solid rgba(0,0,0,0.08); border-radius: 12px; padding: 0.9rem 1.4rem; flex: 1; min-width: 140px; display: flex; align-items: center; justify-content: center; gap: 0.6rem; cursor: pointer; transition: all 0.3s; font-weight: 600; color: var(--primary-dark);" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='rgba(0,0,0,0.08)'">
+                                    <input type="radio" name="canal" value="email" style="accent-color: var(--primary); width: 18px; height: 18px; margin: 0;"> 📧 E-mail
+                                </label>
+                                <label style="background: #f8fafc; border: 1px solid rgba(0,0,0,0.08); border-radius: 12px; padding: 0.9rem 1.4rem; flex: 1; min-width: 140px; display: flex; align-items: center; justify-content: center; gap: 0.6rem; cursor: pointer; transition: all 0.3s; font-weight: 600; color: var(--primary-dark);" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='rgba(0,0,0,0.08)'">
+                                    <input type="radio" name="canal" value="telefone" style="accent-color: var(--primary); width: 18px; height: 18px; margin: 0;"> 📞 Telefone
+                                </label>
                             </div>
                         </div>
                         <div class="wizard-btns" style="justify-content: flex-end;">
@@ -244,27 +241,27 @@
         </section>
 
         <!-- Depoimentos -->
-        <section style="background: var(--primary-dark); color: white; padding: 120px 0;">
+        <section style="background: var(--bg-light); padding: 120px 0;">
             <div class="container text-center reveal">
-                <span style="color: var(--accent); font-weight: 800; letter-spacing: 0.2em;">FEEDBACK</span>
-                <h2 style="margin-top: 1rem; margin-bottom: 6rem; color: white;">O que nossos clientes dizem</h2>
+                <span style="color: var(--primary); font-weight: 800; letter-spacing: 0.2em;">FEEDBACK</span>
+                <h2 style="margin-top: 1rem; margin-bottom: 6rem; color: var(--primary-dark);">O que nossos clientes dizem</h2>
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; text-align: left;">
                     
-                    <div class="glass-card" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1);">
-                        <i data-lucide="quote" style="color: var(--accent); width: 40px; height: 40px; margin-bottom: 2rem;"></i>
-                        <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 2rem; color: rgba(255,255,255,0.8);">"Utilizo o serviço de revisão de inglês da Change Skills Idiomas há alguns anos e reconheço a excelência do trabalho realizado. As revisões elevam significativamente a qualidade textual dos nossos manuscritos. Sou muito grata pelo cuidado, profissionalismo e consistência do serviço."</p>
+                    <div class="glass-card" style="background: white; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+                        <i data-lucide="quote" style="color: var(--primary); width: 40px; height: 40px; margin-bottom: 2rem;"></i>
+                        <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 2rem; color: var(--gray);">"Utilizo o serviço de revisão de inglês da Change Skills Idiomas há alguns anos e reconheço a excelência do trabalho realizado. As revisões elevam significativamente a qualidade textual dos nossos manuscritos. Sou muito grata pelo cuidado, profissionalismo e consistência do serviço."</p>
                         <div>
-                            <strong style="display: block; font-size: 1.2rem;">Dra. Aline Pompermaier</strong>
-                            <span style="color: var(--accent); font-size: 0.9rem;">Professora e Pesquisadora Universitária</span>
+                            <strong style="display: block; font-size: 1.2rem; color: var(--primary-dark);">Dra. Aline Pompermaier</strong>
+                            <span style="color: var(--primary); font-size: 0.9rem; font-weight: 600;">Professora e Pesquisadora Universitária</span>
                         </div>
                     </div>
 
-                    <div class="glass-card" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1);">
-                        <i data-lucide="quote" style="color: var(--accent); width: 40px; height: 40px; margin-bottom: 2rem;"></i>
-                        <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 2rem; color: rgba(255,255,255,0.8);">"Usei o serviço da Change Skills Idiomas para tradução de documentos para solicitação do visto americano e fiquei muito satisfeita. Atendimento rápido, claro e profissional. As traduções ficaram precisas e de acordo com o exigido no processo oficial! Agradeço muito e super recomendo!"</p>
+                    <div class="glass-card" style="background: white; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+                        <i data-lucide="quote" style="color: var(--primary); width: 40px; height: 40px; margin-bottom: 2rem;"></i>
+                        <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 2rem; color: var(--gray);">"Usei o serviço da Change Skills Idiomas para tradução de documentos para solicitação do visto americano e fiquei muito satisfeita. Atendimento rápido, claro e profissional. As traduções ficaram precisas e de acordo com o exigido no processo oficial! Agradeço muito e super recomendo!"</p>
                         <div>
-                            <strong style="display: block; font-size: 1.2rem;">Dra. Tatiana Benedetti</strong>
-                            <span style="color: var(--accent); font-size: 0.9rem;">Pós-Doc at Oregon State University</span>
+                            <strong style="display: block; font-size: 1.2rem; color: var(--primary-dark);">Dra. Tatiana Benedetti</strong>
+                            <span style="color: var(--primary); font-size: 0.9rem; font-weight: 600;">Pós-Doc at Oregon State University</span>
                         </div>
                     </div>
 
@@ -282,7 +279,7 @@
                     <p style="opacity: 0.6; font-size: 1.1rem; line-height: 1.6; max-width: 300px;">A ponte definitiva entre você e o mundo. Educação com excelência global.</p>
                 </div>
                 <div>
-                    <h4 style="color: var(--accent); margin-bottom: 2.5rem; font-size: 1.2rem;">Institucional</h4>
+                    <h4 style="color: white; margin-bottom: 2.5rem; font-size: 1.2rem;">Institucional</h4>
                     <ul style="list-style: none; display: flex; flex-direction: column; gap: 1.2rem; opacity: 0.7;">
                         <li><a href="../index.html#escola" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Nossa Escola</a></li>
                         <li><a href="../nossos-teachers.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Professores</a></li>
@@ -290,7 +287,7 @@
                     </ul>
                 </div>
                 <div>
-                    <h4 style="color: var(--accent); margin-bottom: 2.5rem; font-size: 1.2rem;">Cursos</h4>
+                    <h4 style="color: white; margin-bottom: 2.5rem; font-size: 1.2rem;">Cursos</h4>
                     <ul style="list-style: none; display: flex; flex-direction: column; gap: 1.2rem; opacity: 0.7;">
                         <li><a href="../cursos/ingles.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Inglês</a></li>
                         <li><a href="../cursos/espanhol.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Espanhol</a></li>
@@ -299,7 +296,7 @@
                     </ul>
                 </div>
                 <div>
-                    <h4 style="color: var(--accent); margin-bottom: 2.5rem; font-size: 1.2rem;">Serviços</h4>
+                    <h4 style="color: white; margin-bottom: 2.5rem; font-size: 1.2rem;">Serviços</h4>
                     <ul style="list-style: none; display: flex; flex-direction: column; gap: 1.2rem; opacity: 0.7; margin-bottom: 2rem;">
                         <li><a href="traducoes.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Traduções</a></li>
                         <li><a href="aulas-conversacao.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Aulas de Conversação</a></li>

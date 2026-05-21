@@ -198,14 +198,6 @@
                     </a>
                 </li>
                 <li style="position: relative;">
-                    <a href="nossos-teachers.html" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
-                       onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
-                       onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
-                        Professores
-                        <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
-                    </a>
-                </li>
-                <li style="position: relative;">
                     <a href="contato.html" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
                        onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
                        onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
@@ -279,22 +271,53 @@
             </div>
         </section>
 
-        <!-- Spotify Card -->
+        <!-- Spotify Banner Section -->
         <section class="container" style="padding: 100px 0;">
-            <div class="reveal text-center" style="margin-bottom: 3rem;">
-                <h2 style="font-size: 2.5rem; color: var(--primary-dark);">Playlist Escola</h2>
-            </div>
-            <div class="reveal" style="max-width: 400px; margin: 0 auto;">
-                <a href="https://open.spotify.com/playlist/41Uf49j61tWGXsnOQ9Is1s" target="_blank" 
-                   class="glass-card" style="padding: 2rem; text-decoration: none; background: white; text-align: center; display: block; box-shadow: var(--shadow-premium); border-radius: 30px; transition: var(--transition);">
-                    <div style="width: 60px; height: 60px; background: rgba(0,209,255,0.05); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem auto;">
-                        <i data-lucide="music" style="color: var(--accent); width: 30px; height: 30px;"></i>
+            <div class="reveal" style="background: linear-gradient(135deg, #020D1A 0%, #082A4D 50%, #0F172A 100%); border-radius: 40px; padding: 5rem 6rem; position: relative; overflow: hidden; box-shadow: 0 25px 60px rgba(0, 209, 255, 0.15);">
+                <!-- Glowing background accents -->
+                <div style="position: absolute; top: -50%; left: -30%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(0,209,255,0.15) 0%, rgba(0,209,255,0) 70%); pointer-events: none;"></div>
+                <div style="position: absolute; bottom: -50%; right: -30%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(30,215,96,0.1) 0%, rgba(30,215,96,0) 70%); pointer-events: none;"></div>
+                
+                <div class="spotify-grid" style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 6rem; align-items: center; position: relative; z-index: 2;">
+                    <div>
+                        <div style="display: inline-flex; align-items: center; gap: 0.8rem; background: rgba(30, 215, 96, 0.15); border: 1px solid rgba(30, 215, 96, 0.3); padding: 0.6rem 1.2rem; border-radius: 50px; margin-bottom: 2rem; backdrop-filter: blur(10px);">
+                            <svg viewBox="0 0 24 24" style="width: 20px; height: 20px; fill: #1DB954;">
+                                <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424c-.18.295-.565.387-.86.207-2.377-1.454-5.37-1.783-8.893-.982-.336.075-.668-.135-.744-.47-.077-.337.135-.668.47-.745 3.856-.88 7.15-.503 9.82 1.13.297.182.39.567.207.86zm1.226-2.724c-.226.367-.707.487-1.074.26-2.72-1.672-6.87-2.157-10.075-1.183-.413.127-.85-.106-.977-.52-.127-.414.106-.85.52-.977 3.665-1.11 8.232-.574 11.347 1.34.367.227.487.708.26 1.08zm.107-2.85c-.273.447-.86.593-1.307.32-3.18-1.89-8.413-2.062-11.457-1.137-.502.153-1.026-.135-1.18-.636-.154-.502.136-1.027.637-1.18 3.615-1.1 9.387-.9 13.01 1.25.447.266.593.853.32 1.3z"/>
+                            </svg>
+                            <span style="color: #1DB954; font-weight: 700; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase;">Playlist no Spotify</span>
+                        </div>
+                        <h2 style="font-size: 3.2rem; color: white; line-height: 1.2; margin-bottom: 1.5rem; font-weight: 800;">Sua trilha sonora para o aprendizado</h2>
+                        <p style="color: rgba(255,255,255,0.75); font-size: 1.2rem; line-height: 1.8; margin-bottom: 3rem;">
+                            Aprenda e relaxe com nossa curadoria musical exclusiva. Criamos uma playlist especial para estimular o foco, a criatividade e a imersão nos seus estudos de idiomas.
+                        </p>
+                        <a href="https://open.spotify.com/playlist/41Uf49j61tWGXsnOQ9Is1s" target="_blank" 
+                           class="btn-spotify" style="display: inline-flex; align-items: center; gap: 1rem; background: #1DB954; color: white; text-decoration: none; padding: 1.2rem 2.5rem; border-radius: 50px; font-weight: 700; font-size: 1.1rem; box-shadow: 0 15px 30px rgba(30, 215, 96, 0.3); transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);">
+                            Acessar Playlist <i data-lucide="external-link" style="width: 20px; height: 20px;"></i>
+                        </a>
                     </div>
-                    <h4 style="color: var(--primary-dark); font-size: 1.5rem; margin-bottom: 0.5rem;">Playlist Change Skills</h4>
-                    <p style="color: var(--gray); font-size: 1rem;">Aprenda e relaxe com nossa curadoria musical exclusiva no Spotify.</p>
-                </a>
+                    <div style="border-radius: 24px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.4); line-height: 0;">
+                        <iframe style="border-radius:24px" src="https://open.spotify.com/embed/playlist/41Uf49j61tWGXsnOQ9Is1s?utm_source=generator&theme=0" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    </div>
+                </div>
             </div>
         </section>
+
+        <style>
+            .btn-spotify:hover {
+                background: #1ed760 !important;
+                transform: translateY(-5px) scale(1.02);
+                box-shadow: 0 20px 40px rgba(30, 215, 96, 0.5) !important;
+            }
+            @media (max-width: 991px) {
+                .reveal[style*="background"] {
+                    padding: 4rem 3rem !important;
+                }
+                .spotify-grid {
+                    grid-template-columns: 1fr !important;
+                    gap: 3.5rem !important;
+                }
+            }
+        </style>
     </main>
 
     <!-- Modal Teacher -->

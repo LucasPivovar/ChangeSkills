@@ -64,14 +64,6 @@
                     </a>
                 </li>
                 <li style="position: relative;">
-                    <a href="../nossos-teachers.html" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
-                       onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
-                       onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
-                        Professores
-                        <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
-                    </a>
-                </li>
-                <li style="position: relative;">
                     <a href="../contato.html" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
                        onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
                        onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
@@ -146,42 +138,42 @@
 
         <!-- Formulário -->
         <section class="container" style="padding-bottom: 200px;">
-            <div class="glass-card reveal" style="max-width: 900px; margin: auto; background: white; text-align: center;">
-                <h2 style="font-size: 3rem; margin-bottom: 1rem; color: var(--primary-dark);">Solicite seu Certificado Aqui</h2>
+            <div class="glass-card reveal" style=" margin: auto; background: white; padding: 4rem; border-radius: 40px; box-shadow: 0 30px 60px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.03); text-align: center;">
+                <h2 style="font-size: 2.8rem; margin-bottom: 1rem; color: var(--primary-dark);">Solicite seu Certificado Aqui</h2>
                 <p style="font-size: 1.2rem; color: var(--gray); margin-bottom: 4rem;">Se você já tem as informações e atende aos pré-requisitos, preencha abaixo:</p>
                 
-                <form style="display: flex; flex-direction: column; gap: 2rem; text-align: left;">
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                <form style="display: flex; flex-direction: column; gap: 1.5rem; text-align: left;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
                         <div>
-                            <label style="display: block; font-weight: 600; color: var(--primary-dark); margin-bottom: 0.5rem;">Nome Completo</label>
-                            <input type="text" placeholder="Como deve aparecer no certificado" style="width: 100%; padding: 1.5rem; border: 1px solid rgba(0,0,0,0.1); border-radius: 15px; font-size: 1rem; outline: none; transition: 0.3s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(0,0,0,0.1)'">
+                            <label style="display: block; font-weight: 600; color: var(--primary-dark); margin-bottom: 0.5rem; font-size: 0.95rem;">Nome Completo</label>
+                            <input type="text" placeholder="Como deve aparecer no certificado" style="width: 100%; padding: 1.1rem 1.5rem; border: 1px solid rgba(0,0,0,0.08); border-radius: 12px; font-size: 1rem; outline: none; transition: 0.3s; background: #f8fafc;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(0,0,0,0.08)'">
                         </div>
                         <div>
-                            <label style="display: block; font-weight: 600; color: var(--primary-dark); margin-bottom: 0.5rem;">CPF ou RG</label>
-                            <input type="text" placeholder="Documento de identificação" style="width: 100%; padding: 1.5rem; border: 1px solid rgba(0,0,0,0.1); border-radius: 15px; font-size: 1rem; outline: none; transition: 0.3s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(0,0,0,0.1)'">
-                        </div>
-                    </div>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
-                        <div>
-                            <label style="display: block; font-weight: 600; color: var(--primary-dark); margin-bottom: 0.5rem;">E-mail</label>
-                            <input type="email" placeholder="E-mail para envio" style="width: 100%; padding: 1.5rem; border: 1px solid rgba(0,0,0,0.1); border-radius: 15px; font-size: 1rem; outline: none; transition: 0.3s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(0,0,0,0.1)'">
-                        </div>
-                        <div>
-                            <label style="display: block; font-weight: 600; color: var(--primary-dark); margin-bottom: 0.5rem;">Telefone</label>
-                            <input type="text" placeholder="(DDD) 00000-0000" style="width: 100%; padding: 1.5rem; border: 1px solid rgba(0,0,0,0.1); border-radius: 15px; font-size: 1rem; outline: none; transition: 0.3s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(0,0,0,0.1)'">
+                            <label style="display: block; font-weight: 600; color: var(--primary-dark); margin-bottom: 0.5rem; font-size: 0.95rem;">CPF ou RG</label>
+                            <input type="text" placeholder="Documento de identificação" style="width: 100%; padding: 1.1rem 1.5rem; border: 1px solid rgba(0,0,0,0.08); border-radius: 12px; font-size: 1rem; outline: none; transition: 0.3s; background: #f8fafc;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(0,0,0,0.08)'">
                         </div>
                     </div>
-                    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
                         <div>
-                            <label style="display: block; font-weight: 600; color: var(--primary-dark); margin-bottom: 0.5rem;">Módulo / Curso Concluído</label>
-                            <input type="text" placeholder="Ex: Adult Fast Track - Nível B2" style="width: 100%; padding: 1.5rem; border: 1px solid rgba(0,0,0,0.1); border-radius: 15px; font-size: 1rem; outline: none; transition: 0.3s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(0,0,0,0.1)'">
+                            <label style="display: block; font-weight: 600; color: var(--primary-dark); margin-bottom: 0.5rem; font-size: 0.95rem;">E-mail</label>
+                            <input type="email" placeholder="E-mail para envio" style="width: 100%; padding: 1.1rem 1.5rem; border: 1px solid rgba(0,0,0,0.08); border-radius: 12px; font-size: 1rem; outline: none; transition: 0.3s; background: #f8fafc;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(0,0,0,0.08)'">
                         </div>
                         <div>
-                            <label style="display: block; font-weight: 600; color: var(--primary-dark); margin-bottom: 0.5rem;">Data de Conclusão</label>
-                            <input type="date" style="width: 100%; padding: 1.5rem; border: 1px solid rgba(0,0,0,0.1); border-radius: 15px; font-size: 1rem; outline: none; transition: 0.3s; color: var(--gray);" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(0,0,0,0.1)'">
+                            <label style="display: block; font-weight: 600; color: var(--primary-dark); margin-bottom: 0.5rem; font-size: 0.95rem;">Telefone</label>
+                            <input type="text" placeholder="(DDD) 00000-0000" style="width: 100%; padding: 1.1rem 1.5rem; border: 1px solid rgba(0,0,0,0.08); border-radius: 12px; font-size: 1rem; outline: none; transition: 0.3s; background: #f8fafc;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(0,0,0,0.08)'">
                         </div>
                     </div>
-                    <button type="submit" class="btn-vip" style="border: none; cursor: pointer; width: 100%; font-size: 1.2rem; padding: 1.8rem; margin-top: 1rem;">Solicitar Certificado</button>
+                    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem;">
+                        <div>
+                            <label style="display: block; font-weight: 600; color: var(--primary-dark); margin-bottom: 0.5rem; font-size: 0.95rem;">Módulo / Curso Concluído</label>
+                            <input type="text" placeholder="Ex: Adult Fast Track - Nível B2" style="width: 100%; padding: 1.1rem 1.5rem; border: 1px solid rgba(0,0,0,0.08); border-radius: 12px; font-size: 1rem; outline: none; transition: 0.3s; background: #f8fafc;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(0,0,0,0.08)'">
+                        </div>
+                        <div>
+                            <label style="display: block; font-weight: 600; color: var(--primary-dark); margin-bottom: 0.5rem; font-size: 0.95rem;">Data de Conclusão</label>
+                            <input type="date" style="width: 100%; padding: 1.1rem 1.5rem; border: 1px solid rgba(0,0,0,0.08); border-radius: 12px; font-size: 1rem; outline: none; transition: 0.3s; background: #f8fafc; color: var(--gray);" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(0,0,0,0.08)'">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-vip" style="border: none; cursor: pointer; width: 100%; font-size: 1.1rem; padding: 1.2rem; border-radius: 9999px; font-weight: 700; margin-top: 1rem; transition: var(--transition);">Solicitar Certificado</button>
                 </form>
             </div>
         </section>

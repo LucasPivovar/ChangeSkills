@@ -75,14 +75,6 @@
                     </a>
                 </li>
                 <li style="position: relative;">
-                    <a href="../nossos-teachers.html" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
-                       onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
-                       onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
-                        Professores
-                        <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
-                    </a>
-                </li>
-                <li style="position: relative;">
                     <a href="../contato.html" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
                        onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
                        onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
@@ -143,7 +135,7 @@
 
         <!-- Formulário -->
         <section class="container" style="padding-bottom: 150px;">
-            <div class="glass-card reveal" style="max-width: 800px; margin: auto; background: white;">
+            <div class="glass-card reveal" style=" margin: auto; background: white; padding: 4rem; border-radius: 40px; box-shadow: 0 30px 60px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.03);">
                 <div style="text-align: center; margin-bottom: 3rem;">
                     <h2 style="font-size: 2.5rem; color: var(--primary-dark); margin-bottom: 1rem;">Agende sua aula experimental gratuita</h2>
                     <p style="color: var(--gray); font-size: 1.1rem;">Preencha seus dados e receba mais informações sobre o curso.</p>
@@ -172,15 +164,15 @@
 
                         <div style="margin-bottom: 0.5rem;">
                             <label>Como prefere ser contatado? *</label>
-                            <div class="radio-group" style="flex-direction: row; flex-wrap: wrap; gap: 1rem; margin-top: 0.8rem;">
-                                <label class="radio-item" style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 0.9rem 1.4rem; flex: 1; min-width: 140px; justify-content: center; transition: 0.2s;" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='#e2e8f0'">
-                                    <input type="radio" name="canal" value="whatsapp" checked> 💬 WhatsApp
+                            <div class="radio-group" style="display: flex; flex-direction: row; flex-wrap: wrap; gap: 1rem; margin-top: 0.8rem; width: 100%;">
+                                <label class="radio-item" style="background: #f8fafc; border: 1px solid rgba(0,0,0,0.08); border-radius: 12px; padding: 0.9rem 1.4rem; flex: 1; min-width: 140px; display: flex; align-items: center; justify-content: center; gap: 0.6rem; cursor: pointer; transition: all 0.3s; font-weight: 600; color: var(--primary-dark);" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='rgba(0,0,0,0.08)'">
+                                    <input type="radio" name="canal" value="whatsapp" checked style="accent-color: var(--primary); width: 18px; height: 18px; margin: 0;"> 💬 WhatsApp
                                 </label>
-                                <label class="radio-item" style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 0.9rem 1.4rem; flex: 1; min-width: 140px; justify-content: center; transition: 0.2s;" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='#e2e8f0'">
-                                    <input type="radio" name="canal" value="email"> 📧 E-mail
+                                <label class="radio-item" style="background: #f8fafc; border: 1px solid rgba(0,0,0,0.08); border-radius: 12px; padding: 0.9rem 1.4rem; flex: 1; min-width: 140px; display: flex; align-items: center; justify-content: center; gap: 0.6rem; cursor: pointer; transition: all 0.3s; font-weight: 600; color: var(--primary-dark);" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='rgba(0,0,0,0.08)'">
+                                    <input type="radio" name="canal" value="email" style="accent-color: var(--primary); width: 18px; height: 18px; margin: 0;"> 📧 E-mail
                                 </label>
-                                <label class="radio-item" style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 0.9rem 1.4rem; flex: 1; min-width: 140px; justify-content: center; transition: 0.2s;" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='#e2e8f0'">
-                                    <input type="radio" name="canal" value="telefone"> 📞 Telefone
+                                <label class="radio-item" style="background: #f8fafc; border: 1px solid rgba(0,0,0,0.08); border-radius: 12px; padding: 0.9rem 1.4rem; flex: 1; min-width: 140px; display: flex; align-items: center; justify-content: center; gap: 0.6rem; cursor: pointer; transition: all 0.3s; font-weight: 600; color: var(--primary-dark);" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='rgba(0,0,0,0.08)'">
+                                    <input type="radio" name="canal" value="telefone" style="accent-color: var(--primary); width: 18px; height: 18px; margin: 0;"> 📞 Telefone
                                 </label>
                             </div>
                         </div>

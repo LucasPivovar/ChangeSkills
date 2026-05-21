@@ -2,7 +2,7 @@ import os
 import re
 import glob
 
-base_path = r"c:\Users\patov\Documents\Projects\ChangeSkills\ChangeSkills"
+base_path = r"c:\Users\patov\OneDrive\Área de Trabalho\Code\Change Skills"
 html_files = glob.glob(os.path.join(base_path, "**", "*.html"), recursive=True)
 
 def get_nav_html(depth):
@@ -12,7 +12,6 @@ def get_nav_html(depth):
     inicio = f"{prefix}index.html"
     escola = f"{prefix}nossa-escola.html"
     cursos = f"{prefix}index.html#cursos"
-    professores = f"{prefix}nossos-teachers.html"
     contato = f"{prefix}contato.html"
     
     return f'''<ul class="nav-list" style="display: flex; gap: 3rem; list-style: none; align-items: center;">
@@ -37,14 +36,6 @@ def get_nav_html(depth):
                        onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
                        onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
                         Cursos
-                        <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
-                    </a>
-                </li>
-                <li style="position: relative;">
-                    <a href="{professores}" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
-                       onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
-                       onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
-                        Professores
                         <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
                     </a>
                 </li>
