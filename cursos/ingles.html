@@ -132,6 +132,14 @@
                         <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
                     </a>
                 </li>
+                <li style="position: relative;">
+                    <a href="../area-do-aluno.html" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
+                       onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
+                       onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
+                        Área do Aluno
+                        <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
+                    </a>
+                </li>
             </ul>
         </nav>
     </header>
@@ -244,15 +252,16 @@
                         <li><a href="../index.html#escola" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Nossa Escola</a></li>
                         <li><a href="../nossos-teachers.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Professores</a></li>
                         <li><a href="../services/solicitacao-certificado.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Certificados</a></li>
+                        <li><a href="../services/verificacao-certificado.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Validação de Certificados</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 style="color: var(--accent); margin-bottom: 2.5rem; font-size: 1.2rem;">Cursos</h4>
                     <ul style="list-style: none; display: flex; flex-direction: column; gap: 1.2rem; opacity: 0.7;">
-                        <li><a href="ingles.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Inglês</a></li>
-                        <li><a href="espanhol.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Espanhol</a></li>
-                        <li><a href="frances.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Francês</a></li>
-                        <li><a href="portugues.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Português</a></li>
+                        <li><a href="../cursos/ingles.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Inglês</a></li>
+                        <li><a href="../cursos/espanhol.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Espanhol</a></li>
+                        <li><a href="../cursos/frances.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Francês</a></li>
+                        <li><a href="../cursos/portugues.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Português</a></li>
                     </ul>
                 </div>
                 <div>
@@ -261,10 +270,10 @@
                         <li><a href="../services/traducoes.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Traduções</a></li>
                         <li><a href="../services/aulas-conversacao.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Aulas de Conversação</a></li>
                     </ul>
-                    <div style="display: flex; gap: 1.5rem; opacity: 0.8;">
-                        <a href="#" style="color: white; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'"><i data-lucide="instagram"></i></a>
-                        <a href="#" style="color: white; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'"><i data-lucide="facebook"></i></a>
-                        <a href="#" style="color: white; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'"><i data-lucide="linkedin"></i></a>
+                    <div style="display: flex; gap: 1.5rem; opacity: 0.8; align-items: center; margin-top: 1rem;">
+                        <a href="#" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'"><i data-lucide="instagram"></i></a>
+                        <a href="#" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'"><i data-lucide="facebook"></i></a>
+                        <a href="#" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'"><i data-lucide="linkedin"></i></a>
                     </div>
                 </div>
             </div>
@@ -276,7 +285,7 @@
     </footer>
 
     <!-- WhatsApp Floating Action Button (Branding Identity) -->
-    <a href="https://wa.me/5549999124040" target="_blank" 
+    <a href="https://wa.me/555481223965" target="_blank" 
        style="position: fixed; bottom: 30px; right: 30px; width: 65px; height: 65px; background: #25D366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 15px 35px rgba(37, 211, 102, 0.3); z-index: 1000; transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);"
        onmouseover="this.style.transform='scale(1.1) translateY(-10px)'; this.style.boxShadow='0 25px 45px rgba(37, 211, 102, 0.4)'"
        onmouseout="this.style.transform='scale(1) translateY(0)'; this.style.boxShadow='0 15px 35px rgba(37, 211, 102, 0.3)'">

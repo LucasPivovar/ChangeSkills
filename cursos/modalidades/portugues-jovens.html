@@ -117,6 +117,14 @@
                         <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
                     </a>
                 </li>
+                <li style="position: relative;">
+                    <a href="../../area-do-aluno.html" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
+                       onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
+                       onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
+                        Área do Aluno
+                        <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
+                    </a>
+                </li>
             </ul>
         </nav>
     </header>
@@ -250,99 +258,120 @@
             </div>
         </section>
 
-        <!-- Agendamento -->
-        <section id="agendamento" style="background: var(--primary); padding: 100px 0;">
-            <div class="container reveal">
-                <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.1fr; gap: 6rem; align-items: start;">
-                    <div style="color: white;">
-                        <span style="color: var(--accent); font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; font-size: 0.9rem;">Free Assessment</span>
-                        <h2 style="font-size: 3rem; margin: 1.5rem 0; line-height: 1.2;">Schedule your <span style="color: var(--accent);">trial class</span></h2>
-                        <p style="font-size: 1.1rem; opacity: 0.85; margin-bottom: 3rem; line-height: 1.8;">Connect with our team to find the perfect level and customized path for your child to learn Portuguese with confidence.</p>
-                        <div style="display: flex; flex-direction: column; gap: 1.2rem; margin-bottom: 2.5rem;">
-                            <div style="display: flex; align-items: center; gap: 1rem;">
-                                <div style="width: 36px; height: 36px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary-dark); flex-shrink: 0;"><i data-lucide="check" style="width: 18px;"></i></div>
-                                <span style="font-weight: 600; font-size: 1.05rem;">Free placement assessment</span>
+        
+                <!-- Agendamento Form -->
+        <section id="agendamento" style="padding: 120px 0; background: var(--bg-light); position: relative;">
+            <div class="container" style="max-width: 800px; margin: 0 auto;">
+                <h2 style="font-size: 2.5rem; color: var(--primary-dark); text-align: center; margin-bottom: 3rem;">Agende sua aula experimental</h2>
+                <div class="glass-card reveal" style="background: white; padding: 4rem; border-radius: 40px; box-shadow: 0 30px 60px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.03); position: relative;">
+                    
+                    <!-- Progress Bar -->
+                    <div style="display: flex; justify-content: space-between; position: relative; margin-bottom: 3rem;">
+                        <div style="position: absolute; top: 50%; left: 0; width: 100%; height: 2px; background: #e2e8f0; z-index: 1; transform: translateY(-50%);"></div>
+                        <div class="progress-line" style="position: absolute; top: 50%; left: 0; height: 2px; background: var(--primary); z-index: 2; transform: translateY(-50%); transition: width 0.4s; width: 0%;"></div>
+                        
+                        <div class="step-indicator" id="ind-1" style="width: 35px; height: 35px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; z-index: 3; position: relative; transition: all 0.4s;">1</div>
+                        <div class="step-indicator" id="ind-2" style="width: 35px; height: 35px; background: #e2e8f0; color: var(--gray); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; z-index: 3; position: relative; transition: all 0.4s;">2</div>
+                        <div class="step-indicator" id="ind-3" style="width: 35px; height: 35px; background: #e2e8f0; color: var(--gray); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; z-index: 3; position: relative; transition: all 0.4s;">3</div>
+                        <div class="step-indicator" id="ind-4" style="width: 35px; height: 35px; background: #e2e8f0; color: var(--gray); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; z-index: 3; position: relative; transition: all 0.4s;">4</div>
+                    </div>
+
+                    <form id="wizard-form" onsubmit="event.preventDefault(); alert('Enviado com sucesso!');">
+                        
+                        <!-- ETAPA 1: Pessoais -->
+                        <div class="form-step" id="step-1" style="display: block;">
+                            <h3 style="color: var(--primary-dark); font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; text-align: left;">1. Dados Pessoais</h3>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                                <div>
+                                    <label style="display: block; font-weight: 600; color: var(--primary-dark); margin-bottom: 0.5rem; font-size: 0.95rem;">Nome *</label>
+                                    <input type="text" placeholder="Nome" required style="width: 100%; padding: 1.1rem 1.5rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); background: #f8fafc; font-size: 1rem; outline: none; transition: border-color 0.3s;">
+                                </div>
+                                <div>
+                                    <label style="display: block; font-weight: 600; color: var(--primary-dark); margin-bottom: 0.5rem; font-size: 0.95rem;">Sobrenome</label>
+                                    <input type="text" placeholder="Sobrenome" style="width: 100%; padding: 1.1rem 1.5rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); background: #f8fafc; font-size: 1rem; outline: none; transition: border-color 0.3s;">
+                                </div>
                             </div>
-                            <div style="display: flex; align-items: center; gap: 1rem;">
-                                <div style="width: 36px; height: 36px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary-dark); flex-shrink: 0;"><i data-lucide="check" style="width: 18px;"></i></div>
-                                <span style="font-weight: 600; font-size: 1.05rem;">Teachers specialized in young learners</span>
-                            </div>
-                            <div style="display: flex; align-items: center; gap: 1rem;">
-                                <div style="width: 36px; height: 36px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary-dark); flex-shrink: 0;"><i data-lucide="check" style="width: 18px;"></i></div>
-                                <span style="font-weight: 600; font-size: 1.05rem;">Welcoming, interactive & fun sessions</span>
+                            <div style="text-align: right; margin-top: 2rem;">
+                                <button type="button" onclick="nextStep(2)" class="btn-vip" style="border: none; cursor: pointer; padding: 1rem 2rem; border-radius: 99px; font-weight: 700; background: var(--primary); color: white; transition: 0.3s;">Próximo <i data-lucide="arrow-right" style="width: 18px; vertical-align: middle;"></i></button>
                             </div>
                         </div>
-                        <a href="https://wa.me/5549999124040" target="_blank" style="display: inline-flex; align-items: center; gap: 10px; color: white; text-decoration: none; font-weight: 600; opacity: 0.85; font-size: 1.05rem;">
-                            <i data-lucide="message-circle" style="width: 22px;"></i> Or chat on WhatsApp
-                        </a>
-                    </div>
-                    <div class="reveal" style="background: white; padding: 3.5rem; border-radius: 40px; box-shadow: 0 30px 60px rgba(0,0,0,0.15); width: 100%;  margin: 0 auto; border: 1px solid rgba(0,0,0,0.03);">
-                        <h3 style="color: var(--primary-dark); font-size: 1.8rem; font-weight: 700; margin-bottom: 2rem; text-align: left;">Request Information</h3>
-                        <form style="display: flex; flex-direction: column; gap: 1.2rem;">
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
-                                <div style="margin-bottom: 0;">
-                                    <label style="display: block; font-weight: 600; color: var(--primary-dark); margin-bottom: 0.5rem; font-size: 0.95rem;">First Name *</label>
-                                    <input type="text" placeholder="First name" required style="width: 100%; padding: 1.1rem 1.5rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); background: #f8fafc; font-family: inherit; font-size: 1rem; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(0,0,0,0.08)'">
-                                </div>
-                                <div style="margin-bottom: 0;">
-                                    <label style="display: block; font-weight: 600; color: var(--primary-dark); margin-bottom: 0.5rem; font-size: 0.95rem;">Last Name</label>
-                                    <input type="text" placeholder="Last name" style="width: 100%; padding: 1.1rem 1.5rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); background: #f8fafc; font-family: inherit; font-size: 1rem; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(0,0,0,0.08)'">
-                                </div>
+
+                        <!-- ETAPA 2: Contato -->
+                        <div class="form-step" id="step-2" style="display: none;">
+                            <h3 style="color: var(--primary-dark); font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; text-align: left;">2. Dados de Contato</h3>
+                            <div style="margin-bottom: 1.2rem;">
+                                <label style="display: block; font-weight: 600; color: var(--primary-dark); margin-bottom: 0.5rem; font-size: 0.95rem;">E-mail *</label>
+                                <input type="email" placeholder="exemplo@email.com" required style="width: 100%; padding: 1.1rem 1.5rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); background: #f8fafc; font-size: 1rem; outline: none; transition: border-color 0.3s;">
                             </div>
-                            <div style="margin-bottom: 0;">
-                                <label style="display: block; font-weight: 600; color: var(--primary-dark); margin-bottom: 0.5rem; font-size: 0.95rem;">Your Email *</label>
-                                <input type="email" placeholder="example@email.com" required style="width: 100%; padding: 1.1rem 1.5rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); background: #f8fafc; font-family: inherit; font-size: 1rem; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(0,0,0,0.08)'">
+                            <div style="margin-bottom: 1.2rem;">
+                                <label style="display: block; font-weight: 600; color: var(--primary-dark); margin-bottom: 0.5rem; font-size: 0.95rem;">Telefone / WhatsApp *</label>
+                                <input type="tel" placeholder="(00) 00000-0000" required style="width: 100%; padding: 1.1rem 1.5rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); background: #f8fafc; font-size: 1rem; outline: none; transition: border-color 0.3s;">
                             </div>
-                            <div style="margin-bottom: 0;">
-                                <label style="display: block; font-weight: 600; color: var(--primary-dark); margin-bottom: 0.5rem; font-size: 0.95rem;">Phone / WhatsApp *</label>
-                                <input type="tel" placeholder="+1 (000) 000-0000" required style="width: 100%; padding: 1.1rem 1.5rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); background: #f8fafc; font-family: inherit; font-size: 1rem; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(0,0,0,0.08)'">
+                            <div style="display: flex; justify-content: space-between; margin-top: 2rem;">
+                                <button type="button" onclick="nextStep(1)" style="background: transparent; color: var(--primary); border: 2px solid var(--primary); cursor: pointer; padding: 1rem 2rem; border-radius: 99px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px;"><i data-lucide="arrow-left" style="width: 18px;"></i> Voltar</button>
+                                <button type="button" onclick="nextStep(3)" class="btn-vip" style="background: var(--primary); color: white; border: none; cursor: pointer; padding: 1rem 2rem; border-radius: 99px; font-weight: 700;">Próximo <i data-lucide="arrow-right" style="width: 18px; vertical-align: middle;"></i></button>
                             </div>
-                            <div style="margin-bottom: 0;">
-                                <label style="display: block; font-weight: 600; color: var(--primary-dark); margin-bottom: 0.5rem; font-size: 0.95rem;">Current level of Portuguese? *</label>
-                                <select required style="width: 100%; padding: 1.1rem 1.5rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); background: #f8fafc; font-family: inherit; font-size: 1rem; color: var(--gray); outline: none; transition: border-color 0.3s; appearance: none; -webkit-appearance: none; -moz-appearance: none; background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%2364748b%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><polyline points=%226 9 12 15 18 9%22></polyline></svg>'); background-repeat: no-repeat; background-position: right 1.5rem center; background-size: 1.2rem;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(0,0,0,0.08)'">
-                                    <option value="" disabled selected>Select your level</option>
-                                    <option value="never">Never studied Portuguese</option>
-                                    <option value="beginner">Beginner (A1-A2)</option>
-                                    <option value="intermediate">Intermediate (B1-B2)</option>
-                                    <option value="advanced">Advanced / Fluent (C1-C2)</option>
+                        </div>
+
+                        <!-- ETAPA 3: Preferência -->
+                        <div class="form-step" id="step-3" style="display: none;">
+                            <h3 style="color: var(--primary-dark); font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; text-align: left;">3. Preferência de Contato</h3>
+                            <label style="display: block; font-weight: 600; color: var(--primary-dark); margin-bottom: 0.8rem; font-size: 0.95rem;">Como prefere que entremos em contato? *</label>
+                            <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1.5rem;">
+                                <label style="background: #f8fafc; border: 1px solid rgba(0,0,0,0.08); border-radius: 12px; padding: 1rem; display: flex; align-items: center; gap: 1rem; cursor: pointer;">
+                                    <input type="radio" name="pref_contato" value="whatsapp" checked style="accent-color: var(--primary); width: 18px; height: 18px;">
+                                    <span style="font-weight: 600; color: var(--primary-dark);">💬 Mensagem no WhatsApp</span>
+                                </label>
+                                <label style="background: #f8fafc; border: 1px solid rgba(0,0,0,0.08); border-radius: 12px; padding: 1rem; display: flex; align-items: center; gap: 1rem; cursor: pointer;">
+                                    <input type="radio" name="pref_contato" value="email" style="accent-color: var(--primary); width: 18px; height: 18px;">
+                                    <span style="font-weight: 600; color: var(--primary-dark);">📧 Enviar E-mail</span>
+                                </label>
+                                <label style="background: #f8fafc; border: 1px solid rgba(0,0,0,0.08); border-radius: 12px; padding: 1rem; display: flex; align-items: center; gap: 1rem; cursor: pointer;">
+                                    <input type="radio" name="pref_contato" value="ligacao" style="accent-color: var(--primary); width: 18px; height: 18px;">
+                                    <span style="font-weight: 600; color: var(--primary-dark);">📞 Receber Ligação</span>
+                                </label>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-top: 2rem;">
+                                <button type="button" onclick="nextStep(2)" style="background: transparent; color: var(--primary); border: 2px solid var(--primary); cursor: pointer; padding: 1rem 2rem; border-radius: 99px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px;"><i data-lucide="arrow-left" style="width: 18px;"></i> Voltar</button>
+                                <button type="button" onclick="nextStep(4)" class="btn-vip" style="background: var(--primary); color: white; border: none; cursor: pointer; padding: 1rem 2rem; border-radius: 99px; font-weight: 700;">Próximo <i data-lucide="arrow-right" style="width: 18px; vertical-align: middle;"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- ETAPA 4: Objetivos -->
+                        <div class="form-step" id="step-4" style="display: none;">
+                            <h3 style="color: var(--primary-dark); font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; text-align: left;">4. Nível e Objetivo</h3>
+                            <div style="margin-bottom: 1.2rem;">
+                                <label style="display: block; font-weight: 600; color: var(--primary-dark); margin-bottom: 0.5rem; font-size: 0.95rem;">Nível atual do idioma? *</label>
+                                <select required style="width: 100%; padding: 1.1rem 1.5rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); background: #f8fafc; font-size: 1rem; outline: none; transition: border-color 0.3s;">
+                                    <option value="" disabled selected>Selecione seu nível</option>
+                                    <option value="nunca">Nunca estudei o idioma</option>
+                                    <option value="iniciante">Iniciante / Básico</option>
+                                    <option value="intermediario">Intermediário</option>
+                                    <option value="avancado">Avançado</option>
                                 </select>
                             </div>
-                            <div style="margin-bottom: 0;">
-                                <label style="display: block; font-weight: 600; color: var(--primary-dark); margin-bottom: 0.5rem; font-size: 0.95rem;">What is your main goal? *</label>
-                                <select required style="width: 100%; padding: 1.1rem 1.5rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); background: #f8fafc; font-family: inherit; font-size: 1rem; color: var(--gray); outline: none; transition: border-color 0.3s; appearance: none; -webkit-appearance: none; -moz-appearance: none; background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%2364748b%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><polyline points=%226 9 12 15 18 9%22></polyline></svg>'); background-repeat: no-repeat; background-position: right 1.5rem center; background-size: 1.2rem;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(0,0,0,0.08)'">
-                                    <option value="" disabled selected>Select your goal</option>
-                                    <option value="career">Career / Relocation / Business</option>
-                                    <option value="everyday">Everyday Life in Brazil</option>
-                                    <option value="travel">Travel or Tourism</option>
-                                    <option value="academic">Studies / Academic reasons</option>
-                                    <option value="personal">Spouse / Connection / Hobby</option>
+                            <div style="margin-bottom: 1.2rem;">
+                                <label style="display: block; font-weight: 600; color: var(--primary-dark); margin-bottom: 0.5rem; font-size: 0.95rem;">Qual seu principal objetivo? *</label>
+                                <select required style="width: 100%; padding: 1.1rem 1.5rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); background: #f8fafc; font-size: 1rem; outline: none; transition: border-color 0.3s;">
+                                    <option value="" disabled selected>Selecione seu objetivo</option>
+                                    <option value="carreira">Desenvolvimento Profissional / Carreira</option>
+                                    <option value="viagem">Viagens ou Intercâmbio</option>
+                                    <option value="academico">Estudos / Fins Acadêmicos</option>
+                                    <option value="pessoal">Crescimento Pessoal / Hobbies</option>
                                 </select>
                             </div>
-                            <div style="margin-bottom: 0.5rem; text-align: left;">
-                                <label style="font-weight: 600; color: var(--primary-dark); font-size: 0.95rem; display: block; margin-bottom: 0.5rem;">How should we contact you? *</label>
-                                <div class="radio-group" style="display: flex; flex-direction: row; gap: 1rem; margin-top: 0.8rem; width: 100%; flex-wrap: wrap;">
-                                    <label class="radio-item" style="background: #f8fafc; border: 1px solid rgba(0,0,0,0.08); border-radius: 12px; padding: 0.9rem 1.2rem; flex: 1; min-width: 120px; display: flex; align-items: center; justify-content: center; gap: 0.6rem; cursor: pointer; transition: all 0.3s; font-weight: 600; color: var(--primary-dark); font-size: 0.95rem;" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='rgba(0,0,0,0.08)'">
-                                        <input type="radio" name="canal" value="whatsapp" checked style="accent-color: var(--primary); width: 16px; height: 16px; margin: 0;">
-                                        <span>💬</span> WhatsApp
-                                    </label>
-                                    <label class="radio-item" style="background: #f8fafc; border: 1px solid rgba(0,0,0,0.08); border-radius: 12px; padding: 0.9rem 1.2rem; flex: 1; min-width: 120px; display: flex; align-items: center; justify-content: center; gap: 0.6rem; cursor: pointer; transition: all 0.3s; font-weight: 600; color: var(--primary-dark); font-size: 0.95rem;" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='rgba(0,0,0,0.08)'">
-                                        <input type="radio" name="canal" value="email" style="accent-color: var(--primary); width: 16px; height: 16px; margin: 0;">
-                                        <span>📧</span> E-mail
-                                    </label>
-                                    <label class="radio-item" style="background: #f8fafc; border: 1px solid rgba(0,0,0,0.08); border-radius: 12px; padding: 0.9rem 1.2rem; flex: 1; min-width: 120px; display: flex; align-items: center; justify-content: center; gap: 0.6rem; cursor: pointer; transition: all 0.3s; font-weight: 600; color: var(--primary-dark); font-size: 0.95rem;" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='rgba(0,0,0,0.08)'">
-                                        <input type="radio" name="canal" value="phone" style="accent-color: var(--primary); width: 16px; height: 16px; margin: 0;">
-                                        <span>📞</span> Phone Call
-                                    </label>
-                                </div>
+                            <div style="display: flex; justify-content: space-between; margin-top: 2rem;">
+                                <button type="button" onclick="nextStep(3)" style="background: transparent; color: var(--primary); border: 2px solid var(--primary); cursor: pointer; padding: 1rem 2rem; border-radius: 99px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px;"><i data-lucide="arrow-left" style="width: 18px;"></i> Voltar</button>
+                                <button type="submit" class="btn-vip" style="background: var(--primary-dark); color: white; border: none; cursor: pointer; padding: 1rem 2rem; border-radius: 99px; font-weight: 700;">Finalizar <i data-lucide="check" style="width: 18px; vertical-align: middle;"></i></button>
                             </div>
-                            <button type="submit" class="btn-vip" style="width: 100%; border: none; cursor: pointer; padding: 1.2rem; font-size: 1.1rem; border-radius: 9999px; font-weight: 700; transition: var(--transition); text-align: center; justify-content: center; display: flex; align-items: center; gap: 0.5rem; background: var(--primary); color: white;">
-                                Send Request <i data-lucide="arrow-right" style="width: 18px;"></i>
-                            </button>
-                        </form>
-                    </div>
+                        </div>
+
+                    </form>
                 </div>
             </div>
         </section>
+
+
     </main>
 
     <!-- Rodapé -->
@@ -350,40 +379,42 @@
         <div class="container">
             <div style="display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 4rem; margin-bottom: 4rem;">
                 <div>
-                    <img src="https://changeskills.com.br/wp-content/uploads/2022/11/logo-change.png" style="height: 50px; filter: brightness(0) invert(1); margin-bottom: 2.5rem;">
+                    <img src="https://changeskills.com.br/wp-content/uploads/2022/11/logo-change.png"
+                        style="height: 50px; filter: brightness(0) invert(1); margin-bottom: 2.5rem;">
                     <p style="opacity: 0.6; font-size: 1.1rem; line-height: 1.6; max-width: 300px;">A ponte definitiva entre você e o mundo. Educação com excelência global.</p>
                 </div>
                 <div>
-                    <h4 style="color: white; margin-bottom: 2.5rem; font-size: 1.2rem;">Institucional</h4>
+                    <h4 style="color: var(--accent); margin-bottom: 2.5rem; font-size: 1.2rem;">Institucional</h4>
                     <ul style="list-style: none; display: flex; flex-direction: column; gap: 1.2rem; opacity: 0.7;">
                         <li><a href="../../index.html#escola" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Nossa Escola</a></li>
                         <li><a href="../../nossos-teachers.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Professores</a></li>
                         <li><a href="../../services/solicitacao-certificado.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Certificados</a></li>
+                        <li><a href="../../services/verificacao-certificado.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Validação de Certificados</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 style="color: white; margin-bottom: 2.5rem; font-size: 1.2rem;">Cursos</h4>
+                    <h4 style="color: var(--accent); margin-bottom: 2.5rem; font-size: 1.2rem;">Cursos</h4>
                     <ul style="list-style: none; display: flex; flex-direction: column; gap: 1.2rem; opacity: 0.7;">
-                        <li><a href="../ingles.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Inglês</a></li>
-                        <li><a href="../espanhol.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Espanhol</a></li>
-                        <li><a href="../frances.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Francês</a></li>
-                        <li><a href="../portugues.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Português</a></li>
+                        <li><a href="../../cursos/ingles.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Inglês</a></li>
+                        <li><a href="../../cursos/espanhol.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Espanhol</a></li>
+                        <li><a href="../../cursos/frances.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Francês</a></li>
+                        <li><a href="../../cursos/portugues.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Português</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 style="color: white; margin-bottom: 2.5rem; font-size: 1.2rem;">Serviços</h4>
+                    <h4 style="color: var(--accent); margin-bottom: 2.5rem; font-size: 1.2rem;">Serviços</h4>
                     <ul style="list-style: none; display: flex; flex-direction: column; gap: 1.2rem; opacity: 0.7; margin-bottom: 2rem;">
                         <li><a href="../../services/traducoes.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Traduções</a></li>
                         <li><a href="../../services/aulas-conversacao.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Aulas de Conversação</a></li>
                     </ul>
-                    <div style="display: flex; gap: 1.5rem; opacity: 0.8;">
-                        <a href="#" style="color: white; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'"><i data-lucide="instagram"></i></a>
-                        <a href="#" style="color: white; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'"><i data-lucide="facebook"></i></a>
-                        <a href="#" style="color: white; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'"><i data-lucide="linkedin"></i></a>
+                    <div style="display: flex; gap: 1.5rem; opacity: 0.8; align-items: center; margin-top: 1rem;">
+                        <a href="#" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'"><i data-lucide="instagram"></i></a>
+                        <a href="#" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'"><i data-lucide="facebook"></i></a>
+                        <a href="#" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'"><i data-lucide="linkedin"></i></a>
                     </div>
                 </div>
             </div>
-            <div style="opacity: 0.3; padding-top: 4rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div style="text-align: center; opacity: 0.3; padding-top: 4rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
                 <span>2026 © Change Skills — Todos os direitos reservados.</span>
                 <span>Desenvolvido por <strong>Page Facilitado</strong></span>
             </div>
@@ -391,7 +422,7 @@
     </footer>
 
     <!-- WhatsApp FAB -->
-    <a href="https://wa.me/5549999124040" target="_blank"
+    <a href="https://wa.me/555481223965" target="_blank"
        style="position: fixed; bottom: 30px; right: 30px; width: 65px; height: 65px; background: #25D366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 15px 35px rgba(37, 211, 102, 0.3); z-index: 1000; transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);"
        onmouseover="this.style.transform='scale(1.1) translateY(-10px)'; this.style.boxShadow='0 25px 45px rgba(37, 211, 102, 0.4)'"
        onmouseout="this.style.transform='scale(1) translateY(0)'; this.style.boxShadow='0 15px 35px rgba(37, 211, 102, 0.3)'">
@@ -435,6 +466,28 @@
             entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
         }, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+
+    
+
+    <script>
+        function nextStep(step) {
+            document.querySelectorAll('.form-step').forEach(el => el.style.display = 'none');
+            document.getElementById('step-' + step).style.display = 'block';
+            
+            document.querySelectorAll('.step-indicator').forEach((el, index) => {
+                if (index < step) {
+                    el.style.background = 'var(--primary)';
+                    el.style.color = 'white';
+                } else {
+                    el.style.background = '#e2e8f0';
+                    el.style.color = 'var(--gray)';
+                }
+            });
+            
+            let progress = ((step - 1) / 3) * 100;
+            document.querySelector('.progress-line').style.width = progress + '%';
+        }
     </script>
 </body>
 </html>

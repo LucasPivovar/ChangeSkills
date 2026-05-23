@@ -58,6 +58,14 @@
                         <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
                     </a>
                 </li>
+                <li style="position: relative;">
+                    <a href="../area-do-aluno.html" style="text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; display: block; padding: 0.5rem 0;" 
+                       onmouseover="this.style.color='var(--primary)'; this.querySelector('.nav-line').style.width='100%'" 
+                       onmouseout="this.style.color='var(--primary-dark)'; this.querySelector('.nav-line').style.width='0%'">
+                        Área do Aluno
+                        <span class="nav-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s;"></span>
+                    </a>
+                </li>
             </ul>
         </nav>
     </header>
@@ -65,23 +73,26 @@
     <div class="menu-overlay"></div>
 
     <main id="conteudo">
-        <section class="service-hero">
-            <div class="container">
-                <h1>Certificate Verification</h1>
-                <p>Verify the authenticity of certificates issued by Change Skills Idiomas.</p>
+        <section class="mesh-bg" style="padding-top: 180px; text-align: center; padding-bottom: 80px; position: relative;">
+            <div style="position: absolute; top: -10%; left: -10%; width: 600px; height: 600px; background: var(--primary); filter: blur(250px); opacity: 0.1; border-radius: 50%; z-index: 0;"></div>
+            <div class="container active" style="position: relative; z-index: 1;">
+                <span style="color: var(--primary); font-weight: 800; letter-spacing: 0.2em;">SEGURANÇA E AUTENTICIDADE</span>
+                <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 2rem; margin-top: 1rem; color: var(--primary-dark);">Verificação de Certificados</h1>
+                <p style="font-size: 1.2rem; color: var(--gray); max-width: 800px; margin: auto; line-height: 1.6;">
+                    Valide a autenticidade dos certificados emitidos pela Change Skills Idiomas.
+                </p>
             </div>
         </section>
 
-        <section class="container">
-            <div class="verification-box">
-                <h2>Enter your certificate code:</h2>
-                <form id="verify-form">
-                    <input type="text" placeholder="CS-XXXX-XXXX" required>
-                    <button type="submit" class="btn-primary" style="width: 100%; padding: 1.25rem;">VERIFY CERTIFICATE</button>
+        <section class="container" style="padding-top: 50px; padding-bottom: 200px; position: relative; z-index: 1;">
+            <div class="glass-card" style=" margin: auto; max-width: 600px; background: white; padding: clamp(2rem, 5vw, 4rem); border-radius: 40px; box-shadow: 0 30px 60px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.03); text-align: center;">
+                <h2 style="font-size: clamp(2rem, 4vw, 2.5rem); margin-bottom: 2rem; color: var(--primary-dark);">Validação de Certificado</h2>
+                <p style="font-size: 1.1rem; color: var(--gray); margin-bottom: 3rem;">Insira o código do seu certificado abaixo para verificar sua autenticidade.</p>
+                <form id="verify-form" style="display: flex; flex-direction: column; gap: 1.5rem;" onsubmit="event.preventDefault(); document.getElementById('verify-result').style.display = 'block'; document.getElementById('verify-result').innerHTML = '<div style='padding: 1.5rem; background: #e6f4ea; color: #1e8e3e; border-radius: 12px; font-weight: 600; font-size: 1.1rem;'>✅ Certificado Válido!<br><span style='font-size:0.9rem; font-weight:400;'>Emitido para o aluno conforme os registros oficiais.</span></div>';">
+                    <input type="text" placeholder="CS-XXXX-XXXX" required style="width: 100%; padding: 1.1rem 1.5rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); background: #f8fafc; font-size: 1.2rem; text-align: center; letter-spacing: 2px; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(0,0,0,0.08)'">
+                    <button type="submit" class="btn-vip" style="border: none; cursor: pointer; width: 100%; font-size: 1.1rem; padding: 1.2rem; border-radius: 9999px; font-weight: 700; transition: 0.3s; background: var(--primary); color: white;">Verificar Certificado</button>
                 </form>
-                <div id="verify-result" style="margin-top: 2rem; display: none;">
-                    <!-- Results will be shown here via JS -->
-                </div>
+                <div id="verify-result" style="margin-top: 2rem; display: none;"></div>
             </div>
         </section>
     </main>
@@ -99,7 +110,8 @@
                     <ul style="list-style: none; display: flex; flex-direction: column; gap: 1.2rem; opacity: 0.7;">
                         <li><a href="../index.html#escola" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Nossa Escola</a></li>
                         <li><a href="../nossos-teachers.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Professores</a></li>
-                        <li><a href="solicitacao-certificado.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Certificados</a></li>
+                        <li><a href="../services/solicitacao-certificado.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Certificados</a></li>
+                        <li><a href="../services/verificacao-certificado.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Validação de Certificados</a></li>
                     </ul>
                 </div>
                 <div>
@@ -114,13 +126,13 @@
                 <div>
                     <h4 style="color: var(--accent); margin-bottom: 2.5rem; font-size: 1.2rem;">Serviços</h4>
                     <ul style="list-style: none; display: flex; flex-direction: column; gap: 1.2rem; opacity: 0.7; margin-bottom: 2rem;">
-                        <li><a href="traducoes.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Traduções</a></li>
-                        <li><a href="aulas-conversacao.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Aulas de Conversação</a></li>
+                        <li><a href="../services/traducoes.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Traduções</a></li>
+                        <li><a href="../services/aulas-conversacao.html" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">Aulas de Conversação</a></li>
                     </ul>
-                    <div style="display: flex; gap: 1.5rem; opacity: 0.8;">
-                        <a href="#" style="color: white; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'"><i data-lucide="instagram"></i></a>
-                        <a href="#" style="color: white; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'"><i data-lucide="facebook"></i></a>
-                        <a href="#" style="color: white; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'"><i data-lucide="linkedin"></i></a>
+                    <div style="display: flex; gap: 1.5rem; opacity: 0.8; align-items: center; margin-top: 1rem;">
+                        <a href="#" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'"><i data-lucide="instagram"></i></a>
+                        <a href="#" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'"><i data-lucide="facebook"></i></a>
+                        <a href="#" style="color: white; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'"><i data-lucide="linkedin"></i></a>
                     </div>
                 </div>
             </div>
@@ -132,7 +144,7 @@
     </footer>
     
     <!-- WhatsApp Floating Action Button (Branding Identity) -->
-    <a href="https://wa.me/5549999124040" target="_blank" 
+    <a href="https://wa.me/555481223965" target="_blank" 
        style="position: fixed; bottom: 30px; right: 30px; width: 65px; height: 65px; background: #25D366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 15px 35px rgba(37, 211, 102, 0.3); z-index: 1000; transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);"
        onmouseover="this.style.transform='scale(1.1) translateY(-10px)'; this.style.boxShadow='0 25px 45px rgba(37, 211, 102, 0.4)'"
        onmouseout="this.style.transform='scale(1) translateY(0)'; this.style.boxShadow='0 15px 35px rgba(37, 211, 102, 0.3)'">

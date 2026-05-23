@@ -1,0 +1,36 @@
+<USER_REQUEST>
+deixe todos os footers assim, que estao com o texto brancco deixxe aquees 3 textos o insttituciona, cursos e serviços azu assim como na imagem, em todas as paginas,, devem ser os mesmo ,,com mesma cor e tudo mais, 
+na ulltima seção que tem em cada modaidade de cada cursodeixe apenas o form, em allgumas tem um texto, deie apenas o form, e faça com que esse form ele seja divido em 3 partes porque se nao ele fica muito grande, ai vira 3 etapas sae?
+O que tem para arrumar sao pequenos detalhes que fazem uma diferença na hora de entregar. A questão dos rodapé ainda não estão padronizados, tem alguns que tem os textos em branco e outros em azul claro, faz todos em branco. Faltou colocar a area do aluno la como está no doc. A parte dos certificados e validação de certificados também faltou colocar. Os formularios tem alguns que estão diferentes dos outros, também acho que da para deixar os formularios por etapas, talvez duas ou tres etapas, para o card do formulario ficar menor e para ficar mais intuitivo
+
+essa aqui é do escola a timeline
+[13:03, 22/05/2026] +55 41 9567-1931: Então, a Change começou muito antes de ser Change Skills Idiomas. Antes da criação oficial da escola eu trabalhei por muitos anos como professor de inglês em outras escolas de idioma da região e me frustrava muito ter turmas muito grandes que não tinham uma responsividade uniforme e era impossível dar uma assistência individual para cada estudante. 
+Quando decidi parar de dar aulas, muitos estudantes manifestaram o desejo de continuar tendo aulas comigo de forma on-line. Foi ali que iniciamos a nossa metodologia, ainda bem rudimentar, era apenas WT English Classes. Durante meu mestrado dei aulas em contra-turno para ter uma renda extra. Quando conclui o mestrado fiquei 6 meses no Brasil antes de me mudar para os EUA e me dediquei para criar uma metodologia que respeitasse as individualidades de cada estudante e que pudesse personalizar a forma de ensino com base nas necessidades de cada aluno. 
+Dia 09/01/2023
+<truncated 953 bytes>
+ Track e Criação da modalidade inglês Excellence e início da oferta de inglês para universitários, pós-graduandos e pesquisadores
+Fevereiro 2025 - Criação do sistema de traduções de documentos Change Skills Translation Systems
+Julho 2025 - Expansão do quadro de funcionários com a quinta contratação de professor de língua inglesa
+Agosto 2025 - Expansão do quadro de funcionários com a quinta contratação de professor de língua inglesa
+Janeiro 2026 - Expansão do quadro de funcionários com a sexta e sétima contratação de professor de língua espanhola e francesa
+Março 2026 - Criação das modalidades de ensino de Espanhol
+Abril 2026 - Criação da modalidade de ensino de Português para estrangeiros 
+Maio 2026 - Criação da modalidade de ensino de Francês
+[13:04, 22/05/2026] +55 41 9567-1931: eles falaram que da para por so os meses e os anos sem os dias, porque eles so tem certeza do dia da criação, dos outros eles nao tem certeza e passe um resumo
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-22T20:03:12-03:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\patov\Documents\Projects\ChangeSkills\ChangeSkills\index.html (LANGUAGE_HTML)
+Cursor is on line: 28
+Other open documents:
+- c:\Users\patov\Documents\Projects\ChangeSkills\ChangeSkills\cursos\espanhol.html (LANGUAGE_HTML)
+- c:\Users\patov\Documents\Projects\ChangeSkills\ChangeSkills\cursos\modalidades\espanhol-jovens.html (LANGUAGE_HTML)
+- c:\Users\patov\Downloads\index.html (LANGUAGE_HTML)
+- c:\Users\patov\Documents\Projects\ChangeSkills\ChangeSkills\cursos\ingles.html (LANGUAGE_HTML)
+- c:\Users\patov\Documents\Projects\ChangeSkills\ChangeSkills\cursos\frances.html (LANGUAGE_HTML)
+</ADDITIONAL_METADATA>
+<USER_SETTINGS_CHANGE>
+The user changed setting `Model Selection` from None to Gemini 3.1 Pro (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.
+</USER_SETTINGS_CHANGE>
