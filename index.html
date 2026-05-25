@@ -188,13 +188,13 @@
                     <h2 style="margin-top: 1rem;">Escolha seu Idioma</h2>
                 </div>
                 <!-- Swiper Slider para Cursos -->
-                <div class="swiper cursos-swiper reveal">
+                <div class="swiper cursos-swiper" id="cursos-swiper-section">
                     <div class="swiper-wrapper">
                         <!-- Inglês -->
-                        <div class="swiper-slide">
+                        <div class="swiper-slide curso-card" style="--card-delay: 0.05s;">
                             <a href="cursos/ingles.html"
                                 style="display: block; position: relative; height: 350px; border-radius: 40px; overflow: hidden; text-decoration: none;">
-                                <img src="./assets/img/card1-home.png"
+                                <img src="./assets/englishcard.jpeg"
                                     style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 0; transition: transform 0.6s;"
                                     onmouseover="this.style.transform='scale(1.05)'"
                                     onmouseout="this.style.transform='scale(1)'">
@@ -209,10 +209,10 @@
                             </a>
                         </div>
                         <!-- Espanhol -->
-                        <div class="swiper-slide">
+                        <div class="swiper-slide curso-card" style="--card-delay: 0.25s;">
                             <a href="cursos/espanhol.html"
                                 style="display: block; position: relative; height: 350px; border-radius: 40px; overflow: hidden; text-decoration: none;">
-                                <img src="./assets/img/card2-home.png"
+                                <img src="./assets/espanolcard.jpeg"
                                     style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 0; transition: transform 0.6s;"
                                     onmouseover="this.style.transform='scale(1.05)'"
                                     onmouseout="this.style.transform='scale(1)'">
@@ -227,10 +227,10 @@
                             </a>
                         </div>
                         <!-- Francês -->
-                        <div class="swiper-slide">
+                        <div class="swiper-slide curso-card" style="--card-delay: 0.45s;">
                             <a href="cursos/frances.html"
                                 style="display: block; position: relative; height: 350px; border-radius: 40px; overflow: hidden; text-decoration: none;">
-                                <img src="./assets/img/card-3home.png"
+                                <img src="./assets/francescard.jpeg"
                                     style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 0; transition: transform 0.6s;"
                                     onmouseover="this.style.transform='scale(1.05)'"
                                     onmouseout="this.style.transform='scale(1)'">
@@ -245,10 +245,10 @@
                             </a>
                         </div>
                         <!-- Português -->
-                        <div class="swiper-slide">
+                        <div class="swiper-slide curso-card" style="--card-delay: 0.65s;">
                             <a href="cursos/portugues.html"
                                 style="display: block; position: relative; height: 350px; border-radius: 40px; overflow: hidden; text-decoration: none;">
-                                <img src="./assets/img/card4-home.png"
+                                <img src="./assets/portuguesecard.jpeg"
                                     style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 0; transition: transform 0.6s;"
                                     onmouseover="this.style.transform='scale(1.05)'"
                                     onmouseout="this.style.transform='scale(1)'">
@@ -445,6 +445,27 @@
         </a>
 
         <style>
+            /* =====================================================
+               CURSO CARD STAGGERED ANIMATION
+            ===================================================== */
+            @keyframes courseCardIn {
+                0%   { opacity: 0; transform: translateY(50px) scale(0.95); }
+                60%  { opacity: 1; transform: translateY(-6px) scale(1.01); }
+                100% { opacity: 1; transform: translateY(0)   scale(1); }
+            }
+
+            /* Cards ficam invisíveis até o observer disparar */
+            .curso-card {
+                opacity: 0;
+                transform: translateY(50px) scale(0.95);
+            }
+
+            /* Quando o swiper entra em cena, cada card anima com seu delay */
+            .cursos-swiper.cards-visible .curso-card {
+                animation: courseCardIn 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+                animation-delay: var(--card-delay, 0s);
+            }
+
             a:hover .wa-tooltip {
                 opacity: 1 !important;
                 transform: translateX(0) !important;
@@ -558,6 +579,22 @@
             });
         }, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // =====================================================
+        // CURSO CARDS — STAGGERED ANIMATION OBSERVER
+        // =====================================================
+        const cursosSection = document.getElementById('cursos-swiper-section');
+        if (cursosSection) {
+            const cardsObserver = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('cards-visible');
+                        obs.disconnect(); // dispara apenas uma vez
+                    }
+                });
+            }, { threshold: 0.15 });
+            cardsObserver.observe(cursosSection);
+        }
 
         // =====================================================
         // SWIPER
