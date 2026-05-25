@@ -87,7 +87,6 @@
                     <div class="container" style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center; padding-top: 40px; margin-top: -30px;">
                         <div class="reveal active" data-swiper-parallax="-300">
                             <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 2rem;">
-                                <span style="width: 12px; height: 12px; background: var(--primary); border-radius: 50%;"></span>
                                 <span style="color: var(--primary); font-weight: 800; letter-spacing: 0.2em; font-size: 0.9rem;">NOVA EXPERIÊNCIA EM IDIOMAS</span>
                             </div>
                             <h1 style="margin-bottom: 2rem; font-size: clamp(3rem, 6vw, 5rem);">Aprenda idiomas de forma <span style="color: var(--primary);">divertida e inovadora</span></h1>
@@ -113,7 +112,6 @@
                     <div class="slide2-overlay" style="position: absolute; inset: 0; background: linear-gradient(to left, var(--primary-dark) 45%, transparent 80%); z-index: 1;"></div>
                     <div class="reveal active slide2-content" data-swiper-parallax="-400">
                         <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 1.5rem;">
-                            <span style="width: 15px; height: 3px; background: var(--accent); border-radius: 2px;"></span>
                             <span style="color: var(--accent); font-weight: 800; letter-spacing: 0.25em; font-size: 0.85rem; text-transform: uppercase;">Qualidade Global</span>
                         </div>
                         <h2 style="margin-bottom: 1.5rem; font-size: clamp(2.5rem, 6vw, 4.5rem); color: white; line-height: 1.05; font-weight: 900; letter-spacing: -0.02em;">A ponte definitiva entre <span style="color: var(--accent);">você e o mundo</span></h2>
@@ -535,7 +533,7 @@
             observer: true,
             observeParents: true,
             touchStartPreventDefault: false, // Don't block initial touch
-            passiveListeners: false,
+            passiveListeners: true, // Allow smooth vertical scroll without blocking touch handlers
             autoplay: {
                 delay: 6000,
                 disableOnInteraction: false,
