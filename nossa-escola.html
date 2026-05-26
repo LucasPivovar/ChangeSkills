@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="assets/css/base.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="assets/js/translate.js" defer></script>
     <style>
         /* Custom Swiper Styles for Teachers */
         .teacher-swiper {
@@ -231,7 +232,14 @@
                         </p>
                     </div>
                     <div class="reveal">
-                        <img src="assets/img/image.png" alt="Nossa Jornada - Change Skills" style="width: 100%; height: 480px; object-fit: cover; object-position: center 85%; border-radius: 40px; box-shadow: 0 30px 60px rgba(0,0,0,0.3);">
+                        <div style="position: relative; border-radius: 40px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.3);">
+                            <img src="assets/img/image.png" alt="Nossa Jornada - Change Skills" style="width: 100%; height: 480px; object-fit: cover; object-position: center 85%; display: block;">
+                            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,18,51,0.8) 0%, rgba(0,18,51,0) 60%);"></div>
+                            <div style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 2rem; z-index: 2; text-align: center;">
+                                <p style="color: white; font-weight: 700; font-size: 1.15rem; margin: 0; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">Tay & Wagner</p>
+                                <p style="color: rgba(255,255,255,0.85); font-size: 0.9rem; margin: 5px 0 0 0; font-weight: 500;">Casal fundador da Change Skills Idiomas</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -556,6 +556,62 @@ section {
     box-shadow: 0 20px 50px rgba(0, 209, 255, 0.25) !important;
 }
 
+/* =========================================================
+   GOOGLE TRANSLATE CUSTOM PREMIUM HIDING & SWITCHER STYLES
+========================================================= */
+
+/* Hide Google Translate top bar and frames completely */
+body {
+    top: 0 !important;
+}
+.goog-te-banner-frame, 
+.goog-te-banner-frame.skiptranslate, 
+.goog-te-balloon-frame,
+iframe.goog-te-banner-frame,
+#goog-gt-tt, 
+.goog-te-spinner-pos {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Prevent Google font wrapper highlight effects */
+font {
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+/* Custom premium styles for switcher */
+.lang-switcher {
+    z-index: 1010;
+}
+
+.lang-btn:hover {
+    background: rgba(0, 71, 255, 0.1) !important;
+    border-color: rgba(0, 71, 255, 0.25) !important;
+    transform: translateY(-2px);
+}
+
+.lang-option:hover {
+    background: rgba(0, 71, 255, 0.05) !important;
+    color: var(--primary) !important;
+    transform: translateX(4px);
+}
+
+/* Mobile responsive menu overrides for lang switcher */
+@media (max-width: 768px) {
+    .lang-switcher-li {
+        width: 100% !important;
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+    .lang-dropdown {
+        right: 50% !important;
+        transform: translateX(50%) !important;
+    }
+}
+
+
 
 
 
