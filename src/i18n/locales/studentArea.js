@@ -1,0 +1,62 @@
+export const studentLocales = {
+  pt: {
+    hubTag: "Hub Digital",
+    hubTitle: "Área do Aluno",
+    hubDesc: "Acesse o portal do seu curso (Pearson para Inglês e Blink para Espanhol), faça sua matrícula ou gerencie seus certificados com facilidade. <br><em>*Obs: Para Francês e Português não há portal online.*</em>",
+    pearsonTitle: "Login Portal Pearson (Inglês)",
+    pearsonDesc: "Acesse materiais, livros digitais e conteúdos do seu curso de Inglês.",
+    blinkTitle: "Login Portal Blink (Espanhol)",
+    blinkDesc: "Acesse materiais, livros digitais e conteúdos do seu curso de Espanhol.",
+    cadastroTitle: "Cadastro de Novos Alunos",
+    cadastroDesc: "Preencha seus dados e realize sua matrícula em poucos minutos.",
+    certificadoTitle: "Certificado",
+    certificadoDesc: "Solicite e emita o seu certificado de conclusão.",
+    verificacaoTitle: "Verificação de Certificado",
+    verificacaoDesc: "Verifique a autenticidade de um certificado Change Skills."
+  },
+  en: {
+    hubTag: "Digital Hub",
+    hubTitle: "Student Area",
+    hubDesc: "Access your course portal (Pearson for English and Blink for Spanish), enroll, or manage your certificates easily. <br><em>*Note: There is no online portal for French and Portuguese.*</em>",
+    pearsonTitle: "Pearson Portal Login (English)",
+    pearsonDesc: "Access digital books, materials, and contents for your English course.",
+    blinkTitle: "Blink Portal Login (Spanish)",
+    blinkDesc: "Access digital books, materials, and contents for your Spanish course.",
+    cadastroTitle: "New Student Enrollment",
+    cadastroDesc: "Fill in your details and complete your enrollment in a few minutes.",
+    certificadoTitle: "Certificate Request",
+    certificadoDesc: "Request and issue your completion certificate.",
+    verificacaoTitle: "Certificate Verification",
+    verificacaoDesc: "Verify the authenticity of a Change Skills certificate."
+  },
+  es: {
+    hubTag: "Portal Digital",
+    hubTitle: "Área del Alumno",
+    hubDesc: "Accede al portal de tu curso (Pearson para Inglés y Blink para Español), regístrate o gestiona tus certificados con facilidad. <br><em>*Nota: No hay portal en línea para Francés y Portugués.*</em>",
+    pearsonTitle: "Acceso Portal Pearson (Inglés)",
+    pearsonDesc: "Accede a tus libros digitales, materiales y contenidos del curso de Inglés.",
+    blinkTitle: "Acceso Portal Blink (Español)",
+    blinkDesc: "Accede a tus libros digitales, materiales y contenidos del curso de Español.",
+    cadastroTitle: "Matrícula de Nuevos Alumnos",
+    cadastroDesc: "Completa tus datos y finaliza tu matrícula en unos minutos.",
+    certificadoTitle: "Certificados",
+    certificadoDesc: "Solicita y descarga tu certificado de finalización.",
+    verificacaoTitle: "Verificación de Certificado",
+    verificacaoDesc: "Verifica la autenticidad de un certificado Change Skills."
+  },
+  fr: {
+    hubTag: "Portail Numérique",
+    hubTitle: "Espace Étudiant",
+    hubDesc: "Accédez au portail de votre cours (Pearson pour l'Anglais et Blink pour l'Espagnol), inscrivez-vous ou gérez vos certificats facilement. <br><em>*Note : Il n'y a pas de portail en ligne pour le Français et le Portugais.*</em>",
+    pearsonTitle: "Connexion Portail Pearson (Anglais)",
+    pearsonDesc: "Accédez à vos livres numériques, supports et contenus de cours d'Anglais.",
+    blinkTitle: "Connexion Portail Blink (Espagnol)",
+    blinkDesc: "Accédez à vos livres numériques, supports et contenus de cours d'Espagnol.",
+    cadastroTitle: "Inscription des Nouveaux Étudiants",
+    cadastroDesc: "Remplissez vos coordonnées et finalisez votre inscription en quelques minutes.",
+    certificadoTitle: "Certificat de Réussite",
+    certificadoDesc: "Demandez et téléchargez votre certificat de fin de cursus.",
+    verificacaoTitle: "Validation de Certificat",
+    verificacaoDesc: "Vérifiez l'authenticité d'un certificat Change Skills."
+  }
+}
