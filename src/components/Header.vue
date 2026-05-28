@@ -56,7 +56,7 @@ function handleLinkClick(hash) {
     <nav class="container nav-container">
       <!-- Logo Brand -->
       <RouterLink to="/" class="logo-link">
-        <img src="/assets/img/logo-change.png" alt="Logo Change Skills" class="logo-img">
+        <img src="/assets/img/logo-change.png?v=2" alt="Logo Change Skills" class="logo-img">
       </RouterLink>
       
       <!-- Mobile hamburger toggle button -->

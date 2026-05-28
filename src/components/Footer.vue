@@ -12,7 +12,7 @@ const currentYear = new Date().getFullYear()
       <div class="footer-grid">
         <!-- Brand identity -->
         <div class="footer-brand">
-          <img src="/assets/img/logo-change.png" alt="Logo Change Skills" class="footer-logo">
+          <img src="/assets/img/logo-change.png?v=2" alt="Logo Change Skills" class="footer-logo">
           <p class="footer-brand-text">{{ t('footerBrand') }}</p>
         </div>
         
