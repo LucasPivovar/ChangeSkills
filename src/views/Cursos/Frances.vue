@@ -37,7 +37,7 @@ onMounted(() => {
       <div class="courses-grid">
         <!-- 1. ENFANTS -->
         <div class="course-card reveal">
-          <img src="/assets/img/Livros - Frances/Livros/WhatsApp Image 2026-05-19 at 17.55.08 (4).jpeg" alt="Hourra! — Français pour Enfants" class="card-img">
+          <img src="/assets/img/capa/FRA KIDS.webp" alt="Hourra! — Français pour Enfants" class="card-img">
           <div class="course-card-content">
             <h3>{{ t('frances.enfantsTitle', 'courses') }}</h3>
             <div class="course-info"><Book class="info-icon" /> <strong>{{ t('materialLabel', 'courses') }}</strong> {{ t('frances.enfantsMaterial', 'courses') }}</div>
@@ -49,7 +49,7 @@ onMounted(() => {
 
         <!-- 2. ADOLESCENTS -->
         <div class="course-card reveal">
-          <img src="/assets/img/Site - Change Skills-20260519T225747Z-3-001/Site - Change Skills/Français - Abre portas.png" alt="Français pour Adolescents" class="card-img">
+          <img src="/assets/img/capa/FRA TEEN.webp" alt="Français pour Adolescents" class="card-img">
           <div class="course-card-content">
             <h3>{{ t('frances.adosTitle', 'courses') }}</h3>
             <div class="course-info"><Book class="info-icon" /> <strong>{{ t('materialLabel', 'courses') }}</strong> {{ t('frances.adosMaterial', 'courses') }}</div>
@@ -61,7 +61,7 @@ onMounted(() => {
 
         <!-- 3. ADULTES -->
         <div class="course-card reveal">
-          <img src="/assets/img/Site - Change Skills-20260519T225747Z-3-001/Site - Change Skills/Français - Viva novas histórias.png" alt="Français pour Adultes" class="card-img">
+          <img src="/assets/img/capa/FRA ADULT.webp" alt="Français pour Adultes" class="card-img">
           <div class="course-card-content">
             <h3>{{ t('frances.adultesTitle', 'courses') }}</h3>
             <div class="course-info"><Book class="info-icon" /> <strong>{{ t('materialLabel', 'courses') }}</strong> {{ t('frances.adultesMaterial', 'courses') }}</div>
@@ -179,7 +179,7 @@ onMounted(() => {
 
 .card-img {
   width: 100%;
-  height: 220px;
+  height: 380px;
   object-fit: cover;
   display: block;
 }

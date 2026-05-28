@@ -666,26 +666,24 @@ font {
 }
 
 /* Material Grid */
-.material-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+.material-grid,
+.material-grid-5,
+.material-grid-3 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 2rem;
     margin-top: 3rem;
 }
 
-.material-grid-5 {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 1.75rem;
-    margin-top: 3rem;
-}
-
 .material-item {
-    background: white;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 8px 30px rgba(0,18,51,0.08);
-    transition: transform 0.4s, box-shadow 0.4s;
+    flex: 0 1 200px;
+    background: transparent;
+    border-radius: 0;
+    overflow: visible;
+    box-shadow: none;
+    border: none;
+    transition: transform 0.4s;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -695,14 +693,14 @@ font {
 
 .material-item:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 50px rgba(0,71,255,0.12);
+    box-shadow: none;
 }
 
 .material-item img {
-    width: 100%;
+    width: 140px;
     aspect-ratio: 3/4;
     object-fit: cover;
-    border-radius: 14px 14px 0 0;
+    border-radius: 12px;
     display: block;
 }
 
@@ -894,18 +892,10 @@ font {
 ========================================================= */
 
 @media (max-width: 1200px) {
-    .material-grid-5 {
-        grid-template-columns: repeat(4, 1fr);
-    }
+    /* flexbox will handle this nicely */
 }
 
 @media (max-width: 1024px) {
-    .material-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    .material-grid-5 {
-        grid-template-columns: repeat(3, 1fr);
-    }
     .level-card {
         grid-template-columns: 1fr;
         gap: 1.5rem;
@@ -926,18 +916,14 @@ font {
         display: none;
     }
 
-    .material-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .material-grid,
+    .material-grid-5,
+    .material-grid-3 {
         gap: 1.25rem;
     }
 
-    .material-grid-5 {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.25rem;
-    }
-
-    .material-item img {
-        /* Keep aspect-ratio: 3/4 as set, no fixed height override */
+    .material-item {
+        flex: 0 1 calc(50% - 1rem); /* 2 per line on mobile */
     }
 
     .level-card {
@@ -967,9 +953,13 @@ font {
 
 @media (max-width: 480px) {
     .material-grid,
-    .material-grid-5 {
-        grid-template-columns: repeat(2, 1fr);
+    .material-grid-5,
+    .material-grid-3 {
         gap: 0.75rem;
+    }
+    
+    .material-item {
+        flex: 0 1 calc(50% - 0.5rem);
     }
 
     .material-item h4 {

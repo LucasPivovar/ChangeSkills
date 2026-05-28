@@ -37,7 +37,7 @@ onMounted(() => {
       <div class="courses-grid">
         <!-- 1. JOVENS -->
         <div class="course-card reveal">
-          <img src="/assets/img/portuues1.jpeg" alt="Portuguese for Young Learners — Change Skills" class="card-img">
+          <img src="/assets/img/capa/PTBR TEEN.webp" alt="Portuguese for Young Learners — Change Skills" class="card-img">
           <div class="course-card-content">
             <h3>{{ t('portugues.jovensTitle', 'courses') }}</h3>
             <div class="course-info"><Book class="info-icon" /> <strong>{{ t('materialLabel', 'courses') }}</strong> {{ t('portugues.jovensMaterial', 'courses') }}</div>
@@ -49,7 +49,7 @@ onMounted(() => {
 
         <!-- 2. ADULTOS -->
         <div class="course-card reveal">
-          <img src="/assets/img/portugues2.jpeg" alt="Portuguese for Adults — Change Skills" class="card-img">
+          <img src="/assets/img/capa/PTBR ADULT.webp" alt="Portuguese for Adults — Change Skills" class="card-img">
           <div class="course-card-content">
             <h3>{{ t('portugues.adultosTitle', 'courses') }}</h3>
             <div class="course-info"><Book class="info-icon" /> <strong>{{ t('materialLabel', 'courses') }}</strong> {{ t('portugues.adultosMaterial', 'courses') }}</div>
@@ -167,7 +167,7 @@ onMounted(() => {
 
 .card-img {
   width: 100%;
-  height: 220px;
+  height: 380px;
   object-fit: cover;
   display: block;
 }

@@ -199,16 +199,14 @@ function initSwiper() {
           <div class="swiper-wrapper">
             <div v-for="(teacher, idx) in teachers" :key="idx" class="swiper-slide">
               <div class="teacher-card" @click="openModal(idx)">
-                <img :src="teacher.image" class="teacher-img" :alt="teacher.name">
+                <div class="teacher-img-wrapper">
+                  <img :src="teacher.image" class="teacher-img" :alt="teacher.name">
+                </div>
                 <div class="teacher-info">
                   <h3 class="teacher-name">{{ teacher.name }}</h3>
-                  <div class="teacher-flags-row">
-                    <span v-for="flag in teacher.flags" :key="flag" class="teacher-flag">{{ flag }}</span>
-                  </div>
                   <div class="teacher-lang-badges">
                     <span class="teacher-language">{{ teacher.language }}</span>
                   </div>
-                  <p class="teacher-profile-action">{{ t('viewProfile', 'school') }} <ArrowRight class="profile-arrow" /></p>
                 </div>
               </div>
             </div>
@@ -273,7 +271,6 @@ function initSwiper() {
           <div class="modal-right">
             <h2 class="modal-profile-name">{{ teachers[activeIndex].name }}</h2>
             <div class="modal-profile-lang">
-              <span v-for="flag in teachers[activeIndex].flags" :key="flag" class="modal-flag">{{ flag }}</span>
               <span>{{ teachers[activeIndex].language }}</span>
             </div>
             <div class="modal-profile-desc" v-html="teachers[activeIndex].desc"></div>
@@ -479,16 +476,16 @@ function initSwiper() {
 }
 
 .teacher-card {
-  background: white;
+  position: relative;
   border-radius: 30px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  text-align: left;
+  height: 480px;
+  max-width: 320px;
+  margin: 0 auto;
+  display: block;
 }
 
 .teacher-card:hover {
@@ -496,46 +493,57 @@ function initSwiper() {
   box-shadow: var(--shadow-premium);
 }
 
+.teacher-img-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  border-radius: 30px;
+}
+
 .teacher-img {
   width: 100%;
-  height: 300px;
+  height: 100%;
   object-fit: cover;
   object-position: center top;
   display: block;
-  flex-shrink: 0;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.teacher-card:hover .teacher-img {
+  transform: scale(1.08);
 }
 
 .teacher-info {
-  padding: 1.75rem 1.75rem 2rem;
-  text-align: center;
-  background: white;
-  flex-grow: 1;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 18, 51, 0.95) 0%, rgba(0, 18, 51, 0.6) 50%, rgba(0, 18, 51, 0) 100%);
+  padding: 2rem;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 2;
   gap: 0.5rem;
 }
 
+.teacher-card:hover .teacher-info {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .teacher-name {
-  color: var(--primary-dark);
-  font-size: 1.15rem;
+  color: white;
+  font-size: 1.3rem;
   margin: 0;
   font-weight: 800;
   line-height: 1.3;
-}
-
-.teacher-flags-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  flex-wrap: nowrap;
-  margin-top: 0.2rem;
-}
-
-.teacher-flag {
-  font-size: 1.3rem;
-  line-height: 1;
-  flex-shrink: 0;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
 .teacher-lang-badges {
@@ -544,35 +552,19 @@ function initSwiper() {
   justify-content: center;
   flex-wrap: wrap;
   gap: 6px;
-  margin-top: 0.3rem;
+  margin-top: 0.2rem;
 }
 
 .teacher-language {
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   font-weight: 700;
-  color: var(--primary);
-  background: rgba(0,71,255,0.07);
+  color: var(--accent);
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(5px);
   border-radius: 999px;
-  padding: 0.2rem 0.75rem;
+  padding: 0.25rem 0.85rem;
   letter-spacing: 0.03em;
-}
-
-.teacher-profile-action {
-  color: var(--primary);
-  margin-top: auto;
-  padding-top: 1rem;
-  margin-bottom: 0;
-  font-weight: 700;
-  font-size: 0.9rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-}
-
-.profile-arrow {
-  width: 15px;
-  height: 15px;
 }
 
 /* Spotify block */

@@ -40,14 +40,14 @@ onMounted(() => {
 function initSwiper() {
   if (window.Swiper) {
     new window.Swiper('.material-swiper', {
-      slidesPerView: 4,
+      slidesPerView: 5,
       spaceBetween: 20,
       pagination: { el: '.material-swiper .swiper-pagination', clickable: true },
       breakpoints: {
         0:    { slidesPerView: 1 },
         600:  { slidesPerView: 2 },
         900:  { slidesPerView: 3 },
-        1200: { slidesPerView: 4 }
+        1200: { slidesPerView: 5 }
       }
     })
   }

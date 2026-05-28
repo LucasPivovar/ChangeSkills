@@ -10,7 +10,7 @@ const modalities = computed(() => [
     material: t('ingles.kidsMaterial', 'courses'),
     detailLabel: t('ageLabel', 'courses'),
     detailValue: t('ingles.kidsAgeValue', 'courses'),
-    image: 'https://changeskills.com.br/wp-content/uploads/2025/10/1.png',
+    image: '/assets/img/capa/ENG KID.webp',
     desc: t('ingles.kidsDesc', 'courses'),
     to: '/cursos/modalidades/kids',
     hasAge: true
@@ -20,7 +20,7 @@ const modalities = computed(() => [
     material: t('ingles.teensMaterial', 'courses'),
     detailLabel: t('ageLabel', 'courses'),
     detailValue: t('ingles.teensAgeValue', 'courses'),
-    image: 'https://changeskills.com.br/wp-content/uploads/2025/10/2.png',
+    image: '/assets/img/capa/ENG TEEN.webp',
     desc: t('ingles.teensDesc', 'courses'),
     to: '/cursos/modalidades/teens',
     hasAge: true
@@ -28,7 +28,7 @@ const modalities = computed(() => [
   {
     title: t('ingles.fastTrackTitle', 'courses'),
     material: t('ingles.fastTrackMaterial', 'courses'),
-    image: 'https://changeskills.com.br/wp-content/uploads/2025/10/3.png',
+    image: '/assets/img/capa/FAST ENG.webp',
     desc: t('ingles.fastTrackDesc', 'courses'),
     to: '/cursos/modalidades/fast-track',
     hasAge: false
@@ -36,7 +36,7 @@ const modalities = computed(() => [
   {
     title: t('ingles.excellenceTitle', 'courses'),
     material: t('ingles.excellenceMaterial', 'courses'),
-    image: 'https://changeskills.com.br/wp-content/uploads/2025/10/4.png',
+    image: '/assets/img/capa/ENG ADULT.webp',
     desc: t('ingles.excellenceDesc', 'courses'),
     to: '/cursos/modalidades/excellence',
     hasAge: false
@@ -44,7 +44,7 @@ const modalities = computed(() => [
   {
     title: t('ingles.businessTitle', 'courses'),
     material: t('ingles.businessMaterial', 'courses'),
-    image: 'https://changeskills.com.br/wp-content/uploads/2025/10/5.png',
+    image: '/assets/img/capa/ENG BUSINESS.webp',
     desc: t('ingles.businessDesc', 'courses'),
     to: '/cursos/modalidades/business',
     hasAge: false
@@ -52,7 +52,7 @@ const modalities = computed(() => [
   {
     title: t('ingles.scientificTitle', 'courses'),
     material: t('ingles.scientificMaterial', 'courses'),
-    image: 'https://changeskills.com.br/wp-content/uploads/2025/11/WhatsApp-Image-2025-11-18-at-11.43.25-AM.jpeg',
+    image: '/assets/img/capa/ENG RESEARCHERS.webp',
     desc: t('ingles.scientificDesc', 'courses'),
     to: '/cursos/modalidades/scientific',
     hasAge: false
@@ -225,7 +225,7 @@ onMounted(() => {
 
 .card-img {
   width: 100%;
-  height: 220px;
+  height: 380px;
   object-fit: cover;
   display: block;
 }
