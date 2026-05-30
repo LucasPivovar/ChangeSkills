@@ -89,13 +89,13 @@ onMounted(() => {
   height: 100%;
   object-fit: cover;
   z-index: 0;
-  opacity: 0.5;
+  opacity: 1;
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, var(--primary-dark), transparent);
+  background: rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
@@ -105,7 +105,7 @@ onMounted(() => {
 }
 
 .hero-tag {
-  color: var(--accent);
+  color: #ffffff;
   font-weight: 800;
   letter-spacing: 0.3em;
   text-transform: uppercase;
@@ -124,7 +124,7 @@ onMounted(() => {
 }
 
 .hero-title .highlight {
-  color: var(--accent);
+  color: #ffffff;
 }
 
 .hero-desc {

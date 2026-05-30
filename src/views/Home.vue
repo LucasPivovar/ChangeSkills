@@ -741,6 +741,8 @@ function initSwiper() {
   inset: 0;
   background: linear-gradient(to top, rgba(5, 5, 68, 0.9), transparent);
   z-index: 1;
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
 .curso-content {
@@ -751,6 +753,18 @@ function initSwiper() {
   padding: 3rem;
   z-index: 2;
   text-align: left;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.curso-link:hover .curso-overlay {
+  opacity: 1;
+}
+
+.curso-link:hover .curso-content {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .curso-title {

@@ -2,9 +2,9 @@
 import { ref, onMounted } from 'vue'
 import { RouterLink, useRouter } from 'vue-router'
 import { Globe, ChevronDown, Menu, X } from '@lucide/vue'
-import { currentLang, t } from '@/i18n'
+  import { currentLang, t } from '@/i18n'
 
-const router = useRouter()
+  const router = useRouter()
 const isMobileMenuOpen = ref(false)
 const isDropdownOpen = ref(false)
 

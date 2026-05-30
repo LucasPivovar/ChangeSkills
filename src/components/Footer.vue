@@ -111,7 +111,7 @@ const currentYear = new Date().getFullYear()
 }
 
 .footer-brand-text {
-  opacity: 0.6;
+  color: #FFFFFF;
   font-size: 1.1rem;
   line-height: 1.6;
   max-width: 300px;
@@ -136,10 +136,9 @@ const currentYear = new Date().getFullYear()
 }
 
 .footer-links a {
-  color: white;
+  color: #FFFFFF;
   text-decoration: none;
   transition: color 0.3s;
-  opacity: 0.7;
   font-size: 1.05rem;
   font-weight: 500;
   display: inline-block;

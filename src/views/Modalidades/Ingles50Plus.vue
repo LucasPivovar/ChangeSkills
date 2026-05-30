@@ -1,7 +1,7 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import { RouterLink } from 'vue-router'
-import { ArrowLeft, ArrowRight, Check, Compass, MessagesSquare, Award, Clock } from '@lucide/vue'
+import { ArrowLeft, ArrowRight, Check, MessagesSquare, Compass, Clock, Award } from '@lucide/vue'
 
 onMounted(() => {
   // Load Swiper CSS dynamically
@@ -11,6 +11,18 @@ onMounted(() => {
     link.rel = 'stylesheet'
     link.href = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css'
     document.head.appendChild(link)
+  }
+
+  // Load Swiper JS dynamically
+  if (window.Swiper) {
+    initSwiper()
+  } else {
+    const script = document.createElement('script')
+    script.src = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js'
+    script.onload = () => {
+      initSwiper()
+    }
+    document.body.appendChild(script)
   }
 
   // Setup reveal IntersectionObserver
@@ -25,6 +37,22 @@ onMounted(() => {
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
 })
 
+function initSwiper() {
+  if (window.Swiper) {
+    new window.Swiper('.material-swiper', {
+      slidesPerView: 4,
+      spaceBetween: 20,
+      pagination: { el: '.material-swiper .swiper-pagination', clickable: true },
+      breakpoints: {
+        0:    { slidesPerView: 1 },
+        600:  { slidesPerView: 2 },
+        900:  { slidesPerView: 3 },
+        1200: { slidesPerView: 4 }
+      }
+    })
+  }
+}
+
 // Wizard Form Reactive State
 const step = ref(1)
 const formData = ref({
@@ -33,17 +61,17 @@ const formData = ref({
   email: '',
   telefone: '',
   pref_contato: 'whatsapp',
-  experiencia: '',
+  nivel: '',
   objetivo: ''
 })
 
 const isStep1Valid = computed(() => formData.value.nome.trim() !== '')
 const isStep2Valid = computed(() => {
-  const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
+  const emailRegex = /^[^s@]+@[^s@]+\.[^s@]+$/
   return emailRegex.test(formData.value.email) && formData.value.telefone.trim() !== ''
 })
 const isStep3Valid = computed(() => !!formData.value.pref_contato)
-const isStep4Valid = computed(() => formData.value.experiencia !== '' && formData.value.objetivo !== '')
+const isStep4Valid = computed(() => formData.value.nivel !== '' && formData.value.objetivo !== '')
 
 const progressWidth = computed(() => ((step.value - 1) / 3) * 100 + '%')
 
@@ -66,7 +94,7 @@ function submitForm() {
       email: '',
       telefone: '',
       pref_contato: 'whatsapp',
-      experiencia: '',
+      nivel: '',
       objetivo: ''
     }
     step.value = 1
@@ -76,233 +104,160 @@ function submitForm() {
 
 <template>
   <div class="modality-detail-view">
-    <!-- Back to Cursos Link -->
     <div class="back-nav">
       <div class="container">
         <RouterLink to="/cursos/ingles" class="back-link">
-          <ArrowLeft class="btn-icon-svg" /> Voltar para Cursos de Inglês
+          <ArrowLeft class="btn-icon-svg" /> Voltar para os Cursos
         </RouterLink>
       </div>
     </div>
 
     <!-- Hero Section -->
-    <section class="modality-hero">
-      <img src="/assets/img/ingles-50-hero.png" alt="Curso de Inglês 50+" class="hero-bg-img">
-      <div class="hero-overlay"></div>
-      <div class="container hero-content">
-        <div class="reveal active hero-text-wrapper">
-          <span class="hero-category-tag">Inglês Sênior</span>
-          <h1 class="hero-title-h1">Curso de Inglês <span class="highlight-text">50+</span></h1>
-          <p class="hero-desc-p">
-            Aprenda Inglês para Viver Experiências, Viajar e se Comunicar com Confiança. Nunca é tarde para expandir seus horizontes e conquistar sua independência no exterior.
+    <section class="hero-section">
+      <div class="container hero-grid reveal active">
+        <div style="text-align: left;">
+          <span style="color: var(--primary); font-weight: 800; letter-spacing: 0.2em; display: inline-block; margin-bottom: 1.5rem; text-transform: uppercase;">Change Skills 50+</span>
+          <h1 style="font-size: 5rem; margin-bottom: 2rem; line-height: 1.1; color: var(--primary-dark);">Inglês para <span style="color: var(--primary);">50+</span></h1>
+          <p style="font-size: 1.6rem; color: var(--primary-dark); font-weight: 600; margin-bottom: 1.5rem;">
+            Aprenda inglês para viajar e se comunicar com confiança!
           </p>
-          <div class="hero-cta-btn">
-            <a href="#agendamento" class="btn-vip">Solicitar Aula Experimental <ArrowRight class="btn-icon-svg" /></a>
+          <p style="font-size: 1.2rem; color: var(--gray); margin-bottom: 3rem; line-height: 1.8; max-width: 600px;">
+            Na <strong>Change Skills</strong>, oferecemos um curso leve, prático e no seu próprio ritmo. Ideal para quem deseja viajar, fazer amigos e expandir horizontes sem a pressão da gramática tradicional.
+          </p>
+          <a href="#agendamento" class="btn-vip" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; padding: 1.1rem 3rem; font-size: 1.2rem;">
+            Agende uma aula grátis <ArrowRight style="width: 22px;" class="info-icon" />
+          </a>
+        </div>
+        <div class="hero-image-container">
+          <img src="/assets/img/ingles-50-hero.png" alt="Inglês 50+">
+        </div>
+      </div>
+    </section>
+
+    <!-- Como funciona -->
+    <section class="container" style="padding: 80px 0;">
+      <div class="reveal" style="text-align: center; margin-bottom: 5rem;">
+        <h2 style="font-size: 2.8rem; margin-bottom: 1.5rem; color: var(--primary-dark);">Como funciona o curso</h2>
+        <p style="font-size: 1.2rem; color: var(--gray); max-width: 900px; margin: auto; line-height: 1.8;">
+          O curso 50+ foi desenvolvido especialmente para adultos que buscam praticidade e querem se conectar com o mundo de forma descontraída.
+        </p>
+      </div>
+      
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem;">
+        <div class="glass-card reveal" style="padding: 3rem 2rem; text-align: center; background: #f8faff; border: none;">
+          <MessagesSquare style="color: var(--primary); width: 45px; height: 45px; margin-bottom: 1.5rem;" class="info-icon" />
+          <h3 style="color: var(--primary-dark); margin-bottom: 1rem;">Conversação</h3>
+          <p style="color: var(--gray); line-height: 1.6;">Prática real focada no vocabulário que você realmente vai usar.</p>
+        </div>
+        <div class="glass-card reveal" style="padding: 3rem 2rem; text-align: center; background: #f8faff; border: none;">
+          <Clock style="color: var(--accent); width: 45px; height: 45px; margin-bottom: 1.5rem;" class="info-icon" />
+          <h3 style="color: var(--primary-dark); margin-bottom: 1rem;">Sem Pressão</h3>
+          <p style="color: var(--gray); line-height: 1.6;">Aulas dinâmicas e personalizadas que respeitam o seu próprio ritmo.</p>
+        </div>
+        <div class="glass-card reveal" style="padding: 3rem 2rem; text-align: center; background: #f8faff; border: none;">
+          <Compass style="color: var(--primary); width: 45px; height: 45px; margin-bottom: 1.5rem;" class="info-icon" />
+          <h3 style="color: var(--primary-dark); margin-bottom: 1rem;">Independência</h3>
+          <p style="color: var(--gray); line-height: 1.6;">Conquiste total autonomia para explorar o mundo em suas viagens.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Material Section -->
+    <section style="background: #f8faff; padding: 100px 0;">
+      <div class="container reveal">
+        <div style="text-align: center; margin-bottom: 5rem;">
+          <h2 style="font-size: 2.8rem; color: var(--primary-dark); margin-bottom: 2rem;">O que você vai aprender</h2>
+          <p style="color: var(--gray); font-size: 1.15rem; line-height: 1.8; max-width: 850px; margin: 0 auto;">
+            Foco total em situações úteis e reais da vida real, para você aplicar no dia a dia ou em viagens.
+          </p>
+        </div>
+
+        <div class="material-grid">
+          <div class="material-item reveal">
+            <img src="/assets/img/ingles-50-viagem.png" alt="Inglês para Viagens">
+            <h4>Inglês para Viagens</h4>
+            <p>Imigração, aeroportos, hotéis, compras e direções no exterior.</p>
+          </div>
+          <div class="material-item reveal">
+            <img src="/assets/img/ingles-50-viver.png" alt="Conversação Real">
+            <h4>Conversação Real</h4>
+            <p>Apresentações, preferências pessoais e como fazer novos amigos.</p>
+          </div>
+          <div class="material-item reveal">
+            <img src="/assets/img/ingles-50-mundo.png" alt="Experiências">
+            <h4>Experiências de Lazer</h4>
+            <p>Aproveite hotéis, cruzeiros, museus e passeios com independência.</p>
+          </div>
+          <div class="material-item reveal">
+            <img src="/assets/img/ingles-50-hero.png" alt="Mente Ativa">
+            <h4>Estímulo e Hobbies</h4>
+            <p>Mantenha a mente sempre ativa, saudável e aprenda de forma divertida.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Apresentação & Como Funciona -->
-    <section class="section-presentation">
+    <!-- Estrutura dos Níveis -->
+    <section style="background: white; padding: 100px 0;">
       <div class="container">
-        <div class="grid-2-col">
-          <div class="reveal left-info">
-            <span class="section-tag-small">Nova Perspectiva</span>
-            <h2 class="section-title-h2">Aprenda de forma leve e prática</h2>
-            <p class="section-desc-p">
-              Na <strong>Change Skills Idiomas</strong> acreditamos que nunca é tarde para aprender inglês, principalmente quando o objetivo é viver novas experiências, viajar pelo mundo e se comunicar com segurança no dia-a-dia.
-            </p>
-            <p class="section-desc-p">
-              Nosso curso 50+ foi desenvolvido especialmente para adultos que desejam aprender inglês de forma leve, prática e personalizada, <strong>sem pressão e sem foco excessivo em gramática tradicional</strong>. Aqui, o aprendizado acontece por meio de situações reais da vida cotidiana, respeitando o ritmo, os interesses e os objetivos de cada aluno.
-            </p>
-          </div>
-          
-          <div class="reveal right-checklist">
-            <div class="checklist-card">
-              <h3 class="checklist-title">Como Funciona o Curso</h3>
-              <ul class="checklist-ul">
-                <li><span class="check-icon">✔</span> Aulas totalmente personalizadas</li>
-                <li><span class="check-icon">✔</span> Foco em conversação e compreensão</li>
-                <li><span class="check-icon">✔</span> Situações reais de viagem e cotidiano</li>
-                <li><span class="check-icon">✔</span> Sem necessidade de seguir livro didático tradicional</li>
-                <li><span class="check-icon">✔</span> Aulas online ao vivo e dinâmicas</li>
-                <li><span class="check-icon">✔</span> Aprendizado no seu ritmo</li>
-                <li><span class="check-icon">✔</span> Professores pacientes e preparados para o público adulto</li>
-              </ul>
+        <div class="reveal" style="text-align: left; margin-bottom: 5rem;">
+          <span style="color: var(--primary); font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase;">Pilares</span>
+          <h2 style="margin-top: 1rem; font-size: 3rem; color: var(--primary-dark);">Nossos Pilares de Ensino</h2>
+        </div>
+        <div style="display: grid; gap: 2rem;">
+
+          <div class="level-card reveal">
+            <div class="level-number">Pilar 1</div>
+            <div class="level-title">Comunicação Sem Pressão</div>
+            <p style="color: var(--gray); line-height: 1.7; margin-bottom: 1rem;">O foco é a utilidade prática do vocabulário, e não a memorização de regras teóricas cansativas.</p>
+            <div class="topic-tags">
+              <span class="topic-tag">Viagem</span>
+              <span class="topic-tag">Dia-a-dia</span>
+              <span class="topic-tag">Praticidade</span>
             </div>
           </div>
+
+          <div class="level-card reveal">
+            <div class="level-number">Pilar 2</div>
+            <div class="level-title">Repetição Contextualizada</div>
+            <p style="color: var(--gray); line-height: 1.7; margin-bottom: 1rem;">Você aprende estruturas gramaticais de forma orgânica e intuitiva, participando de diálogos guiados de uso imediato.</p>
+            <div class="topic-tags">
+              <span class="topic-tag">Simulação Real</span>
+              <span class="topic-tag">Diálogos</span>
+              <span class="topic-tag">Pronúncia</span>
+            </div>
+          </div>
+
+          <div class="level-card reveal">
+            <div class="level-number">Pilar 3</div>
+            <div class="level-title">Acolhimento e Paciência</div>
+            <p style="color: var(--gray); line-height: 1.7; margin-bottom: 1rem;">Um ambiente leve, onde errar faz parte do progresso. As aulas são moldadas exclusivamente aos seus interesses.</p>
+            <div class="topic-tags">
+              <span class="topic-tag">Seu Tempo</span>
+              <span class="topic-tag">Empatia</span>
+              <span class="topic-tag">Confiança</span>
+            </div>
+          </div>
+
+          <div class="level-card reveal">
+            <div class="level-number">Pilar 4</div>
+            <div class="level-title">Atendimento Exclusivo</div>
+            <p style="color: var(--gray); line-height: 1.7; margin-bottom: 1rem;">Acompanhamento próximo, suporte humanizado em todas as etapas e agendamentos flexíveis de acordo com sua rotina.</p>
+            <div class="topic-tags">
+              <span class="topic-tag">Suporte</span>
+              <span class="topic-tag">Flexibilidade</span>
+              <span class="topic-tag">Atendimento VIP</span>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <!-- O Que Você Vai Aprender (3 Cards utilizando Assets Oficiais) -->
-    <section class="section-learning bg-light-gray">
-      <div class="container">
-        <div class="text-center reveal header-margin">
-          <span class="section-tag-small">Jornada Prática</span>
-          <h2 class="section-title-h2">O que você vai aprender com a gente</h2>
-          <p class="section-subtitle-p">Foco total em situações úteis e reais da vida real</p>
-        </div>
-
-        <div class="learning-grid">
-          <!-- Card 1: Viagens -->
-          <div class="learning-card reveal">
-            <div class="learning-card-img-wrapper">
-              <img src="/assets/img/ingles-50-viagem.png" alt="Inglês para Viagens" class="learning-card-img">
-              <div class="learning-card-overlay"></div>
-              <span class="learning-card-tag">✈️ Viagens</span>
-            </div>
-            <div class="learning-card-content">
-              <h3>Inglês para Viagens</h3>
-              <p>Aprenda a se comunicar com segurança em todas as etapas de suas viagens internacionais:</p>
-              <ul class="learning-sub-ul">
-                <li>Vocabulário essencial de viagem</li>
-                <li>Passagem por aeroporto e imigração</li>
-                <li>Check-in em hotéis e resorts</li>
-                <li>Pedidos em restaurantes e cafés</li>
-                <li>Compras, lojas e negociações</li>
-                <li>Uso de transportes (Uber, táxi, metrô, etc.)</li>
-                <li>Pedir direções e ajuda em emergências</li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Card 2: Conversação -->
-          <div class="learning-card reveal">
-            <div class="learning-card-img-wrapper">
-              <img src="/assets/img/ingles-50-viver.png" alt="Conversação" class="learning-card-img">
-              <div class="learning-card-overlay"></div>
-              <span class="learning-card-tag">🗣 Conversação</span>
-            </div>
-            <div class="learning-card-content">
-              <h3>Conversação do Dia-a-Dia</h3>
-              <p>Desenvolva a habilidade de conversar naturalmente em inglês e criar conexões reais:</p>
-              <ul class="learning-sub-ul">
-                <li>Apresentações pessoais e socialização</li>
-                <li>Falar sobre família, rotina e planos</li>
-                <li>Como fazer novas amizades e contatos</li>
-                <li>Hobbies, preferências e interesses</li>
-                <li>Cultura, entretenimento e lazer</li>
-                <li>Pequenas conversas cotidianas ("small talk")</li>
-                <li>Expressões comuns e pronúncia natural</li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Card 3: Experiências -->
-          <div class="learning-card reveal">
-            <div class="learning-card-img-wrapper">
-              <img src="/assets/img/ingles-50-mundo.png" alt="Experiências" class="learning-card-img">
-              <div class="learning-card-overlay"></div>
-              <span class="learning-card-tag">🌎 Experiências</span>
-            </div>
-            <div class="learning-card-content">
-              <h3>Experiências Internacionais</h3>
-              <p>Ideal para quem deseja aproveitar ao máximo momentos únicos no exterior com independência:</p>
-              <ul class="learning-sub-ul">
-                <li>Vivência em resorts, spas e cruzeiros</li>
-                <li>Passeios em museus e pontos turísticos</li>
-                <li>Participação em eventos internacionais</li>
-                <li>Reservas em restaurantes sofisticados</li>
-                <li>Comunicação com atendimento ao cliente</li>
-                <li>Contorno de situações inesperadas</li>
-                <li>Autonomia e liberdade para explorar</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Escuta e Metodologia -->
-    <section class="section-methodology">
-      <div class="container">
-        <div class="grid-2-col">
-          <div class="reveal flex-center">
-            <div class="methodology-visual-card">
-              <Compass class="methodology-icon" />
-              <h3>Desenvolvimento da Escuta e Confiança</h3>
-              <p>Trabalhamos constantemente na melhora da compreensão auditiva, pronúncia natural e, principalmente, na sua segurança ao falar, reduzindo qualquer ansiedade.</p>
-              <p class="small-info">Utilizamos vídeos dinâmicos, diálogos cotidianos simulados, músicas clássicas, situações de simulação real e materiais personalizados para o ritmo de cada aluno.</p>
-            </div>
-          </div>
-
-          <div class="reveal flex-column-start">
-            <span class="section-tag-small">Sem Pressão</span>
-            <h2 class="section-title-h2">Metodologia Change Skills 50+</h2>
-            <p class="section-desc-p">Nossa metodologia é baseada em pilares acolhedores:</p>
-            
-            <div class="pilar-item">
-              <h4>💬 Comunicação Prática</h4>
-              <p>O foco é a utilidade prática do vocabulário, e não a memorização de regras teóricas cansativas.</p>
-            </div>
-            
-            <div class="pilar-item">
-              <h4>🔄 Repetição Contextualizada</h4>
-              <p>Você aprende estruturas gramaticais de forma orgânica e intuitiva, participando de diálogos guiados.</p>
-            </div>
-
-            <div class="pilar-item">
-              <h4>❤️ Acolhimento e Paciência</h4>
-              <p>Um ambiente leve, onde errar faz parte do progresso. As aulas são moldadas exclusivamente aos seus interesses.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Para Quem e Diferenciais -->
-    <section class="section-target bg-dark-blue text-white">
-      <div class="container">
-        <div class="grid-2-col">
-          <div class="reveal">
-            <h2 class="section-title-h2 text-white">Para quem é este curso?</h2>
-            <ul class="target-ul">
-              <li>✨ Pessoas que querem viajar com mais independência</li>
-              <li>✨ Quem sempre sonhou em aprender inglês mas não se adaptou a escolas tradicionais</li>
-              <li>✨ Adultos que buscam aprender sem pressão de notas ou provas</li>
-              <li>✨ Estudantes que procuram aulas mais leves, humanas e dinâmicas</li>
-              <li>✨ Quem deseja conversar em inglês e se manter ativo cognitivamente</li>
-              <li>✨ Pessoas que preferem aulas personalizadas adaptadas ao seu próprio ritmo</li>
-            </ul>
-          </div>
-
-          <div class="reveal">
-            <h2 class="section-title-h2 text-white">Nossos Diferenciais</h2>
-            <div class="diferenciais-grid">
-              <div class="diferencial-card-glass">
-                <Award class="dif-icon" />
-                <h4>Atendimento VIP</h4>
-                <p>Acompanhamento próximo e suporte humanizado em todas as etapas.</p>
-              </div>
-              <div class="diferencial-card-glass">
-                <Clock class="dif-icon" />
-                <h4>Flexibilidade Total</h4>
-                <p>Agendamentos flexíveis de acordo com sua rotina de vida e viagens.</p>
-              </div>
-              <div class="diferencial-card-glass">
-                <MessagesSquare class="dif-icon" />
-                <h4>Professores Especializados</h4>
-                <p>Docentes extremamente pacientes e treinados especificamente para o público maduro.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="reveal tagline-footer-box">
-          <p class="tagline-bold">Viva novas experiências com mais liberdade e confiança.</p>
-          <p class="tagline-sub">Inglês para a vida real. No seu ritmo. Do seu jeito.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Wizard Form Experimental -->
+    <!-- Agendamento Form -->
     <section id="agendamento" class="agendamento-section">
       <div class="container wizard-max-width">
-        <h2 class="section-form-title">Solicite sua Aula Experimental Grátis</h2>
-        <p class="section-form-subtitle">Preencha as informações abaixo e nossa equipe entrará em contato de forma carinhosa.</p>
-        
+        <h2 class="section-form-title">Agende sua aula experimental</h2>
         <div class="glass-card form-wizard-card">
           <!-- Progress Bar -->
           <div class="wizard-progress-bar">
@@ -316,15 +271,15 @@ function submitForm() {
           <form @submit.prevent="submitForm" class="wizard-form-el">
             <!-- STEP 1: Personal Info -->
             <div v-if="step === 1" class="form-step-pane">
-              <h3>1. Como podemos chamar você?</h3>
+              <h3>1. Dados Pessoais</h3>
               <div class="form-grid-2">
                 <div class="input-field">
                   <label>Nome *</label>
-                  <input v-model="formData.nome" type="text" placeholder="Seu nome" required class="theme-input">
+                  <input v-model="formData.nome" type="text" placeholder="Nome" required class="theme-input">
                 </div>
                 <div class="input-field">
                   <label>Sobrenome</label>
-                  <input v-model="formData.sobrenome" type="text" placeholder="Seu sobrenome" class="theme-input">
+                  <input v-model="formData.sobrenome" type="text" placeholder="Sobrenome" class="theme-input">
                 </div>
               </div>
               <div class="pane-footer-right">
@@ -339,7 +294,7 @@ function submitForm() {
               <h3>2. Dados de Contato</h3>
               <div class="input-field">
                 <label>E-mail *</label>
-                <input v-model="formData.email" type="email" placeholder="seuemail@provedor.com" required class="theme-input">
+                <input v-model="formData.email" type="email" placeholder="exemplo@email.com" required class="theme-input">
               </div>
               <div class="input-field">
                 <label>Telefone / WhatsApp *</label>
@@ -357,20 +312,20 @@ function submitForm() {
 
             <!-- STEP 3: Contact Preference -->
             <div v-if="step === 3" class="form-step-pane">
-              <h3>3. Canal de Preferência</h3>
-              <label class="group-label">Como você prefere receber nosso contato inicial? *</label>
+              <h3>3. Preferência de Contato</h3>
+              <label class="group-label">Como prefere que entremos em contato? *</label>
               <div class="radio-group-list">
                 <label class="radio-card-option" :class="{ 'selected': formData.pref_contato === 'whatsapp' }">
                   <input v-model="formData.pref_contato" type="radio" value="whatsapp" name="pref_contato" class="radio-box">
-                  <span class="radio-txt">💬 Mensagem no meu WhatsApp</span>
+                  <span class="radio-txt">💬 Mensagem no WhatsApp</span>
                 </label>
                 <label class="radio-card-option" :class="{ 'selected': formData.pref_contato === 'email' }">
                   <input v-model="formData.pref_contato" type="radio" value="email" name="pref_contato" class="radio-box">
-                  <span class="radio-txt">📩 Por e-mail</span>
+                  <span class="radio-txt">E-mail</span>
                 </label>
                 <label class="radio-card-option" :class="{ 'selected': formData.pref_contato === 'ligacao' }">
                   <input v-model="formData.pref_contato" type="radio" value="ligacao" name="pref_contato" class="radio-box">
-                  <span class="radio-txt">📞 Receber uma ligação carinhosa</span>
+                  <span class="radio-txt">📞 Receber Ligação</span>
                 </label>
               </div>
               <div class="pane-footer-split">
@@ -383,12 +338,12 @@ function submitForm() {
               </div>
             </div>
 
-            <!-- STEP 4: Experience & Objectives -->
+            <!-- STEP 4: Level & Goals -->
             <div v-if="step === 4" class="form-step-pane">
-              <h3>4. Seu Perfil e Objetivos</h3>
+              <h3>4. Nível e Objetivo</h3>
               <div class="input-field">
                 <label>Você já estudou inglês alguma vez? *</label>
-                <select v-model="formData.experiencia" required class="theme-input">
+                <select v-model="formData.nivel" required class="theme-input">
                   <option value="" disabled>Selecione uma opção</option>
                   <option value="nunca">Não, nunca estudei (quero começar do zero)</option>
                   <option value="antigamente">Estudei há muito tempo e esqueci</option>
@@ -411,7 +366,7 @@ function submitForm() {
                   <ArrowLeft class="btn-icon-svg" /> Voltar
                 </button>
                 <button type="submit" :disabled="!isStep4Valid" class="btn-theme-submit">
-                  Finalizar Cadastro <Check class="btn-icon-svg" />
+                  Finalizar <Check class="btn-icon-svg" />
                 </button>
               </div>
             </div>
@@ -453,429 +408,13 @@ function submitForm() {
   transform: translateX(-5px);
 }
 
-/* Hero Section */
-.modality-hero {
-  position: relative;
-  padding: 220px 0 150px 0;
-  min-height: 80vh;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  background: #001233;
-  box-sizing: border-box;
+/* Swiper Styles */
+.material-swiper {
+  margin-top: 4rem;
+  padding-bottom: 3rem !important;
 }
 
-.hero-bg-img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-  opacity: 0.55;
-  transform: scale(1.02);
-}
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to right, rgba(0, 18, 51, 0.9) 35%, rgba(0, 18, 51, 0.3) 100%);
-  z-index: 1;
-}
-
-.hero-text-wrapper {
-  max-width: 800px;
-  text-align: left;
-  position: relative;
-  z-index: 2;
-}
-
-.hero-category-tag {
-  color: var(--accent);
-  font-weight: 800;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  margin-bottom: 1.5rem;
-  display: block;
-}
-
-.hero-title-h1 {
-  font-size: clamp(3rem, 6vw, 5rem);
-  color: white;
-  margin-bottom: 2rem;
-  line-height: 1.1;
-  font-weight: 800;
-}
-
-.hero-title-h1 .highlight-text {
-  color: var(--accent);
-}
-
-.hero-desc-p {
-  font-size: clamp(1.1rem, 2vw, 1.35rem);
-  color: rgba(255, 255, 255, 0.95);
-  margin-bottom: 3.5rem;
-  line-height: 1.7;
-  font-weight: 300;
-}
-
-/* Sections Base */
-.section-presentation {
-  padding: 120px 0;
-  background: white;
-}
-
-.grid-2-col {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 5rem;
-  align-items: start;
-  text-align: left;
-}
-
-.section-tag-small {
-  color: var(--primary);
-  font-weight: 800;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  font-size: 0.9rem;
-  display: inline-block;
-  margin-bottom: 1rem;
-}
-
-.section-title-h2 {
-  font-size: clamp(2rem, 4vw, 3rem);
-  color: var(--primary-dark);
-  font-weight: 800;
-  margin-top: 0;
-  margin-bottom: 2rem;
-}
-
-.section-desc-p {
-  font-size: 1.15rem;
-  color: var(--gray);
-  line-height: 1.8;
-  margin-bottom: 1.5rem;
-}
-
-.bg-light-gray {
-  background: #f8fafc;
-}
-
-/* Checklist Card */
-.checklist-card {
-  background: #f1f5f9;
-  border-radius: 30px;
-  padding: 3rem;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.02);
-  border: 1px solid rgba(0, 0, 0, 0.03);
-}
-
-.checklist-title {
-  color: var(--primary-dark);
-  font-size: 1.6rem;
-  margin-bottom: 2rem;
-  margin-top: 0;
-  font-weight: 800;
-}
-
-.checklist-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.checklist-ul li {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 1.1rem;
-  color: var(--primary-dark);
-  font-weight: 600;
-}
-
-.check-icon {
-  color: #10b981;
-  font-weight: bold;
-  font-size: 1.2rem;
-}
-
-/* Learning grid */
-.section-learning {
-  padding: 120px 0;
-}
-
-.header-margin {
-  margin-bottom: 6rem;
-  text-align: left;
-}
-
-.section-subtitle-p {
-  color: var(--gray);
-  font-size: 1.2rem;
-  margin-top: 0.5rem;
-}
-
-.learning-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2.5rem;
-  text-align: left;
-}
-
-.learning-card {
-  background: white;
-  border-radius: 30px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-  border: 1px solid rgba(0,0,0,0.02);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.learning-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-premium);
-}
-
-.learning-card-img-wrapper {
-  position: relative;
-  height: 200px;
-  overflow: hidden;
-}
-
-.learning-card-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.learning-card-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0, 18, 51, 0.4), transparent);
-}
-
-.learning-card-tag {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  background: rgba(255, 255, 255, 0.95);
-  color: var(--primary-dark);
-  font-weight: 800;
-  font-size: 0.85rem;
-  padding: 0.5rem 1rem;
-  border-radius: 99px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.learning-card-content {
-  padding: 2.5rem 2rem;
-}
-
-.learning-card-content h3 {
-  color: var(--primary-dark);
-  font-size: 1.45rem;
-  margin-top: 0;
-  margin-bottom: 1rem;
-  font-weight: 800;
-}
-
-.learning-card-content p {
-  color: var(--gray);
-  font-size: 1.05rem;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-}
-
-.learning-sub-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-}
-
-.learning-sub-ul li {
-  position: relative;
-  padding-left: 20px;
-  font-size: 0.95rem;
-  color: var(--primary-dark);
-  font-weight: 600;
-}
-
-.learning-sub-ul li::before {
-  content: '✦';
-  position: absolute;
-  left: 0;
-  color: var(--accent);
-}
-
-/* Methodology */
-.section-methodology {
-  padding: 120px 0;
-  background: white;
-}
-
-.flex-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.methodology-visual-card {
-  background: linear-gradient(135deg, var(--primary-dark), #002b80);
-  border-radius: 35px;
-  padding: 4rem 3rem;
-  color: white;
-  box-shadow: var(--shadow-premium);
-  max-width: 480px;
-}
-
-.methodology-icon {
-  width: 50px;
-  height: 50px;
-  color: var(--accent);
-  margin-bottom: 2rem;
-}
-
-.methodology-visual-card h3 {
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
-  margin-top: 0;
-  font-weight: 800;
-  color: var(--accent);
-}
-
-.methodology-visual-card p {
-  opacity: 0.95;
-  line-height: 1.7;
-  font-size: 1.1rem;
-  margin-bottom: 1.5rem;
-}
-
-.methodology-visual-card .small-info {
-  opacity: 0.75;
-  font-size: 0.95rem;
-  margin-bottom: 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-  padding-top: 1.5rem;
-}
-
-.flex-column-start {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-}
-
-.pilar-item {
-  margin-bottom: 1.8rem;
-  border-left: 3px solid var(--accent);
-  padding-left: 1.5rem;
-}
-
-.pilar-item h4 {
-  font-size: 1.25rem;
-  color: var(--primary-dark);
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  font-weight: 700;
-}
-
-.pilar-item p {
-  color: var(--gray);
-  line-height: 1.6;
-  margin: 0;
-  font-size: 1.05rem;
-}
-
-/* Target & Differentials */
-.section-target {
-  padding: 120px 0;
-}
-
-.bg-dark-blue {
-  background: var(--primary-dark);
-}
-
-.target-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.target-ul li {
-  font-size: 1.15rem;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.diferenciais-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.diferencial-card-glass {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-}
-
-.dif-icon {
-  width: 32px;
-  height: 32px;
-  color: var(--accent);
-}
-
-.diferencial-card-glass h4 {
-  font-size: 1.25rem;
-  color: var(--accent);
-  margin: 0;
-  font-weight: 700;
-}
-
-.diferencial-card-glass p {
-  margin: 0;
-  opacity: 0.8;
-  line-height: 1.6;
-  font-size: 1rem;
-}
-
-.tagline-footer-box {
-  text-align: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  margin-top: 6rem;
-  padding-top: 4rem;
-}
-
-.tagline-bold {
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: var(--accent);
-  margin-bottom: 0.5rem;
-  margin-top: 0;
-}
-
-.tagline-sub {
-  font-size: 1.15rem;
-  opacity: 0.85;
-  margin: 0;
-}
-
-/* Wizard custom styles */
+/* Wizard custom layout styles to keep original aesthetics and responsive behavior */
 .agendamento-section {
   padding: 120px 0;
   background: #f8fafc;
@@ -890,15 +429,8 @@ function submitForm() {
   font-size: 2.5rem;
   color: var(--primary-dark);
   text-align: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: 3rem;
   font-weight: 800;
-}
-
-.section-form-subtitle {
-  color: var(--gray);
-  text-align: center;
-  margin-bottom: 4rem;
-  font-size: 1.15rem;
 }
 
 .form-wizard-card {
@@ -914,7 +446,7 @@ function submitForm() {
   display: flex;
   justify-content: space-between;
   position: relative;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
   max-width: 500px;
   margin-left: auto;
   margin-right: auto;
@@ -979,7 +511,7 @@ function submitForm() {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
 }
 
 .input-field label {
@@ -1017,14 +549,14 @@ function submitForm() {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .radio-card-option {
   background: #f8fafc;
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 12px;
-  padding: 1.2rem;
+  padding: 1rem;
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -1066,7 +598,7 @@ function submitForm() {
 }
 
 .btn-theme-primary, .btn-theme-submit, .btn-theme-back {
-  padding: 1.1rem 2.2rem;
+  padding: 1rem 2rem;
   border-radius: 99px;
   font-weight: 700;
   font-size: 1rem;
@@ -1116,24 +648,7 @@ function submitForm() {
   height: 18px;
 }
 
-@media (max-width: 992px) {
-  .grid-2-col {
-    grid-template-columns: 1fr;
-    gap: 3.5rem;
-  }
-  .learning-grid {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-  .methodology-visual-card {
-    max-width: 100%;
-  }
-}
-
 @media (max-width: 768px) {
-  .modality-hero {
-    padding: 180px 0 100px 0;
-  }
   .form-wizard-card {
     padding: 2.5rem 1.5rem;
   }
@@ -1142,3 +657,4 @@ function submitForm() {
   }
 }
 </style>
+<!-- HMR trigger comment to force Vite rebuild -->
