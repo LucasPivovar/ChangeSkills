@@ -52,7 +52,18 @@ export const homeLocales = {
     faqQ4: "Ganho certificado ao final do curso?",
     faqA4: "Sim! Cada módulo concluído garante um certificado com validade oficial que indica o nível de proficiência alcançado na escola.",
     faqQ5: "Posso utilizar o certificado para horas complementares na minha universidade ou para comprovação em concurso público?",
-    faqA5: "Sim e sim! O certificado é válido em todo território nacional e possui um código de verificação único que confere teor oficial para comprovação em atividades complementares e em concurso público."
+    faqA5: "Sim e sim! O certificado é válido em todo território nacional e possui um código de verificação único que confere teor oficial para comprovação em atividades complementares e em concurso público.",
+    bastidoresTitle: "Nossos usuários, nos bastidores.",
+    testimonialJasmineText: "Meu Deus, estou ansiosa para aprender e com meu cérebro TDAH esta é uma maneira milagrosa de aprender um novo idioma.",
+    testimonialJosefText: "Isso é Incrível!",
+    testimonialOrlanText: "Aprendi tanto!",
+    testimonialArielleText: "Comecei a usar para melhorar meu francês e é maravilhoso! Tem muitos conteúdos interessantes.",
+    testimonialMariaText: "Absolutamente fantástico. Estou gostando muito. Muito bom material.",
+    testimonialAdrianaText: "O conceito é super inteligente: as aulas são dinâmicas e envolventes.",
+    testimonialAlineText: "Amei! Posso praticar e melhorar meu inglês e ganhar vocabulário novo.",
+    testimonialEmilyText: "Amo isso",
+    testimonialCocoText: "Tem tanto material útil e ferramentas para aprender um idioma",
+    testimonialBenjaminText: "O layout deste aplicativo é incomparável."
   },
   en: {
     heroTag: "NEW EXPERIENCE IN LANGUAGES",
@@ -107,7 +118,18 @@ export const homeLocales = {
     faqQ4: "Do I get a certificate at the end of the course?",
     faqA4: "Yes! Each completed module guarantees an official certificate indicating the proficiency level achieved.",
     faqQ5: "Can I use the certificate for complementary hours or public service exams?",
-    faqA5: "Yes and yes! The certificate is valid nationwide and features a unique verification code that gives it official status for universities and public contests."
+    faqA5: "Yes and yes! The certificate is valid nationwide and features a unique verification code that gives it official status for universities and public contests.",
+    bastidoresTitle: "Our users, behind the scenes.",
+    testimonialJasmineText: "Oh my goodness, I look forward to learning and with my ADHD brain this is a miracle way to learn a new language.",
+    testimonialJosefText: "This is Awesome!",
+    testimonialOrlanText: "I learned so much!",
+    testimonialArielleText: "Just started using this to improve my French, and it's wonderful! There are so many interesting shows.",
+    testimonialMariaText: "Absolutely great. I am enjoying it a lot. Very good material.",
+    testimonialAdrianaText: "The concept is really smart: the classes are dynamic and engaging.",
+    testimonialAlineText: "I loved it! I can train and improve my English and get more new vocabulary.",
+    testimonialEmilyText: "Love this",
+    testimonialCocoText: "There's so much helpful material and tools to learn a language",
+    testimonialBenjaminText: "The layout of this app is unparalleled."
   },
   es: {
     heroTag: "NUEVA EXPERIENCIA EN IDIOMAS",
@@ -162,7 +184,18 @@ export const homeLocales = {
     faqQ4: "¿Recibo un certificado al final del curso?",
     faqA4: "¡Sí! Cada módulo completado garantiza un certificado con validez oficial que indica el nivel de competencia alcanzado.",
     faqQ5: "¿Puedo usar el certificado para horas complementarias o concursos públicos?",
-    faqA5: "¡Sí y sí! El certificado é válido en todo el territorio nacional y cuenta con un código de verificación único que le otorga carácter oficial para universidades y concursos públicos."
+    faqA5: "¡Sí y sí! El certificado é válido en todo el territorio nacional y cuenta con un código de verificação único que le otorga carácter oficial para universidades y concursos públicos.",
+    bastidoresTitle: "Nuestros usuarios, tras bambalinas.",
+    testimonialJasmineText: "¡Dios mío, tengo muchas ganas de aprender y con mi cerebro con TDAH esta es una forma milagrosa de aprender un nuevo idioma!",
+    testimonialJosefText: "¡Esto es increíble!",
+    testimonialOrlanText: "¡Aprendi tanto!",
+    testimonialArielleText: "¡Empecé a usar esto para mejorar mi francés y es maravilloso! Hay tantos contenidos interesantes.",
+    testimonialMariaText: "Absolutamente genial. Lo estoy disfrutando mucho. Muy buen material.",
+    testimonialAdrianaText: "El concepto es realmente inteligente: las clases son dinámicas y atractivas.",
+    testimonialAlineText: "¡Me encantó! Puedo practicar y mejorar mi inglés y obtener más vocabulario nuevo.",
+    testimonialEmilyText: "Me encanta esto",
+    testimonialCocoText: "Hay tanto material útil y herramientas para aprender un idioma",
+    testimonialBenjaminText: "¡El diseño de esta aplicación es incomparable!"
   },
   fr: {
     heroTag: "NOUVELLE EXPÉRIENCE EN LANGUES",
@@ -217,6 +250,17 @@ export const homeLocales = {
     faqQ4: "Est-ce que j'obtiens un certificat à la fin du cours ?",
     faqA4: "Oui ! Chaque module complété garantit un certificat officiel indiquant le niveau de compétence atteint.",
     faqQ5: "Puis-je utiliser le certificat pour des heures complémentaires ou des concours publics ?",
-    faqA5: "Oui et oui ! Le certificat est valable sur tout le territoire national et possède un code de vérification unique qui lui confère un statut officiel pour les universités et les concours publics."
+    faqA5: "Oui et oui ! Le certificat est valable sur tout le territoire national et possède un code de vérification unique qui lui confère un statut officiel pour les universités et les concours publics.",
+    bastidoresTitle: "Nos utilisateurs, en coulisses.",
+    testimonialJasmineText: "Mon Dieu, j'ai hâte d'apprendre et avec mon cerveau TDAH c'est une façon miraculeuse d'apprendre une nouvelle langue.",
+    testimonialJosefText: "C'est Génial !",
+    testimonialOrlanText: "J'ai tellement appris !",
+    testimonialArielleText: "Je viens de commencer à utiliser cela pour améliorer mon français, et c'est merveilleux ! Il y a tellement de contenus intéressants.",
+    testimonialMariaText: "Absolument génial. J'apprécie beaucoup. Très bon matériel.",
+    testimonialAdrianaText: "Le concept est vraiment intelligent : les cours sont dynamiques et captivants.",
+    testimonialAlineText: "J'ai adoré ! Je peux m'entraîner et améliorer mon anglais et obtenir du nouveau vocabulaire.",
+    testimonialEmilyText: "J'adore ça",
+    testimonialCocoText: "Il y a tellement de matériel utile et d'outils pour apprendre une langue",
+    testimonialBenjaminText: "La mise en page de cette application est inégalée."
   }
 }

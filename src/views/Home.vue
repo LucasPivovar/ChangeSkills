@@ -4,6 +4,138 @@ import { RouterLink } from 'vue-router'
 import { ArrowRight, ChevronRight, ChevronDown, Quote, FileText, MessagesSquare } from '@lucide/vue'
 import { t } from '@/i18n'
 
+const row1Testimonials = computed(() => [
+  {
+    id: 1,
+    name: "Josef, ES",
+    text: t('testimonialJosefText', 'home'),
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&h=120&q=80",
+    flag: "https://flagcdn.com/w40/es.png",
+    bgColor: "#cbf25c",
+    textColor: "#000000",
+    trustpilot: false
+  },
+  {
+    id: 2,
+    name: "Orlan, FR",
+    text: t('testimonialOrlanText', 'home'),
+    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&h=120&q=80",
+    flag: "https://flagcdn.com/w40/fr.png",
+    bgColor: "#ff7d4b",
+    textColor: "#000000",
+    trustpilot: false
+  },
+  {
+    id: 3,
+    name: "Coco, US",
+    text: t('testimonialCocoText', 'home'),
+    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&h=120&q=80",
+    flag: "https://flagcdn.com/w40/us.png",
+    bgColor: "#74a3ff",
+    textColor: "#000000",
+    trustpilot: false
+  }
+])
+
+const row2Testimonials = computed(() => [
+  {
+    id: 4,
+    name: "Jasmine, CA",
+    text: t('testimonialJasmineText', 'home'),
+    avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&h=120&q=80",
+    flag: "https://flagcdn.com/w40/ca.png",
+    bgColor: "#d6b4fc",
+    textColor: "#000000",
+    trustpilot: true
+  },
+  {
+    id: 5,
+    name: "Arielle, US",
+    text: t('testimonialArielleText', 'home'),
+    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&h=120&q=80",
+    flag: "https://flagcdn.com/w40/us.png",
+    bgColor: "#e1e1e1",
+    textColor: "#000000",
+    trustpilot: true
+  },
+  {
+    id: 6,
+    name: "Benjamin, US",
+    text: t('testimonialBenjaminText', 'home'),
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&h=120&q=80",
+    flag: "https://flagcdn.com/w40/us.png",
+    bgColor: "#52d6a4",
+    textColor: "#000000",
+    trustpilot: true
+  }
+])
+
+const row3Testimonials = computed(() => [
+  {
+    id: 7,
+    name: "Maria, PT",
+    text: t('testimonialMariaText', 'home'),
+    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=120&h=120&q=80",
+    flag: "https://flagcdn.com/w40/pt.png",
+    bgColor: "#c8acf7",
+    textColor: "#000000",
+    trustpilot: true
+  },
+  {
+    id: 8,
+    name: "Adriana, CA",
+    text: t('testimonialAdrianaText', 'home'),
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&h=120&q=80",
+    flag: "https://flagcdn.com/w40/ca.png",
+    bgColor: "#cbf25c",
+    textColor: "#000000",
+    trustpilot: false
+  },
+  {
+    id: 9,
+    name: "Orlan, FR",
+    text: t('testimonialOrlanText', 'home'),
+    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&h=120&q=80",
+    flag: "https://flagcdn.com/w40/fr.png",
+    bgColor: "#ff7d4b",
+    textColor: "#000000",
+    trustpilot: false
+  }
+])
+
+const row4Testimonials = computed(() => [
+  {
+    id: 10,
+    name: "Aline, BR",
+    text: t('testimonialAlineText', 'home'),
+    avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=120&h=120&q=80",
+    flag: "https://flagcdn.com/w40/br.png",
+    bgColor: "#d4f16b",
+    textColor: "#000000",
+    trustpilot: true
+  },
+  {
+    id: 11,
+    name: "Emily, IT",
+    text: t('testimonialEmilyText', 'home'),
+    avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=120&h=120&q=80",
+    flag: "https://flagcdn.com/w40/it.png",
+    bgColor: "#ff7d4b",
+    textColor: "#000000",
+    trustpilot: false
+  },
+  {
+    id: 12,
+    name: "Coco, US",
+    text: t('testimonialCocoText', 'home'),
+    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&h=120&q=80",
+    flag: "https://flagcdn.com/w40/us.png",
+    bgColor: "#74a3ff",
+    textColor: "#000000",
+    trustpilot: false
+  }
+])
+
 const faqs = computed(() => [
   {
     question: t('faqQ1', 'home'),
@@ -267,34 +399,6 @@ function initSwiper() {
       </div>
     </section>
 
-    <!-- 4. Depoimentos (Testimonials) -->
-    <section id="depoimentos" class="testimonials-section">
-      <div class="testimonials-glow"></div>
-      <div class="container testimonials-content">
-        <div class="text-center reveal subheading-gap">
-          <span class="section-tag accent-color">{{ t('comunidadeTag', 'home') }}</span>
-          <h2 class="section-title text-white">{{ t('comunidadeTitle', 'home') }}</h2>
-        </div>
-        <div class="testimonials-grid">
-          <div class="glass-card reveal">
-            <Quote class="quote-icon" />
-            <p class="quote-text">{{ t('testimonial1', 'home') }}</p>
-            <p class="quote-author">{{ t('testimonialAuthor1', 'home') }}</p>
-          </div>
-          <div class="glass-card reveal">
-            <Quote class="quote-icon" />
-            <p class="quote-text">{{ t('testimonial2', 'home') }}</p>
-            <p class="quote-author">{{ t('testimonialAuthor2', 'home') }}</p>
-          </div>
-          <div class="glass-card reveal">
-            <Quote class="quote-icon" />
-            <p class="quote-text">{{ t('testimonial3', 'home') }}</p>
-            <p class="quote-author">{{ t('testimonialAuthor3', 'home') }}</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- 5. Serviços Extras -->
     <section id="servicos" class="servicos-section">
       <div class="container">
@@ -321,6 +425,214 @@ function initSwiper() {
             <h3 class="servico-title">{{ t('servicoCardTitle2', 'home') }}</h3>
             <p class="servico-desc">{{ t('servicoCardDesc2', 'home') }}</p>
           </RouterLink>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Depoimentos (Testimonials Carousel) -->
+    <section id="depoimentos" class="new-testimonials-section reveal">
+      <!-- Row 1: scrolls left -->
+      <div class="marquee-wrapper">
+        <div class="marquee-track marquee-left marquee-row-1">
+          <!-- Main items -->
+          <div v-for="item in row1Testimonials" :key="item.id" class="testimonial-bubble-card">
+            <div class="bubble-layout">
+              <div class="avatar-container">
+                <img :src="item.avatar" class="avatar-img" alt="User Avatar" />
+                <div class="flag-badge">
+                  <img :src="item.flag" class="flag-img" alt="Country Flag" />
+                </div>
+              </div>
+              <div class="bubble-speech" :style="{ backgroundColor: item.bgColor }">
+                <div class="bubble-arrow" :style="{ borderRightColor: item.bgColor }"></div>
+                <p class="bubble-text">{{ item.text }}</p>
+                <div class="bubble-footer">
+                  <span class="user-name">{{ item.name }}</span>
+                  <div v-if="item.trustpilot" class="trustpilot-rating">
+                    <span class="star-icon">★</span>
+                    <span class="trustpilot-text">Trustpilot</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Duplicate items for infinite scrolling loop -->
+          <div v-for="item in row1Testimonials" :key="'dup1-' + item.id" class="testimonial-bubble-card">
+            <div class="bubble-layout">
+              <div class="avatar-container">
+                <img :src="item.avatar" class="avatar-img" alt="User Avatar" />
+                <div class="flag-badge">
+                  <img :src="item.flag" class="flag-img" alt="Country Flag" />
+                </div>
+              </div>
+              <div class="bubble-speech" :style="{ backgroundColor: item.bgColor }">
+                <div class="bubble-arrow" :style="{ borderRightColor: item.bgColor }"></div>
+                <p class="bubble-text">{{ item.text }}</p>
+                <div class="bubble-footer">
+                  <span class="user-name">{{ item.name }}</span>
+                  <div v-if="item.trustpilot" class="trustpilot-rating">
+                    <span class="star-icon">★</span>
+                    <span class="trustpilot-text">Trustpilot</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 2: scrolls right -->
+      <div class="marquee-wrapper">
+        <div class="marquee-track marquee-right marquee-row-2">
+          <!-- Main items -->
+          <div v-for="item in row2Testimonials" :key="item.id" class="testimonial-bubble-card">
+            <div class="bubble-layout">
+              <div class="avatar-container">
+                <img :src="item.avatar" class="avatar-img" alt="User Avatar" />
+                <div class="flag-badge">
+                  <img :src="item.flag" class="flag-img" alt="Country Flag" />
+                </div>
+              </div>
+              <div class="bubble-speech" :style="{ backgroundColor: item.bgColor }">
+                <div class="bubble-arrow" :style="{ borderRightColor: item.bgColor }"></div>
+                <p class="bubble-text">{{ item.text }}</p>
+                <div class="bubble-footer">
+                  <span class="user-name">{{ item.name }}</span>
+                  <div v-if="item.trustpilot" class="trustpilot-rating">
+                    <span class="star-icon">★</span>
+                    <span class="trustpilot-text">Trustpilot</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Duplicate items for infinite scrolling loop -->
+          <div v-for="item in row2Testimonials" :key="'dup2-' + item.id" class="testimonial-bubble-card">
+            <div class="bubble-layout">
+              <div class="avatar-container">
+                <img :src="item.avatar" class="avatar-img" alt="User Avatar" />
+                <div class="flag-badge">
+                  <img :src="item.flag" class="flag-img" alt="Country Flag" />
+                </div>
+              </div>
+              <div class="bubble-speech" :style="{ backgroundColor: item.bgColor }">
+                <div class="bubble-arrow" :style="{ borderRightColor: item.bgColor }"></div>
+                <p class="bubble-text">{{ item.text }}</p>
+                <div class="bubble-footer">
+                  <span class="user-name">{{ item.name }}</span>
+                  <div v-if="item.trustpilot" class="trustpilot-rating">
+                    <span class="star-icon">★</span>
+                    <span class="trustpilot-text">Trustpilot</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Center Title -->
+      <div class="testimonials-center-title-container">
+        <h2 class="bastidores-title">{{ t('bastidoresTitle', 'home') }}</h2>
+      </div>
+
+      <!-- Row 3: scrolls left -->
+      <div class="marquee-wrapper">
+        <div class="marquee-track marquee-left marquee-row-3">
+          <!-- Main items -->
+          <div v-for="item in row3Testimonials" :key="item.id" class="testimonial-bubble-card">
+            <div class="bubble-layout">
+              <div class="avatar-container">
+                <img :src="item.avatar" class="avatar-img" alt="User Avatar" />
+                <div class="flag-badge">
+                  <img :src="item.flag" class="flag-img" alt="Country Flag" />
+                </div>
+              </div>
+              <div class="bubble-speech" :style="{ backgroundColor: item.bgColor }">
+                <div class="bubble-arrow" :style="{ borderRightColor: item.bgColor }"></div>
+                <p class="bubble-text">{{ item.text }}</p>
+                <div class="bubble-footer">
+                  <span class="user-name">{{ item.name }}</span>
+                  <div v-if="item.trustpilot" class="trustpilot-rating">
+                    <span class="star-icon">★</span>
+                    <span class="trustpilot-text">Trustpilot</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Duplicate items for infinite scrolling loop -->
+          <div v-for="item in row3Testimonials" :key="'dup3-' + item.id" class="testimonial-bubble-card">
+            <div class="bubble-layout">
+              <div class="avatar-container">
+                <img :src="item.avatar" class="avatar-img" alt="User Avatar" />
+                <div class="flag-badge">
+                  <img :src="item.flag" class="flag-img" alt="Country Flag" />
+                </div>
+              </div>
+              <div class="bubble-speech" :style="{ backgroundColor: item.bgColor }">
+                <div class="bubble-arrow" :style="{ borderRightColor: item.bgColor }"></div>
+                <p class="bubble-text">{{ item.text }}</p>
+                <div class="bubble-footer">
+                  <span class="user-name">{{ item.name }}</span>
+                  <div v-if="item.trustpilot" class="trustpilot-rating">
+                    <span class="star-icon">★</span>
+                    <span class="trustpilot-text">Trustpilot</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 4: scrolls right -->
+      <div class="marquee-wrapper">
+        <div class="marquee-track marquee-right marquee-row-4">
+          <!-- Main items -->
+          <div v-for="item in row4Testimonials" :key="item.id" class="testimonial-bubble-card">
+            <div class="bubble-layout">
+              <div class="avatar-container">
+                <img :src="item.avatar" class="avatar-img" alt="User Avatar" />
+                <div class="flag-badge">
+                  <img :src="item.flag" class="flag-img" alt="Country Flag" />
+                </div>
+              </div>
+              <div class="bubble-speech" :style="{ backgroundColor: item.bgColor }">
+                <div class="bubble-arrow" :style="{ borderRightColor: item.bgColor }"></div>
+                <p class="bubble-text">{{ item.text }}</p>
+                <div class="bubble-footer">
+                  <span class="user-name">{{ item.name }}</span>
+                  <div v-if="item.trustpilot" class="trustpilot-rating">
+                    <span class="star-icon">★</span>
+                    <span class="trustpilot-text">Trustpilot</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Duplicate items for infinite scrolling loop -->
+          <div v-for="item in row4Testimonials" :key="'dup4-' + item.id" class="testimonial-bubble-card">
+            <div class="bubble-layout">
+              <div class="avatar-container">
+                <img :src="item.avatar" class="avatar-img" alt="User Avatar" />
+                <div class="flag-badge">
+                  <img :src="item.flag" class="flag-img" alt="Country Flag" />
+                </div>
+              </div>
+              <div class="bubble-speech" :style="{ backgroundColor: item.bgColor }">
+                <div class="bubble-arrow" :style="{ borderRightColor: item.bgColor }"></div>
+                <p class="bubble-text">{{ item.text }}</p>
+                <div class="bubble-footer">
+                  <span class="user-name">{{ item.name }}</span>
+                  <div v-if="item.trustpilot" class="trustpilot-rating">
+                    <span class="star-icon">★</span>
+                    <span class="trustpilot-text">Trustpilot</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -780,77 +1092,192 @@ function initSwiper() {
   font-weight: 600;
 }
 
-/* Testimonials / Community segment */
-.testimonials-section {
-  background: var(--primary-dark);
-  color: white;
-  position: relative;
+/* Testimonials Carousel (New) */
+.new-testimonials-section {
+  background-color: #ffffff;
+  padding: 80px 0;
   overflow: hidden;
-  padding: 120px 0;
-}
-
-.testimonials-glow {
-  position: absolute;
-  top: -20%;
-  right: -10%;
-  width: 800px;
-  height: 800px;
-  background: var(--primary);
-  filter: blur(250px);
-  opacity: 0.4;
-  border-radius: 50%;
-  z-index: 0;
-}
-
-.testimonials-content {
   position: relative;
-  z-index: 1;
+  width: 100%;
 }
 
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 3rem;
-  text-align: left;
+.marquee-wrapper {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin: 1.5rem 0;
+  /* Premium fade effect on left and right sides */
+  mask-image: linear-gradient(to right, transparent, white 15%, white 85%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, white 15%, white 85%, transparent);
 }
 
-.testimonials-grid .glass-card {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.1);
-  padding: 3rem;
+.marquee-track {
+  display: flex;
+  gap: 2rem;
+  width: max-content;
+}
+
+.marquee-row-1 {
+  animation: scrollLeft 38s linear infinite;
+}
+
+.marquee-row-2 {
+  animation: scrollRight 46s linear infinite;
+}
+
+.marquee-row-3 {
+  animation: scrollLeft 42s linear infinite;
+}
+
+.marquee-row-4 {
+  animation: scrollRight 34s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scrollRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.testimonial-bubble-card {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.bubble-layout {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar-container {
+  position: relative;
+  width: 65px;
+  height: 65px;
+  flex-shrink: 0;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.flag-badge {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flag-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bubble-speech {
+  position: relative;
   border-radius: 24px;
-  border-width: 1px;
-  border-style: solid;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 1.4rem 1.8rem;
+  margin-left: 12px;
+  display: flex;
+  flex-direction: column;
+  color: #000000;
+  max-width: 400px;
+  min-width: 260px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.03);
 }
 
-.testimonials-grid .glass-card:hover {
-  transform: translateY(-10px);
-  background: rgba(255, 255, 255, 0.12) !important;
-  border-color: rgba(0, 209, 255, 0.5) !important;
-  box-shadow: 0 20px 50px rgba(0, 209, 255, 0.25) !important;
+.bubble-arrow {
+  position: absolute;
+  top: 50%;
+  left: -8px;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 8px solid;
 }
 
-.quote-icon {
-  color: var(--accent);
-  width: 40px;
-  height: 40px;
-  margin-bottom: 2rem;
-  opacity: 0.5;
+.bubble-text {
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1.35;
+  color: #000000;
+  margin: 0 0 10px 0;
+  letter-spacing: -0.01em;
 }
 
-.quote-text {
-  font-size: 1.2rem;
-  color: white;
-  font-weight: 600;
-  line-height: 1.6;
-  margin-bottom: 2rem;
-  margin-top: 0;
+.bubble-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
 }
 
-.quote-author {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 1.1rem;
+.user-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.trustpilot-rating {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  color: #00b67a;
+  font-weight: 800;
+  font-size: 0.85rem;
+}
+
+.trustpilot-rating .star-icon {
+  font-size: 1rem;
+}
+
+.testimonials-center-title-container {
+  padding: 3.5rem 1.5rem;
+  text-align: center;
+}
+
+.bastidores-title {
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 900;
+  color: #000000;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
   margin: 0;
 }
 
@@ -1072,11 +1499,6 @@ function initSwiper() {
   
   .founders-img {
     height: 380px;
-  }
-
-  .testimonials-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
   }
   
   .servicos-grid {
