@@ -129,7 +129,7 @@ function submitForm() {
           </a>
         </div>
         <div class="hero-image-container">
-          <img src="/assets/img/card-ingles-50.png" alt="Inglês 50+">
+          <img :src="'/assets/img/card-ingles-50.png'" alt="Inglês 50+">
         </div>
       </div>
     </section>
