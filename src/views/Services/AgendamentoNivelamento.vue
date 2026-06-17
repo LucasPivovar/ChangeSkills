@@ -21,7 +21,7 @@ onMounted(() => {
     <section class="page-hero">
       <div class="container text-center reveal active hero-content">
         <span class="hero-tag">PROFICIENCY TEST</span>
-        <h1 class="hero-title">Agendamento de <br><span class="gradient-text">Nivelamento.</span></h1>
+        <h1 class="hero-title">Agendamento de <br><span class="gradient-text">Conversa.</span></h1>
         <p class="hero-desc">Descubra seu ponto de partida para a fluência total com nossa avaliação comunicativa.</p>
       </div>
     </section>
@@ -54,8 +54,8 @@ onMounted(() => {
         <div class="card-right">
           <div class="calendar-box">
             <Calendar class="calendar-icon" />
-            <p>Escolha a melhor data e horário para agendar seu nivelamento diretamente conosco via WhatsApp.</p>
-            <a href="https://wa.me/555481223965?text=Olá,%20gostaria%20de%20agendar%20um%20teste%20de%20nivelamento!" target="_blank" class="btn-schedule">
+            <p>Escolha a melhor data e horário para agendar sua conversa diretamente conosco via WhatsApp.</p>
+            <a href="https://wa.me/555481223965?text=Olá,%20gostaria%20de%20agendar%20uma%20conversa!" target="_blank" class="btn-schedule">
               Agendar via WhatsApp <ArrowRight class="btn-icon" />
             </a>
           </div>

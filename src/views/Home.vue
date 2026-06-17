@@ -710,7 +710,7 @@ function initSwiper() {
         </div>
         
         <div class="reveal faq-list">
-          <div v-for="(item, idx) in faqs" :key="idx" class="faq-vip-item">
+          <div v-for="(item, idx) in faqs" :key="idx" class="faq-vip-item" :class="{ 'active': isFaqOpen[idx] }">
             <button class="faq-vip-toggle" @click="toggleFaq(idx)">
               <span>{{ item.question }}</span>
               <ChevronDown class="faq-chevron" :class="{ 'rotated': isFaqOpen[idx] }" />
