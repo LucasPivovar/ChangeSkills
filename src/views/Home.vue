@@ -3,7 +3,7 @@ import { ref, onMounted, computed } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 import { ArrowRight, ChevronRight, ChevronDown, Quote, FileText, MessagesSquare, Languages, Bot, Zap } from '@lucide/vue'
 import { t } from '@/i18n'
-import videoPlayback from '@/assets/videoplayback (2).mp4'
+import videoPlayback from '@/assets/cinematic 3.mp4'
 
 const route = useRoute()
 
@@ -168,19 +168,7 @@ function toggleFaq(index) {
   isFaqOpen.value[index] = !isFaqOpen.value[index]
 }
 
-const heroVideoRef = ref(null)
 
-function handleHeroVideoTimeUpdate() {
-  if (heroVideoRef.value && heroVideoRef.value.currentTime < 30) {
-    heroVideoRef.value.currentTime = 30
-  }
-}
-
-function handleHeroVideoLoadedMetadata() {
-  if (heroVideoRef.value) {
-    heroVideoRef.value.currentTime = 30
-  }
-}
 
 onMounted(() => {
   // Load Swiper CSS dynamically
@@ -303,16 +291,13 @@ function initSwiper() {
           <!-- SLIDE 2: Global Excellence -->
           <div class="swiper-slide slide-bg-2">
             <video 
-              ref="heroVideoRef"
               autoplay 
               muted 
               loop 
               playsinline 
               class="hero-video-bg"
-              @timeupdate="handleHeroVideoTimeUpdate"
-              @loadedmetadata="handleHeroVideoLoadedMetadata"
             >
-              <source :src="videoPlayback + '#t=30'" type="video/mp4">
+              <source :src="videoPlayback" type="video/mp4">
             </video>
             <div class="hero-overlay"></div>
             <div class="slide2-content-wrapper" data-swiper-parallax="-400">

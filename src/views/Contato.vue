@@ -2,24 +2,12 @@
 import { onMounted, ref } from 'vue'
 import { Send, Phone, Mail } from '@lucide/vue'
 import { t } from '@/i18n'
-import videoPlayback from '@/assets/videoplayback (2).mp4'
+import videoPlayback from '@/assets/cinematic 3.mp4'
 
 const name = ref('')
 const email = ref('')
 const message = ref('')
-const videoRef = ref(null)
 
-function handleTimeUpdate() {
-  if (videoRef.value && videoRef.value.currentTime < 30) {
-    videoRef.value.currentTime = 30
-  }
-}
-
-function handleLoadedMetadata() {
-  if (videoRef.value) {
-    videoRef.value.currentTime = 30
-  }
-}
 
 function handleSubmit() {
   const successMsg = t('alertSuccess', 'contact').replace('{name}', name.value)
@@ -48,16 +36,13 @@ onMounted(() => {
     <section class="contact-hero">
       <!-- Background Video -->
       <video 
-        ref="videoRef"
         autoplay 
         muted 
         loop 
         playsinline 
         class="hero-video"
-        @timeupdate="handleTimeUpdate"
-        @loadedmetadata="handleLoadedMetadata"
       >
-        <source :src="videoPlayback + '#t=30'" type="video/mp4">
+        <source :src="videoPlayback" type="video/mp4">
       </video>
       <div class="hero-overlay"></div>
       <div class="container hero-content">
