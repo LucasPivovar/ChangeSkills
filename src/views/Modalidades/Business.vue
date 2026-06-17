@@ -113,22 +113,23 @@ function submitForm() {
     </div>
 
     <!-- Hero Section -->
-        <section style="position: relative; padding: 220px 0 150px 0; min-height: 90vh; display: flex; align-items: center; overflow: hidden; background: #001233;">
-            <img src="/assets/img/capa/ENG BUSINESS.webp" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; opacity: 0.5;">
-            <div style="position: absolute; inset: 0; background: linear-gradient(to right, var(--primary-dark), transparent); z-index: 1;"></div>
-            <div class="container" style="position: relative; z-index: 2;">
-                <div class="reveal active" style="max-width: 800px; text-align: left;">
-                    <span style="color: var(--accent); font-weight: 800; letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 1.5rem; display: block;">Corporate Excellence</span>
-                    <h1 style="font-size: 5rem; color: white; margin-bottom: 2rem; line-height: 1.1; font-weight: 800;">Inglês <span style="color: var(--accent);">Adult Business</span></h1>
-                    <p style="font-size: 1.4rem; color: rgba(255,255,255,0.9); margin-bottom: 3.5rem; line-height: 1.6; font-weight: 300;">
-                        Conquiste o inglês corporativo com o material <strong>Business Partner</strong> da Pearson. Desenvolva comunicação eficaz para <strong>reuniões, apresentações, e-mails e negociações</strong> globais.
-                    </p>
-                    <div style="display: flex; gap: 2rem; align-items: center;">
-                        <a href="#agendamento" class="btn-vip">Agendar Aula Grátis <ArrowRight  class="info-icon" /></a>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <section class="hero-section">
+      <div class="container hero-grid reveal active">
+        <div style="text-align: left;">
+          <span style="color: var(--primary); font-weight: 800; letter-spacing: 0.2em; display: inline-block; margin-bottom: 1.5rem; text-transform: uppercase;">Corporate Excellence</span>
+          <h1 style="font-size: 5rem; margin-bottom: 2rem; line-height: 1.1; color: var(--primary-dark);">Inglês <span style="color: var(--primary);">Adult Business</span></h1>
+          <p style="font-size: 1.2rem; color: var(--gray); margin-bottom: 3rem; line-height: 1.8; max-width: 600px;">
+            Conquiste o inglês corporativo com o material <strong>Business Partner</strong> da Pearson. Desenvolva comunicação eficaz para <strong>reuniões, apresentações, e-mails e negociações</strong> globais.
+          </p>
+          <a href="#agendamento" class="btn-vip" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; padding: 1.1rem 3rem; font-size: 1.2rem;">
+            Agendar aula experimental <ArrowRight style="width: 22px;" class="info-icon" />
+          </a>
+        </div>
+        <div class="hero-image-container">
+          <img src="/assets/img/capa/ENG BUSINESS.webp" alt="Adult Business">
+        </div>
+      </div>
+    </section>
 
         <!-- Como Funciona -->
         <section style="background: #f8faff; padding: 120px 0;">

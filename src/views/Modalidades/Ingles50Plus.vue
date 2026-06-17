@@ -129,7 +129,7 @@ function submitForm() {
           </a>
         </div>
         <div class="hero-image-container">
-          <img src="/assets/img/card-ingles-50.png" alt="Inglês 50+">
+          <img src="/assets/img/ingles-50-hero.png" alt="Inglês 50+">
         </div>
       </div>
     </section>
@@ -189,7 +189,7 @@ function submitForm() {
             <p>Aproveite hotéis, cruzeiros, museus e passeios com independência.</p>
           </div>
           <div class="material-item reveal">
-            <img src="/assets/img/ingles-50-hero.png" alt="Mente Ativa">
+            <img src="/assets/img/card-ingles-50.png" alt="Mente Ativa">
             <h4>Estímulo e Hobbies</h4>
             <p>Mantenha a mente sempre ativa, saudável e aprenda de forma divertida.</p>
           </div>
