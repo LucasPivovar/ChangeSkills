@@ -5,6 +5,20 @@ import { ArrowRight, ChevronRight, ChevronDown, Quote, FileText, MessagesSquare,
 import { t } from '@/i18n'
 import videoPlayback from '@/assets/cinematic 3.mp4'
 
+// Local testimonials avatar imports
+import avatarJosef from '@/assets/depoimentos/depoimentos/front-view-man-posing-outdoors.jpg.jpeg'
+import avatarChantal from '@/assets/depoimentos/depoimentos/medium-shot-beautiful-woman-with-braids.jpg.jpeg'
+import avatarChloe from '@/assets/depoimentos/depoimentos/medium-shot-woman-having-fun-outdoors.jpg.jpeg'
+import avatarJasmine from '@/assets/depoimentos/depoimentos/medium-shot-woman-living-healthy-life.jpg.jpeg'
+import avatarArielle from '@/assets/depoimentos/depoimentos/portrait-millennial-woman-living-country-side-after-moving-from-city.jpg.jpeg'
+import avatarBenjamin from '@/assets/depoimentos/depoimentos/portrait-handsome-man.jpg.jpeg'
+import avatarMaria from '@/assets/depoimentos/depoimentos/portrait-woman-showing-strong-emotions-mental-health-awareness.jpg.jpeg'
+import avatarAdrian from '@/assets/depoimentos/depoimentos/front-view-man-posing-outdoors (1).jpg.jpeg'
+import avatarPierre from '@/assets/depoimentos/depoimentos/front-view-man-posing-outdoors (2).jpg.jpeg'
+import avatarAlan from '@/assets/depoimentos/depoimentos/portrt-smiling-black-man.jpg.jpeg'
+import avatarEmilio from '@/assets/depoimentos/depoimentos/young-hispanic-man-smiling-confident-park.jpg.jpeg'
+import avatarLucas from '@/assets/depoimentos/depoimentos/close-up-excited-person-portrait.jpg.jpeg'
+
 const route = useRoute()
 
 const row1Testimonials = computed(() => [
@@ -12,7 +26,7 @@ const row1Testimonials = computed(() => [
     id: 1,
     name: "Josef, ES",
     text: t('testimonialJosefText', 'home'),
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&h=120&q=80",
+    avatar: avatarJosef,
     flag: "https://flagcdn.com/w40/es.png",
     bgColor: "#1c5bf0",
     textColor: "#ffffff",
@@ -20,9 +34,9 @@ const row1Testimonials = computed(() => [
   },
   {
     id: 2,
-    name: "Orlan, FR",
-    text: t('testimonialOrlanText', 'home'),
-    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&h=120&q=80",
+    name: "Chantal, FR",
+    text: t('testimonialChantalText', 'home'),
+    avatar: avatarChantal,
     flag: "https://flagcdn.com/w40/fr.png",
     bgColor: "#1243c2",
     textColor: "#ffffff",
@@ -30,9 +44,9 @@ const row1Testimonials = computed(() => [
   },
   {
     id: 3,
-    name: "Coco, US",
-    text: t('testimonialCocoText', 'home'),
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&h=120&q=80",
+    name: "Chloe, US",
+    text: t('testimonialChloeText', 'home'),
+    avatar: avatarChloe,
     flag: "https://flagcdn.com/w40/us.png",
     bgColor: "#2b60e6",
     textColor: "#ffffff",
@@ -45,7 +59,7 @@ const row2Testimonials = computed(() => [
     id: 4,
     name: "Jasmine, CA",
     text: t('testimonialJasmineText', 'home'),
-    avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&h=120&q=80",
+    avatar: avatarJasmine,
     flag: "https://flagcdn.com/w40/ca.png",
     bgColor: "#4a7cf2",
     textColor: "#ffffff",
@@ -55,7 +69,7 @@ const row2Testimonials = computed(() => [
     id: 5,
     name: "Arielle, US",
     text: t('testimonialArielleText', 'home'),
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&h=120&q=80",
+    avatar: avatarArielle,
     flag: "https://flagcdn.com/w40/us.png",
     bgColor: "#0d2d85",
     textColor: "#ffffff",
@@ -65,7 +79,7 @@ const row2Testimonials = computed(() => [
     id: 6,
     name: "Benjamin, US",
     text: t('testimonialBenjaminText', 'home'),
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&h=120&q=80",
+    avatar: avatarBenjamin,
     flag: "https://flagcdn.com/w40/us.png",
     bgColor: "#1c5bf0",
     textColor: "#ffffff",
@@ -78,7 +92,7 @@ const row3Testimonials = computed(() => [
     id: 7,
     name: "Maria, PT",
     text: t('testimonialMariaText', 'home'),
-    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=120&h=120&q=80",
+    avatar: avatarMaria,
     flag: "https://flagcdn.com/w40/pt.png",
     bgColor: "#1243c2",
     textColor: "#ffffff",
@@ -86,9 +100,9 @@ const row3Testimonials = computed(() => [
   },
   {
     id: 8,
-    name: "Adriana, CA",
-    text: t('testimonialAdrianaText', 'home'),
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&h=120&q=80",
+    name: "Adrian, CA",
+    text: t('testimonialAdrianText', 'home'),
+    avatar: avatarAdrian,
     flag: "https://flagcdn.com/w40/ca.png",
     bgColor: "#2b60e6",
     textColor: "#ffffff",
@@ -96,9 +110,9 @@ const row3Testimonials = computed(() => [
   },
   {
     id: 9,
-    name: "Orlan, FR",
-    text: t('testimonialOrlanText', 'home'),
-    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&h=120&q=80",
+    name: "Pierre, FR",
+    text: t('testimonialPierreText', 'home'),
+    avatar: avatarPierre,
     flag: "https://flagcdn.com/w40/fr.png",
     bgColor: "#4a7cf2",
     textColor: "#ffffff",
@@ -109,9 +123,9 @@ const row3Testimonials = computed(() => [
 const row4Testimonials = computed(() => [
   {
     id: 10,
-    name: "Aline, BR",
-    text: t('testimonialAlineText', 'home'),
-    avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=120&h=120&q=80",
+    name: "Alan, BR",
+    text: t('testimonialAlanText', 'home'),
+    avatar: avatarAlan,
     flag: "https://flagcdn.com/w40/br.png",
     bgColor: "#0d2d85",
     textColor: "#ffffff",
@@ -119,9 +133,9 @@ const row4Testimonials = computed(() => [
   },
   {
     id: 11,
-    name: "Emily, IT",
-    text: t('testimonialEmilyText', 'home'),
-    avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=120&h=120&q=80",
+    name: "Emilio, IT",
+    text: t('testimonialEmilioText', 'home'),
+    avatar: avatarEmilio,
     flag: "https://flagcdn.com/w40/it.png",
     bgColor: "#1c5bf0",
     textColor: "#ffffff",
@@ -129,9 +143,9 @@ const row4Testimonials = computed(() => [
   },
   {
     id: 12,
-    name: "Coco, US",
-    text: t('testimonialCocoText', 'home'),
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&h=120&q=80",
+    name: "Lucas, US",
+    text: t('testimonialLucasText', 'home'),
+    avatar: avatarLucas,
     flag: "https://flagcdn.com/w40/us.png",
     bgColor: "#1243c2",
     textColor: "#ffffff",

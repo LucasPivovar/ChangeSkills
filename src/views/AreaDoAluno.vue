@@ -193,9 +193,9 @@ onMounted(() => {
 }
 
 .hub-card:hover {
-  box-shadow: 0 20px 50px rgba(0, 71, 255, 0.1);
-  transform: translateY(-8px);
-  border-color: rgba(0, 71, 255, 0.15);
+  transform: translateY(-10px) scale(1.05);
+  border: 1px solid #000000 !important;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12) !important;
 }
 
 .hub-card-icon {
