@@ -129,7 +129,7 @@ function submitForm() {
                     </a>
                 </div>
                 <div class="hero-image-container">
-                    <img src="/assets/img/Livros - Frances/Livros/WhatsApp Image 2026-05-19 at 17.55.08 (1).jpeg" alt="Material Hourra! Francês para Crianças">
+                    <img src="/assets/img/capa/FRA KIDS.webp" alt="Material Hourra! Francês para Crianças">
                 </div>
             </div>
         </section>

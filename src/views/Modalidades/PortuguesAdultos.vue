@@ -129,7 +129,7 @@ function submitForm() {
                     </a>
                 </div>
                 <div class="hero-image-container">
-                    <img src="/assets/img/portugues2.jpeg" alt="Novo Avenida Brasil Portuguese for Adults">
+                    <img src="/assets/img/capa/PTBR ADULT.webp" alt="Novo Avenida Brasil Portuguese for Adults">
                 </div>
             </div>
         </section>

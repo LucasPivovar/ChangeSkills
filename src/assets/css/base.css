@@ -721,17 +721,23 @@ font {
     padding: 2.5rem 2rem;
     box-shadow: 0 10px 40px rgba(0,18,51,0.06);
     border: 1px solid rgba(0,71,255,0.06);
-    transition: transform 0.4s, box-shadow 0.4s;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .feature-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 25px 60px rgba(0,71,255,0.12);
+    transform: translateY(-10px) scale(1.05);
+    border: 1px solid #000000 !important;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12) !important;
+}
+
+.feature-card:hover .info-icon {
+    transform: scale(1.1) rotate(5deg);
 }
 
 /* Info Icon (Lucide) */
 .info-icon {
     flex-shrink: 0;
+    transition: transform 0.3s ease;
 }
 
 /* Material Grid */

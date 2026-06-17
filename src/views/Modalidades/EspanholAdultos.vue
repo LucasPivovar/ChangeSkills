@@ -129,7 +129,7 @@ function submitForm() {
                     </a>
                 </div>
                 <div class="hero-image-container">
-                    <img src="/assets/img/adult espanol.jpeg" alt="Material VITAMINA Espanhol para Adultos">
+                    <img src="/assets/img/capa/adult es.webp" alt="Material VITAMINA Espanhol para Adultos">
                 </div>
             </div>
         </section>

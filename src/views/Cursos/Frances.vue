@@ -166,15 +166,20 @@ onMounted(() => {
   border-radius: 25px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  transition: var(--transition);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   flex-direction: column;
   border: 1px solid rgba(0, 0, 0, 0.03);
 }
 
 .course-card:hover {
-  transform: translateY(-10px);
-  box-shadow: var(--shadow-premium);
+  transform: translateY(-10px) scale(1.05);
+  border: 1px solid #000000 !important;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12) !important;
+}
+
+.course-card:hover .info-icon {
+  transform: scale(1.1) rotate(5deg);
 }
 
 .card-img {
@@ -217,6 +222,7 @@ onMounted(() => {
   width: 16px;
   height: 16px;
   color: var(--primary);
+  transition: transform 0.3s ease;
 }
 
 .course-description {

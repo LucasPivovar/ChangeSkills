@@ -126,7 +126,7 @@ function submitForm() {
                     </a>
                 </div>
                 <div class="hero-image-container">
-                    <img src="https://changeskills.com.br/wp-content/uploads/2025/11/Teens-2.png" alt="Teens Promo">
+                    <img src="/assets/img/capa/ENG TEEN.webp" alt="Teens Promo">
                 </div>
             </div>
         </section>

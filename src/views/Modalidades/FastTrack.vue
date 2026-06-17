@@ -126,7 +126,7 @@ function submitForm() {
                     </a>
                 </div>
                 <div class="hero-image-container">
-                    <img src="https://changeskills.com.br/wp-content/uploads/2025/11/Imagem11.png" alt="Fast Track Promo">
+                    <img src="/assets/img/capa/FAST ENG.webp" alt="Fast Track Promo">
                 </div>
             </div>
         </section>

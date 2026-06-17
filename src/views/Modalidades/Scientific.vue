@@ -114,7 +114,7 @@ function submitForm() {
 
     <!-- Hero Section -->
         <section style="position: relative; padding: 220px 0 150px 0; min-height: 90vh; display: flex; align-items: center; overflow: hidden; background: #001233;">
-            <img src="https://changeskills.com.br/wp-content/uploads/2025/11/Academico.png" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; opacity: 0.5;">
+            <img src="/assets/img/capa/ENG RESEARCHERS.webp" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; opacity: 0.5;">
             <div style="position: absolute; inset: 0; background: linear-gradient(to right, var(--primary-dark), transparent); z-index: 1;"></div>
             <div class="container" style="position: relative; z-index: 2;">
                 <div class="reveal active" style="max-width: 850px; text-align: left;">
