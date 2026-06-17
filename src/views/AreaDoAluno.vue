@@ -78,7 +78,8 @@ onMounted(() => {
               :href="item.href" 
               target="_blank" 
               rel="noopener"
-              class="glass-card hub-card"
+              :class="['glass-card', 'hub-card', 'reveal', 'reveal-scale']"
+              :style="{ transitionDelay: (idx * 0.15) + 's' }"
             >
               <component :is="item.icon" class="hub-card-icon" />
               <h3 class="hub-card-title">{{ item.title }}</h3>
@@ -89,7 +90,8 @@ onMounted(() => {
             <RouterLink 
               v-else 
               :to="item.to" 
-              class="glass-card hub-card"
+              :class="['glass-card', 'hub-card', 'reveal', 'reveal-scale']"
+              :style="{ transitionDelay: (idx * 0.15) + 's' }"
             >
               <component :is="item.icon" class="hub-card-icon" />
               <h3 class="hub-card-title">{{ item.title }}</h3>
@@ -110,7 +112,10 @@ onMounted(() => {
 .student-hub-main {
   background: var(--bg-light);
   min-height: 100vh;
-  padding: 180px 0 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 220px 0 120px 0; /* visually offset header height and push content down */
   position: relative;
   overflow: hidden;
   box-sizing: border-box;

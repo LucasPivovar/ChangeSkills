@@ -225,20 +225,85 @@ section {
 }
 
 /* =========================================================
-   REVEAL
+   REVEAL & SCROLL ANIMATIONS
 ========================================================= */
 
 .reveal {
     opacity: 0;
-    transform: translateY(30px); /* Reduced movement for a more subtle, premium feel */
-    will-change: transform, opacity; /* Hardware acceleration hint */
-    backface-visibility: hidden; /* Avoid animation rendering glitches */
-    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    transform: translateY(30px);
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal.active {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) translateX(0) scale(1);
+}
+
+/* Directional Reveals */
+.reveal-left {
+    transform: translateX(-40px);
+}
+
+.reveal-right {
+    transform: translateX(40px);
+}
+
+.reveal-scale {
+    transform: scale(0.95);
+}
+
+/* Staggered Animation Delays */
+.reveal-delay-1 {
+    transition-delay: 100ms;
+}
+
+.reveal-delay-2 {
+    transition-delay: 200ms;
+}
+
+.reveal-delay-3 {
+    transition-delay: 300ms;
+}
+
+.reveal-delay-4 {
+    transition-delay: 400ms;
+}
+
+/* Router Page Transitions */
+.page-fade-enter-active,
+.page-fade-leave-active {
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.page-fade-enter-from {
+    opacity: 0;
+    transform: translateY(12px);
+}
+
+.page-fade-leave-to {
+    opacity: 0;
+    transform: translateY(-12px);
+}
+
+/* Card Hover Zoom Utilities */
+.course-card, .level-card, .material-item {
+    overflow: hidden;
+}
+
+.course-card .card-img,
+.course-card img,
+.level-card img,
+.material-item img {
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.course-card:hover .card-img,
+.course-card:hover img,
+.level-card:hover img,
+.material-item:hover img {
+    transform: scale(1.05);
 }
 
 /* =========================================================
@@ -419,7 +484,11 @@ section {
 
     /* Specific fixes for stacked elements */
     .hero-slider-container .container {
-        padding-top: 105px !important;
+        padding-top: 135px !important;
+    }
+
+    .slide-flex {
+        align-items: flex-start !important;
     }
 
     .btn-vip {

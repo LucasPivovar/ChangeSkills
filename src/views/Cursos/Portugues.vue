@@ -36,7 +36,7 @@ onMounted(() => {
     <section id="cursos" class="container courses-section">
       <div class="courses-grid">
         <!-- 1. JOVENS -->
-        <div class="course-card reveal">
+        <div class="course-card reveal reveal-delay-1">
           <img src="/assets/img/capa/PTBR TEEN.webp" alt="Portuguese for Young Learners — Change Skills" class="card-img">
           <div class="course-card-content">
             <h3>{{ t('portugues.jovensTitle', 'courses') }}</h3>
@@ -48,7 +48,7 @@ onMounted(() => {
         </div>
 
         <!-- 2. ADULTOS -->
-        <div class="course-card reveal">
+        <div class="course-card reveal reveal-delay-2">
           <img src="/assets/img/capa/PTBR ADULT.webp" alt="Portuguese for Adults — Change Skills" class="card-img">
           <div class="course-card-content">
             <h3>{{ t('portugues.adultosTitle', 'courses') }}</h3>
@@ -95,7 +95,7 @@ onMounted(() => {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.45);
   z-index: 1;
 }
 

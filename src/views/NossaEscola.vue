@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, computed } from 'vue'
+import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { ArrowRight, ChevronLeft, ChevronRight, X, ExternalLink } from '@lucide/vue'
 import { t } from '@/i18n'
 
@@ -123,12 +123,109 @@ onMounted(() => {
   }, { threshold: 0.1 })
   
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
+
+  // Load GSAP & ScrollTrigger dynamically to animate the timeline
+  loadGSAP(() => {
+    initTimelineAnimation()
+  })
 })
+
+function loadGSAP(callback) {
+  if (window.gsap && window.ScrollTrigger) {
+    callback()
+    return
+  }
+
+  if (!document.getElementById('gsap-core-js')) {
+    const gsapScript = document.createElement('script')
+    gsapScript.id = 'gsap-core-js'
+    gsapScript.src = 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js'
+    gsapScript.onload = () => {
+      const triggerScript = document.createElement('script')
+      triggerScript.id = 'gsap-trigger-js'
+      triggerScript.src = 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js'
+      triggerScript.onload = () => {
+        window.gsap.registerPlugin(window.ScrollTrigger)
+        callback()
+      }
+      document.body.appendChild(triggerScript)
+    }
+    document.body.appendChild(gsapScript)
+  } else {
+    const interval = setInterval(() => {
+      if (window.gsap && window.ScrollTrigger) {
+        clearInterval(interval)
+        callback()
+      }
+    }, 100)
+  }
+}
+
+function initTimelineAnimation() {
+  const gsap = window.gsap
+  const ScrollTrigger = window.ScrollTrigger
+
+  // Draw active progress line as scroll occurs
+  gsap.fromTo('.timeline-progress-line',
+    { height: '0%' },
+    {
+      height: '100%',
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.timeline-wrapper',
+        start: 'top 70%',
+        end: 'bottom 70%',
+        scrub: true
+      }
+    }
+  )
+
+  // Pop dots and slide timeline content in
+  const nodes = document.querySelectorAll('.timeline-node')
+  nodes.forEach((node) => {
+    const dot = node.querySelector('.timeline-dot')
+    const title = node.querySelector('.node-title')
+    const desc = node.querySelector('.node-desc')
+
+    // Dot scale pop & background change
+    gsap.fromTo(dot,
+      { scale: 0.5, backgroundColor: '#cbd5e1', borderColor: '#cbd5e1' },
+      {
+        scale: 1,
+        backgroundColor: '#1c5bf0',
+        borderColor: '#ffffff',
+        scrollTrigger: {
+          trigger: node,
+          start: 'top 70%',
+          toggleActions: 'play none none reverse'
+        }
+      }
+    )
+
+    // Content fade & slide translation
+    gsap.fromTo([title, desc],
+      { opacity: 0, x: 40 },
+      {
+        opacity: 1,
+        x: 0,
+        stagger: 0.1,
+        duration: 0.65,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: node,
+          start: 'top 80%',
+          toggleActions: 'play none none reverse'
+        }
+      }
+    )
+  })
+}
 
 function initSwiper() {
   new window.Swiper('.teacher-swiper', {
     slidesPerView: 3,
     spaceBetween: 30,
+    speed: 800,
     autoplay: {
       delay: 3500,
       disableOnInteraction: false,
@@ -142,6 +239,12 @@ function initSwiper() {
     }
   })
 }
+
+onUnmounted(() => {
+  if (window.ScrollTrigger) {
+    window.ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+  }
+})
 </script>
 
 <template>
@@ -180,6 +283,7 @@ function initSwiper() {
       </div>
       
       <div class="reveal timeline-wrapper">
+        <div class="timeline-progress-line"></div>
         <div v-for="(node, idx) in t('timelineNodes', 'school')" :key="idx" class="timeline-node">
           <div class="timeline-dot"></div>
           <h3 class="node-title">{{ node.title }}</h3>
@@ -409,8 +513,29 @@ function initSwiper() {
   max-width: 800px;
   margin: 0 auto;
   position: relative;
-  border-left: 4px solid var(--primary);
   padding-left: 2rem;
+}
+
+.timeline-wrapper::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: #cbd5e1; /* Gray track background */
+  border-radius: 2px;
+}
+
+.timeline-progress-line {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 0%;
+  background: var(--primary);
+  border-radius: 2px;
+  z-index: 1;
 }
 
 .timeline-node {
@@ -425,12 +550,14 @@ function initSwiper() {
 .timeline-dot {
   width: 20px;
   height: 20px;
-  background: var(--primary);
+  background: #cbd5e1;
   border-radius: 50%;
   position: absolute;
-  left: -2.7rem;
+  left: -2.5rem; /* Centered over the 4px line which is at left: 0 relative to wrapper */
   top: 5px;
-  border: 4px solid white;
+  border: 4px solid #cbd5e1;
+  box-sizing: border-box;
+  z-index: 2;
 }
 
 .node-title {

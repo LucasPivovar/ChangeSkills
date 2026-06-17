@@ -1,8 +1,11 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue'
-import { RouterLink } from 'vue-router'
-import { ArrowRight, ChevronRight, ChevronDown, Quote, FileText, MessagesSquare } from '@lucide/vue'
+import { RouterLink, useRoute } from 'vue-router'
+import { ArrowRight, ChevronRight, ChevronDown, Quote, FileText, MessagesSquare, Languages, Bot, Zap } from '@lucide/vue'
 import { t } from '@/i18n'
+import videoPlayback from '@/assets/videoplayback (2).mp4'
+
+const route = useRoute()
 
 const row1Testimonials = computed(() => [
   {
@@ -11,8 +14,8 @@ const row1Testimonials = computed(() => [
     text: t('testimonialJosefText', 'home'),
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&h=120&q=80",
     flag: "https://flagcdn.com/w40/es.png",
-    bgColor: "#cbf25c",
-    textColor: "#000000",
+    bgColor: "#1c5bf0",
+    textColor: "#ffffff",
     trustpilot: false
   },
   {
@@ -21,8 +24,8 @@ const row1Testimonials = computed(() => [
     text: t('testimonialOrlanText', 'home'),
     avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&h=120&q=80",
     flag: "https://flagcdn.com/w40/fr.png",
-    bgColor: "#ff7d4b",
-    textColor: "#000000",
+    bgColor: "#1243c2",
+    textColor: "#ffffff",
     trustpilot: false
   },
   {
@@ -31,8 +34,8 @@ const row1Testimonials = computed(() => [
     text: t('testimonialCocoText', 'home'),
     avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&h=120&q=80",
     flag: "https://flagcdn.com/w40/us.png",
-    bgColor: "#74a3ff",
-    textColor: "#000000",
+    bgColor: "#2b60e6",
+    textColor: "#ffffff",
     trustpilot: false
   }
 ])
@@ -44,8 +47,8 @@ const row2Testimonials = computed(() => [
     text: t('testimonialJasmineText', 'home'),
     avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&h=120&q=80",
     flag: "https://flagcdn.com/w40/ca.png",
-    bgColor: "#d6b4fc",
-    textColor: "#000000",
+    bgColor: "#4a7cf2",
+    textColor: "#ffffff",
     trustpilot: true
   },
   {
@@ -54,8 +57,8 @@ const row2Testimonials = computed(() => [
     text: t('testimonialArielleText', 'home'),
     avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&h=120&q=80",
     flag: "https://flagcdn.com/w40/us.png",
-    bgColor: "#e1e1e1",
-    textColor: "#000000",
+    bgColor: "#0d2d85",
+    textColor: "#ffffff",
     trustpilot: true
   },
   {
@@ -64,8 +67,8 @@ const row2Testimonials = computed(() => [
     text: t('testimonialBenjaminText', 'home'),
     avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&h=120&q=80",
     flag: "https://flagcdn.com/w40/us.png",
-    bgColor: "#52d6a4",
-    textColor: "#000000",
+    bgColor: "#1c5bf0",
+    textColor: "#ffffff",
     trustpilot: true
   }
 ])
@@ -77,8 +80,8 @@ const row3Testimonials = computed(() => [
     text: t('testimonialMariaText', 'home'),
     avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=120&h=120&q=80",
     flag: "https://flagcdn.com/w40/pt.png",
-    bgColor: "#c8acf7",
-    textColor: "#000000",
+    bgColor: "#1243c2",
+    textColor: "#ffffff",
     trustpilot: true
   },
   {
@@ -87,8 +90,8 @@ const row3Testimonials = computed(() => [
     text: t('testimonialAdrianaText', 'home'),
     avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&h=120&q=80",
     flag: "https://flagcdn.com/w40/ca.png",
-    bgColor: "#cbf25c",
-    textColor: "#000000",
+    bgColor: "#2b60e6",
+    textColor: "#ffffff",
     trustpilot: false
   },
   {
@@ -97,8 +100,8 @@ const row3Testimonials = computed(() => [
     text: t('testimonialOrlanText', 'home'),
     avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&h=120&q=80",
     flag: "https://flagcdn.com/w40/fr.png",
-    bgColor: "#ff7d4b",
-    textColor: "#000000",
+    bgColor: "#4a7cf2",
+    textColor: "#ffffff",
     trustpilot: false
   }
 ])
@@ -110,8 +113,8 @@ const row4Testimonials = computed(() => [
     text: t('testimonialAlineText', 'home'),
     avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=120&h=120&q=80",
     flag: "https://flagcdn.com/w40/br.png",
-    bgColor: "#d4f16b",
-    textColor: "#000000",
+    bgColor: "#0d2d85",
+    textColor: "#ffffff",
     trustpilot: true
   },
   {
@@ -120,8 +123,8 @@ const row4Testimonials = computed(() => [
     text: t('testimonialEmilyText', 'home'),
     avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=120&h=120&q=80",
     flag: "https://flagcdn.com/w40/it.png",
-    bgColor: "#ff7d4b",
-    textColor: "#000000",
+    bgColor: "#1c5bf0",
+    textColor: "#ffffff",
     trustpilot: false
   },
   {
@@ -130,8 +133,8 @@ const row4Testimonials = computed(() => [
     text: t('testimonialCocoText', 'home'),
     avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&h=120&q=80",
     flag: "https://flagcdn.com/w40/us.png",
-    bgColor: "#74a3ff",
-    textColor: "#000000",
+    bgColor: "#1243c2",
+    textColor: "#ffffff",
     trustpilot: false
   }
 ])
@@ -163,6 +166,20 @@ const isFaqOpen = ref([false, false, false, false, false])
 
 function toggleFaq(index) {
   isFaqOpen.value[index] = !isFaqOpen.value[index]
+}
+
+const heroVideoRef = ref(null)
+
+function handleHeroVideoTimeUpdate() {
+  if (heroVideoRef.value && heroVideoRef.value.currentTime < 30) {
+    heroVideoRef.value.currentTime = 30
+  }
+}
+
+function handleHeroVideoLoadedMetadata() {
+  if (heroVideoRef.value) {
+    heroVideoRef.value.currentTime = 30
+  }
 }
 
 onMounted(() => {
@@ -210,6 +227,15 @@ onMounted(() => {
       })
     }, { threshold: 0.15 })
     cardsObserver.observe(cursosSection)
+  }
+
+  if (route.hash) {
+    setTimeout(() => {
+      const element = document.querySelector(route.hash)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+      }
+    }, 500)
   }
 })
 
@@ -276,14 +302,28 @@ function initSwiper() {
 
           <!-- SLIDE 2: Global Excellence -->
           <div class="swiper-slide slide-bg-2">
-            <div class="slide2-overlay"></div>
-            <div class="reveal active slide2-content" data-swiper-parallax="-400">
-              <div class="subheading-container">
-                <span class="subheading-text accent-color">{{ t('heroTag2', 'home') }}</span>
+            <video 
+              ref="heroVideoRef"
+              autoplay 
+              muted 
+              loop 
+              playsinline 
+              class="hero-video-bg"
+              @timeupdate="handleHeroVideoTimeUpdate"
+              @loadedmetadata="handleHeroVideoLoadedMetadata"
+            >
+              <source :src="videoPlayback + '#t=30'" type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
+            <div class="slide2-content-wrapper" data-swiper-parallax="-400">
+              <div class="reveal active slide2-content">
+                <div class="subheading-container">
+                  <span class="subheading-text accent-color">{{ t('heroTag2', 'home') }}</span>
+                </div>
+                <h2 class="slide2-title">{{ t('heroTitle2', 'home') }} <span class="accent-color">{{ t('heroHighlight2', 'home') }}</span></h2>
+                <p class="slide2-desc">{{ t('heroDesc2', 'home') }}</p>
+                <RouterLink to="/nossa-escola" class="btn-vip btn-accent">{{ t('heroMore', 'home') }} <ChevronRight class="btn-icon" /></RouterLink>
               </div>
-              <h2 class="slide2-title">{{ t('heroTitle2', 'home') }} <span class="accent-color">{{ t('heroHighlight2', 'home') }}</span></h2>
-              <p class="slide2-desc">{{ t('heroDesc2', 'home') }}</p>
-              <RouterLink to="/nossa-escola" class="btn-vip btn-accent">{{ t('heroMore', 'home') }} <ChevronRight class="btn-icon" /></RouterLink>
             </div>
           </div>
 
@@ -307,7 +347,7 @@ function initSwiper() {
         </div>
 
         <div class="escola-grid">
-          <div class="reveal escola-info">
+          <div class="reveal reveal-left escola-info">
             <div class="escola-card">
               <h3 class="card-heading">{{ t('historiaCardTitle', 'home') }}</h3>
               <p class="card-text">
@@ -322,7 +362,7 @@ function initSwiper() {
             </div>
           </div>
           
-          <div class="reveal photo-reveal">
+          <div class="reveal reveal-right photo-reveal">
             <div class="founders-photo-card">
               <img src="/assets/img/image.png" alt="Tay & Wagner" class="founders-img">
               <div class="founders-overlay"></div>
@@ -351,11 +391,10 @@ function initSwiper() {
             <div class="swiper-slide curso-card" style="--card-delay: 0.05s;">
               <RouterLink to="/cursos/ingles" class="curso-link">
                 <img src="/assets/englishcard.jpeg" alt="Inglês Card" class="curso-img">
-                <div class="curso-overlay"></div>
-                <div class="curso-content">
-                  <h3 class="curso-title">{{ t('ingles', 'home') }}</h3>
-                  <span class="curso-action" v-html="t('cursoAction', 'home')"></span>
+                <div class="flag-circle">
+                  <img src="https://flagcdn.com/w40/gb.png" alt="UK Flag">
                 </div>
+                <div class="card-label" style="background-color: rgb(33, 68, 139);">{{ t('ingles', 'home') }}</div>
               </RouterLink>
             </div>
             
@@ -363,11 +402,10 @@ function initSwiper() {
             <div class="swiper-slide curso-card" style="--card-delay: 0.25s;">
               <RouterLink to="/cursos/espanhol" class="curso-link">
                 <img src="/assets/espanolcard.jpeg" alt="Espanhol Card" class="curso-img">
-                <div class="curso-overlay"></div>
-                <div class="curso-content">
-                  <h3 class="curso-title">{{ t('espanhol', 'home') }}</h3>
-                  <span class="curso-action" v-html="t('cursoAction', 'home')"></span>
+                <div class="flag-circle">
+                  <img src="https://flagcdn.com/w40/es.png" alt="Spain Flag">
                 </div>
+                <div class="card-label" style="background-color: rgb(176, 87, 22);">{{ t('espanhol', 'home') }}</div>
               </RouterLink>
             </div>
             
@@ -375,11 +413,10 @@ function initSwiper() {
             <div class="swiper-slide curso-card" style="--card-delay: 0.45s;">
               <RouterLink to="/cursos/frances" class="curso-link">
                 <img src="/assets/francescard.jpeg" alt="Francês Card" class="curso-img">
-                <div class="curso-overlay"></div>
-                <div class="curso-content">
-                  <h3 class="curso-title">{{ t('frances', 'home') }}</h3>
-                  <span class="curso-action" v-html="t('cursoAction', 'home')"></span>
+                <div class="flag-circle">
+                  <img src="https://flagcdn.com/w40/fr.png" alt="France Flag">
                 </div>
+                <div class="card-label" style="background-color: rgb(40, 68, 107);">{{ t('frances', 'home') }}</div>
               </RouterLink>
             </div>
             
@@ -387,11 +424,10 @@ function initSwiper() {
             <div class="swiper-slide curso-card" style="--card-delay: 0.65s;">
               <RouterLink to="/cursos/portugues" class="curso-link">
                 <img src="/assets/portuguesecard.jpeg" alt="Português Card" class="curso-img">
-                <div class="curso-overlay"></div>
-                <div class="curso-content">
-                  <h3 class="curso-title">{{ t('portugues', 'home') }}</h3>
-                  <span class="curso-action" v-html="t('cursoAction', 'home')"></span>
+                <div class="flag-circle">
+                  <img src="https://flagcdn.com/w40/br.png" alt="Brazil Flag">
                 </div>
+                <div class="card-label" style="background-color: rgb(11, 94, 40);">{{ t('portugues', 'home') }}</div>
               </RouterLink>
             </div>
           </div>
@@ -409,7 +445,7 @@ function initSwiper() {
         </div>
         <div class="servicos-grid">
           <!-- Serviço 1: Traduções -->
-          <RouterLink to="/services/traducoes" class="glass-card-btn reveal">
+          <RouterLink to="/services/traducoes" class="glass-card-btn reveal reveal-left reveal-delay-1">
             <div class="servico-icon-container">
               <FileText class="servico-icon" />
             </div>
@@ -418,13 +454,56 @@ function initSwiper() {
           </RouterLink>
 
           <!-- Serviço 2: Aulas de Conversação -->
-          <RouterLink to="/services/aulas-conversacao" class="glass-card-btn reveal">
+          <RouterLink to="/services/aulas-conversacao" class="glass-card-btn reveal reveal-right reveal-delay-2">
             <div class="servico-icon-container">
               <MessagesSquare class="servico-icon" />
             </div>
             <h3 class="servico-title">{{ t('servicoCardTitle2', 'home') }}</h3>
             <p class="servico-desc">{{ t('servicoCardDesc2', 'home') }}</p>
           </RouterLink>
+        </div>
+      </div>
+    </section>
+
+    <!-- App Promo Banner Section -->
+    <section class="app-banner-section container">
+      <div class="app-banner-card">
+        <div class="app-banner-content reveal reveal-left reveal-delay-1">
+          <span class="app-banner-tag">{{ t('appBannerTag', 'home') }}</span>
+          <h2 class="app-banner-title">{{ t('appBannerTitle', 'home') }}</h2>
+          <p class="app-banner-desc">
+            {{ t('appBannerDesc', 'home') }}
+          </p>
+          <div class="app-banner-buttons">
+            <a href="https://changeskills.com.br" target="_blank" class="btn-app-download">
+              {{ t('appBannerBtn', 'home') }}
+            </a>
+          </div>
+        </div>
+        <div class="app-banner-mockup reveal reveal-right reveal-delay-2">
+          <!-- Glow background -->
+          <div class="mockup-glow"></div>
+
+          <!-- CSS Phone Frame -->
+          <div class="phone-mockup-frame">
+            <div class="phone-screen">
+              <img src="/assets/img/camaleao_chat.png" alt="Change Skills App Screenshot" class="app-mockup-img">
+            </div>
+          </div>
+
+          <!-- Floating Interactive Badges -->
+          <div class="floating-element badge-en">
+            <span class="badge-icon-wrap"><Languages class="badge-icon" /></span>
+            <span class="badge-text">Speak English</span>
+          </div>
+          <div class="floating-element badge-ai">
+            <span class="badge-icon-wrap"><Bot class="badge-icon" /></span>
+            <span class="badge-text">Camaleão IA</span>
+          </div>
+          <div class="floating-element badge-xp">
+            <span class="badge-icon-wrap"><Zap class="badge-icon" /></span>
+            <span class="badge-text">Daily Practice</span>
+          </div>
         </div>
       </div>
     </section>
@@ -801,27 +880,51 @@ function initSwiper() {
 .slide-bg-2 {
   min-height: 85vh;
   position: relative;
-  background: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+  background: #001233;
+  overflow: hidden;
 }
 
-.slide2-overlay {
+.hero-video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 1;
+  pointer-events: none;
+}
+
+.hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to left, var(--primary-dark) 45%, transparent 80%);
+  background: rgba(0, 0, 0, 0.45);
   z-index: 1;
 }
 
-.slide2-content {
+.slide2-content-wrapper {
   position: absolute;
-  top: 32%;
-  transform: translateY(-50%);
-  right: 10%;
-  width: 100%;
-  max-width: 580px;
-  text-align: left;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 240px; /* Shift content slightly higher up from the bottom */
   z-index: 10;
-  padding: 0;
-  margin: 0;
+  pointer-events: none;
+}
+
+.slide2-content {
+  width: 100%;
+  max-width: 800px;
+  text-align: center;
+  padding: 0 20px;
+  margin: 0 auto;
+  pointer-events: auto;
+}
+
+.slide2-content .subheading-container {
+  justify-content: center;
 }
 
 .slide2-title {
@@ -837,7 +940,8 @@ function initSwiper() {
   font-size: 1.25rem;
   color: rgba(255, 255, 255, 0.85);
   line-height: 1.7;
-  margin-bottom: 3rem;
+  margin: 0 auto 3rem auto;
+  max-width: 700px;
   font-weight: 400;
 }
 
@@ -1027,10 +1131,55 @@ function initSwiper() {
 .curso-link {
   display: block;
   position: relative;
-  height: 350px;
+  height: 400px;
   border-radius: 40px;
   overflow: hidden;
   text-decoration: none;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.curso-link:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Subtle dark gradient overlay to highlight text */
+.curso-link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.05) 50%, rgba(0, 0, 0, 0) 100%);
+  z-index: 1;
+  pointer-events: none;
+  transition: background-image 0.4s ease;
+}
+
+.curso-link:hover::before {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0) 100%);
+}
+
+/* Card Glare Shine Effect */
+.curso-link::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 125%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  transition: 0.75s;
+  z-index: 3;
+}
+
+.curso-link:hover::after {
+  left: 150%;
 }
 
 .curso-img {
@@ -1041,55 +1190,55 @@ function initSwiper() {
   top: 0;
   left: 0;
   z-index: 0;
-  transition: transform 0.6s ease;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .curso-link:hover .curso-img {
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
 
-.curso-overlay {
+.flag-circle {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(5, 5, 68, 0.9), transparent);
-  z-index: 1;
-  opacity: 0;
-  transition: opacity 0.5s ease;
+  top: 18px;
+  left: 18px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+  overflow: hidden;
+  background: white;
+  border: 3px solid white;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.curso-content {
+.curso-link:hover .flag-circle {
+  transform: scale(1.15) rotate(8deg);
+}
+
+.flag-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-label {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 3rem;
-  z-index: 2;
-  text-align: left;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.curso-link:hover .curso-overlay {
-  opacity: 1;
-}
-
-.curso-link:hover .curso-content {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.curso-title {
+  padding: 16px;
   color: white;
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-  margin-top: 0;
-  font-weight: 700;
+  font-weight: 800;
+  font-size: 20px;
+  text-align: center;
+  transition: padding-bottom 0.3s ease, font-size 0.3s ease;
+  z-index: 2;
 }
 
-.curso-action {
-  color: var(--accent);
-  font-weight: 600;
+.curso-link:hover .card-label {
+  padding-bottom: 22px;
+  font-size: 22px;
 }
 
 /* Testimonials Carousel (New) */
@@ -1213,11 +1362,11 @@ function initSwiper() {
   margin-left: 12px;
   display: flex;
   flex-direction: column;
-  color: #000000;
+  color: #ffffff;
   max-width: 400px;
   min-width: 260px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
-  border: 1px solid rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .bubble-arrow {
@@ -1236,7 +1385,7 @@ function initSwiper() {
   font-size: 1.15rem;
   font-weight: 800;
   line-height: 1.35;
-  color: #000000;
+  color: #ffffff;
   margin: 0 0 10px 0;
   letter-spacing: -0.01em;
 }
@@ -1251,14 +1400,14 @@ function initSwiper() {
 .user-name {
   font-size: 0.9rem;
   font-weight: 700;
-  color: rgba(0, 0, 0, 0.65);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .trustpilot-rating {
   display: flex;
   align-items: center;
   gap: 3px;
-  color: #00b67a;
+  color: #34d399;
   font-weight: 800;
   font-size: 0.85rem;
 }
@@ -1313,9 +1462,9 @@ function initSwiper() {
 }
 
 .glass-card-btn:hover {
-  transform: translateY(-10px);
-  border-color: rgba(0, 71, 255, 0.25) !important;
-  box-shadow: 0 30px 60px rgba(0, 71, 255, 0.1) !important;
+  transform: translateY(-10px) scale(1.05);
+  border: 1px solid #000000 !important;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12) !important;
 }
 
 .servico-icon-container {
@@ -1513,24 +1662,481 @@ function initSwiper() {
   }
   
   .slide2-content {
-    top: 35% !important;
-    transform: none !important;
-    right: 5% !important;
-    left: 5% !important;
-    width: 90% !important;
+    width: 100% !important;
     max-width: 100% !important;
     text-align: center !important;
+    padding: 0 15px !important;
   }
   
   .slide2-title {
     font-size: clamp(1.8rem, 5vw, 2.4rem) !important;
     text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    margin-bottom: 1rem !important;
   }
   
   .slide2-desc {
     font-size: 1rem !important;
-    margin-bottom: 1.8rem !important;
+    margin: 0 auto 1.8rem auto !important;
+    max-width: 90% !important;
     text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+  }
+}
+
+/* App Banner Section */
+.app-banner-section {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.app-banner-card {
+  background: linear-gradient(135deg, #1c5bf0 0%, #0c3da6 100%);
+  border-radius: 40px;
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(28, 91, 240, 0.25);
+  padding: 0;
+}
+
+.app-banner-content {
+  padding: 5rem 6rem;
+  color: white;
+  text-align: left;
+}
+
+.app-banner-tag {
+  color: var(--accent);
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+.app-banner-title {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 900;
+  color: white;
+  line-height: 1.2;
+  margin: 0 0 1.5rem 0;
+  letter-spacing: -0.02em;
+}
+
+.app-banner-desc {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.15rem;
+  line-height: 1.8;
+  margin: 0 0 3rem 0;
+  max-width: 550px;
+}
+
+.btn-app-download {
+  display: inline-flex;
+  align-items: center;
+  background: white;
+  color: #1c5bf0;
+  text-decoration: none;
+  padding: 1.2rem 3rem;
+  border-radius: 99px;
+  font-weight: 850;
+  font-size: 1.1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-app-download:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+  background: var(--primary-dark);
+  color: white;
+}
+
+.app-banner-mockup {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 0;
+  left: -40px; /* Shifts the mockup and badges 40px to the left on desktop layout */
+}
+
+.mockup-glow {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(0, 209, 255, 0.35) 0%, transparent 70%);
+  z-index: 1;
+  pointer-events: none;
+  filter: blur(30px);
+}
+
+.phone-mockup-frame {
+  border: 10px solid #1e293b;
+  border-radius: 38px;
+  background: #1e293b;
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.5);
+  position: relative;
+  width: 250px;
+  height: 530px; /* Increased height to 530px to prevent cropping of top/bottom details */
+  overflow: hidden;
+  transform: translateY(10px) rotate(-3deg);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+}
+
+.phone-mockup-frame::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 65px;
+  height: 16px;
+  background: #000000;
+  border-radius: 20px;
+  z-index: 10;
+}
+
+.phone-screen {
+  width: 100%;
+  height: 100%;
+  background: #f3f6fc; /* Matches app background */
+  overflow: hidden;
+  position: relative;
+  border-radius: 28px;
+}
+
+.app-mockup-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.app-banner-card:hover .phone-mockup-frame {
+  transform: translateY(-10px) rotate(0deg) scale(1.05);
+}
+
+/* Floating Badges */
+.floating-element {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(12px);
+  padding: 0.65rem 1.1rem;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 100, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 5;
+  font-weight: 800;
+  color: var(--primary-dark);
+  font-size: 0.85rem;
+  pointer-events: none;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.badge-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.badge-en .badge-icon-wrap {
+  background: rgba(0, 71, 255, 0.1);
+  color: var(--primary);
+}
+
+.badge-ai .badge-icon-wrap {
+  background: rgba(168, 85, 247, 0.15);
+  color: #a855f7;
+}
+
+.badge-xp .badge-icon-wrap {
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+}
+
+.badge-icon {
+  width: 15px;
+  height: 15px;
+}
+
+.badge-en {
+  top: 15%;
+  left: -15px;
+  transform: rotate(-8deg);
+}
+
+.badge-ai {
+  top: 45%;
+  right: -5px; /* Shipped inwards to prevent cropping */
+  transform: rotate(6deg);
+}
+
+.badge-xp {
+  bottom: 15%;
+  left: -5px;
+  transform: rotate(4deg);
+}
+
+/* Hover dynamics for floating elements */
+.app-banner-card:hover .badge-en {
+  transform: translate(-15px, -12px) rotate(-12deg) scale(1.08);
+}
+
+.app-banner-card:hover .badge-ai {
+  transform: translate(6px, -5px) rotate(10deg) scale(1.08); /* Safer translate value */
+}
+
+.app-banner-card:hover .badge-xp {
+  transform: translate(-10px, 12px) rotate(2deg) scale(1.08);
+}
+
+@media (max-width: 1024px) {
+  .app-banner-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .app-banner-content {
+    padding: 4rem 3rem 2rem 3rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .app-banner-desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .app-banner-mockup {
+    padding-top: 2rem;
+    overflow: hidden;
+    left: 0; /* Reset left offset on mobile layout to keep it centered */
+  }
+  .phone-mockup-frame {
+    width: 220px;
+    height: 470px;
+    border-radius: 34px;
+    border-width: 8px;
+    transform: translateY(10px) rotate(0deg);
+  }
+  .phone-screen {
+    border-radius: 26px;
+  }
+  .app-banner-card:hover .phone-mockup-frame {
+    transform: translateY(0) scale(1.03);
+  }
+  .badge-en {
+    left: 10px;
+    top: 20%;
+  }
+  .badge-ai {
+    right: 10px;
+    top: 50%;
+  }
+  .badge-xp {
+    left: 15px;
+    bottom: 20%;
+  }
+}
+
+/* Responsive design for smaller desktop screens (widths) */
+@media (max-width: 1680px) {
+  .hero-grid {
+    gap: 3rem;
+  }
+  .hero-title {
+    font-size: clamp(2.5rem, 4vw, 3.8rem);
+  }
+  .hero-desc {
+    font-size: 1.15rem;
+    margin-bottom: 2.5rem;
+  }
+  .mascot-img {
+    max-width: 420px;
+  }
+  .slide2-title {
+    font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+  }
+  .slide2-desc {
+    font-size: 1.15rem;
+    margin-bottom: 2rem;
+    max-width: 650px;
+  }
+  .slide2-content-wrapper {
+    padding-bottom: 210px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .hero-grid {
+    gap: 2.5rem;
+  }
+  .hero-title {
+    font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+  }
+  .hero-desc {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+  .mascot-img {
+    max-width: 360px;
+  }
+  .slide2-title {
+    font-size: clamp(2rem, 4.2vw, 3rem);
+  }
+  .slide2-desc {
+    font-size: 1.1rem;
+    margin-bottom: 1.8rem;
+    max-width: 600px;
+  }
+  .slide2-content-wrapper {
+    padding-bottom: 170px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .hero-grid {
+    gap: 1.5rem;
+  }
+  .hero-title {
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+  }
+  .hero-desc {
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+  }
+  .mascot-img {
+    max-width: 300px;
+  }
+  .slide2-title {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+  }
+  .slide2-desc {
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+    max-width: 550px;
+  }
+  .slide2-content-wrapper {
+    padding-bottom: 140px;
+  }
+}
+
+/* Responsive design for smaller desktop screens (heights) */
+@media (max-height: 900px) {
+  .hero-grid {
+    padding-top: 80px;
+    gap: 2.5rem;
+  }
+  .hero-title {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    margin-bottom: 1.5rem;
+  }
+  .hero-desc {
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+  }
+  .mascot-img {
+    max-width: 380px;
+  }
+  .slide2-title {
+    font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+    margin-bottom: 1.2rem;
+  }
+  .slide2-desc {
+    margin-bottom: 1.8rem;
+    font-size: 1.1rem;
+  }
+  .slide2-content-wrapper {
+    padding-bottom: 180px;
+  }
+  .subheading-container {
+    margin-bottom: 1.2rem;
+  }
+}
+
+@media (max-height: 800px) {
+  .hero-grid {
+    padding-top: 60px;
+    gap: 2rem;
+  }
+  .hero-title {
+    font-size: clamp(2.2rem, 3.8vw, 3rem);
+    margin-bottom: 1.2rem;
+  }
+  .hero-desc {
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+  .mascot-img {
+    max-width: 320px;
+  }
+  .slide2-title {
+    font-size: clamp(2rem, 4vw, 2.6rem);
+    margin-bottom: 1rem;
+  }
+  .slide2-desc {
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+  .slide2-content-wrapper {
+    padding-bottom: 140px;
+  }
+  .btn-accent {
+    padding: 1rem 2.8rem !important;
+  }
+  .subheading-container {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-height: 700px) {
+  .hero-grid {
+    padding-top: 40px;
+    gap: 1.5rem;
+  }
+  .hero-title {
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+    margin-bottom: 1rem;
+  }
+  .hero-desc {
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  .mascot-img {
+    max-width: 260px;
+  }
+  .slide2-title {
+    font-size: clamp(1.8rem, 3.5vw, 2.2rem);
+    margin-bottom: 0.8rem;
+  }
+  .slide2-desc {
+    margin-bottom: 1.2rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  .slide2-content-wrapper {
+    padding-bottom: 110px;
+  }
+  .subheading-container {
+    margin-bottom: 0.8rem;
   }
 }
 </style>

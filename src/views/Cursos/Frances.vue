@@ -36,7 +36,7 @@ onMounted(() => {
     <section id="cursos" class="container courses-section">
       <div class="courses-grid">
         <!-- 1. ENFANTS -->
-        <div class="course-card reveal">
+        <div class="course-card reveal reveal-delay-1">
           <img src="/assets/img/capa/FRA KIDS.webp" alt="Hourra! — Français pour Enfants" class="card-img">
           <div class="course-card-content">
             <h3>{{ t('frances.enfantsTitle', 'courses') }}</h3>
@@ -48,7 +48,7 @@ onMounted(() => {
         </div>
 
         <!-- 2. ADOLESCENTS -->
-        <div class="course-card reveal">
+        <div class="course-card reveal reveal-delay-2">
           <img src="/assets/img/capa/FRA TEEN.webp" alt="Français pour Adolescents" class="card-img">
           <div class="course-card-content">
             <h3>{{ t('frances.adosTitle', 'courses') }}</h3>
@@ -60,7 +60,7 @@ onMounted(() => {
         </div>
 
         <!-- 3. ADULTES -->
-        <div class="course-card reveal">
+        <div class="course-card reveal reveal-delay-3">
           <img src="/assets/img/capa/FRA ADULT.webp" alt="Français pour Adultes" class="card-img">
           <div class="course-card-content">
             <h3>{{ t('frances.adultesTitle', 'courses') }}</h3>
@@ -107,7 +107,7 @@ onMounted(() => {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.45);
   z-index: 1;
 }
 

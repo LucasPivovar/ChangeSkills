@@ -2,10 +2,24 @@
 import { onMounted, ref } from 'vue'
 import { Send, Phone, Mail } from '@lucide/vue'
 import { t } from '@/i18n'
+import videoPlayback from '@/assets/videoplayback (2).mp4'
 
 const name = ref('')
 const email = ref('')
 const message = ref('')
+const videoRef = ref(null)
+
+function handleTimeUpdate() {
+  if (videoRef.value && videoRef.value.currentTime < 30) {
+    videoRef.value.currentTime = 30
+  }
+}
+
+function handleLoadedMetadata() {
+  if (videoRef.value) {
+    videoRef.value.currentTime = 30
+  }
+}
 
 function handleSubmit() {
   const successMsg = t('alertSuccess', 'contact').replace('{name}', name.value)
@@ -32,6 +46,20 @@ onMounted(() => {
   <div class="contato-view">
     <!-- Contact Hero -->
     <section class="contact-hero">
+      <!-- Background Video -->
+      <video 
+        ref="videoRef"
+        autoplay 
+        muted 
+        loop 
+        playsinline 
+        class="hero-video"
+        @timeupdate="handleTimeUpdate"
+        @loadedmetadata="handleLoadedMetadata"
+      >
+        <source :src="videoPlayback + '#t=30'" type="video/mp4">
+      </video>
+      <div class="hero-overlay"></div>
       <div class="container hero-content">
         <span class="hero-tag">{{ t('heroTag', 'contact') }}</span>
         <h1 class="hero-title">{{ t('heroTitle', 'contact') }} <span class="highlight">{{ t('heroHighlight', 'contact') }}</span></h1>
@@ -148,16 +176,23 @@ onMounted(() => {
   overflow: hidden;
 }
 
-.contact-hero::before {
-  content: '';
+.hero-video {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('/assets/img/image.png') center/cover;
-  opacity: 0.15;
+  object-fit: cover;
   z-index: 0;
+  opacity: 1;
+  pointer-events: none;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
 }
 
 .hero-content {

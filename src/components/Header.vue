@@ -46,7 +46,14 @@ function changeLanguage(langCode) {
 function handleLinkClick(hash) {
   closeMobileMenu()
   if (hash) {
-    router.push({ path: '/', hash: hash })
+    if (router.currentRoute.value.path === '/') {
+      const element = document.querySelector(hash)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+      }
+    } else {
+      router.push({ path: '/', hash: hash })
+    }
   }
 }
 </script>

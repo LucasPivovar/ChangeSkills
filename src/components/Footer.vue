@@ -197,10 +197,34 @@ const currentYear = new Date().getFullYear()
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .footer-grid {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    gap: 3rem;
+    text-align: center;
+  }
+  
+  .footer-logo {
+    align-self: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .footer-brand-text {
+    max-width: 100%;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .footer-links {
+    align-items: center;
+  }
+  
+  .footer-socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5rem auto 0 auto;
+    width: 100%;
   }
   
   .footer-bottom {

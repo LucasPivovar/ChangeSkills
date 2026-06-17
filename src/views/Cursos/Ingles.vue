@@ -101,7 +101,7 @@ onMounted(() => {
         <div 
           v-for="(mod, idx) in modalities" 
           :key="idx" 
-          class="course-card reveal"
+          :class="['course-card', 'reveal', `reveal-delay-${(idx % 3) + 1}`]"
         >
           <img :src="mod.image" :alt="mod.title" class="card-img">
           <div class="course-card-content">
@@ -155,7 +155,7 @@ onMounted(() => {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.45);
   z-index: 1;
 }
 

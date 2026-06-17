@@ -63,7 +63,11 @@ export const homeLocales = {
     testimonialAlineText: "Amei! Posso praticar e melhorar meu inglês e ganhar vocabulário novo.",
     testimonialEmilyText: "Amo isso",
     testimonialCocoText: "Tem tanto material útil e ferramentas para aprender um idioma",
-    testimonialBenjaminText: "O layout deste aplicativo é incomparável."
+    testimonialBenjaminText: "O layout deste aplicativo é incomparável.",
+    appBannerTag: "ESTUDE NO SEU RITMO",
+    appBannerTitle: "Baixe nosso aplicativo oficial",
+    appBannerDesc: "Pratique conversação, acesse materiais exclusivos, acompanhe seu progresso e tenha contato direto com seus mentores de qualquer lugar do mundo.",
+    appBannerBtn: "Baixar Aplicativo"
   },
   en: {
     heroTag: "NEW EXPERIENCE IN LANGUAGES",
@@ -129,7 +133,11 @@ export const homeLocales = {
     testimonialAlineText: "I loved it! I can train and improve my English and get more new vocabulary.",
     testimonialEmilyText: "Love this",
     testimonialCocoText: "There's so much helpful material and tools to learn a language",
-    testimonialBenjaminText: "The layout of this app is unparalleled."
+    testimonialBenjaminText: "The layout of this app is unparalleled.",
+    appBannerTag: "STUDY AT YOUR OWN PACE",
+    appBannerTitle: "Download our official app",
+    appBannerDesc: "Practice conversation, access exclusive materials, track your progress and connect directly with your mentors from anywhere in the world.",
+    appBannerBtn: "Download App"
   },
   es: {
     heroTag: "NUEVA EXPERIENCIA EN IDIOMAS",
@@ -195,7 +203,11 @@ export const homeLocales = {
     testimonialAlineText: "¡Me encantó! Puedo practicar y mejorar mi inglés y obtener más vocabulario nuevo.",
     testimonialEmilyText: "Me encanta esto",
     testimonialCocoText: "Hay tanto material útil y herramientas para aprender un idioma",
-    testimonialBenjaminText: "¡El diseño de esta aplicación es incomparable!"
+    testimonialBenjaminText: "¡El diseño de esta aplicación es incomparable!",
+    appBannerTag: "ESTUDIA A TU PROPIO RITMO",
+    appBannerTitle: "Descarga nuestra app oficial",
+    appBannerDesc: "Practica conversación, accede a materiales exclusivos, sigue tu progreso y contacta directamente a tus mentores desde cualquier lugar.",
+    appBannerBtn: "Descargar Aplicación"
   },
   fr: {
     heroTag: "NOUVELLE EXPÉRIENCE EN LANGUES",
@@ -261,6 +273,10 @@ export const homeLocales = {
     testimonialAlineText: "J'ai adoré ! Je peux m'entraîner et améliorer mon anglais et obtenir du nouveau vocabulaire.",
     testimonialEmilyText: "J'adore ça",
     testimonialCocoText: "Il y a tellement de matériel utile et d'outils pour apprendre une langue",
-    testimonialBenjaminText: "La mise en page de cette application est inégalée."
+    testimonialBenjaminText: "La mise en page de cette application est inégalée.",
+    appBannerTag: "ÉTUDIEZ À VOTRE RYTHME",
+    appBannerTitle: "Téléchargez notre application officielle",
+    appBannerDesc: "Pratiquez la conversation, accédez à des supports exclusifs, suivez vos progrès et connectez-vous directement avec vos mentors partout dans le monde.",
+    appBannerBtn: "Télécharger l'Application"
   }
 }
