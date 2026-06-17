@@ -143,20 +143,20 @@ function submitForm() {
         </p>
       </div>
       
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem;">
-        <div class="glass-card reveal" style="padding: 3rem 2rem; text-align: center; background: #f8faff; border: none;">
-          <MessagesSquare style="color: var(--primary); width: 45px; height: 45px; margin-bottom: 1.5rem;" class="info-icon" />
-          <h3 style="color: var(--primary-dark); margin-bottom: 1rem;">Conversação</h3>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+        <div class="feature-card reveal">
+          <MessagesSquare style="color: var(--primary); width: 40px; height: 40px; margin-bottom: 1.5rem;" class="info-icon" />
+          <h3 style="color: var(--primary-dark); font-size: 1.4rem; margin-bottom: 1rem;">Conversação</h3>
           <p style="color: var(--gray); line-height: 1.6;">Prática real focada no vocabulário que você realmente vai usar.</p>
         </div>
-        <div class="glass-card reveal" style="padding: 3rem 2rem; text-align: center; background: #f8faff; border: none;">
-          <Clock style="color: var(--accent); width: 45px; height: 45px; margin-bottom: 1.5rem;" class="info-icon" />
-          <h3 style="color: var(--primary-dark); margin-bottom: 1rem;">Sem Pressão</h3>
+        <div class="feature-card reveal">
+          <Clock style="color: var(--accent); width: 40px; height: 40px; margin-bottom: 1.5rem;" class="info-icon" />
+          <h3 style="color: var(--primary-dark); font-size: 1.4rem; margin-bottom: 1rem;">Sem Pressão</h3>
           <p style="color: var(--gray); line-height: 1.6;">Aulas dinâmicas e personalizadas que respeitam o seu próprio ritmo.</p>
         </div>
-        <div class="glass-card reveal" style="padding: 3rem 2rem; text-align: center; background: #f8faff; border: none;">
-          <Compass style="color: var(--primary); width: 45px; height: 45px; margin-bottom: 1.5rem;" class="info-icon" />
-          <h3 style="color: var(--primary-dark); margin-bottom: 1rem;">Independência</h3>
+        <div class="feature-card reveal">
+          <Compass style="color: var(--primary); width: 40px; height: 40px; margin-bottom: 1.5rem;" class="info-icon" />
+          <h3 style="color: var(--primary-dark); font-size: 1.4rem; margin-bottom: 1rem;">Independência</h3>
           <p style="color: var(--gray); line-height: 1.6;">Conquiste total autonomia para explorar o mundo em suas viagens.</p>
         </div>
       </div>

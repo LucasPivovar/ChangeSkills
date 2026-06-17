@@ -144,20 +144,20 @@ function submitForm() {
                 </p>
             </div>
             
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem;">
-                <div class="glass-card reveal" style="padding: 3rem 2rem; text-align: center; background: #f8faff; border: none;">
-                    <Mic style="color: var(--primary); width: 45px; height: 45px; margin-bottom: 1.5rem;" class="info-icon" />
-                    <h3 style="color: var(--primary-dark); margin-bottom: 1rem;">Conversação</h3>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+                <div class="feature-card reveal">
+                    <Mic style="color: var(--primary); width: 40px; height: 40px; margin-bottom: 1.5rem;" class="info-icon" />
+                    <h3 style="color: var(--primary-dark); font-size: 1.4rem; margin-bottom: 1rem;">Conversação</h3>
                     <p style="color: var(--gray); line-height: 1.6;">Comunicação ativa desde o primeiro contato.</p>
                 </div>
-                <div class="glass-card reveal" style="padding: 3rem 2rem; text-align: center; background: #f8faff; border: none;">
-                    <Gamepad2 style="color: var(--accent); width: 45px; height: 45px; margin-bottom: 1.5rem;" class="info-icon" />
-                    <h3 style="color: var(--primary-dark); margin-bottom: 1rem;">Diversão</h3>
+                <div class="feature-card reveal">
+                    <Gamepad2 style="color: var(--accent); width: 40px; height: 40px; margin-bottom: 1.5rem;" class="info-icon" />
+                    <h3 style="color: var(--primary-dark); font-size: 1.4rem; margin-bottom: 1rem;">Diversão</h3>
                     <p style="color: var(--gray); line-height: 1.6;">Aprendizado gamificado com o mundo de Poptropica.</p>
                 </div>
-                <div class="glass-card reveal" style="padding: 3rem 2rem; text-align: center; background: #f8faff; border: none;">
-                    <Users style="color: var(--primary); width: 45px; height: 45px; margin-bottom: 1.5rem;" class="info-icon" />
-                    <h3 style="color: var(--primary-dark); margin-bottom: 1rem;">Especialistas</h3>
+                <div class="feature-card reveal">
+                    <Users style="color: var(--primary); width: 40px; height: 40px; margin-bottom: 1.5rem;" class="info-icon" />
+                    <h3 style="color: var(--primary-dark); font-size: 1.4rem; margin-bottom: 1rem;">Especialistas</h3>
                     <p style="color: var(--gray); line-height: 1.6;">Professores preparados para o ensino infantil.</p>
                 </div>
             </div>
