@@ -2,7 +2,7 @@
 import { onMounted, ref } from 'vue'
 import { Send, Phone, Mail } from '@lucide/vue'
 import { t } from '@/i18n'
-import videoPlayback from '@/assets/cinematic 3.mp4'
+import videoPlayback from '@/assets/cinematic 4.mp4'
 
 const name = ref('')
 const email = ref('')
