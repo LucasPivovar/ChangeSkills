@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted, computed } from 'vue'
 import { RouterLink } from 'vue-router'
-import { LayoutGrid, BookOpen, UserPlus, Award, ShieldCheck } from '@lucide/vue'
+import { LayoutGrid, BookOpen, UserPlus, Award } from '@lucide/vue'
 import { t } from '@/i18n'
 
 const portals = computed(() => [
@@ -32,13 +32,6 @@ const portals = computed(() => [
     title: t('certificadoTitle', 'student'),
     desc: t('certificadoDesc', 'student'),
     icon: Award
-  },
-  {
-    type: 'internal',
-    to: '/services/verificacao-certificado',
-    title: t('verificacaoTitle', 'student'),
-    desc: t('verificacaoDesc', 'student'),
-    icon: ShieldCheck
   }
 ])
 

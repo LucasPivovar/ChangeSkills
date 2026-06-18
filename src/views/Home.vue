@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
-import { ArrowRight, ChevronRight, ChevronDown, Quote, FileText, MessagesSquare, Languages, Bot, Zap } from '@lucide/vue'
+import { ArrowRight, ChevronRight, ChevronDown, Quote, FileText, MessagesSquare, Languages, Bot, Zap, ShieldCheck } from '@lucide/vue'
 import { t } from '@/i18n'
 import videoPlayback from '@/assets/cinematic 3.mp4'
 
@@ -459,6 +459,15 @@ function initSwiper() {
             </div>
             <h3 class="servico-title">{{ t('servicoCardTitle2', 'home') }}</h3>
             <p class="servico-desc">{{ t('servicoCardDesc2', 'home') }}</p>
+          </RouterLink>
+
+          <!-- Serviço 3: Verificação de Certificados -->
+          <RouterLink to="/services/verificacao-certificado" class="glass-card-btn reveal reveal-left reveal-delay-3">
+            <div class="servico-icon-container">
+              <ShieldCheck class="servico-icon" />
+            </div>
+            <h3 class="servico-title">{{ t('verificacaoTitle', 'student') }}</h3>
+            <p class="servico-desc">{{ t('verificacaoDesc', 'student') }}</p>
           </RouterLink>
         </div>
       </div>
@@ -1443,7 +1452,7 @@ function initSwiper() {
 
 .servicos-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 2.5rem;
   margin-top: 4rem;
 }

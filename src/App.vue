@@ -1,7 +1,7 @@
 <script setup>
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
-import WhatsAppButton from '@/components/WhatsAppButton.vue'
+import FloatingContactButton from '@/components/FloatingContactButton.vue'
 </script>
 
 <template>
@@ -15,7 +15,7 @@ import WhatsAppButton from '@/components/WhatsAppButton.vue'
     </router-view>
   </main>
   
-  <WhatsAppButton />
+  <FloatingContactButton />
   <Footer />
 </template>
 
