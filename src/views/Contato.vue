@@ -123,7 +123,7 @@ onMounted(() => {
               <div class="info-icon"><Mail class="channel-icon" /></div>
               <div class="info-text">
                 <h4>{{ t('channelEmail', 'contact') }}</h4>
-                <p>contato@changeskills.com.br</p>
+                <p>idiomas.skills@gmail.com</p>
               </div>
             </div>
 

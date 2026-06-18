@@ -35,7 +35,7 @@ onUnmounted(() => {
     <div class="contact-options" :class="{ 'active': isOpen }">
       <!-- Email Option (higher up) -->
       <a 
-        href="mailto:contato@changeskills.com.br" 
+        href="mailto:idiomas.skills@gmail.com" 
         class="contact-option-btn mail-btn" 
         :class="{ 'visible': isOpen }"
         aria-label="Enviar E-mail"
