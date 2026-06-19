@@ -1,6 +1,6 @@
 <script setup>
 import { onMounted } from 'vue'
-import { Calendar, Award, Clock, ArrowRight } from '@lucide/vue'
+import { Calendar, Award, Clock, MessageCircle, Mail } from '@lucide/vue'
 
 onMounted(() => {
   const observer = new IntersectionObserver((entries) => {
@@ -54,10 +54,15 @@ onMounted(() => {
         <div class="card-right">
           <div class="calendar-box">
             <Calendar class="calendar-icon" />
-            <p>Escolha a melhor data e horário para agendar sua conversa diretamente conosco via WhatsApp.</p>
-            <a href="https://wa.me/555481223965?text=Olá,%20gostaria%20de%20agendar%20uma%20conversa!" target="_blank" class="btn-schedule">
-              Agendar via WhatsApp <ArrowRight class="btn-icon" />
-            </a>
+            <p>Escolha a melhor data e horário para agendar sua conversa diretamente conosco.</p>
+            <div class="contact-actions">
+              <a href="https://wa.me/555481223965?text=Olá,%20gostaria%20de%20agendar%20uma%20conversa!" target="_blank" class="btn-schedule btn-whatsapp">
+                <MessageCircle class="btn-icon" /> Agendar via WhatsApp
+              </a>
+              <a href="mailto:idiomas.skills@gmail.com?subject=Agendamento%20de%20Conversa%20de%20Nivelamento&body=Olá,%20gostaria%20de%20agendar%20uma%20conversa!" class="btn-schedule btn-email">
+                <Mail class="btn-icon" /> Agendar via E-mail
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -209,8 +214,15 @@ onMounted(() => {
   margin-bottom: 2.5rem;
 }
 
+.contact-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  width: 100%;
+  align-items: center;
+}
+
 .btn-schedule {
-  background: var(--primary);
   color: white;
   text-decoration: none;
   padding: 1.2rem 2rem;
@@ -219,16 +231,36 @@ onMounted(() => {
   font-size: 1.05rem;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   transition: var(--transition);
+  width: 100%;
+  max-width: 280px;
+  box-sizing: border-box;
+}
+
+.btn-whatsapp {
+  background: #25D366;
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp:hover {
+  background: white;
+  color: #25D366;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(37, 211, 102, 0.45);
+}
+
+.btn-email {
+  background: var(--primary);
   box-shadow: 0 10px 25px rgba(0, 71, 255, 0.3);
 }
 
-.btn-schedule:hover {
+.btn-email:hover {
   background: white;
-  color: var(--primary-dark);
+  color: var(--primary);
   transform: translateY(-3px);
-  box-shadow: 0 15px 30px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 15px 30px rgba(0, 71, 255, 0.45);
 }
 
 .btn-icon {
